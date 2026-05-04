@@ -1,0 +1,893 @@
+'use strict';
+
+// ─── STATE ───────────────────────────────────────────────────────────────────
+const state = {
+  tournaments: null,
+  results: null,
+  archers: null,
+  clubs: null,
+  calendar: null,
+  filters: {
+    year: 'all',
+    discipline: 'all',
+    division: 'all',
+    gender: 'all',
+    club: 'all',
+    zone: 'all',
+  },
+  charts: {},
+  currentSection: 'resumen',
+  archerSearchQuery: '',
+  selectedArcherId: null,
+  tournamentPage: 1,
+  rankingPage: 1,
+  PAGE_SIZE: 30,
+};
+
+// ─── HELPERS ─────────────────────────────────────────────────────────────────
+function fmt(n) {
+  if (n === null || n === undefined) return '—';
+  return Number.isInteger(n) ? n.toLocaleString('es-AR') : n.toFixed(1);
+}
+
+function fmtDate(iso) {
+  if (!iso) return '—';
+  const [y, m, d] = iso.split('-');
+  return `${d}/${m}/${y}`;
+}
+
+function average(arr) {
+  const nums = arr.filter((n) => n !== null && n > 0);
+  if (!nums.length) return null;
+  return nums.reduce((a, b) => a + b, 0) / nums.length;
+}
+
+function disciplineBadge(name) {
+  const map = { 'Aire Libre': 1, Sala: 2, Campo: 3, '3D': 4 };
+  const code = map[name] || 0;
+  return `<span class="badge badge-disc-${code}">${name || '—'}</span>`;
+}
+
+function rankClass(pos) {
+  if (pos === 1) return 'rank-1';
+  if (pos === 2) return 'rank-2';
+  if (pos === 3) return 'rank-3';
+  return '';
+}
+
+// ─── DATA LOADING ─────────────────────────────────────────────────────────────
+async function loadAllData() {
+  const files = ['calendar', 'tournaments', 'all-results', 'archers-index', 'clubs-index'];
+  try {
+    const responses = await Promise.all(
+      files.map((f) => fetch(`data/${f}.json`).then((r) => r.json()))
+    );
+    state.calendar = responses[0];
+    state.tournaments = responses[1];
+    state.results = responses[2];
+    state.archers = responses[3];
+    state.clubs = responses[4];
+  } catch (err) {
+    console.error('Error loading data:', err);
+    document.getElementById('loading-overlay').innerHTML =
+      '<div class="loading-text" style="color:#ef4444">Error cargando datos. Verificá que los archivos JSON existen.</div>';
+    throw err;
+  }
+}
+
+// ─── FILTER PIPELINE ─────────────────────────────────────────────────────────
+function getTournamentById(id) {
+  return state.tournaments?.tournaments?.find((t) => t.id === id) || null;
+}
+
+function applyFilters(results) {
+  const { year, discipline, division, gender, club, zone } = state.filters;
+  return results.filter((r) => {
+    const t = getTournamentById(r.tournament_id);
+    if (!t) return false;
+    if (year !== 'all' && (!t.date || !t.date.startsWith(year))) return false;
+    if (discipline !== 'all' && t.discipline_name !== discipline) return false;
+    if (division !== 'all' && r.division !== division) return false;
+    if (gender !== 'all' && r.gender !== gender) return false;
+    if (club !== 'all' && r.club_id !== club) return false;
+    if (zone !== 'all' && t.zone !== zone) return false;
+    return true;
+  });
+}
+
+function getFilteredResults() {
+  return applyFilters(state.results?.results || []);
+}
+
+// ─── POPULATE FILTER DROPDOWNS ────────────────────────────────────────────────
+function populateFilters() {
+  const results = state.results?.results || [];
+  const tournaments = state.tournaments?.tournaments || [];
+
+  const years = [...new Set(tournaments.map((t) => t.date?.slice(0, 4)).filter(Boolean))].sort().reverse();
+  const disciplines = [...new Set(tournaments.map((t) => t.discipline_name).filter(Boolean))].sort();
+  const divisions = [...new Set(results.map((r) => r.division).filter(Boolean))].sort();
+  const genders = [...new Set(results.map((r) => r.gender).filter(Boolean))].sort();
+  const zones = [...new Set(tournaments.map((t) => t.zone).filter(Boolean))].sort();
+
+  function fillSelect(id, values, currentVal) {
+    const sel = document.getElementById(id);
+    if (!sel) return;
+    sel.innerHTML = `<option value="all">Todos</option>` +
+      values.map((v) => `<option value="${v}"${currentVal === v ? ' selected' : ''}>${v}</option>`).join('');
+  }
+
+  document.querySelectorAll('[data-filter="year"]').forEach((el) => {
+    el.innerHTML = `<option value="all">Todos los años</option>` +
+      years.map((y) => `<option value="${y}"${state.filters.year === y ? ' selected' : ''}>${y}</option>`).join('');
+  });
+  document.querySelectorAll('[data-filter="discipline"]').forEach((el) => {
+    el.innerHTML = `<option value="all">Todas</option>` +
+      disciplines.map((d) => `<option value="${d}"${state.filters.discipline === d ? ' selected' : ''}>${d}</option>`).join('');
+  });
+  document.querySelectorAll('[data-filter="division"]').forEach((el) => {
+    el.innerHTML = `<option value="all">Todas</option>` +
+      divisions.map((d) => `<option value="${d}"${state.filters.division === d ? ' selected' : ''}>${d}</option>`).join('');
+  });
+  document.querySelectorAll('[data-filter="gender"]').forEach((el) => {
+    el.innerHTML = `<option value="all">Todos</option>` +
+      genders.map((g) => `<option value="${g}"${state.filters.gender === g ? ' selected' : ''}>${g}</option>`).join('');
+  });
+  document.querySelectorAll('[data-filter="zone"]').forEach((el) => {
+    el.innerHTML = `<option value="all">Todas</option>` +
+      zones.map((z) => `<option value="${z}"${state.filters.zone === z ? ' selected' : ''}>${z}</option>`).join('');
+  });
+
+  // Club filter
+  const clubs = state.clubs?.clubs || [];
+  document.querySelectorAll('[data-filter="club"]').forEach((el) => {
+    el.innerHTML = `<option value="all">Todos</option>` +
+      clubs.map((c) => `<option value="${c.id}"${state.filters.club === c.id ? ' selected' : ''}>${c.name}</option>`).join('');
+  });
+}
+
+function bindFilters() {
+  document.querySelectorAll('[data-filter]').forEach((el) => {
+    el.addEventListener('change', () => {
+      state.filters[el.dataset.filter] = el.value;
+      // Sync all same-name filters
+      document.querySelectorAll(`[data-filter="${el.dataset.filter}"]`).forEach((other) => {
+        other.value = el.value;
+      });
+      renderCurrentSection();
+    });
+  });
+}
+
+// ─── SECTION: RESUMEN ────────────────────────────────────────────────────────
+function renderResumen() {
+  const results = getFilteredResults();
+  const tournaments = state.tournaments?.tournaments || [];
+  const archers = state.archers?.archers || [];
+  const clubs = state.clubs?.clubs || [];
+
+  const filteredTournaments = tournaments.filter((t) => {
+    const { year, discipline, zone } = state.filters;
+    if (year !== 'all' && (!t.date || !t.date.startsWith(year))) return false;
+    if (discipline !== 'all' && t.discipline_name !== discipline) return false;
+    if (zone !== 'all' && t.zone !== zone) return false;
+    return !t.stub_only || true;
+  });
+
+  const uniqueArcherIds = new Set(results.map((r) => r.archer_id));
+  const uniqueClubIds = new Set(results.map((r) => r.club_id));
+
+  const scores = results.map((r) => r.total_score).filter((s) => s > 0);
+  const avgScore = average(scores);
+  const bestScore = scores.length ? Math.max(...scores) : null;
+
+  const participationCount = {};
+  for (const r of results) {
+    participationCount[r.archer_id] = (participationCount[r.archer_id] || 0) + 1;
+  }
+  const topArcherId = Object.entries(participationCount).sort((a, b) => b[1] - a[1])[0];
+  const topArcherObj = topArcherId ? archers.find((a) => a.id === topArcherId[0]) : null;
+
+  const clubPartCount = {};
+  for (const r of results) {
+    clubPartCount[r.club_id] = (clubPartCount[r.club_id] || 0) + 1;
+  }
+  const topClubId = Object.entries(clubPartCount).sort((a, b) => b[1] - a[1])[0];
+  const topClubObj = topClubId ? clubs.find((c) => c.id === topClubId[0]) : null;
+
+  const datesWithResults = filteredTournaments.filter((t) => !t.stub_only).map((t) => t.date).filter(Boolean).sort();
+  const lastTournament = datesWithResults[datesWithResults.length - 1];
+  const lastTournamentObj = lastTournament
+    ? filteredTournaments.find((t) => t.date === lastTournament)
+    : null;
+
+  document.getElementById('kpi-torneos').textContent = fmt(filteredTournaments.filter((t) => !t.stub_only).length);
+  document.getElementById('kpi-arqueros').textContent = fmt(uniqueArcherIds.size);
+  document.getElementById('kpi-clubes').textContent = fmt(uniqueClubIds.size);
+  document.getElementById('kpi-participaciones').textContent = fmt(results.length);
+  document.getElementById('kpi-avg-score').textContent = avgScore ? avgScore.toFixed(1) : '—';
+  document.getElementById('kpi-best-score').textContent = fmt(bestScore);
+  document.getElementById('kpi-top-archer').textContent = topArcherObj ? topArcherObj.display_name : '—';
+  document.getElementById('kpi-top-archer-sub').textContent = topArcherId ? `${topArcherId[1]} participaciones` : '';
+  document.getElementById('kpi-top-club').textContent = topClubObj ? topClubObj.name : '—';
+  document.getElementById('kpi-top-club-sub').textContent = topClubId ? `${topClubId[1]} entradas` : '';
+  document.getElementById('kpi-last-torneo').textContent = lastTournamentObj
+    ? `${lastTournamentObj.club} (${fmtDate(lastTournament)})`
+    : '—';
+
+  renderResumenCharts(results, filteredTournaments);
+  renderRecentTournaments(filteredTournaments);
+}
+
+function renderResumenCharts(results, tournaments) {
+  // Monthly tournament activity
+  const monthlyCount = {};
+  for (const t of tournaments) {
+    if (!t.date || t.stub_only) continue;
+    const ym = t.date.slice(0, 7);
+    monthlyCount[ym] = (monthlyCount[ym] || 0) + 1;
+  }
+  const sortedMonths = Object.keys(monthlyCount).sort().slice(-18);
+  renderBarChart('chart-activity', sortedMonths.map((m) => m.slice(0, 7)), sortedMonths.map((m) => monthlyCount[m]), 'Torneos por mes', '#4f8ef7');
+
+  // Discipline distribution
+  const discCount = {};
+  for (const r of results) {
+    const t = getTournamentById(r.tournament_id);
+    if (!t) continue;
+    discCount[t.discipline_name] = (discCount[t.discipline_name] || 0) + 1;
+  }
+  renderDoughnutChart('chart-disciplines', Object.keys(discCount), Object.values(discCount));
+
+  // Top clubs by participation
+  const clubCount = {};
+  for (const r of results) {
+    clubCount[r.club_name] = (clubCount[r.club_name] || 0) + 1;
+  }
+  const topClubs = Object.entries(clubCount).sort((a, b) => b[1] - a[1]).slice(0, 10);
+  renderBarChart('chart-clubs', topClubs.map((c) => c[0]), topClubs.map((c) => c[1]), 'Participaciones por club', '#7c5cfc', true);
+
+  // Score distribution
+  const scores = results.map((r) => r.total_score).filter((s) => s > 0);
+  if (scores.length > 0) {
+    const min = Math.floor(Math.min(...scores) / 50) * 50;
+    const max = Math.ceil(Math.max(...scores) / 50) * 50;
+    const buckets = {};
+    for (let b = min; b < max; b += 50) buckets[`${b}-${b + 49}`] = 0;
+    for (const s of scores) {
+      const bucket = Math.floor(s / 50) * 50;
+      const key = `${bucket}-${bucket + 49}`;
+      buckets[key] = (buckets[key] || 0) + 1;
+    }
+    renderBarChart('chart-score-dist', Object.keys(buckets), Object.values(buckets), 'Distribución de puntajes', '#22c55e');
+  }
+}
+
+function renderRecentTournaments(tournaments) {
+  const recent = [...tournaments]
+    .filter((t) => t.date && !t.stub_only)
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, 10);
+
+  const container = document.getElementById('recent-tournaments-list');
+  if (!container) return;
+
+  if (!recent.length) {
+    container.innerHTML = '<div class="empty-state"><span class="icon">📭</span>Sin datos disponibles. Ejecutá el scraper primero.</div>';
+    return;
+  }
+
+  container.innerHTML = recent.map((t) => `
+    <tr>
+      <td>${fmtDate(t.date)}</td>
+      <td>${disciplineBadge(t.discipline_name)}</td>
+      <td>${t.club || '—'}</td>
+      <td>${t.zone || '—'}</td>
+      <td class="num">${fmt(t.total_archers)}</td>
+      <td>${t.tournament_type ? `<span class="badge badge-disc-2">${t.tournament_type}</span>` : '—'}</td>
+    </tr>
+  `).join('');
+}
+
+// ─── SECTION: ARQUEROS ────────────────────────────────────────────────────────
+function renderArqueros() {
+  setupArcherAutocomplete();
+  if (state.selectedArcherId) {
+    renderArcherDetail(state.selectedArcherId);
+  }
+}
+
+function setupArcherAutocomplete() {
+  const input = document.getElementById('archer-search-input');
+  const list = document.getElementById('archer-autocomplete');
+  if (!input || !list) return;
+
+  input.addEventListener('input', () => {
+    const q = input.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    if (q.length < 2) { list.innerHTML = ''; list.style.display = 'none'; return; }
+
+    const archers = state.archers?.archers || [];
+    const matches = archers.filter((a) =>
+      a.name_normalized.includes(q) || a.display_name.toLowerCase().includes(q)
+    ).slice(0, 12);
+
+    if (!matches.length) { list.innerHTML = ''; list.style.display = 'none'; return; }
+
+    list.style.display = 'block';
+    list.innerHTML = matches.map((a) => `
+      <div class="ac-item" data-id="${a.id}">
+        <strong>${a.display_name}</strong>
+        <div class="ac-sub">${a.primary_division || ''} · ${a.stats.total_results} torneos · ${a.clubs_history.map((c) => c.club_name).join(', ')}</div>
+      </div>
+    `).join('');
+
+    list.querySelectorAll('.ac-item').forEach((item) => {
+      item.addEventListener('click', () => {
+        state.selectedArcherId = item.dataset.id;
+        input.value = archers.find((a) => a.id === item.dataset.id)?.display_name || '';
+        list.innerHTML = ''; list.style.display = 'none';
+        renderArcherDetail(item.dataset.id);
+      });
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!input.contains(e.target) && !list.contains(e.target)) {
+      list.style.display = 'none';
+    }
+  });
+}
+
+function renderArcherDetail(archerId) {
+  const archer = state.archers?.archers?.find((a) => a.id === archerId);
+  const detail = document.getElementById('archer-detail');
+  if (!archer || !detail) return;
+
+  detail.classList.add('visible');
+
+  document.getElementById('archer-detail-name').textContent = archer.display_name;
+  document.getElementById('archer-detail-meta').innerHTML =
+    `${archer.primary_division || '—'} · ${archer.primary_gender || '—'} · Activo desde ${fmtDate(archer.stats.career_start)}`;
+
+  const pills = document.getElementById('archer-detail-pills');
+  pills.innerHTML = `
+    <span class="pill green">${fmt(archer.stats.overall_wins)} victorias</span>
+    <span class="pill accent">${fmt(archer.stats.podiums)} podios</span>
+    <span class="pill">${fmt(archer.stats.total_results)} participaciones</span>
+    <span class="pill yellow">Pos. prom: ${fmt(archer.stats.avg_position)}</span>
+    <span class="pill">Último torneo: ${fmtDate(archer.stats.last_competed)}</span>
+  `;
+
+  // KPIs by discipline
+  const discKpis = document.getElementById('archer-disc-kpis');
+  discKpis.innerHTML = Object.entries(archer.stats.disciplines || {}).map(([disc, s]) => `
+    <div class="kpi-card">
+      <div class="kpi-label">${disc}</div>
+      <div class="kpi-value">${fmt(s.best_total)}</div>
+      <div class="kpi-sub">Mejor · Prom: ${fmt(s.avg_total)} · ${s.count} torneos · ${s.wins} 🥇</div>
+    </div>
+  `).join('');
+
+  // History table
+  const archerResults = (state.results?.results || [])
+    .filter((r) => r.archer_id === archerId)
+    .map((r) => ({ ...r, tournament: getTournamentById(r.tournament_id) }))
+    .filter((r) => r.tournament)
+    .sort((a, b) => (b.tournament.date || '').localeCompare(a.tournament.date || ''));
+
+  const historyBody = document.getElementById('archer-history-body');
+  historyBody.innerHTML = archerResults.map((r) => `
+    <tr>
+      <td>${fmtDate(r.tournament.date)}</td>
+      <td>${disciplineBadge(r.tournament.discipline_name)}</td>
+      <td>${r.tournament.club || '—'}</td>
+      <td>${r.category_raw}</td>
+      <td class="pos ${rankClass(r.position)}">${r.position}</td>
+      <td class="num"><strong>${fmt(r.total_score)}</strong></td>
+      <td class="num text-muted">${r.round1_score > 0 ? fmt(r.round1_score) : '—'}</td>
+      <td class="num text-muted">${r.round2_score > 0 ? fmt(r.round2_score) : '—'}</td>
+      <td class="num">${r.elevens}</td>
+      <td class="num">${r.tens}</td>
+      ${r.is_partial ? '<td><span class="badge badge-partial">Parcial</span></td>' : '<td></td>'}
+    </tr>
+  `).join('');
+
+  // Progress chart
+  const timelineResults = [...archerResults].reverse();
+  if (timelineResults.length > 1) {
+    const labels = timelineResults.map((r) => fmtDate(r.tournament?.date));
+    const data = timelineResults.map((r) => r.total_score);
+    renderLineChart('chart-archer-progress', labels, data, archer.display_name);
+  }
+
+  // Category comparison vs average
+  renderArcherCategoryComparison(archer, archerResults);
+}
+
+function renderArcherCategoryComparison(archer, archerResults) {
+  const container = document.getElementById('archer-category-comparison');
+  if (!container) return;
+
+  const divisions = [...new Set(archerResults.map((r) => r.division))];
+  const allResults = state.results?.results || [];
+
+  container.innerHTML = divisions.map((div) => {
+    const archerScores = archerResults.filter((r) => r.division === div).map((r) => r.total_score).filter((s) => s > 0);
+    const divAvgAll = average(
+      allResults.filter((r) => r.division === div && r.total_score > 0).map((r) => r.total_score)
+    );
+    const archerAvg = average(archerScores);
+    if (!archerAvg || !divAvgAll) return '';
+
+    const diff = archerAvg - divAvgAll;
+    const diffClass = diff > 0 ? 'text-green' : diff < 0 ? 'text-red' : 'text-muted';
+    const diffStr = (diff > 0 ? '+' : '') + diff.toFixed(1);
+
+    return `<div class="kpi-card">
+      <div class="kpi-label">${div}</div>
+      <div class="kpi-value">${archerAvg.toFixed(1)}</div>
+      <div class="kpi-sub">Promedio personal · Cat. prom: ${divAvgAll.toFixed(1)} · <span class="${diffClass}">${diffStr}</span></div>
+    </div>`;
+  }).join('');
+}
+
+// ─── SECTION: CLUBES ──────────────────────────────────────────────────────────
+function renderClubes() {
+  const clubs = [...(state.clubs?.clubs || [])];
+  const filtered = clubs.filter((c) => {
+    if (state.filters.zone !== 'all') {
+      const hasZone = (state.clubs?.clubs || []).some(
+        (cl) => cl.id === c.id && (cl.stats?.disciplines_participated || []).length > 0
+      );
+    }
+    return true;
+  });
+
+  const tbody = document.getElementById('clubs-table-body');
+  if (!tbody) return;
+
+  if (!filtered.length) {
+    tbody.innerHTML = `<tr><td colspan="7" class="empty-state">Sin datos</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = filtered.map((c, i) => {
+    const wins = Object.values(c.stats.wins_by_division || {}).reduce((a, b) => a + b, 0);
+    return `<tr>
+      <td class="pos">${i + 1}</td>
+      <td><strong>${c.name}</strong></td>
+      <td class="num">${fmt(c.stats.total_members_seen)}</td>
+      <td class="num">${fmt(c.stats.tournaments_participated)}</td>
+      <td class="num">${fmt(c.stats.total_archer_entries)}</td>
+      <td class="num">${fmt(wins)}</td>
+      <td class="text-muted" style="font-size:0.78rem">${(c.stats.disciplines_participated || []).join(', ') || '—'}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ─── SECTION: TORNEOS ────────────────────────────────────────────────────────
+function renderTorneos() {
+  const tournaments = (state.tournaments?.tournaments || []).filter((t) => !t.stub_only);
+  const { year, discipline, zone } = state.filters;
+
+  const filtered = tournaments.filter((t) => {
+    if (year !== 'all' && (!t.date || !t.date.startsWith(year))) return false;
+    if (discipline !== 'all' && t.discipline_name !== discipline) return false;
+    if (zone !== 'all' && t.zone !== zone) return false;
+    return true;
+  }).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+  const total = filtered.length;
+  const pages = Math.ceil(total / state.PAGE_SIZE);
+  const page = Math.min(state.tournamentPage, pages || 1);
+  const slice = filtered.slice((page - 1) * state.PAGE_SIZE, page * state.PAGE_SIZE);
+
+  const tbody = document.getElementById('tournaments-table-body');
+  if (!tbody) return;
+
+  tbody.innerHTML = slice.map((t) => `
+    <tr>
+      <td>${fmtDate(t.date)}</td>
+      <td>${disciplineBadge(t.discipline_name)}</td>
+      <td>${t.club || '—'}</td>
+      <td>${t.zone || '—'}</td>
+      <td>${t.tournament_type || '—'}</td>
+      <td class="num">${fmt(t.total_archers)}</td>
+      <td style="font-size:0.75rem;color:var(--muted)">${(t.categories || []).slice(0, 3).join(', ')}${t.categories?.length > 3 ? '…' : ''}</td>
+    </tr>
+  `).join('');
+
+  renderPagination('tournaments-pagination', page, pages, (p) => {
+    state.tournamentPage = p;
+    renderTorneos();
+  });
+
+  document.getElementById('torneos-count').textContent = `${total} torneos`;
+}
+
+// ─── SECTION: RANKINGS ────────────────────────────────────────────────────────
+function renderRankings() {
+  const results = getFilteredResults();
+  const activeTab = document.querySelector('.ranking-tab.active')?.dataset.tab || 'score';
+  renderRankingTable(results, activeTab);
+}
+
+function renderRankingTable(results, tab) {
+  const tbody = document.getElementById('ranking-table-body');
+  const thead = document.getElementById('ranking-table-head');
+  if (!tbody || !thead) return;
+
+  let rows = [];
+
+  if (tab === 'score') {
+    // Best score per archer
+    const bestByArcher = {};
+    for (const r of results) {
+      if (!r.total_score) continue;
+      if (!bestByArcher[r.archer_id] || r.total_score > bestByArcher[r.archer_id].total_score) {
+        bestByArcher[r.archer_id] = r;
+      }
+    }
+    rows = Object.values(bestByArcher).sort((a, b) => b.total_score - a.total_score);
+    thead.innerHTML = `<tr>
+      <th>Pos.</th><th>Arquero</th><th>Club</th><th>División</th><th class="sorted">Mejor Puntaje <span class="sort-arrow">▼</span></th><th>Torneo</th>
+    </tr>`;
+    tbody.innerHTML = rows.slice(0, 100).map((r, i) => `
+      <tr>
+        <td class="pos ${rankClass(i + 1)}">${i + 1}</td>
+        <td>${r.archer_name}</td>
+        <td>${r.club_name}</td>
+        <td>${r.division}</td>
+        <td class="num text-accent"><strong>${fmt(r.total_score)}</strong></td>
+        <td class="text-muted" style="font-size:0.78rem">${fmtDate(getTournamentById(r.tournament_id)?.date)}</td>
+      </tr>
+    `).join('');
+
+  } else if (tab === 'participaciones') {
+    const countByArcher = {};
+    for (const r of results) {
+      countByArcher[r.archer_id] = countByArcher[r.archer_id] || { archer_id: r.archer_id, archer_name: r.archer_name, club_name: r.club_name, count: 0, wins: 0 };
+      countByArcher[r.archer_id].count++;
+      if (r.position === 1) countByArcher[r.archer_id].wins++;
+    }
+    rows = Object.values(countByArcher).sort((a, b) => b.count - a.count);
+    thead.innerHTML = `<tr><th>Pos.</th><th>Arquero</th><th>Club</th><th class="sorted">Participaciones <span class="sort-arrow">▼</span></th><th>Victorias</th></tr>`;
+    tbody.innerHTML = rows.slice(0, 100).map((r, i) => `
+      <tr>
+        <td class="pos ${rankClass(i + 1)}">${i + 1}</td>
+        <td>${r.archer_name}</td>
+        <td>${r.club_name}</td>
+        <td class="num text-accent"><strong>${fmt(r.count)}</strong></td>
+        <td class="num">${fmt(r.wins)}</td>
+      </tr>
+    `).join('');
+
+  } else if (tab === 'victorias') {
+    const winsByArcher = {};
+    for (const r of results) {
+      if (!winsByArcher[r.archer_id]) {
+        winsByArcher[r.archer_id] = { archer_id: r.archer_id, archer_name: r.archer_name, club_name: r.club_name, wins: 0, podiums: 0 };
+      }
+      if (r.position === 1) winsByArcher[r.archer_id].wins++;
+      if (r.position <= 3) winsByArcher[r.archer_id].podiums++;
+    }
+    rows = Object.values(winsByArcher).sort((a, b) => b.wins - a.wins || b.podiums - a.podiums);
+    thead.innerHTML = `<tr><th>Pos.</th><th>Arquero</th><th>Club</th><th class="sorted">Victorias <span class="sort-arrow">▼</span></th><th>Podios</th></tr>`;
+    tbody.innerHTML = rows.slice(0, 100).map((r, i) => `
+      <tr>
+        <td class="pos ${rankClass(i + 1)}">${i + 1}</td>
+        <td>${r.archer_name}</td>
+        <td>${r.club_name}</td>
+        <td class="num text-green"><strong>${fmt(r.wins)}</strong></td>
+        <td class="num">${fmt(r.podiums)}</td>
+      </tr>
+    `).join('');
+
+  } else if (tab === 'clubes') {
+    const clubs = [...(state.clubs?.clubs || [])].sort(
+      (a, b) => (Object.values(b.stats.wins_by_division || {}).reduce((s, v) => s + v, 0)) -
+                (Object.values(a.stats.wins_by_division || {}).reduce((s, v) => s + v, 0))
+    );
+    thead.innerHTML = `<tr><th>Pos.</th><th>Club</th><th class="sorted">Victorias <span class="sort-arrow">▼</span></th><th>Participaciones</th><th>Arqueros</th></tr>`;
+    tbody.innerHTML = clubs.slice(0, 50).map((c, i) => {
+      const wins = Object.values(c.stats.wins_by_division || {}).reduce((a, b) => a + b, 0);
+      return `<tr>
+        <td class="pos ${rankClass(i + 1)}">${i + 1}</td>
+        <td><strong>${c.name}</strong></td>
+        <td class="num text-green"><strong>${fmt(wins)}</strong></td>
+        <td class="num">${fmt(c.stats.total_archer_entries)}</td>
+        <td class="num">${fmt(c.stats.total_members_seen)}</td>
+      </tr>`;
+    }).join('');
+  }
+}
+
+// ─── SECTION: PROGRESO ────────────────────────────────────────────────────────
+function renderProgreso() {
+  const results = getFilteredResults();
+
+  // Annual average
+  const byYear = {};
+  for (const r of results) {
+    const t = getTournamentById(r.tournament_id);
+    if (!t || !t.date || !r.total_score) continue;
+    const y = t.date.slice(0, 4);
+    if (!byYear[y]) byYear[y] = [];
+    byYear[y].push(r.total_score);
+  }
+  const years = Object.keys(byYear).sort();
+  const avgByYear = years.map((y) => average(byYear[y]));
+  renderLineChart('chart-annual-avg', years, avgByYear, 'Promedio anual de puntaje');
+
+  // Participation by year
+  const countByYear = {};
+  const toursByYear = {};
+  for (const t of (state.tournaments?.tournaments || [])) {
+    if (!t.date || t.stub_only) continue;
+    const y = t.date.slice(0, 4);
+    const { year, discipline } = state.filters;
+    if (year !== 'all' && y !== year) continue;
+    if (discipline !== 'all' && t.discipline_name !== discipline) continue;
+    toursByYear[y] = (toursByYear[y] || 0) + 1;
+  }
+  for (const r of results) {
+    const t = getTournamentById(r.tournament_id);
+    if (!t || !t.date) continue;
+    const y = t.date.slice(0, 4);
+    countByYear[y] = (countByYear[y] || 0) + 1;
+  }
+  const allYears = [...new Set([...Object.keys(countByYear), ...Object.keys(toursByYear)])].sort();
+  renderBarChart('chart-participation-year', allYears, allYears.map((y) => countByYear[y] || 0), 'Participaciones por año', '#7c5cfc');
+
+  // Top scorers this selection
+  const bestByArcher = {};
+  for (const r of results) {
+    if (!r.total_score) continue;
+    if (!bestByArcher[r.archer_id] || r.total_score > bestByArcher[r.archer_id].total_score) {
+      bestByArcher[r.archer_id] = r;
+    }
+  }
+  const topScorers = Object.values(bestByArcher).sort((a, b) => b.total_score - a.total_score).slice(0, 15);
+  renderBarChart('chart-top-scorers', topScorers.map((r) => r.archer_name.split(',')[0]), topScorers.map((r) => r.total_score), 'Top puntajes', '#22c55e', true);
+}
+
+// ─── SECTION: EXPORTAR ────────────────────────────────────────────────────────
+function renderExportar() {
+  const results = getFilteredResults();
+  document.getElementById('export-count').textContent = `${results.length} resultados con los filtros actuales`;
+}
+
+function exportCSV() {
+  const results = getFilteredResults();
+  if (!results.length) { alert('No hay resultados para exportar.'); return; }
+
+  const headers = ['Torneo ID', 'Fecha', 'Disciplina', 'Club Torneo', 'Zona', 'Arquero', 'Club Arquero', 'División', 'Género', 'Pos.', 'R1', 'R2', 'Total', '11s', '10s'];
+  const rows = results.map((r) => {
+    const t = getTournamentById(r.tournament_id) || {};
+    return [
+      r.tournament_id,
+      t.date || '',
+      t.discipline_name || '',
+      t.club || '',
+      t.zone || '',
+      r.archer_name,
+      r.club_name,
+      r.division,
+      r.gender,
+      r.position,
+      r.round1_score,
+      r.round2_score,
+      r.total_score,
+      r.elevens,
+      r.tens,
+    ].map((v) => `"${String(v).replace(/"/g, '""')}"`).join(',');
+  });
+
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `arqueros-resultados-${new Date().toISOString().slice(0, 10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function copyFilterLink() {
+  const params = new URLSearchParams();
+  for (const [k, v] of Object.entries(state.filters)) {
+    if (v !== 'all') params.set(k, v);
+  }
+  const url = `${location.origin}${location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
+  navigator.clipboard.writeText(url).then(() => {
+    const btn = document.getElementById('btn-copy-link');
+    if (btn) { btn.textContent = '✓ Copiado'; setTimeout(() => btn.textContent = '🔗 Copiar link con filtros', 2000); }
+  });
+}
+
+// ─── CHARTS (Chart.js) ────────────────────────────────────────────────────────
+const CHART_DEFAULTS = {
+  plugins: { legend: { display: false } },
+  scales: {
+    x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#8892a4', font: { size: 11 } } },
+    y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#8892a4', font: { size: 11 } } },
+  },
+  responsive: true,
+  maintainAspectRatio: true,
+};
+
+function destroyChart(id) {
+  if (state.charts[id]) { state.charts[id].destroy(); delete state.charts[id]; }
+}
+
+function renderLineChart(canvasId, labels, data, label) {
+  const ctx = document.getElementById(canvasId);
+  if (!ctx) return;
+  destroyChart(canvasId);
+  state.charts[canvasId] = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label,
+        data,
+        borderColor: '#4f8ef7',
+        backgroundColor: 'rgba(79,142,247,0.1)',
+        tension: 0.3,
+        fill: true,
+        pointRadius: 4,
+        pointHoverRadius: 6,
+        pointBackgroundColor: '#4f8ef7',
+      }],
+    },
+    options: { ...CHART_DEFAULTS, plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } } },
+  });
+}
+
+function renderBarChart(canvasId, labels, data, label, color = '#4f8ef7', horizontal = false) {
+  const ctx = document.getElementById(canvasId);
+  if (!ctx) return;
+  destroyChart(canvasId);
+  state.charts[canvasId] = new Chart(ctx, {
+    type: horizontal ? 'bar' : 'bar',
+    data: {
+      labels,
+      datasets: [{ label, data, backgroundColor: color + 'cc', borderColor: color, borderWidth: 1 }],
+    },
+    options: {
+      ...CHART_DEFAULTS,
+      indexAxis: horizontal ? 'y' : 'x',
+      plugins: { legend: { display: false } },
+    },
+  });
+}
+
+function renderDoughnutChart(canvasId, labels, data) {
+  const ctx = document.getElementById(canvasId);
+  if (!ctx) return;
+  destroyChart(canvasId);
+  const colors = ['#22c55e', '#4f8ef7', '#f59e0b', '#ef4444', '#7c5cfc'];
+  state.charts[canvasId] = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels,
+      datasets: [{ data, backgroundColor: colors.slice(0, labels.length), borderWidth: 2, borderColor: '#1a1d27' }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#8892a4', font: { size: 11 }, padding: 12 } },
+      },
+    },
+  });
+}
+
+// ─── PAGINATION ────────────────────────────────────────────────────────────────
+function renderPagination(containerId, current, total, onPage) {
+  const container = document.getElementById(containerId);
+  if (!container || total <= 1) { if (container) container.innerHTML = ''; return; }
+
+  const pages = [];
+  if (total <= 7) {
+    for (let i = 1; i <= total; i++) pages.push(i);
+  } else {
+    pages.push(1);
+    if (current > 3) pages.push('...');
+    for (let i = Math.max(2, current - 1); i <= Math.min(total - 1, current + 1); i++) pages.push(i);
+    if (current < total - 2) pages.push('...');
+    pages.push(total);
+  }
+
+  container.innerHTML = pages.map((p) =>
+    p === '...'
+      ? `<span class="page-info">…</span>`
+      : `<button class="page-btn ${p === current ? 'active' : ''}" data-page="${p}">${p}</button>`
+  ).join('') + `<span class="page-info">${current}/${total}</span>`;
+
+  container.querySelectorAll('.page-btn').forEach((btn) => {
+    btn.addEventListener('click', () => onPage(parseInt(btn.dataset.page)));
+  });
+}
+
+// ─── NAVIGATION ──────────────────────────────────────────────────────────────
+function renderCurrentSection() {
+  const s = state.currentSection;
+  if (s === 'resumen') renderResumen();
+  else if (s === 'arqueros') renderArqueros();
+  else if (s === 'clubes') renderClubes();
+  else if (s === 'torneos') renderTorneos();
+  else if (s === 'rankings') renderRankings();
+  else if (s === 'progreso') renderProgreso();
+  else if (s === 'exportar') renderExportar();
+}
+
+function navigateTo(section) {
+  state.currentSection = section;
+  document.querySelectorAll('.section').forEach((el) => el.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach((el) => el.classList.remove('active'));
+  const secEl = document.getElementById(`section-${section}`);
+  if (secEl) secEl.classList.add('active');
+  const navEl = document.querySelector(`.nav-link[data-section="${section}"]`);
+  if (navEl) navEl.classList.add('active');
+  renderCurrentSection();
+}
+
+// ─── URL PARAMS ───────────────────────────────────────────────────────────────
+function applyUrlParams() {
+  const params = new URLSearchParams(location.search);
+  for (const key of Object.keys(state.filters)) {
+    if (params.has(key)) state.filters[key] = params.get(key);
+  }
+  if (params.has('archer')) {
+    state.selectedArcherId = params.get('archer');
+    navigateTo('arqueros');
+  }
+  if (params.has('section')) navigateTo(params.get('section'));
+}
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+async function init() {
+  await loadAllData();
+
+  document.getElementById('loading-overlay').style.display = 'none';
+
+  populateFilters();
+  bindFilters();
+
+  document.querySelectorAll('.nav-link[data-section]').forEach((el) => {
+    el.addEventListener('click', () => {
+      navigateTo(el.dataset.section);
+      // Close sidebar on mobile
+      document.querySelector('.sidebar')?.classList.remove('open');
+    });
+  });
+
+  document.getElementById('menu-toggle')?.addEventListener('click', () => {
+    document.querySelector('.sidebar')?.classList.toggle('open');
+  });
+
+  document.getElementById('btn-export-csv')?.addEventListener('click', exportCSV);
+  document.getElementById('btn-copy-link')?.addEventListener('click', copyFilterLink);
+
+  // Ranking tabs
+  document.querySelectorAll('.ranking-tab').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.ranking-tab').forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+      renderRankings();
+    });
+  });
+
+  // Update last-updated display
+  const lu = state.results?.meta?.last_updated;
+  if (lu) {
+    const el = document.getElementById('last-updated');
+    if (el) el.textContent = `Actualizado: ${new Date(lu).toLocaleDateString('es-AR')}`;
+  }
+
+  applyUrlParams();
+  navigateTo(state.currentSection);
+}
+
+document.addEventListener('DOMContentLoaded', init);

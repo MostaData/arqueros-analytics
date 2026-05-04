@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arqueros Analytics — Panel Admin</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Extra styles specific to index.html */
+    .ranking-tabs { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+    .ranking-tab {
+      padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600;
+      background: var(--bg3); border: 1px solid var(--border); color: var(--muted);
+      cursor: pointer; transition: all 0.15s;
+    }
+    .ranking-tab:hover { color: var(--text); }
+    .ranking-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    #archer-detail .row-2 { margin-top: 16px; }
+    .admin-link { font-size: 0.75rem; color: var(--muted); }
+    .admin-link:hover { color: var(--accent); }
+    .data-empty-banner {
+      background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3);
+      border-radius: 10px; padding: 16px 20px; margin-bottom: 20px;
+      font-size: 0.85rem; color: var(--yellow); display: none;
+    }
+    .data-empty-banner.visible { display: block; }
+    .archer-disc-kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px; }
+    .archer-category-comparison { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+
+<!-- ─── LOADING ─────────────────────────────────────────────────────────── -->
+<div id="loading-overlay" class="loading-overlay">
+  <div class="spinner"></div>
+  <div class="loading-text">Cargando datos de arqueros…</div>
+</div>
+
+<!-- ─── APP SHELL ───────────────────────────────────────────────────────── -->
+<div class="app-shell">
+
+  <!-- ─── SIDEBAR ─────────────────────────────────────────────────────── -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <h1>🎯 Arqueros</h1>
+      <span>Panel Administrador</span>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-section">Dashboard</div>
+      <div class="nav-link active" data-section="resumen">
+        <span class="icon">📊</span> Resumen General
+      </div>
+      <div class="nav-section">Análisis</div>
+      <div class="nav-link" data-section="arqueros">
+        <span class="icon">🏹</span> Arqueros
+      </div>
+      <div class="nav-link" data-section="clubes">
+        <span class="icon">🏛</span> Clubes / Escuelas
+      </div>
+      <div class="nav-link" data-section="torneos">
+        <span class="icon">📅</span> Torneos
+      </div>
+      <div class="nav-section">Estadísticas</div>
+      <div class="nav-link" data-section="rankings">
+        <span class="icon">🏆</span> Rankings
+      </div>
+      <div class="nav-link" data-section="progreso">
+        <span class="icon">📈</span> Progreso y Tendencias
+      </div>
+      <div class="nav-section">Herramientas</div>
+      <div class="nav-link" data-section="exportar">
+        <span class="icon">⬇</span> Exportar Datos
+      </div>
+    </div>
+    <div class="sidebar-footer">
+      <div id="last-updated" class="text-muted" style="margin-bottom:6px">Cargando…</div>
+      <a href="admin.html" class="admin-link">⚙ Panel Técnico Admin</a>
+    </div>
+  </nav>
+
+  <!-- ─── MAIN CONTENT ────────────────────────────────────────────────── -->
+  <main class="main-content">
+
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+        <h2 id="section-heading">Resumen General</h2>
+      </div>
+      <div class="topbar-actions">
+        <div class="filter-group">
+          <label>Año</label>
+          <select data-filter="year"></select>
+        </div>
+        <div class="filter-group">
+          <label>Disciplina</label>
+          <select data-filter="discipline"></select>
+        </div>
+        <div class="filter-group">
+          <label>Zona</label>
+          <select data-filter="zone"></select>
+        </div>
+      </div>
+    </div>
+
+    <div id="data-empty-banner" class="data-empty-banner">
+      ⚠ Los datos están vacíos. Para poblar el dashboard, ejecutá el scraper desde GitHub Actions o localmente con <code>cd scripts && npm install && node scrape.js && node build-data.js</code>
+    </div>
+
+    <!-- ─── SECCIÓN: RESUMEN ─────────────────────────────────────────── -->
+    <section class="section active" id="section-resumen">
+
+      <div class="kpi-grid">
+        <div class="kpi-card accent">
+          <div class="kpi-label">Torneos</div>
+          <div class="kpi-value" id="kpi-torneos">—</div>
+          <div class="kpi-sub">con resultados</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Arqueros Únicos</div>
+          <div class="kpi-value" id="kpi-arqueros">—</div>
+          <div class="kpi-sub">en el período</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Clubes / Escuelas</div>
+          <div class="kpi-value" id="kpi-clubes">—</div>
+          <div class="kpi-sub">con participación</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Participaciones</div>
+          <div class="kpi-value" id="kpi-participaciones">—</div>
+          <div class="kpi-sub">entradas totales</div>
+        </div>
+        <div class="kpi-card green">
+          <div class="kpi-label">Puntaje Promedio</div>
+          <div class="kpi-value" id="kpi-avg-score">—</div>
+          <div class="kpi-sub">promedio general</div>
+        </div>
+        <div class="kpi-card yellow">
+          <div class="kpi-label">Mejor Puntaje</div>
+          <div class="kpi-value" id="kpi-best-score">—</div>
+          <div class="kpi-sub">histórico</div>
+        </div>
+        <div class="kpi-card" style="grid-column:span 2">
+          <div class="kpi-label">Arquero más activo</div>
+          <div class="kpi-value" style="font-size:1.1rem" id="kpi-top-archer">—</div>
+          <div class="kpi-sub" id="kpi-top-archer-sub"></div>
+        </div>
+        <div class="kpi-card" style="grid-column:span 2">
+          <div class="kpi-label">Club más activo</div>
+          <div class="kpi-value" style="font-size:1.1rem" id="kpi-top-club">—</div>
+          <div class="kpi-sub" id="kpi-top-club-sub"></div>
+        </div>
+        <div class="kpi-card" style="grid-column:span 2">
+          <div class="kpi-label">Último torneo con resultados</div>
+          <div class="kpi-value" style="font-size:0.95rem" id="kpi-last-torneo">—</div>
+        </div>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <h3>Actividad mensual (torneos)</h3>
+          <canvas id="chart-activity"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Distribución por disciplina</h3>
+          <canvas id="chart-disciplines"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Top clubes por participación</h3>
+          <canvas id="chart-clubs"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Distribución de puntajes</h3>
+          <canvas id="chart-score-dist"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Torneos recientes</div>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Fecha</th><th>Disciplina</th><th>Club</th><th>Zona</th><th>Arqueros</th><th>Tipo</th>
+              </tr>
+            </thead>
+            <tbody id="recent-tournaments-list"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SECCIÓN: ARQUEROS ────────────────────────────────────────── -->
+    <section class="section" id="section-arqueros">
+
+      <div class="archer-search-box">
+        <input type="text" id="archer-search-input" placeholder="Buscá un arquero por nombre…" autocomplete="off">
+        <div class="autocomplete-list" id="archer-autocomplete" style="display:none"></div>
+      </div>
+
+      <div id="archer-detail" class="archer-detail">
+        <div class="archer-header">
+          <div style="flex:1">
+            <h2 id="archer-detail-name">—</h2>
+            <div class="archer-meta" id="archer-detail-meta"></div>
+            <div class="archer-stats-pills" id="archer-detail-pills"></div>
+          </div>
+        </div>
+
+        <div id="archer-disc-kpis" class="archer-disc-kpis"></div>
+
+        <div class="row-2">
+          <div class="chart-card">
+            <h3>Evolución de puntaje</h3>
+            <canvas id="chart-archer-progress"></canvas>
+          </div>
+          <div class="card">
+            <div class="section-title">Comparación vs promedio de categoría</div>
+            <div id="archer-category-comparison" class="archer-category-comparison"></div>
+          </div>
+        </div>
+
+        <div class="card mt-16">
+          <div class="section-title">Historial de participaciones</div>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th><th>Disciplina</th><th>Club Torneo</th><th>Categoría</th>
+                  <th>Pos.</th><th>Total</th><th>R1</th><th>R2</th><th>11s</th><th>10s</th><th></th>
+                </tr>
+              </thead>
+              <tbody id="archer-history-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="archer-no-selection" style="color:var(--muted);padding:40px 0;text-align:center">
+        Buscá un arquero para ver su análisis completo
+      </div>
+    </section>
+
+    <!-- ─── SECCIÓN: CLUBES ──────────────────────────────────────────── -->
+    <section class="section" id="section-clubes">
+
+      <div class="filter-bar" style="margin-bottom:16px">
+        <div class="filter-group">
+          <label>División</label>
+          <select data-filter="division"></select>
+        </div>
+        <div class="filter-group">
+          <label>Género</label>
+          <select data-filter="gender"></select>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Clubes y Escuelas</div>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>#</th><th>Club / Escuela</th><th>Arqueros</th>
+                <th>Torneos</th><th>Entradas</th><th>Victorias</th><th>Disciplinas</th>
+              </tr>
+            </thead>
+            <tbody id="clubs-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SECCIÓN: TORNEOS ─────────────────────────────────────────── -->
+    <section class="section" id="section-torneos">
+
+      <div class="filter-bar">
+        <div class="filter-group">
+          <label>División</label>
+          <select data-filter="division"></select>
+        </div>
+        <div class="filter-group">
+          <label>Club</label>
+          <select data-filter="club" style="min-width:180px"></select>
+        </div>
+        <span id="torneos-count" class="text-muted" style="margin-left:auto;font-size:0.8rem"></span>
+      </div>
+
+      <div class="card">
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Fecha</th><th>Disciplina</th><th>Club Organizador</th>
+                <th>Zona</th><th>Tipo</th><th>Arqueros</th><th>Categorías</th>
+              </tr>
+            </thead>
+            <tbody id="tournaments-table-body"></tbody>
+          </table>
+        </div>
+        <div id="tournaments-pagination" class="pagination"></div>
+      </div>
+    </section>
+
+    <!-- ─── SECCIÓN: RANKINGS ────────────────────────────────────────── -->
+    <section class="section" id="section-rankings">
+
+      <div class="filter-bar" style="margin-bottom:16px">
+        <div class="filter-group">
+          <label>División</label>
+          <select data-filter="division"></select>
+        </div>
+        <div class="filter-group">
+          <label>Género</label>
+          <select data-filter="gender"></select>
+        </div>
+      </div>
+
+      <div class="ranking-tabs">
+        <button class="ranking-tab active" data-tab="score">🥇 Mejor puntaje</button>
+        <button class="ranking-tab" data-tab="participaciones">📊 Más participaciones</button>
+        <button class="ranking-tab" data-tab="victorias">🏆 Más victorias</button>
+        <button class="ranking-tab" data-tab="clubes">🏛 Ranking clubes</button>
+      </div>
+
+      <div class="card">
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead id="ranking-table-head"></thead>
+            <tbody id="ranking-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SECCIÓN: PROGRESO ────────────────────────────────────────── -->
+    <section class="section" id="section-progreso">
+
+      <div class="filter-bar" style="margin-bottom:16px">
+        <div class="filter-group">
+          <label>División</label>
+          <select data-filter="division"></select>
+        </div>
+        <div class="filter-group">
+          <label>Género</label>
+          <select data-filter="gender"></select>
+        </div>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <h3>Promedio de puntaje por año</h3>
+          <canvas id="chart-annual-avg"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Participaciones por año</h3>
+          <canvas id="chart-participation-year"></canvas>
+        </div>
+        <div class="chart-card" style="grid-column:span 2">
+          <h3>Top 15 mejores puntajes (selección actual)</h3>
+          <canvas id="chart-top-scorers"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SECCIÓN: EXPORTAR ────────────────────────────────────────── -->
+    <section class="section" id="section-exportar">
+
+      <div class="filter-bar" style="margin-bottom:16px">
+        <div class="filter-group">
+          <label>División</label>
+          <select data-filter="division"></select>
+        </div>
+        <div class="filter-group">
+          <label>Género</label>
+          <select data-filter="gender"></select>
+        </div>
+        <div class="filter-group">
+          <label>Club</label>
+          <select data-filter="club"></select>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:16px">
+        <div class="section-title">Exportar datos</div>
+        <p class="text-muted" style="margin-bottom:16px;font-size:0.88rem">
+          Exportá los resultados con los filtros aplicados actualmente.
+          <span id="export-count" style="color:var(--accent)"></span>
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn btn-primary" id="btn-export-csv">⬇ Exportar CSV</button>
+          <button class="btn btn-ghost" id="btn-copy-link">🔗 Copiar link con filtros</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Segmentación por cliente (próximamente)</div>
+        <p class="text-muted" style="font-size:0.85rem;line-height:1.6">
+          Esta herramienta permitirá generar un paquete de datos solo para un arquero o club específico,
+          para publicar en un GitHub Pages separado como dashboard personalizado.<br><br>
+          <strong>Importante:</strong> Los filtros del frontend no son privacidad real.
+          Para versiones privadas se necesita generar un paquete separado con solo los datos autorizados.
+          Contactá al administrador cuando esta funcionalidad esté lista.
+        </p>
+        <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn btn-ghost" disabled style="opacity:0.4">🏹 Generar paquete por arquero</button>
+          <button class="btn btn-ghost" disabled style="opacity:0.4">🏛 Generar paquete por club</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Chart.js desde CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="assets/app.js"></script>
+
+<script>
+  // Mostrar banner si los datos están vacíos
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const results = window.state?.results?.results;
+      if (results && results.length === 0) {
+        document.getElementById('data-empty-banner')?.classList.add('visible');
+      }
+      const detail = document.getElementById('archer-detail');
+      const noSel = document.getElementById('archer-no-selection');
+      if (detail && !detail.classList.contains('visible') && noSel) {
+        noSel.style.display = 'block';
+      }
+    }, 800);
+  });
+</script>
+</body>
+</html>
