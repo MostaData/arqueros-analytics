@@ -26,46 +26,26 @@ const state = {
 };
 
 // ─── DIVISION COLORS ─────────────────────────────────────────────────────────
-// Each base division owns a hue; variants (e.g. "Recurvo Masculino 50+") get a
-// distinct shade of that same hue so related divisions stay visually grouped.
-const BASE_HUES = {
-  'Compuesto':   210,   // 🔵 azul
-  'Recurvo':     130,   // 🟢 verde
-  'Raso':         38,   // 🟡 amarillo-naranja
-  'Long Bow':      0,   // 🔴 rojo
-  'Longbow':       0,   // 🔴 rojo (alias)
-  'Tradicional': 270,   // 🟣 violeta
-  'Olímpico':    185,   // 🩵 cyan
-  'Cazador':      25,   // 🟠 naranja
-};
+// Palette of visually distinct colors for dynamic per-chart assignment
+const CHART_PALETTE = [
+  '#4f8ef7', '#22c55e', '#f59e0b', '#ef4444', '#7c5cfc',
+  '#06b6d4', '#f97316', '#ec4899', '#14b8a6', '#a3e635',
+  '#fb923c', '#818cf8', '#34d399', '#fbbf24', '#f472b6',
+];
 const DIVISION_COLOR_DEFAULT = '#8892a4';
-const _BASE_KEYS = Object.keys(BASE_HUES).sort((a, b) => b.length - a.length);
 
-// Simple string hash → unsigned 32-bit int
-function _strHash(s) {
-  let h = 0;
-  for (let i = 0; i < s.length; i++) h = Math.imul(31, h) + s.charCodeAt(i) | 0;
-  return h >>> 0;
+// Builds a { divisionName → color } map for a specific set of divisions.
+// Colors are assigned in order of first appearance, cycling the palette.
+function buildDivisionColorMap(divisions) {
+  const unique = [...new Set(divisions.filter(Boolean))];
+  const map = {};
+  unique.forEach((d, i) => { map[d] = CHART_PALETTE[i % CHART_PALETTE.length]; });
+  return map;
 }
 
-// Returns a consistent HSL color for any division name.
-// Variants of the same base share the same hue but differ in lightness/saturation.
-function getDivisionColor(d) {
-  if (!d) return DIVISION_COLOR_DEFAULT;
-  const baseKey = _BASE_KEYS.find((k) => d.startsWith(k));
-  if (!baseKey) {
-    // Unknown base: hash to a random-but-stable hue
-    return `hsl(${_strHash(d) % 360}, 60%, 55%)`;
-  }
-  const hue = BASE_HUES[baseKey];
-  if (d === baseKey || d === 'Longbow') {
-    return `hsl(${hue}, 72%, 56%)`;          // canonical base color
-  }
-  const variant = d.slice(baseKey.length).trim();
-  const h = _strHash(variant);
-  const lightness   = 38 + (h % 30);         // 38–67 %
-  const saturation  = 58 + ((h >> 8) % 22);  // 58–79 %
-  return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+function getDivisionColor(d, colorMap) {
+  if (colorMap && colorMap[d]) return colorMap[d];
+  return DIVISION_COLOR_DEFAULT;
 }
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
@@ -547,15 +527,15 @@ function renderMultiDivisionProgressChart(canvasId, timelineResults) {
   const ctx = document.getElementById(canvasId);
   if (!ctx) return;
   destroyChart(canvasId);
-  if (!timelineResults.length) {
-    ctx.parentElement.querySelector('canvas')?.getContext('2d')?.clearRect(0, 0, ctx.width, ctx.height);
-    return;
-  }
+  if (!timelineResults.length) return;
 
   const labels   = timelineResults.map((r) => fmtDate(r.tournament?.date));
   const data     = timelineResults.map((r) => r.total_score);
   const divs     = timelineResults.map((r) => r.division);
-  const ptColors = divs.map((d) => getDivisionColor(d));
+
+  // Assign a distinct color to each division that appears in THIS chart
+  const colorMap  = buildDivisionColorMap(divs);
+  const ptColors  = divs.map((d) => getDivisionColor(d, colorMap));
 
   state.charts[canvasId] = new Chart(ctx, {
     type: 'line',
@@ -566,7 +546,7 @@ function renderMultiDivisionProgressChart(canvasId, timelineResults) {
         data,
         borderColor: '#4f8ef7',
         segment: {
-          borderColor: (c) => getDivisionColor(divs[c.p1DataIndex]),
+          borderColor: (c) => getDivisionColor(divs[c.p1DataIndex], colorMap),
         },
         pointBackgroundColor: ptColors,
         pointBorderColor:     ptColors,
@@ -589,13 +569,12 @@ function renderMultiDivisionProgressChart(canvasId, timelineResults) {
     },
   });
 
-  // Leyenda de colores por división
+  // Leyenda: un ítem por cada división presente en el gráfico
   const legendEl = document.getElementById('archer-progress-legend');
   if (legendEl) {
-    const usedDivs = [...new Set(divs)];
-    legendEl.innerHTML = usedDivs.map((d) =>
+    legendEl.innerHTML = Object.entries(colorMap).map(([d, color]) =>
       `<span class="legend-item">
-        <span class="legend-dot" style="background:${getDivisionColor(d)}"></span>${d}
+        <span class="legend-dot" style="background:${color}"></span>${d}
       </span>`
     ).join('');
   }
