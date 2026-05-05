@@ -17,12 +17,25 @@ const state = {
   },
   charts: {},
   currentSection: 'resumen',
+  archerFilters: { division: 'all', discipline: 'all', year: 'all' },
   archerSearchQuery: '',
   selectedArcherId: null,
   tournamentPage: 1,
   rankingPage: 1,
   PAGE_SIZE: 30,
 };
+
+// ─── DIVISION COLORS ─────────────────────────────────────────────────────────
+const DIVISION_COLORS = {
+  'Compuesto':    '#4f8ef7',
+  'Recurvo':      '#22c55e',
+  'Raso':         '#f59e0b',
+  'Long Bow':     '#ef4444',
+  'Tradicional':  '#7c5cfc',
+  'Olímpico':     '#06b6d4',
+};
+const DIVISION_COLOR_DEFAULT = '#8892a4';
+function getDivisionColor(d) { return DIVISION_COLORS[d] || DIVISION_COLOR_DEFAULT; }
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
 function fmt(n) {
@@ -299,8 +312,12 @@ function renderArqueros() {
 
 function setupArcherAutocomplete() {
   const input = document.getElementById('archer-search-input');
-  const list = document.getElementById('archer-autocomplete');
+  const list  = document.getElementById('archer-autocomplete');
   if (!input || !list) return;
+
+  // Avoid duplicate listeners
+  if (input.dataset.bound) return;
+  input.dataset.bound = '1';
 
   input.addEventListener('input', () => {
     const q = input.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
@@ -324,6 +341,8 @@ function setupArcherAutocomplete() {
     list.querySelectorAll('.ac-item').forEach((item) => {
       item.addEventListener('click', () => {
         state.selectedArcherId = item.dataset.id;
+        // Reset archer-specific filters on new selection
+        state.archerFilters = { division: 'all', discipline: 'all', year: 'all' };
         input.value = archers.find((a) => a.id === item.dataset.id)?.display_name || '';
         list.innerHTML = ''; list.style.display = 'none';
         renderArcherDetail(item.dataset.id);
@@ -338,45 +357,117 @@ function setupArcherAutocomplete() {
   });
 }
 
+// ── Aplica los filtros propios del arquero (no los globales) ──────────────────
+function applyArcherFilters(results) {
+  const { division, discipline, year } = state.archerFilters;
+  return results.filter((r) => {
+    if (division   !== 'all' && r.division !== division) return false;
+    if (discipline !== 'all' && r.tournament?.discipline_name !== discipline) return false;
+    if (year       !== 'all' && (!r.tournament?.date || !r.tournament.date.startsWith(year))) return false;
+    return true;
+  });
+}
+
+// ── Rellena y muestra la barra de filtros del arquero ─────────────────────────
+function setupArcherFilters(allResults, archerId) {
+  const bar = document.getElementById('archer-filters');
+  if (!bar) return;
+  bar.style.display = 'flex';
+
+  const divisions   = [...new Set(allResults.map((r) => r.division).filter(Boolean))].sort();
+  const disciplines = [...new Set(allResults.map((r) => r.tournament?.discipline_name).filter(Boolean))].sort();
+  const years       = [...new Set(allResults.map((r) => r.tournament?.date?.slice(0, 4)).filter(Boolean))].sort().reverse();
+
+  function fill(id, values, placeholder) {
+    const sel = document.getElementById(id);
+    if (!sel) return;
+    const cur = state.archerFilters[id.replace('af-', '')] || 'all';
+    sel.innerHTML = `<option value="all">${placeholder}</option>` +
+      values.map((v) => `<option value="${v}"${cur === v ? ' selected' : ''}>${v}</option>`).join('');
+    sel.onchange = () => {
+      state.archerFilters.division   = document.getElementById('af-division')?.value   || 'all';
+      state.archerFilters.discipline = document.getElementById('af-discipline')?.value || 'all';
+      state.archerFilters.year       = document.getElementById('af-year')?.value       || 'all';
+      renderArcherDetail(archerId);
+    };
+  }
+
+  fill('af-division',   divisions,   'Todas las divisiones');
+  fill('af-discipline', disciplines, 'Todas las disciplinas');
+  fill('af-year',       years,       'Todos los años');
+}
+
+// ── Detalle completo del arquero ──────────────────────────────────────────────
 function renderArcherDetail(archerId) {
   const archer = state.archers?.archers?.find((a) => a.id === archerId);
   const detail = document.getElementById('archer-detail');
+  const noSel  = document.getElementById('archer-no-selection');
   if (!archer || !detail) return;
 
   detail.classList.add('visible');
+  if (noSel) noSel.style.display = 'none';
 
-  document.getElementById('archer-detail-name').textContent = archer.display_name;
-  document.getElementById('archer-detail-meta').innerHTML =
-    `${archer.primary_division || '—'} · ${archer.primary_gender || '—'} · Activo desde ${fmtDate(archer.stats.career_start)}`;
-
-  const pills = document.getElementById('archer-detail-pills');
-  pills.innerHTML = `
-    <span class="pill green">${fmt(archer.stats.overall_wins)} victorias</span>
-    <span class="pill accent">${fmt(archer.stats.podiums)} podios</span>
-    <span class="pill">${fmt(archer.stats.total_results)} participaciones</span>
-    <span class="pill yellow">Pos. prom: ${fmt(archer.stats.avg_position)}</span>
-    <span class="pill">Último torneo: ${fmtDate(archer.stats.last_competed)}</span>
-  `;
-
-  // KPIs by discipline
-  const discKpis = document.getElementById('archer-disc-kpis');
-  discKpis.innerHTML = Object.entries(archer.stats.disciplines || {}).map(([disc, s]) => `
-    <div class="kpi-card">
-      <div class="kpi-label">${disc}</div>
-      <div class="kpi-value">${fmt(s.best_total)}</div>
-      <div class="kpi-sub">Mejor · Prom: ${fmt(s.avg_total)} · ${s.count} torneos · ${s.wins} 🥇</div>
-    </div>
-  `).join('');
-
-  // History table
-  const archerResults = (state.results?.results || [])
+  // Todos los resultados del arquero (con objeto tournament adjunto)
+  const allArcherResults = (state.results?.results || [])
     .filter((r) => r.archer_id === archerId)
     .map((r) => ({ ...r, tournament: getTournamentById(r.tournament_id) }))
     .filter((r) => r.tournament)
     .sort((a, b) => (b.tournament.date || '').localeCompare(a.tournament.date || ''));
 
+  // Poblar filtros con solo los valores disponibles para este arquero
+  setupArcherFilters(allArcherResults, archerId);
+
+  // Aplicar filtros propios
+  const filtered = applyArcherFilters(allArcherResults);
+
+  // ── Encabezado ──
+  document.getElementById('archer-detail-name').textContent = archer.display_name;
+  document.getElementById('archer-detail-meta').innerHTML =
+    `${archer.primary_division || '—'} · ${archer.primary_gender || '—'} · Activo desde ${fmtDate(archer.stats.career_start)}`;
+
+  const wins    = filtered.filter((r) => r.position === 1).length;
+  const podiums = filtered.filter((r) => r.position <= 3).length;
+  const positions = filtered.map((r) => r.position).filter((p) => p > 0);
+  const avgPos  = positions.length ? (positions.reduce((a, b) => a + b, 0) / positions.length).toFixed(1) : '—';
+  const lastDate = filtered[0]?.tournament?.date;
+
+  document.getElementById('archer-detail-pills').innerHTML = `
+    <span class="pill green">${fmt(wins)} victorias</span>
+    <span class="pill accent">${fmt(podiums)} podios</span>
+    <span class="pill">${fmt(filtered.length)} participaciones</span>
+    <span class="pill yellow">Pos. prom: ${avgPos}</span>
+    <span class="pill">Último torneo: ${fmtDate(lastDate)}</span>
+  `;
+
+  // ── KPIs por disciplina (sobre resultados filtrados) ──
+  const discKpis = document.getElementById('archer-disc-kpis');
+  const byDisc = {};
+  for (const r of filtered) {
+    const d = r.tournament?.discipline_name;
+    if (d) { if (!byDisc[d]) byDisc[d] = []; byDisc[d].push(r); }
+  }
+  discKpis.innerHTML = Object.entries(byDisc).map(([disc, rr]) => {
+    const scores = rr.map((r) => r.total_score).filter((s) => s > 0);
+    return `<div class="kpi-card">
+      <div class="kpi-label">${disc}</div>
+      <div class="kpi-value">${fmt(scores.length ? Math.max(...scores) : null)}</div>
+      <div class="kpi-sub">Mejor · Prom: ${fmt(average(scores))} · ${rr.length} torneos · ${rr.filter((r) => r.position === 1).length} 🥇</div>
+    </div>`;
+  }).join('');
+
+  // ── Gráficos ──
+  const timeline = [...filtered].reverse();
+  renderMultiDivisionProgressChart('chart-archer-progress', timeline);
+  renderPodiumChart('chart-archer-podium', filtered);
+  renderArcherCategoryComparison(filtered);
+
+  // ── Tabla historial ──
   const historyBody = document.getElementById('archer-history-body');
-  historyBody.innerHTML = archerResults.map((r) => `
+  if (!filtered.length) {
+    historyBody.innerHTML = `<tr><td colspan="11" style="text-align:center;color:var(--muted);padding:20px">Sin resultados para los filtros seleccionados</td></tr>`;
+    return;
+  }
+  historyBody.innerHTML = filtered.map((r) => `
     <tr>
       <td>${fmtDate(r.tournament.date)}</td>
       <td>${disciplineBadge(r.tournament.discipline_name)}</td>
@@ -391,42 +482,129 @@ function renderArcherDetail(archerId) {
       ${r.is_partial ? '<td><span class="badge badge-partial">Parcial</span></td>' : '<td></td>'}
     </tr>
   `).join('');
-
-  // Progress chart
-  const timelineResults = [...archerResults].reverse();
-  if (timelineResults.length > 1) {
-    const labels = timelineResults.map((r) => fmtDate(r.tournament?.date));
-    const data = timelineResults.map((r) => r.total_score);
-    renderLineChart('chart-archer-progress', labels, data, archer.display_name);
-  }
-
-  // Category comparison vs average
-  renderArcherCategoryComparison(archer, archerResults);
 }
 
-function renderArcherCategoryComparison(archer, archerResults) {
+// ── Línea de evolución con segmentos coloreados por División ──────────────────
+function renderMultiDivisionProgressChart(canvasId, timelineResults) {
+  const ctx = document.getElementById(canvasId);
+  if (!ctx || timelineResults.length < 2) return;
+  destroyChart(canvasId);
+
+  const labels   = timelineResults.map((r) => fmtDate(r.tournament?.date));
+  const data     = timelineResults.map((r) => r.total_score);
+  const divs     = timelineResults.map((r) => r.division);
+  const ptColors = divs.map((d) => getDivisionColor(d));
+
+  state.charts[canvasId] = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Puntaje',
+        data,
+        borderColor: '#4f8ef7',
+        segment: {
+          borderColor: (c) => getDivisionColor(divs[c.p1DataIndex]),
+        },
+        pointBackgroundColor: ptColors,
+        pointBorderColor:     ptColors,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        tension: 0.3,
+        fill: false,
+      }],
+    },
+    options: {
+      ...CHART_DEFAULTS,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          mode: 'index',
+          intersect: false,
+          callbacks: { afterLabel: (c) => `División: ${divs[c.dataIndex]}` },
+        },
+      },
+    },
+  });
+
+  // Leyenda de colores por división
+  const legendEl = document.getElementById('archer-progress-legend');
+  if (legendEl) {
+    const usedDivs = [...new Set(divs)];
+    legendEl.innerHTML = usedDivs.map((d) =>
+      `<span class="legend-item">
+        <span class="legend-dot" style="background:${getDivisionColor(d)}"></span>${d}
+      </span>`
+    ).join('');
+  }
+}
+
+// ── Gráfico de podio: recuento por posición ───────────────────────────────────
+function renderPodiumChart(canvasId, archerResults) {
+  const ctx = document.getElementById(canvasId);
+  if (!ctx) return;
+  destroyChart(canvasId);
+
+  const posCount = {};
+  for (const r of archerResults) {
+    if (r.position >= 1 && r.position <= 10) {
+      posCount[r.position] = (posCount[r.position] || 0) + 1;
+    }
+  }
+
+  const positions = Object.keys(posCount).map(Number).sort((a, b) => a - b);
+  if (!positions.length) return;
+
+  const bgColors = positions.map((p) =>
+    p === 1 ? '#ffd700' : p === 2 ? '#c0c0c0' : p === 3 ? '#cd7f32' : 'rgba(79,142,247,0.55)'
+  );
+
+  state.charts[canvasId] = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: positions.map((p) => `${p}°`),
+      datasets: [{
+        label: 'Veces',
+        data:   positions.map((p) => posCount[p]),
+        backgroundColor: bgColors,
+        borderColor:     bgColors,
+        borderWidth: 1,
+        borderRadius: 4,
+      }],
+    },
+    options: {
+      ...CHART_DEFAULTS,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ...CHART_DEFAULTS.scales.x },
+        y: { ...CHART_DEFAULTS.scales.y, ticks: { ...CHART_DEFAULTS.scales.y.ticks, stepSize: 1 } },
+      },
+    },
+  });
+}
+
+// ── Comparación vs promedio de categoría ─────────────────────────────────────
+function renderArcherCategoryComparison(filteredResults) {
   const container = document.getElementById('archer-category-comparison');
   if (!container) return;
 
-  const divisions = [...new Set(archerResults.map((r) => r.division))];
+  const divisions  = [...new Set(filteredResults.map((r) => r.division))];
   const allResults = state.results?.results || [];
 
   container.innerHTML = divisions.map((div) => {
-    const archerScores = archerResults.filter((r) => r.division === div).map((r) => r.total_score).filter((s) => s > 0);
-    const divAvgAll = average(
-      allResults.filter((r) => r.division === div && r.total_score > 0).map((r) => r.total_score)
-    );
-    const archerAvg = average(archerScores);
+    const archerScores = filteredResults.filter((r) => r.division === div).map((r) => r.total_score).filter((s) => s > 0);
+    const divAvgAll    = average(allResults.filter((r) => r.division === div && r.total_score > 0).map((r) => r.total_score));
+    const archerAvg    = average(archerScores);
     if (!archerAvg || !divAvgAll) return '';
 
-    const diff = archerAvg - divAvgAll;
+    const diff      = archerAvg - divAvgAll;
     const diffClass = diff > 0 ? 'text-green' : diff < 0 ? 'text-red' : 'text-muted';
-    const diffStr = (diff > 0 ? '+' : '') + diff.toFixed(1);
+    const diffStr   = (diff > 0 ? '+' : '') + diff.toFixed(1);
 
-    return `<div class="kpi-card">
+    return `<div class="kpi-card" style="border-left:3px solid ${getDivisionColor(div)}">
       <div class="kpi-label">${div}</div>
       <div class="kpi-value">${archerAvg.toFixed(1)}</div>
-      <div class="kpi-sub">Promedio personal · Cat. prom: ${divAvgAll.toFixed(1)} · <span class="${diffClass}">${diffStr}</span></div>
+      <div class="kpi-sub">Prom. personal · Cat: ${divAvgAll.toFixed(1)} · <span class="${diffClass}">${diffStr}</span></div>
     </div>`;
   }).join('');
 }

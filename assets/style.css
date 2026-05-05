@@ -321,6 +321,36 @@ table.data-table td.pos { text-align: center; font-weight: 700; }
 .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 @media (max-width: 600px) { .row-2 { grid-template-columns: 1fr; } }
 
+/* ─── ARCHER CHARTS GRID ──────────────────────────────────────────────────── */
+.archer-charts-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+.archer-chart-main { grid-column: 1; }
+@media (max-width: 1024px) {
+  .archer-charts-grid { grid-template-columns: 1fr 1fr; }
+  .archer-chart-main  { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .archer-charts-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── CHART LEGEND ─────────────────────────────────────────────────────────── */
+.chart-legend {
+  display: flex; flex-wrap: wrap; gap: 4px;
+  margin-bottom: 10px; min-height: 18px;
+}
+.legend-item {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.72rem; color: var(--muted);
+}
+.legend-dot {
+  width: 12px; height: 3px;
+  border-radius: 2px; display: inline-block; flex-shrink: 0;
+}
+
 /* ─── TRENDS ───────────────────────────────────────────────────────────────── */
 .trend-up::before { content: '▲ '; color: var(--green); }
 .trend-down::before { content: '▼ '; color: var(--red); }

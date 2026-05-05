@@ -201,9 +201,26 @@
     <!-- ─── SECCIÓN: ARQUEROS ────────────────────────────────────────── -->
     <section class="section" id="section-arqueros">
 
+      <!-- Búsqueda + filtros contextuales juntos -->
       <div class="archer-search-box">
         <input type="text" id="archer-search-input" placeholder="Buscá un arquero por nombre…" autocomplete="off">
         <div class="autocomplete-list" id="archer-autocomplete" style="display:none"></div>
+      </div>
+
+      <!-- Filtros propios del arquero: solo aparecen al seleccionar uno -->
+      <div id="archer-filters" class="filter-bar" style="display:none;margin-top:10px">
+        <div class="filter-group">
+          <label>División</label>
+          <select id="af-division"></select>
+        </div>
+        <div class="filter-group">
+          <label>Disciplina</label>
+          <select id="af-discipline"></select>
+        </div>
+        <div class="filter-group">
+          <label>Año</label>
+          <select id="af-year"></select>
+        </div>
       </div>
 
       <div id="archer-detail" class="archer-detail">
@@ -217,13 +234,19 @@
 
         <div id="archer-disc-kpis" class="archer-disc-kpis"></div>
 
-        <div class="row-2">
-          <div class="chart-card">
+        <!-- Grilla de 3 gráficos -->
+        <div class="archer-charts-grid">
+          <div class="chart-card archer-chart-main">
             <h3>Evolución de puntaje</h3>
+            <div id="archer-progress-legend" class="chart-legend"></div>
             <canvas id="chart-archer-progress"></canvas>
           </div>
+          <div class="chart-card">
+            <h3>Podio — posiciones</h3>
+            <canvas id="chart-archer-podium"></canvas>
+          </div>
           <div class="card">
-            <div class="section-title">Comparación vs promedio de categoría</div>
+            <div class="section-title">vs promedio de categoría</div>
             <div id="archer-category-comparison" class="archer-category-comparison"></div>
           </div>
         </div>
