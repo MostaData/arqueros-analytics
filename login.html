@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arqueros Analytics — Acceso</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-card {
+      background: #1a1d27;
+      border: 1px solid #2a2f45;
+      border-radius: 16px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 360px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .login-logo {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .login-logo h1 { font-size: 1.8rem; margin-bottom: 4px; }
+    .login-logo p  { font-size: 0.82rem; color: #8892a4; }
+    label {
+      display: block;
+      font-size: 0.75rem;
+      color: #8892a4;
+      margin-bottom: 5px;
+      margin-top: 16px;
+    }
+    input {
+      width: 100%;
+      background: #232838;
+      border: 1px solid #2a2f45;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    input:focus { border-color: #4f8ef7; }
+    .btn-login {
+      margin-top: 24px;
+      width: 100%;
+      background: #4f8ef7;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-login:hover { background: #3a7ae0; }
+    .error-msg {
+      margin-top: 14px;
+      background: rgba(239,68,68,0.12);
+      border: 1px solid rgba(239,68,68,0.35);
+      color: #f87171;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.82rem;
+      text-align: center;
+      display: none;
+    }
+    .error-msg.visible { display: block; }
+  </style>
+</head>
+<body>
+
+<div class="login-card">
+  <div class="login-logo">
+    <h1>🎯 Arqueros</h1>
+    <p>Panel de Análisis · Acceso restringido</p>
+  </div>
+
+  <form id="login-form" onsubmit="handleLogin(event)">
+    <label for="username">Usuario</label>
+    <input type="text" id="username" placeholder="Usuario" autocomplete="username">
+
+    <label for="password">Contraseña</label>
+    <input type="password" id="password" placeholder="Contraseña" autocomplete="current-password">
+
+    <button type="submit" class="btn-login">Ingresar</button>
+    <div class="error-msg" id="error-msg">Usuario o contraseña incorrectos</div>
+  </form>
+</div>
+
+<script>
+  // Si ya está autenticado, ir directo al dashboard
+  if (sessionStorage.getItem('aa_auth') === '1') {
+    location.replace('index.html');
+  }
+
+  function handleLogin(e) {
+    e.preventDefault();
+    const user = document.getElementById('username').value.trim().toUpperCase();
+    const pass = document.getElementById('password').value;
+    const err  = document.getElementById('error-msg');
+
+    if (user === 'ADMIN' && pass === '147258') {
+      sessionStorage.setItem('aa_auth', '1');
+      location.replace('index.html');
+    } else {
+      err.classList.add('visible');
+      document.getElementById('password').value = '';
+      document.getElementById('password').focus();
+    }
+  }
+</script>
+
+</body>
+</html>

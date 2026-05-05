@@ -30,6 +30,13 @@
 </head>
 <body>
 
+<!-- ─── AUTH GUARD ───────────────────────────────────────────────────────── -->
+<script>
+  if (location.protocol !== 'file:' && sessionStorage.getItem('aa_auth') !== '1') {
+    location.replace('login.html');
+  }
+</script>
+
 <!-- ─── LOADING ─────────────────────────────────────────────────────────── -->
 <div id="loading-overlay" class="loading-overlay">
   <div class="spinner"></div>
@@ -107,6 +114,10 @@
           <label>Género</label>
           <select data-filter="gender"></select>
         </div>
+        <button onclick="sessionStorage.removeItem('aa_auth');location.replace('login.html')"
+          style="margin-left:8px;padding:6px 12px;background:transparent;border:1px solid #2a2f45;
+                 color:#8892a4;border-radius:6px;font-size:0.75rem;cursor:pointer;white-space:nowrap"
+          title="Cerrar sesión">⬡ Salir</button>
       </div>
     </div>
 
