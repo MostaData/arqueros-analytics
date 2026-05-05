@@ -26,16 +26,26 @@ const state = {
 };
 
 // ─── DIVISION COLORS ─────────────────────────────────────────────────────────
+// Keys are base prefixes — full category names like "Recurvo Masculino 50+" match by prefix
 const DIVISION_COLORS = {
-  'Compuesto':    '#4f8ef7',
-  'Recurvo':      '#22c55e',
-  'Raso':         '#f59e0b',
-  'Long Bow':     '#ef4444',
-  'Tradicional':  '#7c5cfc',
-  'Olímpico':     '#06b6d4',
+  'Compuesto':   '#4f8ef7',
+  'Recurvo':     '#22c55e',
+  'Raso':        '#f59e0b',
+  'Long Bow':    '#ef4444',
+  'Longbow':     '#ef4444',
+  'Tradicional': '#7c5cfc',
+  'Olímpico':    '#06b6d4',
+  'Cazador':     '#f97316',
 };
 const DIVISION_COLOR_DEFAULT = '#8892a4';
-function getDivisionColor(d) { return DIVISION_COLORS[d] || DIVISION_COLOR_DEFAULT; }
+// Sorted by length desc so "Long Bow" matches before "Long"
+const _DIVISION_KEYS = Object.keys(DIVISION_COLORS).sort((a, b) => b.length - a.length);
+function getDivisionColor(d) {
+  if (!d) return DIVISION_COLOR_DEFAULT;
+  if (DIVISION_COLORS[d]) return DIVISION_COLORS[d];
+  const base = _DIVISION_KEYS.find((k) => d.startsWith(k));
+  return base ? DIVISION_COLORS[base] : DIVISION_COLOR_DEFAULT;
+}
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
 function fmt(n) {
@@ -514,8 +524,12 @@ function renderArcherDetail(archerId) {
 // ── Línea de evolución con segmentos coloreados por División ──────────────────
 function renderMultiDivisionProgressChart(canvasId, timelineResults) {
   const ctx = document.getElementById(canvasId);
-  if (!ctx || timelineResults.length < 2) return;
+  if (!ctx) return;
   destroyChart(canvasId);
+  if (!timelineResults.length) {
+    ctx.parentElement.querySelector('canvas')?.getContext('2d')?.clearRect(0, 0, ctx.width, ctx.height);
+    return;
+  }
 
   const labels   = timelineResults.map((r) => fmtDate(r.tournament?.date));
   const data     = timelineResults.map((r) => r.total_score);
@@ -574,27 +588,35 @@ function renderPodiumChart(canvasId, archerResults) {
 
   const posCount = {};
   for (const r of archerResults) {
-    if (r.position >= 1 && r.position <= 10) {
-      posCount[r.position] = (posCount[r.position] || 0) + 1;
+    if (r.position >= 1) {
+      const bucket = r.position <= 10 ? r.position : 'resto';
+      posCount[bucket] = (posCount[bucket] || 0) + 1;
     }
   }
 
-  const positions = Object.keys(posCount).map(Number).sort((a, b) => a - b);
-  if (!positions.length) return;
+  const positions = Object.keys(posCount)
+    .filter((k) => k !== 'resto')
+    .map(Number)
+    .sort((a, b) => a - b);
+  const hasResto = !!posCount['resto'];
+  if (!positions.length && !hasResto) return;
 
-  const bgColors = positions.map((p) =>
-    p === 1 ? '#ffd700' : p === 2 ? '#c0c0c0' : p === 3 ? '#cd7f32' : 'rgba(79,142,247,0.55)'
-  );
+  const allLabels = [...positions.map((p) => `${p}°`), ...(hasResto ? ['Otros'] : [])];
+  const allData   = [...positions.map((p) => posCount[p]), ...(hasResto ? [posCount['resto']] : [])];
+  const allColors = [
+    ...positions.map((p) => p === 1 ? '#ffd700' : p === 2 ? '#c0c0c0' : p === 3 ? '#cd7f32' : 'rgba(79,142,247,0.55)'),
+    ...(hasResto ? ['rgba(136,146,164,0.4)'] : []),
+  ];
 
   state.charts[canvasId] = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: positions.map((p) => `${p}°`),
+      labels: allLabels,
       datasets: [{
         label: 'Veces',
-        data:   positions.map((p) => posCount[p]),
-        backgroundColor: bgColors,
-        borderColor:     bgColors,
+        data:   allData,
+        backgroundColor: allColors,
+        borderColor:     allColors,
         borderWidth: 1,
         borderRadius: 4,
       }],
