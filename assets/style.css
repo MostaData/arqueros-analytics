@@ -355,3 +355,26 @@ table.data-table td.pos { text-align: center; font-weight: 700; }
 .trend-up::before { content: '▲ '; color: var(--green); }
 .trend-down::before { content: '▼ '; color: var(--red); }
 .trend-neutral::before { content: '● '; color: var(--muted); }
+
+/* ─── CLUB ARCHER LIST ─────────────────────────────────────────────────────── */
+.club-archers-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 8px;
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.club-archer-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--bg2);
+  cursor: pointer; transition: border-color 0.15s, background 0.15s;
+  user-select: none;
+}
+.club-archer-item:hover { border-color: var(--accent); }
+.club-archer-item.selected { border-color: var(--accent); background: rgba(79,142,247,0.1); }
+.club-archer-item input[type="checkbox"] { accent-color: var(--accent); flex-shrink: 0; cursor: pointer; }
+.club-archer-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.club-archer-info strong { font-size: 0.85rem; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.club-archer-info span { font-size: 0.72rem; color: var(--muted); }

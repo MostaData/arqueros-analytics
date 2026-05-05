@@ -20,6 +20,8 @@ const state = {
   archerFilters: { division: 'all', discipline: 'all', year: 'all' },
   archerSearchQuery: '',
   selectedArcherId: null,
+  selectedClubId: null,
+  selectedClubArcherIds: [],
   tournamentPage: 1,
   rankingPage: 1,
   PAGE_SIZE: 30,
@@ -523,7 +525,7 @@ function renderArcherDetail(archerId) {
 }
 
 // ── Línea de evolución con segmentos coloreados por División ──────────────────
-function renderMultiDivisionProgressChart(canvasId, timelineResults) {
+function renderMultiDivisionProgressChart(canvasId, timelineResults, legendId = 'archer-progress-legend') {
   const ctx = document.getElementById(canvasId);
   if (!ctx) return;
   destroyChart(canvasId);
@@ -570,7 +572,7 @@ function renderMultiDivisionProgressChart(canvasId, timelineResults) {
   });
 
   // Leyenda: un ítem por cada división presente en el gráfico
-  const legendEl = document.getElementById('archer-progress-legend');
+  const legendEl = document.getElementById(legendId);
   if (legendEl) {
     legendEl.innerHTML = Object.entries(colorMap).map(([d, color]) =>
       `<span class="legend-item">
@@ -660,36 +662,262 @@ function renderArcherCategoryComparison(filteredResults) {
 
 // ─── SECTION: CLUBES ──────────────────────────────────────────────────────────
 function renderClubes() {
-  const clubs = [...(state.clubs?.clubs || [])];
-  const filtered = clubs.filter((c) => {
-    if (state.filters.zone !== 'all') {
-      const hasZone = (state.clubs?.clubs || []).some(
-        (cl) => cl.id === c.id && (cl.stats?.disciplines_participated || []).length > 0
-      );
-    }
-    return true;
+  setupClubAutocomplete();
+  if (state.selectedClubId) renderClubDetail(state.selectedClubId);
+}
+
+function setupClubAutocomplete() {
+  const input = document.getElementById('club-search-input');
+  const list  = document.getElementById('club-autocomplete');
+  if (!input || !list || input.dataset.bound) return;
+  input.dataset.bound = '1';
+
+  input.addEventListener('input', () => {
+    const q = input.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    if (q.length < 2) { list.style.display = 'none'; return; }
+    const clubs = state.clubs?.clubs || [];
+    const matches = clubs
+      .filter((c) => c.name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').includes(q))
+      .slice(0, 12);
+    if (!matches.length) { list.style.display = 'none'; return; }
+    list.style.display = 'block';
+    list.innerHTML = matches.map((c) => `
+      <div class="ac-item" data-id="${c.id}">
+        <strong>${c.name}</strong>
+        <div class="ac-sub">${c.stats.total_members_seen} arqueros · ${c.stats.tournaments_participated} torneos</div>
+      </div>`).join('');
+    list.querySelectorAll('.ac-item').forEach((item) => {
+      item.addEventListener('click', () => {
+        state.selectedClubId = item.dataset.id;
+        state.selectedClubArcherIds = [];
+        input.value = clubs.find((c) => c.id === item.dataset.id)?.name || '';
+        list.style.display = 'none';
+        renderClubDetail(item.dataset.id);
+      });
+    });
   });
+  document.addEventListener('click', (e) => {
+    if (!input.contains(e.target) && !list.contains(e.target)) list.style.display = 'none';
+  });
+}
 
-  const tbody = document.getElementById('clubs-table-body');
-  if (!tbody) return;
+function renderClubDetail(clubId) {
+  const club = state.clubs?.clubs?.find((c) => c.id === clubId);
+  if (!club) return;
+  document.getElementById('club-detail').style.display = 'block';
+  document.getElementById('club-no-selection').style.display = 'none';
 
-  if (!filtered.length) {
-    tbody.innerHTML = `<tr><td colspan="7" class="empty-state">Sin datos</td></tr>`;
-    return;
+  // Todos los resultados de arqueros de este club
+  const allResults = (state.results?.results || [])
+    .filter((r) => r.club_id === clubId)
+    .map((r) => ({ ...r, tournament: getTournamentById(r.tournament_id) }))
+    .filter((r) => r.tournament)
+    .sort((a, b) => (b.tournament.date || '').localeCompare(a.tournament.date || ''));
+
+  // Arqueros que compitieron por este club
+  const clubArchers = (state.archers?.archers || [])
+    .filter((a) => a.clubs_history?.some((c) => c.club_id === clubId))
+    .sort((a, b) => b.stats.total_results - a.stats.total_results);
+
+  const wins    = allResults.filter((r) => r.position === 1).length;
+  const podiums = allResults.filter((r) => r.position <= 3).length;
+  const lastDate = allResults[0]?.tournament?.date;
+
+  document.getElementById('club-detail-name').textContent = club.name;
+  document.getElementById('club-detail-pills').innerHTML = `
+    <span class="pill green">${fmt(wins)} victorias</span>
+    <span class="pill accent">${fmt(podiums)} podios</span>
+    <span class="pill">${fmt(allResults.length)} participaciones</span>
+    <span class="pill yellow">${fmt(clubArchers.length)} arqueros</span>
+    ${lastDate ? `<span class="pill">Última actividad: ${fmtDate(lastDate)}</span>` : ''}`;
+
+  renderClubActivityChart(allResults);
+  renderClubDivisionsChart(allResults);
+  renderClubArchersList(clubArchers, clubId, allResults);
+
+  if (state.selectedClubArcherIds.length) renderClubComparison();
+  else document.getElementById('club-comparison-area').style.display = 'none';
+}
+
+function renderClubActivityChart(allResults) {
+  const byYear = {};
+  for (const r of allResults) {
+    const y = r.tournament?.date?.slice(0, 4);
+    if (y) byYear[y] = (byYear[y] || 0) + 1;
   }
+  const years = Object.keys(byYear).sort();
+  renderBarChart('chart-club-activity', years, years.map((y) => byYear[y]), 'Participaciones');
+}
 
-  tbody.innerHTML = filtered.map((c, i) => {
-    const wins = Object.values(c.stats.wins_by_division || {}).reduce((a, b) => a + b, 0);
+function renderClubDivisionsChart(allResults) {
+  const byDiv = {};
+  for (const r of allResults) if (r.division) byDiv[r.division] = (byDiv[r.division] || 0) + 1;
+  const sorted = Object.entries(byDiv).sort((a, b) => b[1] - a[1]).slice(0, 12);
+  renderBarChart('chart-club-divisions', sorted.map((e) => e[0]), sorted.map((e) => e[1]), 'Arqueros', '#22c55e', true);
+}
+
+function renderClubArchersList(clubArchers, clubId, allResults) {
+  const container = document.getElementById('club-archers-list');
+  if (!container) return;
+  container.innerHTML = clubArchers.map((a) => {
+    const ar = allResults.filter((r) => r.archer_id === a.id);
+    const wins = ar.filter((r) => r.position === 1).length;
+    const scores = ar.map((r) => r.total_score).filter((s) => s > 0);
+    const best = scores.length ? Math.max(...scores) : null;
+    const checked = state.selectedClubArcherIds.includes(a.id);
+    return `<label class="club-archer-item${checked ? ' selected' : ''}" data-id="${a.id}">
+      <input type="checkbox" value="${a.id}"${checked ? ' checked' : ''} onchange="onClubArcherToggle(this)">
+      <div class="club-archer-info">
+        <strong>${a.display_name}</strong>
+        <span>${a.primary_division || '—'} · ${ar.length} torneos · ${wins} 🥇 · mejor: ${fmt(best)}</span>
+      </div>
+    </label>`;
+  }).join('');
+}
+
+function onClubArcherToggle(checkbox) {
+  const id = checkbox.value;
+  if (checkbox.checked) {
+    if (!state.selectedClubArcherIds.includes(id)) state.selectedClubArcherIds.push(id);
+    checkbox.closest('.club-archer-item')?.classList.add('selected');
+  } else {
+    state.selectedClubArcherIds = state.selectedClubArcherIds.filter((x) => x !== id);
+    checkbox.closest('.club-archer-item')?.classList.remove('selected');
+  }
+  renderClubComparison();
+}
+
+function renderClubComparison() {
+  const area = document.getElementById('club-comparison-area');
+  if (!area) return;
+  const ids = state.selectedClubArcherIds;
+  if (!ids.length) { area.style.display = 'none'; return; }
+  area.style.display = 'block';
+
+  const allResults = (state.results?.results || [])
+    .map((r) => ({ ...r, tournament: getTournamentById(r.tournament_id) }))
+    .filter((r) => r.tournament);
+
+  destroyChart('chart-club-single-progress');
+  destroyChart('chart-club-comparison');
+
+  if (ids.length === 1) renderClubSingleArcher(area, ids[0], allResults);
+  else renderClubMultiComparison(area, ids, allResults);
+}
+
+function renderClubSingleArcher(area, archerId, allResults) {
+  const archer = state.archers?.archers?.find((a) => a.id === archerId);
+  if (!archer) return;
+  const results = allResults
+    .filter((r) => r.archer_id === archerId)
+    .sort((a, b) => (a.tournament.date || '').localeCompare(b.tournament.date || ''));
+  const wins    = results.filter((r) => r.position === 1).length;
+  const podiums = results.filter((r) => r.position <= 3).length;
+  const scores  = results.map((r) => r.total_score).filter((s) => s > 0);
+  const positions = results.map((r) => r.position).filter((p) => p > 0);
+  const avgPos = positions.length ? (positions.reduce((a, b) => a + b, 0) / positions.length).toFixed(1) : '—';
+
+  area.innerHTML = `
+    <div class="card">
+      <div class="section-title">${archer.display_name}</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-bottom:16px">
+        <div class="kpi-card"><div class="kpi-label">Participaciones</div><div class="kpi-value">${results.length}</div></div>
+        <div class="kpi-card"><div class="kpi-label">Victorias</div><div class="kpi-value text-green">${wins}</div></div>
+        <div class="kpi-card"><div class="kpi-label">Podios</div><div class="kpi-value text-accent">${podiums}</div></div>
+        <div class="kpi-card"><div class="kpi-label">Mejor puntaje</div><div class="kpi-value">${fmt(scores.length ? Math.max(...scores) : null)}</div></div>
+        <div class="kpi-card"><div class="kpi-label">Promedio</div><div class="kpi-value">${fmt(average(scores))}</div></div>
+        <div class="kpi-card"><div class="kpi-label">Pos. prom.</div><div class="kpi-value">${avgPos}</div></div>
+      </div>
+      <div class="chart-card">
+        <h3>Evolución de puntaje</h3>
+        <div id="club-single-legend" class="chart-legend"></div>
+        <canvas id="chart-club-single-progress"></canvas>
+      </div>
+    </div>`;
+  renderMultiDivisionProgressChart('chart-club-single-progress', results, 'club-single-legend');
+}
+
+function renderClubMultiComparison(area, ids, allResults) {
+  const archers = ids.map((id) => state.archers?.archers?.find((a) => a.id === id)).filter(Boolean);
+  const colorMap = {};
+  archers.forEach((a, i) => { colorMap[a.id] = CHART_PALETTE[i % CHART_PALETTE.length]; });
+
+  const tableRows = archers.map((a) => {
+    const results   = allResults.filter((r) => r.archer_id === a.id);
+    const wins      = results.filter((r) => r.position === 1).length;
+    const podiums   = results.filter((r) => r.position <= 3).length;
+    const scores    = results.map((r) => r.total_score).filter((s) => s > 0);
+    const positions = results.map((r) => r.position).filter((p) => p > 0);
+    const avgPos    = positions.length ? (positions.reduce((x, y) => x + y, 0) / positions.length).toFixed(1) : '—';
+    const dot = `<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${colorMap[a.id]};margin-right:6px;flex-shrink:0"></span>`;
     return `<tr>
-      <td class="pos">${i + 1}</td>
-      <td><strong>${c.name}</strong></td>
-      <td class="num">${fmt(c.stats.total_members_seen)}</td>
-      <td class="num">${fmt(c.stats.tournaments_participated)}</td>
-      <td class="num">${fmt(c.stats.total_archer_entries)}</td>
-      <td class="num">${fmt(wins)}</td>
-      <td class="text-muted" style="font-size:0.78rem">${(c.stats.disciplines_participated || []).join(', ') || '—'}</td>
+      <td>${dot}<strong>${a.display_name}</strong></td>
+      <td class="num">${results.length}</td>
+      <td class="num text-green">${wins}</td>
+      <td class="num text-accent">${podiums}</td>
+      <td class="num"><strong>${fmt(scores.length ? Math.max(...scores) : null)}</strong></td>
+      <td class="num">${fmt(average(scores))}</td>
+      <td class="num">${avgPos}</td>
     </tr>`;
   }).join('');
+
+  area.innerHTML = `
+    <div class="card">
+      <div class="section-title">Comparación de arqueros (${archers.length})</div>
+      <div class="table-wrapper" style="margin-bottom:16px">
+        <table class="data-table">
+          <thead><tr>
+            <th>Arquero</th><th>Torneos</th><th>Victorias</th><th>Podios</th>
+            <th>Mejor</th><th>Promedio</th><th>Pos. prom.</th>
+          </tr></thead>
+          <tbody>${tableRows}</tbody>
+        </table>
+      </div>
+      <div class="chart-card">
+        <h3>Puntaje promedio por año</h3>
+        <canvas id="chart-club-comparison"></canvas>
+      </div>
+    </div>`;
+
+  // Multi-line chart: avg score per year per archer
+  const allYears = [...new Set(
+    allResults
+      .filter((r) => ids.includes(r.archer_id))
+      .map((r) => r.tournament?.date?.slice(0, 4))
+      .filter(Boolean)
+  )].sort();
+
+  const datasets = archers.map((a) => {
+    const results = allResults.filter((r) => r.archer_id === a.id);
+    const data = allYears.map((y) => {
+      const scores = results
+        .filter((r) => r.tournament?.date?.startsWith(y) && r.total_score > 0)
+        .map((r) => r.total_score);
+      return scores.length ? Math.round(scores.reduce((x, y) => x + y, 0) / scores.length) : null;
+    });
+    const color = colorMap[a.id];
+    return {
+      label: a.display_name, data,
+      borderColor: color, backgroundColor: color + '33',
+      pointBackgroundColor: color, pointRadius: 4, tension: 0.3,
+      fill: false, spanGaps: true,
+    };
+  });
+
+  const ctx = document.getElementById('chart-club-comparison');
+  if (ctx) {
+    state.charts['chart-club-comparison'] = new Chart(ctx, {
+      type: 'line',
+      data: { labels: allYears, datasets },
+      options: {
+        ...CHART_DEFAULTS,
+        plugins: {
+          legend: { display: true, labels: { color: '#8892a4', font: { size: 11 } } },
+          tooltip: { mode: 'index', intersect: false },
+        },
+      },
+    });
+  }
 }
 
 // ─── SECTION: TORNEOS ────────────────────────────────────────────────────────
