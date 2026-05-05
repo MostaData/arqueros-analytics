@@ -70,10 +70,37 @@ function rankClass(pos) {
 
 // ─── DATA LOADING ─────────────────────────────────────────────────────────────
 async function loadAllData() {
+  // fetch() is blocked by browsers when opening files directly (file:// protocol)
+  if (location.protocol === 'file:') {
+    document.getElementById('loading-overlay').innerHTML = `
+      <div style="text-align:center;padding:32px;max-width:520px;margin:auto">
+        <div style="font-size:2.5rem;margin-bottom:16px">⚠️</div>
+        <div style="color:#f59e0b;font-weight:700;font-size:1.1rem;margin-bottom:10px">
+          Abrí el dashboard con un servidor</div>
+        <div style="color:#8892a4;font-size:0.88rem;line-height:1.8">
+          Los navegadores bloquean la carga de archivos locales por seguridad.<br><br>
+          <strong style="color:#e2e8f0">Opción 1 — GitHub Pages (recomendado):</strong><br>
+          <a href="https://mostadata.github.io/arqueros-analytics/" target="_blank"
+             style="color:#4f8ef7">mostadata.github.io/arqueros-analytics</a><br><br>
+          <strong style="color:#e2e8f0">Opción 2 — Servidor local:</strong><br>
+          <code style="background:#1a1f2e;padding:4px 8px;border-radius:4px">
+            python3 -m http.server 8080</code><br>
+          luego abrí <a href="http://localhost:8080" target="_blank"
+             style="color:#4f8ef7">localhost:8080</a>
+        </div>
+      </div>`;
+    return;
+  }
+
   const files = ['calendar', 'tournaments', 'all-results', 'archers-index', 'clubs-index'];
   try {
     const responses = await Promise.all(
-      files.map((f) => fetch(`data/${f}.json`).then((r) => r.json()))
+      files.map((f) =>
+        fetch(`data/${f}.json`).then((r) => {
+          if (!r.ok) throw new Error(`HTTP ${r.status} al cargar ${f}.json`);
+          return r.json();
+        })
+      )
     );
     state.calendar = responses[0];
     state.tournaments = responses[1];
@@ -83,7 +110,7 @@ async function loadAllData() {
   } catch (err) {
     console.error('Error loading data:', err);
     document.getElementById('loading-overlay').innerHTML =
-      '<div class="loading-text" style="color:#ef4444">Error cargando datos. Verificá que los archivos JSON existen.</div>';
+      `<div class="loading-text" style="color:#ef4444">Error cargando datos: ${err.message}</div>`;
     throw err;
   }
 }
