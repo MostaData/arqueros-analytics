@@ -26,25 +26,46 @@ const state = {
 };
 
 // ─── DIVISION COLORS ─────────────────────────────────────────────────────────
-// Keys are base prefixes — full category names like "Recurvo Masculino 50+" match by prefix
-const DIVISION_COLORS = {
-  'Compuesto':   '#4f8ef7',
-  'Recurvo':     '#22c55e',
-  'Raso':        '#f59e0b',
-  'Long Bow':    '#ef4444',
-  'Longbow':     '#ef4444',
-  'Tradicional': '#7c5cfc',
-  'Olímpico':    '#06b6d4',
-  'Cazador':     '#f97316',
+// Each base division owns a hue; variants (e.g. "Recurvo Masculino 50+") get a
+// distinct shade of that same hue so related divisions stay visually grouped.
+const BASE_HUES = {
+  'Compuesto':   210,   // 🔵 azul
+  'Recurvo':     130,   // 🟢 verde
+  'Raso':         38,   // 🟡 amarillo-naranja
+  'Long Bow':      0,   // 🔴 rojo
+  'Longbow':       0,   // 🔴 rojo (alias)
+  'Tradicional': 270,   // 🟣 violeta
+  'Olímpico':    185,   // 🩵 cyan
+  'Cazador':      25,   // 🟠 naranja
 };
 const DIVISION_COLOR_DEFAULT = '#8892a4';
-// Sorted by length desc so "Long Bow" matches before "Long"
-const _DIVISION_KEYS = Object.keys(DIVISION_COLORS).sort((a, b) => b.length - a.length);
+const _BASE_KEYS = Object.keys(BASE_HUES).sort((a, b) => b.length - a.length);
+
+// Simple string hash → unsigned 32-bit int
+function _strHash(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = Math.imul(31, h) + s.charCodeAt(i) | 0;
+  return h >>> 0;
+}
+
+// Returns a consistent HSL color for any division name.
+// Variants of the same base share the same hue but differ in lightness/saturation.
 function getDivisionColor(d) {
   if (!d) return DIVISION_COLOR_DEFAULT;
-  if (DIVISION_COLORS[d]) return DIVISION_COLORS[d];
-  const base = _DIVISION_KEYS.find((k) => d.startsWith(k));
-  return base ? DIVISION_COLORS[base] : DIVISION_COLOR_DEFAULT;
+  const baseKey = _BASE_KEYS.find((k) => d.startsWith(k));
+  if (!baseKey) {
+    // Unknown base: hash to a random-but-stable hue
+    return `hsl(${_strHash(d) % 360}, 60%, 55%)`;
+  }
+  const hue = BASE_HUES[baseKey];
+  if (d === baseKey || d === 'Longbow') {
+    return `hsl(${hue}, 72%, 56%)`;          // canonical base color
+  }
+  const variant = d.slice(baseKey.length).trim();
+  const h = _strHash(variant);
+  const lightness   = 38 + (h % 30);         // 38–67 %
+  const saturation  = 58 + ((h >> 8) % 22);  // 58–79 %
+  return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
