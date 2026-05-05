@@ -9,9 +9,9 @@ const path = require('path');
 // ─── CONFIGURATION ──────────────────────────────────────────────────────────
 const BASE_URL = 'https://arquerosonline.com.ar';
 const DELAY_MS = 1500;
-const ID_RANGE_START = 800;
+const ID_RANGE_START = 500;
 const ID_RANGE_END_DEFAULT = 1200;
-const MAX_CONSECUTIVE_MISSES = 20;
+const MAX_CONSECUTIVE_MISSES = 50;
 const RAW_DATA_FILE = path.join(__dirname, '..', 'data', 'raw-scrape.json');
 const USER_AGENT = 'ArqueroStatsBot/1.0 (github.com/archery-analytics; datos publicos)';
 
