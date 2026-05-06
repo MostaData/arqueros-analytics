@@ -695,10 +695,9 @@ function initClubSelect() {
     const matches = clubs.filter((c) => clubMatchesQuery(c, q));
     listEl.innerHTML = matches.length
       ? matches.map((c) => {
-          const abbr = getClubAbbr(c.name);
-          const sel  = state.selectedClubId === c.id ? ' active' : '';
+          const sel = state.selectedClubId === c.id ? ' active' : '';
           return `<div class="club-select-option${sel}" data-id="${c.id}">
-            <strong>${abbr} — ${c.name}</strong>
+            <strong>${c.name}</strong>
             <span>${c.stats.total_members_seen} arqueros · ${c.stats.tournaments_participated} torneos</span>
           </div>`;
         }).join('')
@@ -708,10 +707,9 @@ function initClubSelect() {
       opt.addEventListener('click', () => {
         const club = clubs.find((c) => c.id === opt.dataset.id);
         if (!club) return;
-        const abbr = getClubAbbr(club.name);
         state.selectedClubId = club.id;
         state.selectedClubArcherIds = [];
-        document.getElementById('club-select-label').textContent = `${abbr} — ${club.name}`;
+        document.getElementById('club-select-label').textContent = club.name;
         trigger.classList.add('has-value');
         closeDropdown();
         renderClubDetail(club.id);
@@ -751,7 +749,7 @@ function initClubSelect() {
   if (state.selectedClubId) {
     const club = clubs.find((c) => c.id === state.selectedClubId);
     if (club) {
-      document.getElementById('club-select-label').textContent = `${getClubAbbr(club.name)} — ${club.name}`;
+      document.getElementById('club-select-label').textContent = club.name;
       trigger.classList.add('has-value');
     }
   }
