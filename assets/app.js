@@ -128,9 +128,23 @@ async function loadAllData() {
     state.clubs = responses[4];
   } catch (err) {
     console.error('Error loading data:', err);
-    document.getElementById('loading-overlay').innerHTML =
-      `<div class="loading-text" style="color:#ef4444">Error cargando datos: ${err.message}</div>`;
-    throw err;
+    // Show error but DO NOT throw — let init() finish so the overlay is hidden
+    // and the app renders (empty but functional).
+    const ol = document.getElementById('loading-overlay');
+    if (ol) ol.innerHTML = `
+      <div style="text-align:center;padding:32px;max-width:480px;margin:auto">
+        <div style="font-size:2rem;margin-bottom:12px">⚠️</div>
+        <div style="color:#f59e0b;font-weight:700;margin-bottom:8px">Sin datos disponibles</div>
+        <div style="color:#8892a4;font-size:0.85rem;line-height:1.7">
+          Los archivos de datos aún no fueron generados.<br>
+          Ejecutá el workflow en <strong>GitHub Actions</strong> para poblar el dashboard.<br><br>
+          <button onclick="document.getElementById('loading-overlay').style.display='none'"
+            style="background:#4f8ef7;color:#fff;border:none;border-radius:8px;
+                   padding:10px 20px;font-size:0.9rem;cursor:pointer;font-weight:600">
+            Entrar de todas formas →
+          </button>
+        </div>
+      </div>`;
   }
 }
 
