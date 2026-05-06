@@ -61,8 +61,21 @@
       font-weight: 600;
       cursor: pointer;
       transition: background 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
-    .btn-login:hover { background: #3a7ae0; }
+    .btn-login:hover:not(:disabled) { background: #3a7ae0; }
+    .btn-login:disabled { opacity: 0.6; cursor: not-allowed; }
+    .spinner-sm {
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
     .error-msg {
       margin-top: 14px;
       background: rgba(239,68,68,0.12);
@@ -86,36 +99,56 @@
   </div>
 
   <form id="login-form" onsubmit="handleLogin(event)">
-    <label for="username">Usuario</label>
-    <input type="text" id="username" placeholder="Usuario" autocomplete="username">
+    <label for="email">Correo electrónico</label>
+    <input type="email" id="email" placeholder="usuario@email.com" autocomplete="email" required>
 
     <label for="password">Contraseña</label>
-    <input type="password" id="password" placeholder="Contraseña" autocomplete="current-password">
+    <input type="password" id="password" placeholder="Contraseña" autocomplete="current-password" required>
 
-    <button type="submit" class="btn-login">Ingresar</button>
-    <div class="error-msg" id="error-msg">Usuario o contraseña incorrectos</div>
+    <button type="submit" class="btn-login" id="btn-submit">Ingresar</button>
+    <div class="error-msg" id="error-msg">Correo o contraseña incorrectos</div>
   </form>
 </div>
 
+<!-- Supabase JS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/auth.js"></script>
 <script>
-  // Si ya está autenticado, ir directo al dashboard
-  if (sessionStorage.getItem('aa_auth') === '1') {
+  // ── Dev bypass: file:// protocol uses admin session directly
+  if (location.protocol === 'file:') {
     location.replace('index.html');
   }
 
-  function handleLogin(e) {
-    e.preventDefault();
-    const user = document.getElementById('username').value.trim().toUpperCase();
-    const pass = document.getElementById('password').value;
-    const err  = document.getElementById('error-msg');
+  // ── Already authenticated? Go straight to dashboard
+  (async () => {
+    const session = await authGetSession();
+    if (session) location.replace('index.html');
+  })();
 
-    if (user === 'ADMIN' && pass === '147258') {
-      sessionStorage.setItem('aa_auth', '1');
-      location.replace('index.html');
-    } else {
+  async function handleLogin(e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    const pass  = document.getElementById('password').value;
+    const err   = document.getElementById('error-msg');
+    const btn   = document.getElementById('btn-submit');
+
+    err.classList.remove('visible');
+    btn.disabled = true;
+    btn.innerHTML = '<div class="spinner-sm"></div> Ingresando…';
+
+    const { error } = await _sb.auth.signInWithPassword({ email, password: pass });
+
+    if (error) {
+      err.textContent = error.message.includes('Invalid')
+        ? 'Correo o contraseña incorrectos'
+        : error.message;
       err.classList.add('visible');
+      btn.disabled = false;
+      btn.textContent = 'Ingresar';
       document.getElementById('password').value = '';
       document.getElementById('password').focus();
+    } else {
+      location.replace('index.html');
     }
   }
 </script>

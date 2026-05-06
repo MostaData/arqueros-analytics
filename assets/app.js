@@ -22,6 +22,8 @@ const state = {
   selectedArcherId: null,
   selectedClubId: null,
   selectedClubArcherIds: [],
+  userRole: 'viewer',       // 'admin' | 'viewer'
+  userAccess: null,         // null = no restriction (admin); string[] = allowed archer_ids
   tournamentPage: 1,
   rankingPage: 1,
   PAGE_SIZE: 30,
@@ -153,7 +155,13 @@ function applyFilters(results) {
 }
 
 function getFilteredResults() {
-  return applyFilters(state.results?.results || []);
+  let results = state.results?.results || [];
+  // Viewers only see their assigned archers
+  if (state.userAccess !== null) {
+    const allowed = new Set(state.userAccess);
+    results = results.filter((r) => allowed.has(r.archer_id));
+  }
+  return applyFilters(results);
 }
 
 // ─── POPULATE FILTER DROPDOWNS ────────────────────────────────────────────────
@@ -1454,6 +1462,29 @@ function applyUrlParams() {
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 async function init() {
+  // Wait for Supabase auth check to finish (set by inline script in index.html)
+  if (window.__authReady) await window.__authReady;
+
+  // Apply user role / access from auth
+  const profile = window.__userProfile;
+  if (profile) {
+    state.userRole = profile.role || 'viewer';
+    // Admins get null (no restriction); viewers get the array from __userAccess
+    state.userAccess = (profile.role === 'admin') ? null : (window.__userAccess || []);
+
+    // Show user name in topbar
+    const userEl = document.getElementById('topbar-user');
+    if (userEl) {
+      const name = profile.display_name || profile.email || '';
+      const badge = profile.role === 'admin' ? '🔑 ' : '';
+      userEl.textContent = badge + name;
+    }
+
+    // Show/hide admin link in sidebar based on role
+    const adminLink = document.querySelector('.admin-link');
+    if (adminLink && profile.role !== 'admin') adminLink.style.display = 'none';
+  }
+
   await loadAllData();
 
   document.getElementById('loading-overlay').style.display = 'none';

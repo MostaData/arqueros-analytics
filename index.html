@@ -30,11 +30,28 @@
 </head>
 <body>
 
-<!-- ─── AUTH GUARD ───────────────────────────────────────────────────────── -->
+<!-- ─── SUPABASE + AUTH ──────────────────────────────────────────────────── -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/auth.js"></script>
 <script>
-  if (location.protocol !== 'file:' && sessionStorage.getItem('aa_auth') !== '1') {
-    location.replace('login.html');
-  }
+  // Starts an async auth-check and stores the promise so init() can await it.
+  window.__authReady = (async () => {
+    if (location.protocol === 'file:') {
+      // Dev mode — full admin access without Supabase
+      window.__userProfile = { role: 'admin', display_name: 'Dev (local)' };
+      return;
+    }
+    const session = await authGetSession();
+    if (!session) { location.replace('login.html'); return; }
+
+    const profile = await authGetProfile(session.user.id);
+    window.__userProfile = profile;
+
+    if (profile?.role !== 'admin') {
+      const rows = await authGetArcherAccess(session.user.id);
+      window.__userAccess = rows.map((r) => r.archer_id);
+    }
+  })();
 </script>
 
 <!-- ─── LOADING ─────────────────────────────────────────────────────────── -->
@@ -114,8 +131,10 @@
           <label>Género</label>
           <select data-filter="gender"></select>
         </div>
-        <button onclick="sessionStorage.removeItem('aa_auth');location.replace('login.html')"
-          style="margin-left:8px;padding:6px 12px;background:transparent;border:1px solid #2a2f45;
+        <span id="topbar-user"
+          style="font-size:0.75rem;color:#8892a4;white-space:nowrap;padding:0 4px"></span>
+        <button onclick="authSignOut()"
+          style="margin-left:4px;padding:6px 12px;background:transparent;border:1px solid #2a2f45;
                  color:#8892a4;border-radius:6px;font-size:0.75rem;cursor:pointer;white-space:nowrap"
           title="Cerrar sesión">⬡ Salir</button>
       </div>

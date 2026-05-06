@@ -48,9 +48,108 @@
     code { background: var(--bg3); padding: 2px 7px; border-radius: 4px; font-size: 0.82rem; font-family: 'Consolas', monospace; }
     .seg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
     @media(max-width:600px) { .seg-grid { grid-template-columns: 1fr; } }
+
+    /* ── User Management ── */
+    .user-card {
+      display: flex; align-items: center; gap: 14px;
+      padding: 12px 16px; border-bottom: 1px solid var(--border);
+      font-size: 0.84rem; transition: background 0.1s;
+    }
+    .user-card:last-child { border-bottom: none; }
+    .user-card:hover { background: rgba(255,255,255,0.02); }
+    .user-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--bg3); display: flex; align-items: center;
+      justify-content: center; font-size: 1rem; flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+    .user-info { flex: 1; min-width: 0; }
+    .user-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .user-email { font-size: 0.76rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .user-role-badge {
+      padding: 2px 9px; border-radius: 20px; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase; flex-shrink: 0;
+    }
+    .role-admin { background: rgba(79,142,247,0.15); color: var(--accent); border: 1px solid rgba(79,142,247,0.3); }
+    .role-viewer { background: rgba(136,146,164,0.12); color: var(--muted); border: 1px solid var(--border); }
+    .user-actions { display: flex; gap: 6px; flex-shrink: 0; }
+    .btn-icon {
+      padding: 5px 10px; border-radius: 6px; font-size: 0.76rem; cursor: pointer;
+      border: 1px solid var(--border); background: transparent; color: var(--muted);
+      transition: all 0.15s; white-space: nowrap;
+    }
+    .btn-icon:hover { color: var(--text); border-color: var(--accent); }
+    .btn-icon.danger:hover { color: #f87171; border-color: rgba(239,68,68,0.5); }
+    .user-list-container {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden; margin-top: 12px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media(max-width:520px) { .form-row { grid-template-columns: 1fr; } }
+    .form-field label { display: block; font-size: 0.74rem; color: var(--muted); margin-bottom: 5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    .form-field input, .form-field select {
+      width: 100%; background: var(--bg2); border: 1px solid var(--border);
+      color: var(--text); border-radius: 8px; padding: 9px 12px; font-size: 0.86rem;
+      outline: none; transition: border-color 0.15s;
+    }
+    .form-field input:focus, .form-field select:focus { border-color: var(--accent); }
+    .archer-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(79,142,247,0.12); border: 1px solid rgba(79,142,247,0.25);
+      border-radius: 20px; padding: 3px 10px 3px 8px; font-size: 0.78rem; margin: 3px;
+    }
+    .archer-tag button {
+      background: none; border: none; color: var(--muted); cursor: pointer;
+      font-size: 0.9rem; padding: 0; line-height: 1; transition: color 0.1s;
+    }
+    .archer-tag button:hover { color: #f87171; }
+    .access-modal-backdrop {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 1000; padding: 16px;
+    }
+    .access-modal {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 14px;
+      padding: 24px; width: 100%; max-width: 540px; max-height: 80vh;
+      overflow-y: auto; box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    }
+    .access-modal h3 { font-size: 1rem; margin-bottom: 16px; }
+    .modal-archer-search {
+      width: 100%; background: var(--bg3); border: 1px solid var(--border);
+      color: var(--text); border-radius: 8px; padding: 9px 12px;
+      font-size: 0.86rem; outline: none; margin-bottom: 10px;
+    }
+    .modal-archer-search:focus { border-color: var(--accent); }
+    .modal-archer-results {
+      max-height: 220px; overflow-y: auto;
+      background: var(--bg3); border: 1px solid var(--border); border-radius: 8px;
+    }
+    .modal-archer-item {
+      padding: 8px 12px; cursor: pointer; font-size: 0.83rem;
+      border-bottom: 1px solid var(--border); transition: background 0.1s;
+    }
+    .modal-archer-item:last-child { border-bottom: none; }
+    .modal-archer-item:hover { background: rgba(79,142,247,0.08); }
+    .modal-archer-item.already-added { opacity: 0.4; cursor: default; pointer-events: none; }
+    .current-access-tags { min-height: 40px; margin-bottom: 14px; }
+    .modal-footer { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
   </style>
 </head>
 <body>
+
+<!-- ─── SUPABASE + AUTH ──────────────────────────────────────────────────── -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/auth.js"></script>
+<script>
+  window.__adminAuthReady = (async () => {
+    if (location.protocol === 'file:') return; // dev bypass
+    const session = await authGetSession();
+    if (!session) { location.replace('login.html'); return; }
+    const profile = await authGetProfile(session.user.id);
+    if (profile?.role !== 'admin') { location.replace('index.html'); return; }
+    window.__userProfile = profile;
+  })();
+</script>
 
 <div id="admin-loading" class="loading-overlay">
   <div class="spinner"></div>
@@ -67,6 +166,8 @@
     <div class="sidebar-nav">
       <div class="nav-section">Estado</div>
       <div class="nav-link"><span class="icon">📂</span> Estado de datos</div>
+      <div class="nav-section">Usuarios</div>
+      <div class="nav-link"><span class="icon">👥</span> Gestión de Usuarios</div>
       <div class="nav-section">Búsqueda</div>
       <div class="nav-link"><span class="icon">🏹</span> Buscar arquero</div>
       <div class="nav-link"><span class="icon">🏛</span> Buscar club</div>
@@ -138,6 +239,48 @@
           <p><strong>Opción 3 — Local (si tenés Node.js instalado):</strong></p>
           <code>cd scripts && npm install && node scrape.js && node build-data.js</code>
         </div>
+      </div>
+    </div>
+
+    <!-- ─── GESTIÓN DE USUARIOS ────────────────────────────────────────── -->
+    <div class="section-block" id="section-users">
+      <div class="section-title" style="margin-bottom:16px">Gestión de Usuarios</div>
+
+      <!-- Create user form -->
+      <div class="card" style="margin-bottom:20px">
+        <div class="section-title" style="font-size:0.82rem;margin-bottom:14px">➕ Crear nuevo usuario</div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Nombre para mostrar</label>
+            <input type="text" id="nu-name" placeholder="Nombre Apellido" autocomplete="off">
+          </div>
+          <div class="form-field">
+            <label>Rol</label>
+            <select id="nu-role">
+              <option value="viewer">Viewer (acceso limitado)</option>
+              <option value="admin">Admin (acceso total)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row" style="margin-top:12px">
+          <div class="form-field">
+            <label>Correo electrónico</label>
+            <input type="email" id="nu-email" placeholder="usuario@email.com" autocomplete="off">
+          </div>
+          <div class="form-field">
+            <label>Contraseña inicial</label>
+            <input type="password" id="nu-password" placeholder="Mínimo 8 caracteres" autocomplete="new-password">
+          </div>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <button class="btn btn-primary" id="btn-create-user" onclick="createUser()">Crear usuario</button>
+          <span id="create-user-msg" style="font-size:0.82rem;color:var(--muted)"></span>
+        </div>
+      </div>
+
+      <!-- User list -->
+      <div id="user-list-container" class="user-list-container">
+        <div style="padding:16px;color:var(--muted);font-size:0.84rem">Cargando usuarios…</div>
       </div>
     </div>
 
@@ -237,13 +380,14 @@ archery-analytics/
 </div>
 
 <script src="assets/admin.js"></script>
+<script src="assets/admin-users.js"></script>
 <script>
-  // Fix loading overlay hide
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', async () => {
+    if (window.__adminAuthReady) await window.__adminAuthReady;
     const overlay = document.getElementById('admin-loading');
-    if (overlay) {
-      setTimeout(() => { overlay.style.display = 'none'; }, 1500);
-    }
+    if (overlay) overlay.style.display = 'none';
+    // Boot user management
+    if (typeof initUserManagement === 'function') initUserManagement();
   });
 </script>
 </body>
