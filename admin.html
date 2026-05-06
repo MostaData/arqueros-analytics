@@ -145,19 +145,32 @@
     if (location.protocol === 'file:') { resolve(); return; }
 
     let resolved = false;
+    let sessionConfirmed = false;
     function safeResolve() { if (!resolved) { resolved = true; resolve(); } }
 
-    setTimeout(() => { if (!resolved) location.replace('login.html'); }, 6000);
+    setTimeout(() => {
+      if (!resolved) {
+        if (sessionConfirmed) safeResolve(); // perfil lento → entrar igual
+        else location.replace('login.html');
+      }
+    }, 8000);
 
     let entered = false;
     _sb.auth.onAuthStateChange(async (event, session) => {
+      if (entered && resolved) {
+        if (event === 'SIGNED_OUT') location.replace('login.html');
+        return;
+      }
       if (entered) return;
       entered = true;
 
       if (!session) { location.replace('login.html'); return; }
+      sessionConfirmed = true;
+
       try {
         const profile = await authGetProfile(session.user.id);
-        if (profile?.role !== 'admin') { location.replace('index.html'); return; }
+        if (!profile) { location.replace('index.html'); return; }
+        if (profile.role !== 'admin') { location.replace('index.html'); return; }
         window.__userProfile = profile;
       } catch (e) {
         location.replace('index.html'); return;
