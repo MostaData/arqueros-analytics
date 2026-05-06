@@ -13,6 +13,18 @@ const _sbAux = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
 });
 
 // ─── AUTH HELPERS ─────────────────────────────────────────────────────────────
+
+// getSession() puede retornar null mientras Supabase inicializa internamente.
+// Reintenta hasta maxRetries veces con una pausa entre cada intento.
+async function authWaitForSession(maxRetries = 6, delayMs = 300) {
+  for (let i = 0; i < maxRetries; i++) {
+    const { data } = await _sb.auth.getSession();
+    if (data?.session) return data.session;
+    if (i < maxRetries - 1) await new Promise(r => setTimeout(r, delayMs));
+  }
+  return null;
+}
+
 async function authGetSession() {
   const { data } = await _sb.auth.getSession();
   return data.session || null;

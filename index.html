@@ -34,51 +34,40 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="assets/auth.js"></script>
 <script>
-  window.__authReady = new Promise((resolve) => {
+  // Auth guard: getSession con retry (más confiable que onAuthStateChange)
+  window.__authReady = (async () => {
     if (location.protocol === 'file:') {
       window.__userProfile = { role: 'admin', display_name: 'Dev (local)' };
-      resolve(); return;
+      return;
     }
 
-    let resolved = false;
-    let sessionConfirmed = false;
-    function safeResolve() { if (!resolved) { resolved = true; resolve(); } }
+    const session = await authWaitForSession();
+    if (!session) { location.replace('login.html'); return; }
 
-    // Si onAuthStateChange nunca dispara (Supabase caído) → redirigir al login
-    // Si disparó con sesión pero el perfil cuelga → resolver igual (app sin perfil)
-    setTimeout(() => {
-      if (!resolved) {
-        if (sessionConfirmed) safeResolve();   // sesión ok, perfil lento → entrar
-        else location.replace('login.html');   // sin sesión → volver al login
+    try {
+      // Promise.race: si Supabase tarda >5 s, continuar sin perfil
+      const profile = await Promise.race([
+        authGetProfile(session.user.id),
+        new Promise(r => setTimeout(() => r(null), 5000))
+      ]);
+      window.__userProfile = profile || { role: 'viewer', display_name: session.user.email };
+
+      if ((profile?.role || 'viewer') !== 'admin') {
+        const rows = await Promise.race([
+          authGetArcherAccess(session.user.id),
+          new Promise(r => setTimeout(() => r([]), 3000))
+        ]);
+        window.__userAccess = (rows || []).map(r => r.archer_id);
       }
-    }, 6000);
+    } catch (e) {
+      window.__userProfile = { role: 'viewer', display_name: session.user.email };
+    }
 
-    let entered = false;
-    _sb.auth.onAuthStateChange(async (event, session) => {
-      // Después del arranque: solo manejar SIGNED_OUT
-      if (entered && resolved) {
-        if (event === 'SIGNED_OUT') location.replace('login.html');
-        return;
-      }
-      if (entered) return;
-      entered = true;
-
-      if (!session) { location.replace('login.html'); return; }
-      sessionConfirmed = true;
-
-      try {
-        const profile = await authGetProfile(session.user.id);
-        window.__userProfile = profile;
-        if (profile?.role !== 'admin') {
-          const rows = await authGetArcherAccess(session.user.id);
-          window.__userAccess = rows.map((r) => r.archer_id);
-        }
-      } catch (e) {
-        window.__userProfile = window.__userProfile || { role: 'viewer' };
-      }
-      safeResolve();
+    // Después del arranque: redirigir si la sesión expira
+    _sb.auth.onAuthStateChange((event) => {
+      if (event === 'SIGNED_OUT') location.replace('login.html');
     });
-  });
+  })();
 </script>
 
 <!-- ─── LOADING ─────────────────────────────────────────────────────────── -->

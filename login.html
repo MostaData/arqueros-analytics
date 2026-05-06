@@ -117,16 +117,8 @@
   // ── Dev bypass
   if (location.protocol === 'file:') { location.replace('index.html'); }
 
-  // ── Already authenticated? Go straight to dashboard.
-  // Use onAuthStateChange (INITIAL_SESSION) — more reliable than getSession() on fresh load.
-  {
-    const { data: { subscription } } = _sb.auth.onAuthStateChange((event, session) => {
-      if (event === 'INITIAL_SESSION' && session) {
-        subscription.unsubscribe();
-        location.replace('index.html');
-      }
-    });
-  }
+  // ── Ya autenticado → ir directo al dashboard
+  authWaitForSession().then(s => { if (s) location.replace('index.html'); });
 
   async function handleLogin(e) {
     e.preventDefault();
