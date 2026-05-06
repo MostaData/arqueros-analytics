@@ -286,33 +286,41 @@
     <!-- ─── SECCIÓN: CLUBES ──────────────────────────────────────────── -->
     <section class="section" id="section-clubes">
 
-      <!-- Búsqueda de club -->
-      <div class="archer-search-box">
-        <input type="text" id="club-search-input" placeholder="Buscá un club o escuela por nombre…" autocomplete="off">
-        <div class="autocomplete-list" id="club-autocomplete" style="display:none"></div>
+      <!-- Desplegable con buscador -->
+      <div class="club-select-wrapper">
+        <div class="club-select-trigger" id="club-select-trigger">
+          <span id="club-select-label">Seleccioná un club o escuela…</span>
+          <span class="club-select-arrow">▾</span>
+        </div>
+        <div class="club-select-dropdown" id="club-select-dropdown" style="display:none">
+          <div class="club-select-search">
+            <input type="text" id="club-select-input"
+              placeholder="Buscá por nombre o siglas (ej: VEA)…" autocomplete="off">
+          </div>
+          <div class="club-select-list" id="club-select-list"></div>
+        </div>
       </div>
 
-      <!-- Detalle del club (visible al seleccionar) -->
-      <div id="club-detail" style="display:none">
+      <!-- Gráficos: siempre visibles para ver la estructura antes de elegir -->
+      <div class="row-2" style="margin-bottom:16px">
+        <div class="chart-card">
+          <h3>Participaciones por año</h3>
+          <canvas id="chart-club-activity"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Top divisiones</h3>
+          <canvas id="chart-club-divisions"></canvas>
+        </div>
+      </div>
 
+      <!-- Header + arqueros: aparecen al seleccionar un club -->
+      <div id="club-detail" style="display:none">
         <div class="archer-header">
           <div style="flex:1">
             <h2 id="club-detail-name">—</h2>
             <div class="archer-stats-pills" id="club-detail-pills"></div>
           </div>
         </div>
-
-        <div class="row-2" style="margin-bottom:16px">
-          <div class="chart-card">
-            <h3>Participaciones por año</h3>
-            <canvas id="chart-club-activity"></canvas>
-          </div>
-          <div class="chart-card">
-            <h3>Top divisiones</h3>
-            <canvas id="chart-club-divisions"></canvas>
-          </div>
-        </div>
-
         <div class="card">
           <div class="section-title" style="margin-bottom:4px">Arqueros del club</div>
           <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px">
@@ -320,14 +328,7 @@
           </div>
           <div id="club-archers-list" class="club-archers-list"></div>
         </div>
-
-        <!-- Área de comparación / detalle individual -->
         <div id="club-comparison-area" style="display:none;margin-top:16px"></div>
-
-      </div>
-
-      <div id="club-no-selection" style="color:var(--muted);padding:40px 0;text-align:center">
-        Buscá un club para ver el análisis del plantel
       </div>
 
     </section>

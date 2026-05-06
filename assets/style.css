@@ -356,6 +356,46 @@ table.data-table td.pos { text-align: center; font-weight: 700; }
 .trend-down::before { content: '▼ '; color: var(--red); }
 .trend-neutral::before { content: '● '; color: var(--muted); }
 
+/* ─── CLUB SEARCHABLE SELECT ───────────────────────────────────────────────── */
+.club-select-wrapper { position: relative; margin-bottom: 20px; }
+.club-select-trigger {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 11px 14px; cursor: pointer;
+  font-size: 0.88rem; color: var(--muted);
+  transition: border-color 0.15s;
+  user-select: none;
+}
+.club-select-trigger.has-value { color: var(--text); }
+.club-select-trigger:hover,
+.club-select-trigger.open { border-color: var(--accent); }
+.club-select-arrow { font-size: 0.75rem; color: var(--muted); transition: transform 0.15s; flex-shrink: 0; }
+.club-select-trigger.open .club-select-arrow { transform: rotate(180deg); }
+.club-select-dropdown {
+  position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 200;
+  background: var(--bg2); border: 1px solid var(--accent);
+  border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  overflow: hidden;
+}
+.club-select-search { padding: 10px; border-bottom: 1px solid var(--border); }
+.club-select-search input {
+  width: 100%; background: var(--bg3); border: 1px solid var(--border);
+  color: var(--text); border-radius: 6px; padding: 8px 12px;
+  font-size: 0.85rem; outline: none;
+}
+.club-select-search input:focus { border-color: var(--accent); }
+.club-select-list { max-height: 300px; overflow-y: auto; }
+.club-select-option {
+  padding: 10px 14px; cursor: pointer;
+  border-bottom: 1px solid var(--border); transition: background 0.1s;
+}
+.club-select-option:last-child { border-bottom: none; }
+.club-select-option:hover { background: var(--bg3); }
+.club-select-option.active { background: rgba(79,142,247,0.12); }
+.club-select-option strong { display: block; font-size: 0.84rem; color: var(--text); }
+.club-select-option.active strong { color: var(--accent); }
+.club-select-option span { font-size: 0.71rem; color: var(--muted); }
+
 /* ─── CLUB ARCHER LIST ─────────────────────────────────────────────────────── */
 .club-archers-list {
   display: grid;

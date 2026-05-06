@@ -662,50 +662,105 @@ function renderArcherCategoryComparison(filteredResults) {
 
 // ─── SECTION: CLUBES ──────────────────────────────────────────────────────────
 function renderClubes() {
-  setupClubAutocomplete();
+  initClubSelect();
   if (state.selectedClubId) renderClubDetail(state.selectedClubId);
 }
 
-function setupClubAutocomplete() {
-  const input = document.getElementById('club-search-input');
-  const list  = document.getElementById('club-autocomplete');
-  if (!input || !list || input.dataset.bound) return;
-  input.dataset.bound = '1';
+// Genera siglas a partir del nombre: primera letra de palabras > 2 chars
+function getClubAbbr(name) {
+  return name.split(/\s+/).filter((w) => w.length > 2).map((w) => w[0]).join('').toUpperCase();
+}
 
-  input.addEventListener('input', () => {
-    const q = input.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
-    if (q.length < 2) { list.style.display = 'none'; return; }
-    const clubs = state.clubs?.clubs || [];
-    const matches = clubs
-      .filter((c) => c.name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').includes(q))
-      .slice(0, 12);
-    if (!matches.length) { list.style.display = 'none'; return; }
-    list.style.display = 'block';
-    list.innerHTML = matches.map((c) => `
-      <div class="ac-item" data-id="${c.id}">
-        <strong>${c.name}</strong>
-        <div class="ac-sub">${c.stats.total_members_seen} arqueros · ${c.stats.tournaments_participated} torneos</div>
-      </div>`).join('');
-    list.querySelectorAll('.ac-item').forEach((item) => {
-      item.addEventListener('click', () => {
-        state.selectedClubId = item.dataset.id;
+function clubMatchesQuery(club, q) {
+  if (!q) return true;
+  const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  const qn = norm(q);
+  if (norm(club.name).includes(qn)) return true;
+  // Búsqueda por siglas: "VEA" → "Valhalla Escuela de Arquería"
+  const abbr = norm(getClubAbbr(club.name));
+  return abbr.startsWith(qn);
+}
+
+function initClubSelect() {
+  const trigger  = document.getElementById('club-select-trigger');
+  const dropdown = document.getElementById('club-select-dropdown');
+  const input    = document.getElementById('club-select-input');
+  const listEl   = document.getElementById('club-select-list');
+  if (!trigger || trigger.dataset.bound) return;
+  trigger.dataset.bound = '1';
+
+  const clubs = (state.clubs?.clubs || []).sort((a, b) => a.name.localeCompare(b.name));
+
+  function renderList(q) {
+    const matches = clubs.filter((c) => clubMatchesQuery(c, q));
+    listEl.innerHTML = matches.length
+      ? matches.map((c) => {
+          const abbr = getClubAbbr(c.name);
+          const sel  = state.selectedClubId === c.id ? ' active' : '';
+          return `<div class="club-select-option${sel}" data-id="${c.id}">
+            <strong>${abbr} — ${c.name}</strong>
+            <span>${c.stats.total_members_seen} arqueros · ${c.stats.tournaments_participated} torneos</span>
+          </div>`;
+        }).join('')
+      : `<div style="padding:14px;text-align:center;color:var(--muted);font-size:0.82rem">Sin resultados</div>`;
+
+    listEl.querySelectorAll('.club-select-option').forEach((opt) => {
+      opt.addEventListener('click', () => {
+        const club = clubs.find((c) => c.id === opt.dataset.id);
+        if (!club) return;
+        const abbr = getClubAbbr(club.name);
+        state.selectedClubId = club.id;
         state.selectedClubArcherIds = [];
-        input.value = clubs.find((c) => c.id === item.dataset.id)?.name || '';
-        list.style.display = 'none';
-        renderClubDetail(item.dataset.id);
+        document.getElementById('club-select-label').textContent = `${abbr} — ${club.name}`;
+        trigger.classList.add('has-value');
+        closeDropdown();
+        renderClubDetail(club.id);
       });
     });
+  }
+
+  function openDropdown() {
+    dropdown.style.display = 'block';
+    trigger.classList.add('open');
+    input.value = '';
+    renderList('');
+    // Scroll active option into view
+    setTimeout(() => {
+      const active = listEl.querySelector('.active');
+      if (active) active.scrollIntoView({ block: 'nearest' });
+    }, 30);
+    input.focus();
+  }
+
+  function closeDropdown() {
+    dropdown.style.display = 'none';
+    trigger.classList.remove('open');
+  }
+
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.style.display === 'none' ? openDropdown() : closeDropdown();
   });
+  input.addEventListener('input', () => renderList(input.value.trim()));
+  input.addEventListener('click', (e) => e.stopPropagation());
   document.addEventListener('click', (e) => {
-    if (!input.contains(e.target) && !list.contains(e.target)) list.style.display = 'none';
+    if (!trigger.closest('.club-select-wrapper').contains(e.target)) closeDropdown();
   });
+
+  // Restaurar label si ya había un club seleccionado
+  if (state.selectedClubId) {
+    const club = clubs.find((c) => c.id === state.selectedClubId);
+    if (club) {
+      document.getElementById('club-select-label').textContent = `${getClubAbbr(club.name)} — ${club.name}`;
+      trigger.classList.add('has-value');
+    }
+  }
 }
 
 function renderClubDetail(clubId) {
   const club = state.clubs?.clubs?.find((c) => c.id === clubId);
   if (!club) return;
   document.getElementById('club-detail').style.display = 'block';
-  document.getElementById('club-no-selection').style.display = 'none';
 
   // Todos los resultados de arqueros de este club
   const allResults = (state.results?.results || [])
