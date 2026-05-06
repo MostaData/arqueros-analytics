@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-05-05T11:37:49.780Z",
-    "total_tournaments": 370
+    "last_updated": "2026-05-06T12:47:56.268Z",
+    "total_tournaments": 371
   },
   "tournaments": [
     {
@@ -12279,6 +12279,42 @@
       ],
       "total_archers": 89,
       "scraped_at": "2026-05-05T11:36:30.666Z",
+      "stub_only": false
+    },
+    {
+      "id": 1002,
+      "date": "2026-05-03",
+      "date_raw": "03/05/2026",
+      "discipline_name": "Sala",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Asociación Civil Familia Piemontesa de San Francisco",
+      "categories": [
+        "Compuesto AA2 Femenino",
+        "JP Recurvo Sub-13 Inicial 15",
+        "JP Raso Sub-18 E80",
+        "JP Raso Sub-15 E80",
+        "JP Raso Sub-13 Inicial 15",
+        "JP Raso Sub-13 Inicial 10",
+        "JP Recurvo Sub-15 E80",
+        "JP Recurvo Sub-18 E80",
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Recurvo Masculino Sub-15",
+        "Compuesto Masculino",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Raso Masculino 50+",
+        "Recurvo Escuela 40",
+        "Recurvo Escuela 60",
+        "Recurvo Escuela 80",
+        "Raso Escuela 60",
+        "Raso Escuela 80",
+        "Tradicional Escuela 80"
+      ],
+      "total_archers": 83,
+      "scraped_at": "2026-05-06T12:47:02.059Z",
       "stub_only": false
     }
   ]
