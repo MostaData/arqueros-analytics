@@ -34,24 +34,37 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="assets/auth.js"></script>
 <script>
-  // Starts an async auth-check and stores the promise so init() can await it.
-  window.__authReady = (async () => {
+  // onAuthStateChange fires once on page load with the real session state —
+  // more reliable than getSession() which can return null before localStorage is read.
+  window.__authReady = new Promise((resolve) => {
     if (location.protocol === 'file:') {
-      // Dev mode — full admin access without Supabase
       window.__userProfile = { role: 'admin', display_name: 'Dev (local)' };
+      resolve();
       return;
     }
-    const session = await authGetSession();
-    if (!session) { location.replace('login.html'); return; }
 
-    const profile = await authGetProfile(session.user.id);
-    window.__userProfile = profile;
+    let settled = false;
 
-    if (profile?.role !== 'admin') {
-      const rows = await authGetArcherAccess(session.user.id);
-      window.__userAccess = rows.map((r) => r.archer_id);
-    }
-  })();
+    const { data: { subscription } } = _sb.auth.onAuthStateChange(async (event, session) => {
+      if (settled) return;
+      settled = true;
+      subscription.unsubscribe();
+
+      if (!session) { location.replace('login.html'); return; }
+
+      const profile = await authGetProfile(session.user.id);
+      window.__userProfile = profile;
+
+      if (profile?.role !== 'admin') {
+        const rows = await authGetArcherAccess(session.user.id);
+        window.__userAccess = rows.map((r) => r.archer_id);
+      }
+      resolve();
+    });
+
+    // Safety net: if no auth event fires in 8 s, redirect to login
+    setTimeout(() => { if (!settled) { settled = true; location.replace('login.html'); } }, 8000);
+  });
 </script>
 
 <!-- ─── LOADING ─────────────────────────────────────────────────────────── -->

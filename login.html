@@ -114,16 +114,19 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="assets/auth.js"></script>
 <script>
-  // ── Dev bypass: file:// protocol uses admin session directly
-  if (location.protocol === 'file:') {
-    location.replace('index.html');
-  }
+  // ── Dev bypass
+  if (location.protocol === 'file:') { location.replace('index.html'); }
 
-  // ── Already authenticated? Go straight to dashboard
-  (async () => {
-    const session = await authGetSession();
-    if (session) location.replace('index.html');
-  })();
+  // ── Already authenticated? Go straight to dashboard.
+  // Use onAuthStateChange (INITIAL_SESSION) — more reliable than getSession() on fresh load.
+  {
+    const { data: { subscription } } = _sb.auth.onAuthStateChange((event, session) => {
+      if (event === 'INITIAL_SESSION' && session) {
+        subscription.unsubscribe();
+        location.replace('index.html');
+      }
+    });
+  }
 
   async function handleLogin(e) {
     e.preventDefault();
