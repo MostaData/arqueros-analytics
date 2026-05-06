@@ -678,11 +678,7 @@ function getClubAbbr(name) {
 function clubMatchesQuery(club, q) {
   if (!q) return true;
   const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
-  const qn = norm(q);
-  if (norm(club.name).includes(qn)) return true;
-  // Búsqueda por siglas: "VEA" → "Valhalla Escuela de Arquería"
-  const abbr = norm(getClubAbbr(club.name));
-  return abbr.startsWith(qn);
+  return norm(club.name).includes(norm(q));
 }
 
 function initClubSelect() {
