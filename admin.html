@@ -149,7 +149,7 @@
 
     try {
       const profile = await Promise.race([
-        authGetProfile(session.user.id),
+        authGetProfile(session.user.id, session.user.email),
         new Promise(r => setTimeout(() => r(null), 6000))
       ]);
       if (!profile || profile.role !== 'admin') { location.replace('index.html'); return; }

@@ -12,6 +12,11 @@ const _sbAux = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
   auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
 });
 
+// ─── BOOTSTRAP ADMIN ─────────────────────────────────────────────────────────
+// Emails que siempre tienen rol 'admin', incluso sin UPDATE en la BD.
+// Permite el primer acceso antes de correr el SQL de promoción.
+const _ADMIN_OVERRIDE = ['lvalenzuela@mostadata.com'];
+
 // ─── AUTH HELPERS ─────────────────────────────────────────────────────────────
 
 // getSession() puede retornar null mientras Supabase inicializa internamente.
@@ -30,14 +35,22 @@ async function authGetSession() {
   return data.session || null;
 }
 
-async function authGetProfile(userId) {
+// Pasa session.user.email para aplicar el override de admin si corresponde
+async function authGetProfile(userId, email) {
   const { data, error } = await _sb
     .from('profiles')
     .select('id,email,display_name,role')
     .eq('id', userId)
     .single();
   if (error) console.warn('[auth] Profile fetch error:', error.message);
-  return data || null;
+
+  let profile = data || { id: userId, email, display_name: (email||'').split('@')[0], role: 'viewer' };
+
+  // Override: emails en _ADMIN_OVERRIDE siempre son admin
+  if (_ADMIN_OVERRIDE.includes(email || '')) {
+    profile = { ...profile, role: 'admin' };
+  }
+  return profile;
 }
 
 async function authGetArcherAccess(userId) {

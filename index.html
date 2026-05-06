@@ -47,7 +47,7 @@
     try {
       // Promise.race: si Supabase tarda >5 s, continuar sin perfil
       const profile = await Promise.race([
-        authGetProfile(session.user.id),
+        authGetProfile(session.user.id, session.user.email),
         new Promise(r => setTimeout(() => r(null), 5000))
       ]);
       window.__userProfile = profile || { role: 'viewer', display_name: session.user.email };
