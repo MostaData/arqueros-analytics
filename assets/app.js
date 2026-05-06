@@ -46,8 +46,12 @@ function buildDivisionColorMap(divisions) {
 }
 
 function getDivisionColor(d, colorMap) {
+  if (!d) return DIVISION_COLOR_DEFAULT;
   if (colorMap && colorMap[d]) return colorMap[d];
-  return DIVISION_COLOR_DEFAULT;
+  // Sin colorMap: color estable basado en hash del nombre
+  let h = 0;
+  for (let i = 0; i < d.length; i++) h = Math.imul(31, h) + d.charCodeAt(i) | 0;
+  return CHART_PALETTE[(h >>> 0) % CHART_PALETTE.length];
 }
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
@@ -809,33 +813,131 @@ function renderClubDivisionsChart(allResults) {
   renderBarChart('chart-club-divisions', sorted.map((e) => e[0]), sorted.map((e) => e[1]), 'Arqueros', '#22c55e', true);
 }
 
+function buildMiniPodiumHTML(ar) {
+  const posCount = {};
+  for (const r of ar) {
+    if (r.position >= 1) {
+      const k = r.position <= 6 ? r.position : 'r';
+      posCount[k] = (posCount[k] || 0) + 1;
+    }
+  }
+  const keys = Object.keys(posCount).filter((k) => k !== 'r').map(Number).sort((a, b) => a - b);
+  if (posCount['r']) keys.push('r');
+  if (!keys.length) return '';
+  const maxVal = Math.max(...Object.values(posCount));
+  const bars = keys.map((k) => {
+    const count = posCount[k];
+    const pct   = Math.round((count / maxVal) * 100);
+    const color = k === 1 ? '#ffd700' : k === 2 ? '#c0c0c0' : k === 3 ? '#cd7f32'
+                : k === 'r' ? 'rgba(136,146,164,0.35)' : 'rgba(79,142,247,0.55)';
+    const label = k === 'r' ? '…' : `${k}°`;
+    return `<div class="mini-bar-group" title="${label}: ${count}×">
+      <div class="mini-bar" style="height:${pct}%;background:${color}"></div>
+      <div class="mini-bar-label">${label}</div>
+    </div>`;
+  }).join('');
+  return `<div class="mini-podium-bars">${bars}</div>`;
+}
+
+function buildArcherCard(a, allResults) {
+  const ar      = allResults.filter((r) => r.archer_id === a.id);
+  const scores  = ar.map((r) => r.total_score).filter((s) => s > 0);
+  const pos     = ar.map((r) => r.position).filter((p) => p > 0);
+  const wins    = ar.filter((r) => r.position === 1).length;
+  const silvers = ar.filter((r) => r.position === 2).length;
+  const bronzes = ar.filter((r) => r.position === 3).length;
+  const best    = scores.length ? Math.max(...scores) : null;
+  const avgPos  = pos.length ? (pos.reduce((a, b) => a + b, 0) / pos.length).toFixed(1) : '—';
+  const checked = state.selectedClubArcherIds.includes(a.id);
+  return `
+    <label class="club-archer-card${checked ? ' selected' : ''}" data-id="${a.id}">
+      <div class="archer-card-top">
+        <input type="checkbox" value="${a.id}"${checked ? ' checked' : ''} onchange="onClubArcherToggle(this)">
+        <div class="archer-card-info">
+          <strong>${a.display_name}</strong>
+          <span>${ar.length} torneos · mejor ${fmt(best)} · pos. prom. ${avgPos}</span>
+        </div>
+      </div>
+      <div class="archer-card-medals">
+        <span class="medal gold" title="Victorias">🥇 ${wins}</span>
+        <span class="medal silver" title="Subcampeón">🥈 ${silvers}</span>
+        <span class="medal bronze" title="Bronce">🥉 ${bronzes}</span>
+      </div>
+      ${buildMiniPodiumHTML(ar)}
+    </label>`;
+}
+
 function renderClubArchersList(clubArchers, clubId, allResults) {
   const container = document.getElementById('club-archers-list');
   if (!container) return;
-  container.innerHTML = clubArchers.map((a) => {
-    const ar = allResults.filter((r) => r.archer_id === a.id);
-    const wins = ar.filter((r) => r.position === 1).length;
-    const scores = ar.map((r) => r.total_score).filter((s) => s > 0);
-    const best = scores.length ? Math.max(...scores) : null;
-    const checked = state.selectedClubArcherIds.includes(a.id);
-    return `<label class="club-archer-item${checked ? ' selected' : ''}" data-id="${a.id}">
-      <input type="checkbox" value="${a.id}"${checked ? ' checked' : ''} onchange="onClubArcherToggle(this)">
-      <div class="club-archer-info">
-        <strong>${a.display_name}</strong>
-        <span>${a.primary_division || '—'} · ${ar.length} torneos · ${wins} 🥇 · mejor: ${fmt(best)}</span>
-      </div>
-    </label>`;
-  }).join('');
+
+  // Agrupar por división principal
+  const byDiv = {};
+  for (const a of clubArchers) {
+    const div = a.primary_division || 'Sin división';
+    if (!byDiv[div]) byDiv[div] = [];
+    byDiv[div].push(a);
+  }
+
+  container.innerHTML = Object.entries(byDiv)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([div, archers]) => {
+      const color = getDivisionColor(div);
+      const cards = archers.map((a) => buildArcherCard(a, allResults)).join('');
+      return `
+        <div class="division-group">
+          <div class="division-group-header" onclick="toggleDivisionGroup(this)">
+            <span class="division-dot" style="background:${color}"></span>
+            <strong>${div}</strong>
+            <span class="div-archer-count">${archers.length} arquero${archers.length !== 1 ? 's' : ''}</span>
+            <span class="div-toggle-arrow">▾</span>
+          </div>
+          <div class="division-group-body">${cards}</div>
+        </div>`;
+    }).join('');
+}
+
+function toggleDivisionGroup(header) {
+  const body = header.nextElementSibling;
+  const arrow = header.querySelector('.div-toggle-arrow');
+  const collapsed = body.style.display === 'none';
+  body.style.display = collapsed ? 'grid' : 'none';
+  if (arrow) arrow.style.transform = collapsed ? '' : 'rotate(-90deg)';
+}
+
+function filterClubArcherCards(q) {
+  const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  const qn = norm(q.trim());
+  document.querySelectorAll('#club-archers-list .club-archer-card').forEach((card) => {
+    const name = norm(card.querySelector('strong')?.textContent || '');
+    card.style.display = (!qn || name.includes(qn)) ? '' : 'none';
+  });
+  // Ocultar grupos vacíos
+  document.querySelectorAll('#club-archers-list .division-group').forEach((group) => {
+    const visible = [...group.querySelectorAll('.club-archer-card')].some((c) => c.style.display !== 'none');
+    group.style.display = visible ? '' : 'none';
+  });
+}
+
+function clearClubSelection() {
+  state.selectedClubArcherIds = [];
+  document.querySelectorAll('#club-archers-list .club-archer-card').forEach((card) => {
+    card.classList.remove('selected');
+    const cb = card.querySelector('input[type=checkbox]');
+    if (cb) cb.checked = false;
+  });
+  const area = document.getElementById('club-comparison-area');
+  if (area) area.style.display = 'none';
 }
 
 function onClubArcherToggle(checkbox) {
   const id = checkbox.value;
   if (checkbox.checked) {
     if (!state.selectedClubArcherIds.includes(id)) state.selectedClubArcherIds.push(id);
-    checkbox.closest('.club-archer-item')?.classList.add('selected');
+    checkbox.closest('.club-archer-card')?.classList.add('selected');
   } else {
     state.selectedClubArcherIds = state.selectedClubArcherIds.filter((x) => x !== id);
-    checkbox.closest('.club-archer-item')?.classList.remove('selected');
+    checkbox.closest('.club-archer-card')?.classList.remove('selected');
   }
   renderClubComparison();
 }

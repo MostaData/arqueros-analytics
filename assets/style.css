@@ -396,25 +396,55 @@ table.data-table td.pos { text-align: center; font-weight: 700; }
 .club-select-option.active strong { color: var(--accent); }
 .club-select-option span { font-size: 0.71rem; color: var(--muted); }
 
-/* ─── CLUB ARCHER LIST ─────────────────────────────────────────────────────── */
-.club-archers-list {
+/* ─── CLUB ARCHER CARDS ────────────────────────────────────────────────────── */
+.division-group { margin-bottom: 14px; }
+.division-group-header {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 14px; background: var(--bg2);
+  border: 1px solid var(--border); border-radius: 8px;
+  cursor: pointer; user-select: none;
+  transition: border-color 0.15s;
+}
+.division-group-header:hover { border-color: var(--accent); }
+.division-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.div-archer-count { margin-left: auto; font-size: 0.73rem; color: var(--muted); }
+.div-toggle-arrow { font-size: 0.7rem; color: var(--muted); transition: transform 0.2s; }
+.division-group-body {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 8px;
-  max-height: 360px;
-  overflow-y: auto;
-  padding-right: 4px;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 8px; margin-top: 8px;
 }
-.club-archer-item {
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px 12px; border-radius: 8px;
+.club-archer-card {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 12px; border-radius: 10px;
   border: 1px solid var(--border); background: var(--bg2);
-  cursor: pointer; transition: border-color 0.15s, background 0.15s;
-  user-select: none;
+  cursor: pointer; user-select: none;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
 }
-.club-archer-item:hover { border-color: var(--accent); }
-.club-archer-item.selected { border-color: var(--accent); background: rgba(79,142,247,0.1); }
-.club-archer-item input[type="checkbox"] { accent-color: var(--accent); flex-shrink: 0; cursor: pointer; }
-.club-archer-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.club-archer-info strong { font-size: 0.85rem; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.club-archer-info span { font-size: 0.72rem; color: var(--muted); }
+.club-archer-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(79,142,247,0.15);
+}
+.club-archer-card.selected {
+  border-color: var(--accent);
+  background: rgba(79,142,247,0.08);
+}
+.archer-card-top { display: flex; align-items: flex-start; gap: 8px; }
+.archer-card-top input[type="checkbox"] { accent-color: var(--accent); flex-shrink: 0; margin-top: 3px; cursor: pointer; }
+.archer-card-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.archer-card-info strong { font-size: 0.84rem; color: var(--text); line-height: 1.3; }
+.archer-card-info span { font-size: 0.7rem; color: var(--muted); }
+.archer-card-medals { display: flex; gap: 6px; flex-wrap: wrap; }
+.medal { font-size: 0.73rem; padding: 2px 7px; border-radius: 10px; background: var(--bg3); }
+/* Mini podium bars */
+.mini-podium-bars {
+  display: flex; align-items: flex-end; gap: 3px;
+  height: 38px;
+}
+.mini-bar-group {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: flex-end; gap: 2px; flex: 1; height: 100%;
+}
+.mini-bar { width: 100%; border-radius: 2px 2px 0 0; min-height: 3px; }
+.mini-bar-label { font-size: 0.58rem; color: var(--muted); white-space: nowrap; }

@@ -322,11 +322,20 @@
           </div>
         </div>
         <div class="card">
-          <div class="section-title" style="margin-bottom:4px">Arqueros del club</div>
-          <div style="font-size:0.78rem;color:var(--muted);margin-bottom:12px">
-            Seleccioná uno o más para ver detalles o comparar entre ellos
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="section-title" style="margin:0;flex:1">Arqueros del club</div>
+            <input type="text" id="club-archer-filter"
+              placeholder="Filtrar por nombre…" autocomplete="off"
+              oninput="filterClubArcherCards(this.value)"
+              style="background:var(--bg3);border:1px solid var(--border);color:var(--text);
+                     border-radius:6px;padding:6px 10px;font-size:0.8rem;outline:none;min-width:160px">
+            <button onclick="clearClubSelection()"
+              style="padding:6px 12px;background:transparent;border:1px solid var(--border);
+                     color:var(--muted);border-radius:6px;font-size:0.78rem;cursor:pointer;white-space:nowrap">
+              ✕ Limpiar selección
+            </button>
           </div>
-          <div id="club-archers-list" class="club-archers-list"></div>
+          <div id="club-archers-list"></div>
         </div>
         <div id="club-comparison-area" style="display:none;margin-top:16px"></div>
       </div>
