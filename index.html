@@ -34,39 +34,20 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="assets/auth.js"></script>
 <script>
-  // Auth guard: getSession con retry (más confiable que onAuthStateChange)
-  window.__authReady = (async () => {
+  // Auth guard: sincrónico — usa localStorage como fuente de verdad
+  window.__authReady = (() => {
     if (location.protocol === 'file:') {
-      window.__userProfile = { role: 'admin', display_name: 'Dev (local)' };
-      return;
+      window.__userProfile = { role: 'admin', display_name: 'Dev (local)', email: '' };
+      return Promise.resolve();
     }
-
-    const session = await authWaitForSession();
-    if (!session) { location.replace('login.html'); return; }
-
-    try {
-      // Promise.race: si Supabase tarda >5 s, continuar sin perfil
-      const profile = await Promise.race([
-        authGetProfile(session.user.id, session.user.email),
-        new Promise(r => setTimeout(() => r(null), 5000))
-      ]);
-      window.__userProfile = profile || { role: 'viewer', display_name: session.user.email };
-
-      if ((profile?.role || 'viewer') !== 'admin') {
-        const rows = await Promise.race([
-          authGetArcherAccess(session.user.id),
-          new Promise(r => setTimeout(() => r([]), 3000))
-        ]);
-        window.__userAccess = (rows || []).map(r => r.archer_id);
-      }
-    } catch (e) {
-      window.__userProfile = { role: 'viewer', display_name: session.user.email };
-    }
-
-    // Después del arranque: redirigir si la sesión expira
-    _sb.auth.onAuthStateChange((event) => {
-      if (event === 'SIGNED_OUT') location.replace('login.html');
-    });
+    const cached = authCacheGet();
+    if (!cached) { location.replace('login.html'); return Promise.resolve(); }
+    window.__userProfile = {
+      role: cached.role,
+      display_name: cached.email.split('@')[0],
+      email: cached.email
+    };
+    return Promise.resolve();
   })();
 </script>
 

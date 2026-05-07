@@ -141,26 +141,18 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="assets/auth.js"></script>
 <script>
-  window.__adminAuthReady = (async () => {
-    if (location.protocol === 'file:') return;
-
-    const session = await authWaitForSession();
-    if (!session) { location.replace('login.html'); return; }
-
-    try {
-      const profile = await Promise.race([
-        authGetProfile(session.user.id, session.user.email),
-        new Promise(r => setTimeout(() => r(null), 6000))
-      ]);
-      if (!profile || profile.role !== 'admin') { location.replace('index.html'); return; }
-      window.__userProfile = profile;
-    } catch (e) {
-      location.replace('index.html'); return;
-    }
-
-    _sb.auth.onAuthStateChange((event) => {
-      if (event === 'SIGNED_OUT') location.replace('login.html');
-    });
+  // Auth guard: sincrónico — usa localStorage como fuente de verdad
+  window.__adminAuthReady = (() => {
+    if (location.protocol === 'file:') return Promise.resolve();
+    const cached = authCacheGet();
+    if (!cached) { location.replace('login.html'); return Promise.resolve(); }
+    if (cached.role !== 'admin') { location.replace('index.html'); return Promise.resolve(); }
+    window.__userProfile = {
+      role: 'admin',
+      display_name: cached.email.split('@')[0],
+      email: cached.email
+    };
+    return Promise.resolve();
   })();
 </script>
 
