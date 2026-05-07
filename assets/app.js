@@ -1138,14 +1138,33 @@ function renderClubMultiComparison(area, ids, allResults) {
 }
 
 // ─── SECTION: TORNEOS ────────────────────────────────────────────────────────
+function _populateTorneosFilters() {
+  const tournaments = (state.tournaments?.tournaments || []).filter((t) => !t.stub_only);
+  const disciplines = [...new Set(tournaments.map((t) => t.discipline_name).filter(Boolean))].sort();
+  const sel = document.getElementById('torneos-discipline-select');
+  if (sel) {
+    sel.innerHTML = `<option value="all">Todas</option>` +
+      disciplines.map((d) => `<option value="${d}">${d}</option>`).join('');
+    sel.addEventListener('change', () => { state.tournamentPage = 1; renderTorneos(); });
+  }
+}
+
+function onTorneosClubSearch() {
+  state.tournamentPage = 1;
+  renderTorneos();
+}
+
 function renderTorneos() {
   const tournaments = (state.tournaments?.tournaments || []).filter((t) => !t.stub_only);
-  const { year, discipline, zone } = state.filters;
+  const { year, zone } = state.filters;
+  const torneosDisc  = document.getElementById('torneos-discipline-select')?.value || 'all';
+  const clubQuery    = (document.getElementById('torneos-club-search')?.value || '').toLowerCase().trim();
 
   const filtered = tournaments.filter((t) => {
     if (year !== 'all' && (!t.date || !t.date.startsWith(year))) return false;
-    if (discipline !== 'all' && t.discipline_name !== discipline) return false;
+    if (torneosDisc !== 'all' && t.discipline_name !== torneosDisc) return false;
     if (zone !== 'all' && t.zone !== zone) return false;
+    if (clubQuery && !(t.club || '').toLowerCase().includes(clubQuery)) return false;
     return true;
   }).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
@@ -1593,6 +1612,7 @@ async function init() {
   document.getElementById('loading-overlay').style.display = 'none';
 
   populateFilters();
+  _populateTorneosFilters();
   bindFilters();
 
   document.querySelectorAll('.nav-link[data-section]').forEach((el) => {

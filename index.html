@@ -387,12 +387,16 @@
 
       <div class="filter-bar">
         <div class="filter-group">
-          <label>División</label>
-          <select data-filter="division"></select>
+          <label>Disciplina</label>
+          <select id="torneos-discipline-select" data-filter="torneos-discipline"></select>
         </div>
         <div class="filter-group">
-          <label>Club</label>
-          <select data-filter="club" style="min-width:180px"></select>
+          <label>Club organizador</label>
+          <div style="position:relative;display:flex;align-items:center">
+            <span style="position:absolute;left:8px;font-size:0.85rem;pointer-events:none;opacity:0.5">🔍</span>
+            <input type="text" id="torneos-club-search" placeholder="Buscar club…"
+              style="padding-left:28px;min-width:200px" oninput="onTorneosClubSearch()" autocomplete="off">
+          </div>
         </div>
         <span id="torneos-count" class="text-muted" style="margin-left:auto;font-size:0.8rem"></span>
       </div>
