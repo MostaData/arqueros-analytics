@@ -444,7 +444,11 @@ function setupArcherAutocomplete() {
     const q = input.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
     if (q.length < 2) { list.innerHTML = ''; list.style.display = 'none'; return; }
 
-    const archers = state.archers?.archers || [];
+    // Solo arqueros permitidos para el viewer (admin ve todos)
+    const allArchers = state.archers?.archers || [];
+    const archers = state.userRole !== 'admin'
+      ? allArchers.filter(a => (state.userAccess || []).includes(a.id))
+      : allArchers;
     const matches = archers.filter((a) =>
       a.name_normalized.includes(q) || a.display_name.toLowerCase().includes(q)
     ).slice(0, 12);
