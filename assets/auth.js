@@ -3,7 +3,7 @@
 // ─── SUPABASE CLIENT ──────────────────────────────────────────────────────────
 const SUPABASE_URL    = 'https://vmpsuhddwjghwcnhrkem.supabase.co';
 const SUPABASE_KEY    = 'sb_publishable_xOJV2yf7VEAZ9si9m15jZw_Kb2oka8S';
-const _AUTH_DOMAIN    = '@arqueros.app';   // dominio ficticio para auth interna
+const _AUTH_DOMAIN    = '@arqueros-analytics.com';   // dominio ficticio para auth interna
 
 /** Convierte nombre de usuario a email interno: "pedro" → "pedro@arqueros.app" */
 function authEmailFromUsername(u) {
