@@ -117,34 +117,30 @@
   // ── Dev bypass
   if (location.protocol === 'file:') { location.replace('index.html'); }
 
-  // ── Ya autenticado → ir directo al dashboard (sincrónico, sin esperar Supabase)
+  // ── Ya autenticado → ir directo al dashboard
   if (authCacheGet()) location.replace('index.html');
 
   async function handleLogin(e) {
     e.preventDefault();
-    const rawUser = document.getElementById('username').value.trim();
-    const pass    = document.getElementById('password').value;
-    const err     = document.getElementById('error-msg');
-    const btn     = document.getElementById('btn-submit');
-
-    // Convertir nombre de usuario a email interno
-    const email = authEmailFromUsername(rawUser);
+    const username = document.getElementById('username').value.trim();
+    const pass     = document.getElementById('password').value;
+    const err      = document.getElementById('error-msg');
+    const btn      = document.getElementById('btn-submit');
 
     err.classList.remove('visible');
     btn.disabled = true;
     btn.innerHTML = '<div class="spinner-sm"></div> Ingresando…';
 
-    const { error } = await _sb.auth.signInWithPassword({ email, password: pass });
+    const { user, error } = await authSignIn(username, pass);
 
     if (error) {
-      err.textContent = 'Usuario o contraseña incorrectos';
+      err.textContent = error;
       err.classList.add('visible');
       btn.disabled = false;
       btn.textContent = 'Ingresar';
       document.getElementById('password').value = '';
       document.getElementById('password').focus();
     } else {
-      authCacheSet(email);
       location.replace('index.html');
     }
   }

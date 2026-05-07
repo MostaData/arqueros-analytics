@@ -1483,13 +1483,19 @@ async function init() {
   const profile = window.__userProfile;
   if (profile) {
     state.userRole = profile.role || 'viewer';
-    // Admins get null (no restriction); viewers get the array from __userAccess
-    state.userAccess = (profile.role === 'admin') ? null : (window.__userAccess || []);
+
+    if (profile.role === 'admin') {
+      state.userAccess = null; // sin restricción
+    } else {
+      // Cargar arqueros asignados a este viewer desde Supabase
+      const rows = profile.id ? await authGetArcherAccess(profile.id) : [];
+      state.userAccess = rows.map(r => r.archer_id);
+    }
 
     // Show user name in topbar
     const userEl = document.getElementById('topbar-user');
     if (userEl) {
-      const name = profile.display_name || profile.email || '';
+      const name  = profile.display_name || profile.username || '';
       const badge = profile.role === 'admin' ? '🔑 ' : '';
       userEl.textContent = badge + name;
     }

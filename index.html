@@ -37,15 +37,16 @@
   // Auth guard: sincrónico — usa localStorage como fuente de verdad
   window.__authReady = (() => {
     if (location.protocol === 'file:') {
-      window.__userProfile = { role: 'admin', display_name: 'Dev (local)', email: '' };
+      window.__userProfile = { id: null, role: 'admin', display_name: 'Dev (local)', username: 'dev' };
       return Promise.resolve();
     }
     const cached = authCacheGet();
     if (!cached) { location.replace('login.html'); return Promise.resolve(); }
     window.__userProfile = {
+      id:           cached.id,
       role:         cached.role,
-      display_name: cached.username || authUsernameFromEmail(cached.email),
-      email:        cached.email
+      display_name: cached.display_name || cached.username,
+      username:     cached.username,
     };
     return Promise.resolve();
   })();
