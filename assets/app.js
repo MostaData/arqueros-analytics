@@ -170,9 +170,9 @@ function applyFilters(results) {
 
 function getFilteredResults() {
   let results = state.results?.results || [];
-  // Viewers only see their assigned archers
-  if (state.userAccess !== null) {
-    const allowed = new Set(state.userAccess);
+  // Viewers SIEMPRE se filtran por arqueros asignados (fix: chequear rol, no userAccess)
+  if (state.userRole !== 'admin') {
+    const allowed = new Set(state.userAccess || []);
     results = results.filter((r) => allowed.has(r.archer_id));
   }
   return applyFilters(results);
@@ -1503,6 +1503,26 @@ async function init() {
     // Show/hide admin link in sidebar based on role
     const adminLink = document.querySelector('.admin-link');
     if (adminLink && profile.role !== 'admin') adminLink.style.display = 'none';
+
+    // Restringir secciones del sidebar según section_access (solo para viewers)
+    if (profile.role !== 'admin') {
+      const sa = profile.section_access || 'both';
+      // secciones a ocultar según el acceso
+      const hideFor = {
+        archers: ['clubes'],
+        clubs:   ['arqueros', 'rankings', 'progreso', 'exportar'],
+      };
+      const toHide = hideFor[sa] || [];
+      toHide.forEach(s => {
+        document.querySelectorAll(`.nav-link[data-section="${s}"]`)
+          .forEach(el => el.style.display = 'none');
+      });
+      // Si la sección activa fue ocultada, navegar a la primera visible
+      if (toHide.includes(state.currentSection)) {
+        const fallback = sa === 'clubs' ? 'clubes' : 'resumen';
+        navigateTo(fallback);
+      }
+    }
   }
 
   await loadAllData();

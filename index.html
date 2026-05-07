@@ -43,10 +43,11 @@
     const cached = authCacheGet();
     if (!cached) { location.replace('login.html'); return Promise.resolve(); }
     window.__userProfile = {
-      id:           cached.id,
-      role:         cached.role,
-      display_name: cached.display_name || cached.username,
-      username:     cached.username,
+      id:             cached.id,
+      role:           cached.role,
+      display_name:   cached.display_name || cached.username,
+      username:       cached.username,
+      section_access: cached.section_access || 'both',
     };
     return Promise.resolve();
   })();

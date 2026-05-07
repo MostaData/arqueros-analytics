@@ -51,12 +51,16 @@ function renderUserList() {
     return;
   }
 
+  const sectionLabel = { archers: '🏹 Solo Arqueros', clubs: '🏛 Solo Clubes', both: '🏹🏛 Ambas' };
+
   container.innerHTML = _allUsers.map(u => `
     <div class="user-card" data-uid="${u.id}">
       <div class="user-avatar">${u.role === 'admin' ? '🔑' : '👤'}</div>
       <div class="user-info">
         <div class="user-name">${_esc(u.display_name || u.username)}</div>
-        <div class="user-email">${_esc(u.username)}</div>
+        <div class="user-email">${_esc(u.username)}
+          ${u.role !== 'admin' ? `<span style="margin-left:8px;opacity:.6;font-size:0.72rem">${sectionLabel[u.section_access] || ''}</span>` : ''}
+        </div>
       </div>
       <span class="user-role-badge role-${u.role}">${u.role === 'admin' ? 'Admin' : 'Viewer'}</span>
       <div class="user-actions">
@@ -78,13 +82,15 @@ async function createUser() {
   const usernameEl = document.getElementById('nu-username');
   const passEl     = document.getElementById('nu-password');
   const roleEl     = document.getElementById('nu-role');
+  const sectionEl  = document.getElementById('nu-section');
   const msgEl      = document.getElementById('create-user-msg');
   const btn        = document.getElementById('btn-create-user');
 
-  const name     = nameEl.value.trim();
-  const username = usernameEl.value.trim().toLowerCase().replace(/\s+/g, '_');
-  const pass     = passEl.value;
-  const role     = roleEl.value;
+  const name          = nameEl.value.trim();
+  const username      = usernameEl.value.trim().toLowerCase().replace(/\s+/g, '_');
+  const pass          = passEl.value;
+  const role          = roleEl.value;
+  const sectionAccess = sectionEl?.value || 'both';
 
   if (!username || !pass) { _msg(msgEl, '⚠ Completá usuario y contraseña', 'warn'); return; }
   if (pass.length < 6)    { _msg(msgEl, '⚠ La contraseña debe tener al menos 6 caracteres', 'warn'); return; }
@@ -93,10 +99,11 @@ async function createUser() {
   _msg(msgEl, 'Creando usuario…', 'muted');
 
   const { error } = await _sb.rpc('create_user', {
-    p_username:     username,
-    p_password:     pass,
-    p_display_name: name || username,
-    p_role:         role,
+    p_username:       username,
+    p_password:       pass,
+    p_display_name:   name || username,
+    p_role:           role,
+    p_section_access: sectionAccess,
   });
 
   if (error) {

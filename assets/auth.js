@@ -39,10 +39,11 @@ async function authSignIn(username, password) {
 
   const u    = data[0];
   const user = {
-    id:           u.id,
-    username:     u.username,
-    display_name: u.display_name || u.username,
-    role:         u.role,
+    id:             u.id,
+    username:       u.username,
+    display_name:   u.display_name || u.username,
+    role:           u.role,
+    section_access: u.section_access || 'both',
   };
   authCacheSet(user);
   return { user };

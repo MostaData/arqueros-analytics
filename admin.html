@@ -275,7 +275,22 @@
           </div>
           <div class="form-field">
             <label>Contraseña inicial</label>
-            <input type="password" id="nu-password" placeholder="Mínimo 8 caracteres" autocomplete="new-password">
+            <input type="password" id="nu-password" placeholder="Mínimo 6 caracteres" autocomplete="new-password">
+          </div>
+        </div>
+        <div class="form-row" style="margin-top:12px">
+          <div class="form-field">
+            <label>Secciones visibles</label>
+            <select id="nu-section">
+              <option value="both">Arqueros y Clubes (ambas)</option>
+              <option value="archers">Solo Arqueros</option>
+              <option value="clubs">Solo Clubes / Escuelas</option>
+            </select>
+          </div>
+          <div class="form-field" style="display:flex;align-items:flex-end">
+            <span style="font-size:0.78rem;color:var(--muted);padding-bottom:10px">
+              💡 Luego asigná arqueros específicos con el botón 🏹 Acceso
+            </span>
           </div>
         </div>
         <div style="margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
