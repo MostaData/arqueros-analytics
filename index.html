@@ -28,9 +28,11 @@
     .archer-category-comparison { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px; }
 
     /* ── Modo viewer: ocultar elementos de admin ── */
-    html.viewer-mode .archer-search-box   { display: none !important; }
-    html.viewer-mode .topbar-actions      { display: none !important; }
-    html.viewer-mode #archer-filter-bar   { display: none !important; }
+    html.viewer-mode .archer-search-box              { display: none !important; }
+    html.viewer-mode .topbar-actions                 { display: none !important; }
+    html.viewer-mode #archer-filter-bar              { display: none !important; }
+    html.viewer-mode #archer-no-selection            { display: none !important; }
+    html.viewer-mode [data-section="resumen"]        { display: none !important; }
   </style>
 </head>
 <body>

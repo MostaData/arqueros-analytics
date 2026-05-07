@@ -168,10 +168,11 @@ function applyFilters(results) {
   });
 }
 
-function getFilteredResults() {
+// applyAccess=true  → filtra por arqueros asignados al viewer (usar en sección Arqueros)
+// applyAccess=false → devuelve todos los datos filtrados solo por año/disciplina/etc.
+function getFilteredResults(applyAccess = true) {
   let results = state.results?.results || [];
-  // Viewers SIEMPRE se filtran por arqueros asignados (fix: chequear rol, no userAccess)
-  if (state.userRole !== 'admin') {
+  if (applyAccess && state.userRole !== 'admin') {
     const allowed = new Set(state.userAccess || []);
     results = results.filter((r) => allowed.has(r.archer_id));
   }
@@ -382,9 +383,11 @@ function renderArqueros() {
 
 // Vista de arqueros para viewers: sin buscador, solo los asignados
 function _renderViewerArqueros() {
-  // Ocultar el buscador completamente
+  // Ocultar elementos de búsqueda
   const searchBox = document.querySelector('.archer-search-box');
   if (searchBox) searchBox.style.display = 'none';
+  const noSel = document.getElementById('archer-no-selection');
+  if (noSel) noSel.style.display = 'none';
 
   const allArchers = state.archers?.archers || [];
   const assigned   = allArchers.filter(a => (state.userAccess || []).includes(a.id));
@@ -393,6 +396,7 @@ function _renderViewerArqueros() {
   if (!detail) return;
 
   if (assigned.length === 0) {
+    detail.classList.add('visible');
     detail.innerHTML = `
       <div style="padding:60px 20px;text-align:center;color:var(--muted)">
         <div style="font-size:2.5rem;margin-bottom:12px">🏹</div>
@@ -402,33 +406,13 @@ function _renderViewerArqueros() {
     return;
   }
 
-  if (assigned.length === 1) {
-    // Un solo arquero → mostrar directo su detalle
-    state.selectedArcherId = assigned[0].id;
-    renderArcherDetail(assigned[0].id);
-    return;
-  }
+  // Si tiene 1 arquero O ya hay uno seleccionado → mostrar directo
+  const targetId = state.selectedArcherId && assigned.find(a => a.id === state.selectedArcherId)
+    ? state.selectedArcherId
+    : assigned[0].id;
 
-  // Varios arqueros → mostrar lista simple (sin buscador)
-  if (state.selectedArcherId && assigned.find(a => a.id === state.selectedArcherId)) {
-    renderArcherDetail(state.selectedArcherId);
-    return;
-  }
-
-  detail.innerHTML = `
-    <div style="padding:20px 0">
-      <p style="color:var(--muted);font-size:0.84rem;margin-bottom:14px">Seleccioná un arquero:</p>
-      <div style="display:flex;flex-direction:column;gap:8px;max-width:360px">
-        ${assigned.map(a => `
-          <button class="btn btn-ghost"
-            style="justify-content:flex-start;gap:10px;text-align:left"
-            onclick="state.selectedArcherId='${a.id}'; renderArcherDetail('${a.id}')">
-            🏹 <strong>${a.display_name}</strong>
-            <span style="font-size:0.75rem;color:var(--muted);margin-left:auto">${a.primary_division || ''}</span>
-          </button>
-        `).join('')}
-      </div>
-    </div>`;
+  state.selectedArcherId = targetId;
+  renderArcherDetail(targetId);
 }
 
 function setupArcherAutocomplete() {
@@ -1194,7 +1178,7 @@ function renderTorneos() {
 
 // ─── SECTION: RANKINGS ────────────────────────────────────────────────────────
 function renderRankings() {
-  const results = getFilteredResults();
+  const results = getFilteredResults(false); // todos los datos, sin filtro de acceso
   const activeTab = document.querySelector('.ranking-tab.active')?.dataset.tab || 'score';
   renderRankingTable(results, activeTab);
 }
@@ -1291,7 +1275,7 @@ function renderRankingTable(results, tab) {
 
 // ─── SECTION: PROGRESO ────────────────────────────────────────────────────────
 function renderProgreso() {
-  const results = getFilteredResults();
+  const results = getFilteredResults(false); // todos los datos, sin filtro de acceso
 
   // Annual average
   const byYear = {};
@@ -1577,13 +1561,8 @@ async function init() {
           .forEach(el => el.style.display = 'none');
       });
 
-      // Definir sección inicial ANTES de cargar datos (navigateTo se llama al final del init)
-      if (sa === 'clubs') {
-        state.currentSection = 'clubes';
-      } else {
-        // Para viewers de arqueros: ir directo a la sección arqueros
-        state.currentSection = 'arqueros';
-      }
+      // Sección inicial para viewers (navigateTo se llama al final del init con datos ya cargados)
+      state.currentSection = sa === 'clubs' ? 'clubes' : 'arqueros';
     }
   }
 
