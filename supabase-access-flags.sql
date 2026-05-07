@@ -19,7 +19,7 @@ RETURNS TABLE(
   all_archers_access boolean,
   all_clubs_access   boolean
 )
-SECURITY DEFINER SET search_path = public LANGUAGE plpgsql AS $$
+SECURITY DEFINER SET search_path = public, extensions LANGUAGE plpgsql AS $$
 BEGIN
   RETURN QUERY
   SELECT u.id, u.username, u.display_name, u.role,
