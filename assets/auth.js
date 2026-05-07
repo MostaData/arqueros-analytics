@@ -1,8 +1,18 @@
 'use strict';
 
 // ─── SUPABASE CLIENT ──────────────────────────────────────────────────────────
-const SUPABASE_URL = 'https://vmpsuhddwjghwcnhrkem.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_xOJV2yf7VEAZ9si9m15jZw_Kb2oka8S';
+const SUPABASE_URL    = 'https://vmpsuhddwjghwcnhrkem.supabase.co';
+const SUPABASE_KEY    = 'sb_publishable_xOJV2yf7VEAZ9si9m15jZw_Kb2oka8S';
+const _AUTH_DOMAIN    = '@arqueros.app';   // dominio ficticio para auth interna
+
+/** Convierte nombre de usuario a email interno: "pedro" → "pedro@arqueros.app" */
+function authEmailFromUsername(u) {
+  return u.includes('@') ? u : u + _AUTH_DOMAIN;
+}
+/** Extrae nombre de usuario del email interno: "pedro@arqueros.app" → "pedro" */
+function authUsernameFromEmail(email) {
+  return email ? email.replace(_AUTH_DOMAIN, '').replace(/@.*$/, '') : '';
+}
 
 const _sb    = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 const _sbAux = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
@@ -19,8 +29,9 @@ const _ADMIN_EMAILS = ['lvalenzuela@mostadata.com'];
 const _CACHE_KEY = 'aa_user_v3';
 
 function authCacheSet(email) {
-  const role = _ADMIN_EMAILS.includes(email) ? 'admin' : 'viewer';
-  localStorage.setItem(_CACHE_KEY, JSON.stringify({ email, role }));
+  const role     = _ADMIN_EMAILS.includes(email) ? 'admin' : 'viewer';
+  const username = authUsernameFromEmail(email);
+  localStorage.setItem(_CACHE_KEY, JSON.stringify({ email, username, role }));
 }
 
 function authCacheGet() {

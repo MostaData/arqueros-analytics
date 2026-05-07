@@ -43,9 +43,9 @@
     const cached = authCacheGet();
     if (!cached) { location.replace('login.html'); return Promise.resolve(); }
     window.__userProfile = {
-      role: cached.role,
-      display_name: cached.email.split('@')[0],
-      email: cached.email
+      role:         cached.role,
+      display_name: cached.username || authUsernameFromEmail(cached.email),
+      email:        cached.email
     };
     return Promise.resolve();
   })();

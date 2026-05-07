@@ -54,42 +54,45 @@ function renderUserList() {
     return;
   }
 
-  container.innerHTML = _allUsers.map((u) => `
+  container.innerHTML = _allUsers.map((u) => {
+    const uname = _esc(authUsernameFromEmail(u.email));
+    return `
     <div class="user-card" data-uid="${u.id}">
       <div class="user-avatar">${_avatarEmoji(u.role)}</div>
       <div class="user-info">
-        <div class="user-name">${_esc(u.display_name || '—')}</div>
-        <div class="user-email">${_esc(u.email)}</div>
+        <div class="user-name">${_esc(u.display_name || uname || '—')}</div>
+        <div class="user-email" style="color:var(--muted)">${uname}</div>
       </div>
       <span class="user-role-badge role-${u.role}">${u.role === 'admin' ? 'Admin' : 'Viewer'}</span>
       <div class="user-actions">
         <button class="btn-icon" onclick="openAccessModal('${u.id}')" title="Gestionar acceso a arqueros">
           🏹 Acceso
         </button>
-        <button class="btn-icon danger" onclick="deleteUser('${u.id}','${_esc(u.email)}')" title="Eliminar usuario">
+        <button class="btn-icon danger" onclick="deleteUser('${u.id}','${uname}')" title="Eliminar usuario">
           🗑
         </button>
       </div>
     </div>
-  `).join('');
+  `}).join('');
 }
 
 // ── Create user ───────────────────────────────────────────────────────────────
 async function createUser() {
-  const nameEl  = document.getElementById('nu-name');
-  const emailEl = document.getElementById('nu-email');
-  const passEl  = document.getElementById('nu-password');
-  const roleEl  = document.getElementById('nu-role');
-  const msgEl   = document.getElementById('create-user-msg');
-  const btn     = document.getElementById('btn-create-user');
+  const nameEl     = document.getElementById('nu-name');
+  const usernameEl = document.getElementById('nu-username');
+  const passEl     = document.getElementById('nu-password');
+  const roleEl     = document.getElementById('nu-role');
+  const msgEl      = document.getElementById('create-user-msg');
+  const btn        = document.getElementById('btn-create-user');
 
-  const name  = nameEl.value.trim();
-  const email = emailEl.value.trim();
-  const pass  = passEl.value;
-  const role  = roleEl.value;
+  const name     = nameEl.value.trim();
+  const rawUser  = usernameEl.value.trim().toLowerCase().replace(/\s+/g, '_');
+  const email    = authEmailFromUsername(rawUser);   // "pedro" → "pedro@arqueros.app"
+  const pass     = passEl.value;
+  const role     = roleEl.value;
 
-  if (!email || !pass) { _msg(msgEl, '⚠ Completá email y contraseña', 'warn'); return; }
-  if (pass.length < 8)  { _msg(msgEl, '⚠ La contraseña debe tener al menos 8 caracteres', 'warn'); return; }
+  if (!rawUser || !pass) { _msg(msgEl, '⚠ Completá usuario y contraseña', 'warn'); return; }
+  if (pass.length < 8)   { _msg(msgEl, '⚠ La contraseña debe tener al menos 8 caracteres', 'warn'); return; }
 
   btn.disabled = true;
   _msg(msgEl, 'Creando usuario…', 'muted');
@@ -98,7 +101,7 @@ async function createUser() {
   const { data, error } = await _sbAux.auth.signUp({
     email,
     password: pass,
-    options: { data: { display_name: name || email.split('@')[0], role } },
+    options: { data: { display_name: name || rawUser, role } },
   });
 
   if (error) {
@@ -107,27 +110,25 @@ async function createUser() {
     return;
   }
 
-  // If email confirmation is disabled, the user is created immediately.
-  // If it's enabled, the profile trigger fires after confirmation — update role now anyway.
+  // Upsert profile with correct role
   if (data.user) {
-    // Upsert profile with correct role (trigger may have used 'viewer' by default)
     await _sb.from('profiles').upsert({
       id:           data.user.id,
       email,
-      display_name: name || email.split('@')[0],
+      display_name: name || rawUser,
       role,
     });
   }
 
-  _msg(msgEl, '✅ Usuario creado correctamente', 'ok');
-  nameEl.value = emailEl.value = passEl.value = '';
+  _msg(msgEl, `✅ Usuario "${rawUser}" creado`, 'ok');
+  nameEl.value = usernameEl.value = passEl.value = '';
   btn.disabled = false;
   await loadUsers();
 }
 
 // ── Delete user ───────────────────────────────────────────────────────────────
-async function deleteUser(userId, email) {
-  if (!confirm(`¿Eliminar al usuario "${email}"? Esta acción no se puede deshacer.`)) return;
+async function deleteUser(userId, username) {
+  if (!confirm(`¿Eliminar al usuario "${username}"? Esta acción no se puede deshacer.`)) return;
 
   const { error } = await _sb.rpc('admin_delete_user', { target_id: userId });
   if (error) {
@@ -158,7 +159,7 @@ async function openAccessModal(userId) {
 
   backdrop.innerHTML = `
     <div class="access-modal">
-      <h3>🏹 Acceso de arqueros — <span style="color:var(--accent)">${_esc(_editingUser.display_name || _editingUser.email)}</span></h3>
+      <h3>🏹 Acceso de arqueros — <span style="color:var(--accent)">${_esc(_editingUser.display_name || authUsernameFromEmail(_editingUser.email))}</span></h3>
 
       <div style="font-size:0.78rem;color:var(--muted);margin-bottom:10px">
         ${_editingUser.role === 'admin'

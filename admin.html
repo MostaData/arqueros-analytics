@@ -148,9 +148,9 @@
     if (!cached) { location.replace('login.html'); return Promise.resolve(); }
     if (cached.role !== 'admin') { location.replace('index.html'); return Promise.resolve(); }
     window.__userProfile = {
-      role: 'admin',
-      display_name: cached.email.split('@')[0],
-      email: cached.email
+      role:         'admin',
+      display_name: cached.username || authUsernameFromEmail(cached.email),
+      email:        cached.email
     };
     return Promise.resolve();
   })();
@@ -269,8 +269,8 @@
         </div>
         <div class="form-row" style="margin-top:12px">
           <div class="form-field">
-            <label>Correo electrónico</label>
-            <input type="email" id="nu-email" placeholder="usuario@email.com" autocomplete="off">
+            <label>Usuario</label>
+            <input type="text" id="nu-username" placeholder="nombre_usuario" autocomplete="off">
           </div>
           <div class="form-field">
             <label>Contraseña inicial</label>

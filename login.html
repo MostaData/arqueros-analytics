@@ -99,8 +99,8 @@
   </div>
 
   <form id="login-form" onsubmit="handleLogin(event)">
-    <label for="email">Correo electrónico</label>
-    <input type="email" id="email" placeholder="usuario@email.com" autocomplete="email" required>
+    <label for="username">Usuario</label>
+    <input type="text" id="username" placeholder="nombre_usuario" autocomplete="username" required>
 
     <label for="password">Contraseña</label>
     <input type="password" id="password" placeholder="Contraseña" autocomplete="current-password" required>
@@ -122,10 +122,13 @@
 
   async function handleLogin(e) {
     e.preventDefault();
-    const email = document.getElementById('email').value.trim();
-    const pass  = document.getElementById('password').value;
-    const err   = document.getElementById('error-msg');
-    const btn   = document.getElementById('btn-submit');
+    const rawUser = document.getElementById('username').value.trim();
+    const pass    = document.getElementById('password').value;
+    const err     = document.getElementById('error-msg');
+    const btn     = document.getElementById('btn-submit');
+
+    // Convertir nombre de usuario a email interno
+    const email = authEmailFromUsername(rawUser);
 
     err.classList.remove('visible');
     btn.disabled = true;
@@ -134,9 +137,7 @@
     const { error } = await _sb.auth.signInWithPassword({ email, password: pass });
 
     if (error) {
-      err.textContent = error.message.includes('Invalid')
-        ? 'Correo o contraseña incorrectos'
-        : error.message;
+      err.textContent = 'Usuario o contraseña incorrectos';
       err.classList.add('visible');
       btn.disabled = false;
       btn.textContent = 'Ingresar';
