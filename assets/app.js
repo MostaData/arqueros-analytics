@@ -1501,6 +1501,27 @@ function navigateTo(section) {
   if (secEl) secEl.classList.add('active');
   const navEl = document.querySelector(`.nav-link[data-section="${section}"]`);
   if (navEl) navEl.classList.add('active');
+
+  // Actualizar título en topbar
+  const headingEl = document.getElementById('section-heading');
+  if (headingEl && navEl) headingEl.textContent = navEl.textContent.trim();
+
+  // Filtros visibles según sección
+  const resumenFilters = ['fg-discipline', 'fg-club'];
+  const otherFilters   = ['fg-year', 'fg-discipline', 'fg-zone', 'fg-division', 'fg-gender'];
+  const activeFilters  = section === 'resumen' ? resumenFilters : otherFilters;
+  const allFilterIds   = ['fg-year','fg-discipline','fg-zone','fg-division','fg-gender','fg-club'];
+  allFilterIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = activeFilters.includes(id) ? '' : 'none';
+  });
+  // Resetear filtro club al salir del resumen
+  if (section !== 'resumen' && state.filters.club !== 'all') {
+    state.filters.club = 'all';
+    const clubSel = document.querySelector('[data-filter="club"]');
+    if (clubSel) clubSel.value = 'all';
+  }
+
   renderCurrentSection();
 }
 
