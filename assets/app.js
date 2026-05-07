@@ -370,10 +370,65 @@ function renderRecentTournaments(tournaments) {
 
 // ─── SECTION: ARQUEROS ────────────────────────────────────────────────────────
 function renderArqueros() {
+  if (state.userRole !== 'admin') {
+    _renderViewerArqueros();
+    return;
+  }
   setupArcherAutocomplete();
   if (state.selectedArcherId) {
     renderArcherDetail(state.selectedArcherId);
   }
+}
+
+// Vista de arqueros para viewers: sin buscador, solo los asignados
+function _renderViewerArqueros() {
+  // Ocultar el buscador completamente
+  const searchBox = document.querySelector('.archer-search-box');
+  if (searchBox) searchBox.style.display = 'none';
+
+  const allArchers = state.archers?.archers || [];
+  const assigned   = allArchers.filter(a => (state.userAccess || []).includes(a.id));
+
+  const detail = document.getElementById('archer-detail');
+  if (!detail) return;
+
+  if (assigned.length === 0) {
+    detail.innerHTML = `
+      <div style="padding:60px 20px;text-align:center;color:var(--muted)">
+        <div style="font-size:2.5rem;margin-bottom:12px">🏹</div>
+        <div style="font-size:1rem;font-weight:600;margin-bottom:6px">Sin arqueros asignados</div>
+        <div style="font-size:0.84rem">Contactá al administrador para obtener acceso.</div>
+      </div>`;
+    return;
+  }
+
+  if (assigned.length === 1) {
+    // Un solo arquero → mostrar directo su detalle
+    state.selectedArcherId = assigned[0].id;
+    renderArcherDetail(assigned[0].id);
+    return;
+  }
+
+  // Varios arqueros → mostrar lista simple (sin buscador)
+  if (state.selectedArcherId && assigned.find(a => a.id === state.selectedArcherId)) {
+    renderArcherDetail(state.selectedArcherId);
+    return;
+  }
+
+  detail.innerHTML = `
+    <div style="padding:20px 0">
+      <p style="color:var(--muted);font-size:0.84rem;margin-bottom:14px">Seleccioná un arquero:</p>
+      <div style="display:flex;flex-direction:column;gap:8px;max-width:360px">
+        ${assigned.map(a => `
+          <button class="btn btn-ghost"
+            style="justify-content:flex-start;gap:10px;text-align:left"
+            onclick="state.selectedArcherId='${a.id}'; renderArcherDetail('${a.id}')">
+            🏹 <strong>${a.display_name}</strong>
+            <span style="font-size:0.75rem;color:var(--muted);margin-left:auto">${a.primary_division || ''}</span>
+          </button>
+        `).join('')}
+      </div>
+    </div>`;
 }
 
 function setupArcherAutocomplete() {
@@ -1504,23 +1559,26 @@ async function init() {
     const adminLink = document.querySelector('.admin-link');
     if (adminLink && profile.role !== 'admin') adminLink.style.display = 'none';
 
-    // Restringir secciones del sidebar según section_access (solo para viewers)
+    // Viewers: restringir secciones y definir sección inicial
     if (profile.role !== 'admin') {
       const sa = profile.section_access || 'both';
-      // secciones a ocultar según el acceso
+
+      // Ocultar items del sidebar según acceso
       const hideFor = {
         archers: ['clubes'],
         clubs:   ['arqueros', 'rankings', 'progreso', 'exportar'],
       };
-      const toHide = hideFor[sa] || [];
-      toHide.forEach(s => {
+      (hideFor[sa] || []).forEach(s => {
         document.querySelectorAll(`.nav-link[data-section="${s}"]`)
           .forEach(el => el.style.display = 'none');
       });
-      // Si la sección activa fue ocultada, navegar a la primera visible
-      if (toHide.includes(state.currentSection)) {
-        const fallback = sa === 'clubs' ? 'clubes' : 'resumen';
-        navigateTo(fallback);
+
+      // Definir sección inicial ANTES de cargar datos (navigateTo se llama al final del init)
+      if (sa === 'clubs') {
+        state.currentSection = 'clubes';
+      } else {
+        // Para viewers de arqueros: ir directo a la sección arqueros
+        state.currentSection = 'arqueros';
       }
     }
   }
@@ -1564,6 +1622,12 @@ async function init() {
   }
 
   applyUrlParams();
+
+  // Para viewers con un solo arquero asignado: pre-seleccionar
+  if (state.userRole !== 'admin' && state.userAccess && state.userAccess.length === 1) {
+    state.selectedArcherId = state.userAccess[0];
+  }
+
   navigateTo(state.currentSection);
 }
 
