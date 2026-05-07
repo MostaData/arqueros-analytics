@@ -28,7 +28,8 @@
     .archer-category-comparison { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px; }
 
     /* ── Modo viewer: ocultar elementos de admin ── */
-    html.viewer-mode .archer-search-box              { display: none !important; }
+    /* .archer-search-box is intentionally NOT hidden here — JS shows/hides it
+       based on how many archers the viewer can access (hidden for 0/1, shown for 2+) */
     html.viewer-mode .topbar-actions                 { display: none !important; }
     html.viewer-mode #archer-filter-bar              { display: none !important; }
     html.viewer-mode #archer-no-selection            { display: none !important; }
@@ -50,14 +51,23 @@
     const cached = authCacheGet();
     if (!cached) { location.replace('login.html'); return Promise.resolve(); }
     window.__userProfile = {
-      id:             cached.id,
-      role:           cached.role,
-      display_name:   cached.display_name || cached.username,
-      username:       cached.username,
-      section_access: cached.section_access || 'both',
+      id:                  cached.id,
+      role:                cached.role,
+      display_name:        cached.display_name  || cached.username,
+      username:            cached.username,
+      section_access:      cached.section_access      || 'both',
+      all_archers_access:  cached.all_archers_access  ?? false,
+      all_clubs_access:    cached.all_clubs_access    ?? false,
     };
-    // Aplicar clase viewer ANTES de cualquier render (oculta buscador via CSS)
+    // Aplicar clase viewer ANTES de cualquier render
     if (cached.role !== 'admin') document.documentElement.classList.add('viewer-mode');
+    // Ocultar search box inicialmente para viewers (JS lo muestra si tiene 2+ arqueros)
+    if (cached.role !== 'admin') {
+      const style = document.createElement('style');
+      style.id = 'viewer-search-hide';
+      style.textContent = '.archer-search-box { display: none; }';
+      document.head.appendChild(style);
+    }
     return Promise.resolve();
   })();
 </script>

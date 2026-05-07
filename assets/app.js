@@ -1625,22 +1625,32 @@ async function init() {
 
   await loadAllData();
 
-  // Expand special access sentinels now that archer data is loaded
-  if (state.userRole !== 'admin' && Array.isArray(state.userAccess)) {
-    const raw = state.userAccess;
-    if (raw.includes('__all_archers__') || raw.includes('__all_clubs__')) {
-      state.userAccessAll = true;   // viewer sees everything — no ID filter needed
+  // ── Resolve full-access flags and expand club entries ────────────────────
+  if (state.userRole !== 'admin') {
+    const profile = window.__userProfile;
+
+    // Full-access flags come directly from the login response (no extra query)
+    if (profile?.all_archers_access || profile?.all_clubs_access) {
+      state.userAccessAll = true;
       state.userAccess    = null;
-    } else {
-      const clubKeys = raw.filter(id => id.startsWith('club:'));
-      if (clubKeys.length > 0) {
-        const clubIds        = clubKeys.map(k => k.slice(5));
-        const allArchersList = state.archers?.archers || [];
-        const clubArcherIds  = allArchersList
-          .filter(a => a.clubs_history?.some(c => clubIds.includes(c.club_id)))
-          .map(a => a.id);
-        const regularIds = raw.filter(id => !id.startsWith('club:') && !id.startsWith('__'));
-        state.userAccess = [...new Set([...regularIds, ...clubArcherIds])];
+    } else if (Array.isArray(state.userAccess)) {
+      // Also support legacy sentinel rows in user_archer_access (backward compat)
+      const raw = state.userAccess;
+      if (raw.includes('__all_archers__') || raw.includes('__all_clubs__')) {
+        state.userAccessAll = true;
+        state.userAccess    = null;
+      } else {
+        // Expand club: entries to individual archer IDs
+        const clubKeys = raw.filter(id => id.startsWith('club:'));
+        if (clubKeys.length > 0) {
+          const clubIds        = clubKeys.map(k => k.slice(5));
+          const allArchersList = state.archers?.archers || [];
+          const clubArcherIds  = allArchersList
+            .filter(a => a.clubs_history?.some(c => clubIds.includes(c.club_id)))
+            .map(a => a.id);
+          const regularIds = raw.filter(id => !id.startsWith('club:') && !id.startsWith('__'));
+          state.userAccess = [...new Set([...regularIds, ...clubArcherIds])];
+        }
       }
     }
   }

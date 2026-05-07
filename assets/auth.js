@@ -7,12 +7,11 @@ const SUPABASE_KEY = 'sb_publishable_xOJV2yf7VEAZ9si9m15jZw_Kb2oka8S';
 const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // ─── LOCAL SESSION CACHE ──────────────────────────────────────────────────────
-// El auth guard usa localStorage como fuente de verdad (sincrónico, sin race conditions).
-// Supabase solo se usa para verificar credenciales en el login.
-const _CACHE_KEY = 'aa_user_v5';
+// Auth guard uses localStorage as source of truth (sync, no race conditions).
+// Supabase is only called for credential verification on login.
+const _CACHE_KEY = 'aa_user_v6';   // bumped: now includes all_archers_access / all_clubs_access
 
 function authCacheSet(user) {
-  // user: { id, username, display_name, role }
   localStorage.setItem(_CACHE_KEY, JSON.stringify(user));
 }
 
@@ -26,8 +25,8 @@ function authCacheClear() {
 }
 
 // ─── SIGN IN ──────────────────────────────────────────────────────────────────
-// Llama a la función SQL verify_credentials (compara bcrypt en el servidor).
-// El hash nunca llega al cliente.
+// Calls SQL verify_credentials (bcrypt comparison on the server).
+// Hash never reaches the client.
 async function authSignIn(username, password) {
   const { data, error } = await _sb.rpc('verify_credentials', {
     p_username: username.trim().toLowerCase(),
@@ -39,11 +38,13 @@ async function authSignIn(username, password) {
 
   const u    = data[0];
   const user = {
-    id:             u.id,
-    username:       u.username,
-    display_name:   u.display_name || u.username,
-    role:           u.role,
-    section_access: u.section_access || 'both',
+    id:                  u.id,
+    username:            u.username,
+    display_name:        u.display_name || u.username,
+    role:                u.role,
+    section_access:      u.section_access      || 'both',
+    all_archers_access:  u.all_archers_access  ?? false,
+    all_clubs_access:    u.all_clubs_access    ?? false,
   };
   authCacheSet(user);
   return { user };
@@ -55,12 +56,21 @@ function authSignOut() {
   location.replace('login.html');
 }
 
-// ─── ARCHER ACCESS ───────────────────────────────────────────────────────────
+// ─── ARCHER ACCESS (individual archer / club rows) ────────────────────────────
+// Returns rows for INDIVIDUAL archer IDs and club: entries.
+// Full-access flags (all_archers_access / all_clubs_access) are stored on
+// the app_users row and come back via verify_credentials — no separate query.
 async function authGetArcherAccess(userId) {
-  const { data, error } = await _sb
+  // Try SECURITY DEFINER RPC first (bypasses any RLS on user_archer_access)
+  const { data, error } = await _sb.rpc('get_archer_access', { p_user_id: userId });
+  if (!error) return data || [];
+
+  // Fallback: direct table query
+  console.warn('[auth] get_archer_access RPC failed, trying direct query:', error.message);
+  const { data: d2, error: e2 } = await _sb
     .from('user_archer_access')
     .select('archer_id, archer_name')
     .eq('user_id', userId);
-  if (error) console.warn('[auth] ArcherAccess:', error.message);
-  return data || [];
+  if (e2) console.warn('[auth] ArcherAccess direct query also failed:', e2.message);
+  return d2 || [];
 }

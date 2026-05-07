@@ -151,8 +151,9 @@ async function openAccessModal(userId) {
     .eq('user_id', userId);
 
   const allRows     = rows || [];
-  const hasAllArch  = allRows.some(r => r.archer_id === '__all_archers__');
-  const hasAllClubs = allRows.some(r => r.archer_id === '__all_clubs__');
+  // Full-access flags come from the app_users row (reliable, not RLS-gated)
+  const hasAllArch  = _editingUser.all_archers_access ?? false;
+  const hasAllClubs = _editingUser.all_clubs_access   ?? false;
   const clubRows    = allRows.filter(r => r.archer_id.startsWith('club:'));
   const archerRows  = allRows.filter(r => !r.archer_id.startsWith('club:') && !r.archer_id.startsWith('__'));
 
@@ -186,7 +187,7 @@ async function openAccessModal(userId) {
 
         <label class="access-all-toggle">
           <input type="checkbox" id="chk-all-archers" ${hasAllArch ? 'checked' : ''}
-            onchange="toggleAllAccess('${userId}','__all_archers__','Todos los arqueros',this.checked,'individual-archers-section')">
+            onchange="toggleAllAccess('${userId}','all_archers',this.checked,'individual-archers-section')">
           <span>Todos los arqueros</span>
         </label>
 
@@ -211,7 +212,7 @@ async function openAccessModal(userId) {
 
         <label class="access-all-toggle">
           <input type="checkbox" id="chk-all-clubs" ${hasAllClubs ? 'checked' : ''}
-            onchange="toggleAllAccess('${userId}','__all_clubs__','Todos los clubes / escuelas',this.checked,'individual-clubs-section')">
+            onchange="toggleAllAccess('${userId}','all_clubs',this.checked,'individual-clubs-section')">
           <span>Todos los clubes / escuelas</span>
         </label>
 
@@ -245,27 +246,40 @@ function closeAccessModal() {
 }
 
 // ── Toggle "todos" (arqueros o clubes) ────────────────────────────────────────
-async function toggleAllAccess(userId, sentinelId, sentinelName, checked, sectionId) {
-  if (checked) {
-    const { error } = await _sb.from('user_archer_access').insert({
-      user_id: userId, archer_id: sentinelId, archer_name: sentinelName,
-    });
-    if (error && !error.message.includes('duplicate')) {
-      alert(`Error: ${error.message}`);
-      // revert checkbox
-      document.getElementById(sentinelId === '__all_archers__' ? 'chk-all-archers' : 'chk-all-clubs').checked = false;
-      return;
-    }
-  } else {
-    const { error } = await _sb.from('user_archer_access')
-      .delete().eq('user_id', userId).eq('archer_id', sentinelId);
-    if (error) { alert(`Error: ${error.message}`); return; }
+// Flags are stored on app_users (via set_user_access_flags RPC), NOT as
+// sentinel rows in user_archer_access — this avoids any RLS read issues.
+async function toggleAllAccess(userId, flagField, checked, sectionId) {
+  // Build the update: only change the relevant flag, keep the other unchanged
+  const user      = _allUsers.find(u => u.id === userId);
+  const allArch   = flagField === 'all_archers' ? checked : (user?.all_archers_access ?? false);
+  const allClubs  = flagField === 'all_clubs'   ? checked : (user?.all_clubs_access   ?? false);
+
+  const { error } = await _sb.rpc('set_user_access_flags', {
+    p_user_id:     userId,
+    p_all_archers: allArch,
+    p_all_clubs:   allClubs,
+  });
+
+  if (error) {
+    alert(`Error al guardar: ${error.message}`);
+    // revert checkbox
+    const chkId = flagField === 'all_archers' ? 'chk-all-archers' : 'chk-all-clubs';
+    const chk = document.getElementById(chkId);
+    if (chk) chk.checked = !checked;
+    return;
   }
+
+  // Update local cache so next toggle has correct "other flag" value
+  if (user) {
+    if (flagField === 'all_archers') user.all_archers_access = checked;
+    else                             user.all_clubs_access   = checked;
+  }
+
   // Dim/undim the individual section
   const sec = document.getElementById(sectionId);
   if (sec) {
-    sec.style.opacity         = checked ? '0.4' : '';
-    sec.style.pointerEvents   = checked ? 'none' : '';
+    sec.style.opacity       = checked ? '0.4' : '';
+    sec.style.pointerEvents = checked ? 'none' : '';
   }
 }
 
