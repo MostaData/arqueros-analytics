@@ -9,7 +9,7 @@ const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 // ─── LOCAL SESSION CACHE ──────────────────────────────────────────────────────
 // El auth guard usa localStorage como fuente de verdad (sincrónico, sin race conditions).
 // Supabase solo se usa para verificar credenciales en el login.
-const _CACHE_KEY = 'aa_user_v4';
+const _CACHE_KEY = 'aa_user_v5';
 
 function authCacheSet(user) {
   // user: { id, username, display_name, role }
