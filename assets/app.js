@@ -23,7 +23,8 @@ const state = {
   selectedClubId: null,
   selectedClubArcherIds: [],
   userRole: 'viewer',       // 'admin' | 'viewer'
-  userAccess: null,         // null = no restriction (admin); string[] = allowed archer_ids
+  userAccess: null,         // null = admin (no restriction) | string[] = allowed archer_ids
+  userAccessAll: false,     // true = viewer with full access (__all_archers__ / __all_clubs__)
   tournamentPage: 1,
   rankingPage: 1,
   PAGE_SIZE: 30,
@@ -172,7 +173,7 @@ function applyFilters(results) {
 // applyAccess=false → devuelve todos los datos filtrados solo por año/disciplina/etc.
 function getFilteredResults(applyAccess = true) {
   let results = state.results?.results || [];
-  if (applyAccess && state.userRole !== 'admin') {
+  if (applyAccess && state.userRole !== 'admin' && !state.userAccessAll) {
     const allowed = new Set(state.userAccess || []);
     results = results.filter((r) => allowed.has(r.archer_id));
   }
@@ -382,21 +383,24 @@ function renderArqueros() {
   }
 }
 
-// Vista de arqueros para viewers: sin buscador, solo los asignados
+// Vista de arqueros para viewers
 function _renderViewerArqueros() {
-  // Ocultar elementos de búsqueda
-  const searchBox = document.querySelector('.archer-search-box');
-  if (searchBox) searchBox.style.display = 'none';
-  const noSel = document.getElementById('archer-no-selection');
-  if (noSel) noSel.style.display = 'none';
-
   const allArchers = state.archers?.archers || [];
-  const assigned   = allArchers.filter(a => (state.userAccess || []).includes(a.id));
 
-  const detail = document.getElementById('archer-detail');
+  // Determine accessible archers
+  const assigned = state.userAccessAll
+    ? allArchers
+    : allArchers.filter(a => (state.userAccess || []).includes(a.id));
+
+  const searchBox = document.querySelector('.archer-search-box');
+  const noSel     = document.getElementById('archer-no-selection');
+  const detail    = document.getElementById('archer-detail');
   if (!detail) return;
 
+  // ── 0 arqueros ────────────────────────────────────────────────────────────
   if (assigned.length === 0) {
+    if (searchBox) searchBox.style.display = 'none';
+    if (noSel) noSel.style.display = 'none';
     detail.classList.add('visible');
     detail.innerHTML = `
       <div style="padding:60px 20px;text-align:center;color:var(--muted)">
@@ -407,11 +411,23 @@ function _renderViewerArqueros() {
     return;
   }
 
-  // Si tiene 1 arquero O ya hay uno seleccionado → mostrar directo
+  // ── 1 arquero → navegar directo, sin buscador ─────────────────────────────
+  if (assigned.length === 1) {
+    if (searchBox) searchBox.style.display = 'none';
+    if (noSel) noSel.style.display = 'none';
+    state.selectedArcherId = assigned[0].id;
+    renderArcherDetail(assigned[0].id);
+    return;
+  }
+
+  // ── 2+ arqueros → mostrar buscador y cargar el primero/seleccionado ───────
+  if (searchBox) searchBox.style.display = '';
+  if (noSel) noSel.style.display = 'none';
+  setupArcherAutocomplete(); // filtra internamente por userAccess/userAccessAll
+
   const targetId = state.selectedArcherId && assigned.find(a => a.id === state.selectedArcherId)
     ? state.selectedArcherId
     : assigned[0].id;
-
   state.selectedArcherId = targetId;
   renderArcherDetail(targetId);
 }
@@ -431,9 +447,9 @@ function setupArcherAutocomplete() {
 
     // Solo arqueros permitidos para el viewer (admin ve todos)
     const allArchers = state.archers?.archers || [];
-    const archers = state.userRole !== 'admin'
-      ? allArchers.filter(a => (state.userAccess || []).includes(a.id))
-      : allArchers;
+    const archers = (state.userRole === 'admin' || state.userAccessAll)
+      ? allArchers
+      : allArchers.filter(a => (state.userAccess || []).includes(a.id));
     const matches = archers.filter((a) =>
       a.name_normalized.includes(q) || a.display_name.toLowerCase().includes(q)
     ).slice(0, 12);
@@ -1613,7 +1629,8 @@ async function init() {
   if (state.userRole !== 'admin' && Array.isArray(state.userAccess)) {
     const raw = state.userAccess;
     if (raw.includes('__all_archers__') || raw.includes('__all_clubs__')) {
-      state.userAccess = null; // full access — no filter
+      state.userAccessAll = true;   // viewer sees everything — no ID filter needed
+      state.userAccess    = null;
     } else {
       const clubKeys = raw.filter(id => id.startsWith('club:'));
       if (clubKeys.length > 0) {
