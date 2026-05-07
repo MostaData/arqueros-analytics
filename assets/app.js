@@ -162,7 +162,7 @@ function applyFilters(results) {
     if (discipline !== 'all' && t.discipline_name !== discipline) return false;
     if (division !== 'all' && r.division !== division) return false;
     if (gender !== 'all' && r.gender !== gender) return false;
-    if (club !== 'all' && r.club_id !== club) return false;
+    if (club !== 'all' && t.club !== club) return false;
     if (zone !== 'all' && t.zone !== zone) return false;
     return true;
   });
@@ -218,11 +218,11 @@ function populateFilters() {
       zones.map((z) => `<option value="${z}"${state.filters.zone === z ? ' selected' : ''}>${z}</option>`).join('');
   });
 
-  // Club filter
-  const clubs = state.clubs?.clubs || [];
+  // Club organizador filter — populated from unique tournament organizer names
+  const organizerNames = [...new Set(tournaments.map((t) => t.club).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'es'));
   document.querySelectorAll('[data-filter="club"]').forEach((el) => {
     el.innerHTML = `<option value="all">Todos</option>` +
-      clubs.map((c) => `<option value="${c.id}"${state.filters.club === c.id ? ' selected' : ''}>${c.name}</option>`).join('');
+      organizerNames.map((name) => `<option value="${name}"${state.filters.club === name ? ' selected' : ''}>${name}</option>`).join('');
   });
 }
 
@@ -247,10 +247,11 @@ function renderResumen() {
   const clubs = state.clubs?.clubs || [];
 
   const filteredTournaments = tournaments.filter((t) => {
-    const { year, discipline, zone } = state.filters;
+    const { year, discipline, zone, club } = state.filters;
     if (year !== 'all' && (!t.date || !t.date.startsWith(year))) return false;
     if (discipline !== 'all' && t.discipline_name !== discipline) return false;
     if (zone !== 'all' && t.zone !== zone) return false;
+    if (club !== 'all' && t.club !== club) return false;
     return !t.stub_only || true;
   });
 
