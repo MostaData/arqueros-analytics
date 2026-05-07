@@ -421,7 +421,7 @@ function _renderViewerArqueros() {
   }
 
   // ── 2+ arqueros → mostrar buscador y cargar el primero/seleccionado ───────
-  if (searchBox) searchBox.style.display = '';
+  if (searchBox) searchBox.style.display = 'block'; // explicit 'block' overrides CSS rule
   if (noSel) noSel.style.display = 'none';
   setupArcherAutocomplete(); // filtra internamente por userAccess/userAccessAll
 
