@@ -3,8 +3,9 @@
 // Usa funciones SQL security-definer en Supabase (sin Supabase Auth).
 // Depende de: auth.js (_sb)
 
-let _allUsers   = [];
-let _archerList = [];
+let _allUsers    = [];
+let _archerList  = [];
+let _clubList    = [];
 let _editingUser = null;
 
 // ── Bootstrap ─────────────────────────────────────────────────────────────────
@@ -13,17 +14,26 @@ async function initUserManagement() {
   await loadUsers();
 }
 
-// ── Cargar lista de arqueros ──────────────────────────────────────────────────
+// ── Cargar lista de arqueros y clubes ─────────────────────────────────────────
 async function _loadArcherList() {
   if (location.protocol === 'file:') return;
   try {
-    const res  = await fetch('data/archers-index.json');
-    const data = await res.json();
-    _archerList = (data.archers || [])
+    const [archerRes, clubRes] = await Promise.all([
+      fetch('data/archers-index.json'),
+      fetch('data/clubs-index.json'),
+    ]);
+    const archerData = await archerRes.json();
+    const clubData   = await clubRes.json();
+
+    _archerList = (archerData.archers || [])
       .map(a => ({ archer_id: a.id, name: a.display_name || a.name || a.id }))
       .sort((a, b) => a.name.localeCompare(b.name, 'es'));
+
+    _clubList = (clubData.clubs || [])
+      .map(c => ({ club_id: c.id, name: c.name || c.id }))
+      .sort((a, b) => a.name.localeCompare(b.name, 'es'));
   } catch (e) {
-    console.warn('[admin-users] archers-index.json no disponible:', e.message);
+    console.warn('[admin-users] datos no disponibles:', e.message);
   }
 }
 
@@ -64,7 +74,7 @@ function renderUserList() {
       </div>
       <span class="user-role-badge role-${u.role}">${u.role === 'admin' ? 'Admin' : 'Viewer'}</span>
       <div class="user-actions">
-        <button class="btn-icon" onclick="openAccessModal('${u.id}')" title="Gestionar acceso a arqueros">
+        <button class="btn-icon" onclick="openAccessModal('${u.id}')" title="Gestionar acceso">
           🏹 Acceso
         </button>
         ${u.username !== 'admin' ? `
@@ -130,7 +140,7 @@ async function deleteUser(userId, username) {
   await loadUsers();
 }
 
-// ── Modal de acceso a arqueros ────────────────────────────────────────────────
+// ── Modal de acceso ───────────────────────────────────────────────────────────
 async function openAccessModal(userId) {
   _editingUser = _allUsers.find(u => u.id === userId) || null;
   if (!_editingUser) return;
@@ -140,34 +150,84 @@ async function openAccessModal(userId) {
     .select('archer_id, archer_name')
     .eq('user_id', userId);
 
-  const currentAccess = rows || [];
+  const allRows     = rows || [];
+  const hasAllArch  = allRows.some(r => r.archer_id === '__all_archers__');
+  const hasAllClubs = allRows.some(r => r.archer_id === '__all_clubs__');
+  const clubRows    = allRows.filter(r => r.archer_id.startsWith('club:'));
+  const archerRows  = allRows.filter(r => !r.archer_id.startsWith('club:') && !r.archer_id.startsWith('__'));
 
   const backdrop = document.createElement('div');
   backdrop.className = 'access-modal-backdrop';
   backdrop.id = 'access-modal-backdrop';
   backdrop.onclick = e => { if (e.target === backdrop) closeAccessModal(); };
 
+  if (_editingUser.role === 'admin') {
+    backdrop.innerHTML = `
+      <div class="access-modal">
+        <h3>🔑 Acceso — <span style="color:var(--accent)">${_esc(_editingUser.display_name || _editingUser.username)}</span></h3>
+        <div style="font-size:0.82rem;color:var(--muted);margin:12px 0">
+          ⚠ Este usuario es <strong>Admin</strong> y ya tiene acceso completo a todo.
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-ghost" onclick="closeAccessModal()">Cerrar</button>
+        </div>
+      </div>`;
+    document.body.appendChild(backdrop);
+    return;
+  }
+
   backdrop.innerHTML = `
-    <div class="access-modal">
-      <h3>🏹 Acceso de arqueros — <span style="color:var(--accent)">${_esc(_editingUser.display_name || _editingUser.username)}</span></h3>
-      <div style="font-size:0.78rem;color:var(--muted);margin-bottom:10px">
-        ${_editingUser.role === 'admin'
-          ? '⚠ Este usuario es <strong>Admin</strong> y ya tiene acceso a todos los arqueros.'
-          : 'Seleccioná los arqueros que este usuario puede ver.'}
+    <div class="access-modal" style="max-width:520px">
+      <h3>🏹 Acceso — <span style="color:var(--accent)">${_esc(_editingUser.display_name || _editingUser.username)}</span></h3>
+
+      <!-- ════ SECCIÓN ARQUEROS ════ -->
+      <div class="access-block">
+        <div class="access-block-header">🏹 Arqueros</div>
+
+        <label class="access-all-toggle">
+          <input type="checkbox" id="chk-all-archers" ${hasAllArch ? 'checked' : ''}
+            onchange="toggleAllAccess('${userId}','__all_archers__','Todos los arqueros',this.checked,'individual-archers-section')">
+          <span>Todos los arqueros</span>
+        </label>
+
+        <div id="individual-archers-section" style="${hasAllArch ? 'opacity:0.4;pointer-events:none' : ''}">
+          <div class="access-sub-label">Arqueros individuales</div>
+          <div class="current-access-tags" id="access-tags">
+            ${archerRows.length
+              ? archerRows.map(r => _archerTagHTML(userId, r.archer_id, r.archer_name)).join('')
+              : '<span class="access-empty">Ninguno aún</span>'}
+          </div>
+          <input type="text" class="modal-archer-search" id="modal-archer-search"
+            placeholder="🔍 Buscá por nombre…" oninput="filterModalArchers(this.value)" style="margin-top:10px">
+          <div class="modal-archer-results" id="modal-archer-results">
+            ${_renderModalArcherList(archerRows.map(r => r.archer_id), '')}
+          </div>
+        </div>
       </div>
 
-      <div class="section-title" style="font-size:0.76rem;margin-bottom:8px">Arqueros asignados</div>
-      <div class="current-access-tags" id="access-tags">
-        ${currentAccess.length
-          ? currentAccess.map(r => _archerTagHTML(userId, r.archer_id, r.archer_name)).join('')
-          : '<span style="font-size:0.8rem;color:var(--muted)">Ninguno aún</span>'}
-      </div>
+      <!-- ════ SECCIÓN CLUBES ════ -->
+      <div class="access-block">
+        <div class="access-block-header">🏛 Clubes / Escuelas</div>
 
-      <div class="section-title" style="font-size:0.76rem;margin-bottom:8px">Agregar arquero</div>
-      <input type="text" class="modal-archer-search" id="modal-archer-search"
-        placeholder="Buscá por nombre…" oninput="filterModalArchers(this.value)">
-      <div class="modal-archer-results" id="modal-archer-results">
-        ${_renderModalArcherList(currentAccess.map(r => r.archer_id), '')}
+        <label class="access-all-toggle">
+          <input type="checkbox" id="chk-all-clubs" ${hasAllClubs ? 'checked' : ''}
+            onchange="toggleAllAccess('${userId}','__all_clubs__','Todos los clubes / escuelas',this.checked,'individual-clubs-section')">
+          <span>Todos los clubes / escuelas</span>
+        </label>
+
+        <div id="individual-clubs-section" style="${hasAllClubs ? 'opacity:0.4;pointer-events:none' : ''}">
+          <div class="access-sub-label">Clubes individuales <span style="opacity:.55;font-weight:400">(da acceso a todos sus arqueros)</span></div>
+          <div class="current-access-tags" id="club-access-tags">
+            ${clubRows.length
+              ? clubRows.map(r => _clubTagHTML(userId, r.archer_id, r.archer_name)).join('')
+              : '<span class="access-empty">Ninguno aún</span>'}
+          </div>
+          <input type="text" class="modal-archer-search" id="modal-club-search"
+            placeholder="🔍 Buscá por nombre de club…" oninput="filterModalClubs(this.value)" style="margin-top:10px">
+          <div class="modal-archer-results" id="modal-club-results">
+            ${_renderModalClubList(clubRows.map(r => r.archer_id), '')}
+          </div>
+        </div>
       </div>
 
       <div class="modal-footer">
@@ -177,7 +237,6 @@ async function openAccessModal(userId) {
   `;
 
   document.body.appendChild(backdrop);
-  document.getElementById('modal-archer-search')?.focus();
 }
 
 function closeAccessModal() {
@@ -185,9 +244,35 @@ function closeAccessModal() {
   _editingUser = null;
 }
 
+// ── Toggle "todos" (arqueros o clubes) ────────────────────────────────────────
+async function toggleAllAccess(userId, sentinelId, sentinelName, checked, sectionId) {
+  if (checked) {
+    const { error } = await _sb.from('user_archer_access').insert({
+      user_id: userId, archer_id: sentinelId, archer_name: sentinelName,
+    });
+    if (error && !error.message.includes('duplicate')) {
+      alert(`Error: ${error.message}`);
+      // revert checkbox
+      document.getElementById(sentinelId === '__all_archers__' ? 'chk-all-archers' : 'chk-all-clubs').checked = false;
+      return;
+    }
+  } else {
+    const { error } = await _sb.from('user_archer_access')
+      .delete().eq('user_id', userId).eq('archer_id', sentinelId);
+    if (error) { alert(`Error: ${error.message}`); return; }
+  }
+  // Dim/undim the individual section
+  const sec = document.getElementById(sectionId);
+  if (sec) {
+    sec.style.opacity         = checked ? '0.4' : '';
+    sec.style.pointerEvents   = checked ? 'none' : '';
+  }
+}
+
+// ── Arqueros individuales ─────────────────────────────────────────────────────
 function filterModalArchers(query) {
   if (!_editingUser) return;
-  const currentIds = _getCurrentTagIds();
+  const currentIds = _getCurrentTagIds('#access-tags');
   const el = document.getElementById('modal-archer-results');
   if (el) el.innerHTML = _renderModalArcherList(currentIds, query);
 }
@@ -216,12 +301,6 @@ function _archerTagHTML(userId, archerId, archerName) {
   </span>`;
 }
 
-function _getCurrentTagIds() {
-  return [...document.querySelectorAll('#access-tags .archer-tag')]
-    .map(el => el.dataset.archerId).filter(Boolean);
-}
-
-// ── Agregar / Quitar acceso a arquero ─────────────────────────────────────────
 async function addArcherAccess(userId, archerId, archerName) {
   const { error } = await _sb.from('user_archer_access').insert({
     user_id: userId, archer_id: archerId, archer_name: archerName,
@@ -231,11 +310,10 @@ async function addArcherAccess(userId, archerId, archerName) {
   }
   const tagsEl = document.getElementById('access-tags');
   if (tagsEl) {
-    const placeholder = tagsEl.querySelector('span:not(.archer-tag)');
-    if (placeholder) placeholder.remove();
+    tagsEl.querySelector('.access-empty')?.remove();
     tagsEl.insertAdjacentHTML('beforeend', _archerTagHTML(userId, archerId, archerName));
   }
-  const currentIds = _getCurrentTagIds();
+  const currentIds = _getCurrentTagIds('#access-tags');
   const query = document.getElementById('modal-archer-search')?.value || '';
   const resultsEl = document.getElementById('modal-archer-results');
   if (resultsEl) resultsEl.innerHTML = _renderModalArcherList(currentIds, query);
@@ -246,20 +324,93 @@ async function removeArcherAccess(userId, archerId) {
     .delete().eq('user_id', userId).eq('archer_id', archerId);
   if (error) { alert(`Error: ${error.message}`); return; }
 
-  const tag = document.querySelector(`#access-tags .archer-tag[data-archer-id="${archerId}"]`);
-  if (tag) tag.remove();
-
+  document.querySelector(`#access-tags .archer-tag[data-archer-id="${archerId}"]`)?.remove();
   const tagsEl = document.getElementById('access-tags');
   if (tagsEl && !tagsEl.querySelector('.archer-tag')) {
-    tagsEl.innerHTML = '<span style="font-size:0.8rem;color:var(--muted)">Ninguno aún</span>';
+    tagsEl.innerHTML = '<span class="access-empty">Ninguno aún</span>';
   }
-  const currentIds = _getCurrentTagIds();
+  const currentIds = _getCurrentTagIds('#access-tags');
   const query = document.getElementById('modal-archer-search')?.value || '';
   const resultsEl = document.getElementById('modal-archer-results');
   if (resultsEl) resultsEl.innerHTML = _renderModalArcherList(currentIds, query);
 }
 
+// ── Clubes individuales ───────────────────────────────────────────────────────
+function filterModalClubs(query) {
+  if (!_editingUser) return;
+  const currentIds = _getCurrentTagIds('#club-access-tags');
+  const el = document.getElementById('modal-club-results');
+  if (el) el.innerHTML = _renderModalClubList(currentIds, query);
+}
+
+function _renderModalClubList(assignedClubEntryIds, query) {
+  // assignedClubEntryIds are like ['club:cuda', 'club:rain']
+  const q        = (query || '').toLowerCase();
+  const assigned = new Set(assignedClubEntryIds);
+  const visible  = _clubList.filter(c => !q || c.name.toLowerCase().includes(q)).slice(0, 60);
+
+  if (!visible.length) return '<div style="padding:10px 12px;font-size:0.8rem;color:var(--muted)">Sin resultados</div>';
+
+  return visible.map(c => {
+    const entryId = `club:${c.club_id}`;
+    const done    = assigned.has(entryId);
+    return `<div class="modal-archer-item${done ? ' already-added' : ''}"
+      onclick="${done ? '' : `addClubAccess('${_editingUser?.id}','${c.club_id}','${_esc(c.name)}')`}">
+      ${done ? '✓ ' : ''}${_esc(c.name)}
+      <span style="font-size:0.72rem;color:var(--muted);margin-left:4px">${c.club_id}</span>
+    </div>`;
+  }).join('');
+}
+
+function _clubTagHTML(userId, clubEntryId, clubName) {
+  // clubEntryId = 'club:cuda'
+  return `<span class="archer-tag" data-archer-id="${clubEntryId}">
+    ${_esc(clubName || clubEntryId)}
+    <button onclick="removeClubAccess('${userId}','${clubEntryId}')" title="Quitar">×</button>
+  </span>`;
+}
+
+async function addClubAccess(userId, clubId, clubName) {
+  const entryId = `club:${clubId}`;
+  const { error } = await _sb.from('user_archer_access').insert({
+    user_id: userId, archer_id: entryId, archer_name: clubName,
+  });
+  if (error && !error.message.includes('duplicate')) {
+    alert(`Error: ${error.message}`); return;
+  }
+  const tagsEl = document.getElementById('club-access-tags');
+  if (tagsEl) {
+    tagsEl.querySelector('.access-empty')?.remove();
+    tagsEl.insertAdjacentHTML('beforeend', _clubTagHTML(userId, entryId, clubName));
+  }
+  const currentIds = _getCurrentTagIds('#club-access-tags');
+  const query = document.getElementById('modal-club-search')?.value || '';
+  const resultsEl = document.getElementById('modal-club-results');
+  if (resultsEl) resultsEl.innerHTML = _renderModalClubList(currentIds, query);
+}
+
+async function removeClubAccess(userId, clubEntryId) {
+  const { error } = await _sb.from('user_archer_access')
+    .delete().eq('user_id', userId).eq('archer_id', clubEntryId);
+  if (error) { alert(`Error: ${error.message}`); return; }
+
+  document.querySelector(`#club-access-tags .archer-tag[data-archer-id="${clubEntryId}"]`)?.remove();
+  const tagsEl = document.getElementById('club-access-tags');
+  if (tagsEl && !tagsEl.querySelector('.archer-tag')) {
+    tagsEl.innerHTML = '<span class="access-empty">Ninguno aún</span>';
+  }
+  const currentIds = _getCurrentTagIds('#club-access-tags');
+  const query = document.getElementById('modal-club-search')?.value || '';
+  const resultsEl = document.getElementById('modal-club-results');
+  if (resultsEl) resultsEl.innerHTML = _renderModalClubList(currentIds, query);
+}
+
 // ── Utilidades ────────────────────────────────────────────────────────────────
+function _getCurrentTagIds(containerSelector) {
+  return [...document.querySelectorAll(`${containerSelector} .archer-tag`)]
+    .map(el => el.dataset.archerId).filter(Boolean);
+}
+
 function _esc(str) {
   if (!str) return '';
   return String(str)

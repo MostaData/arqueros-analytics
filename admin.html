@@ -131,8 +131,28 @@
     .modal-archer-item:last-child { border-bottom: none; }
     .modal-archer-item:hover { background: rgba(79,142,247,0.08); }
     .modal-archer-item.already-added { opacity: 0.4; cursor: default; pointer-events: none; }
-    .current-access-tags { min-height: 40px; margin-bottom: 14px; }
+    .current-access-tags { min-height: 36px; margin-bottom: 6px; }
     .modal-footer { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+    /* ── Access modal blocks ── */
+    .access-block {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 16px; margin-bottom: 14px;
+    }
+    .access-block-header {
+      font-size: 0.78rem; font-weight: 700; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;
+    }
+    .access-all-toggle {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.86rem; font-weight: 600; cursor: pointer;
+      margin-bottom: 14px; user-select: none;
+    }
+    .access-all-toggle input[type=checkbox] { width: 16px; height: 16px; cursor: pointer; accent-color: var(--accent); }
+    .access-sub-label {
+      font-size: 0.74rem; font-weight: 600; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; margin-top: 4px;
+    }
+    .access-empty { font-size: 0.8rem; color: var(--muted); }
   </style>
 </head>
 <body>

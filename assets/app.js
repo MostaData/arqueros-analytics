@@ -1609,6 +1609,25 @@ async function init() {
 
   await loadAllData();
 
+  // Expand special access sentinels now that archer data is loaded
+  if (state.userRole !== 'admin' && Array.isArray(state.userAccess)) {
+    const raw = state.userAccess;
+    if (raw.includes('__all_archers__') || raw.includes('__all_clubs__')) {
+      state.userAccess = null; // full access — no filter
+    } else {
+      const clubKeys = raw.filter(id => id.startsWith('club:'));
+      if (clubKeys.length > 0) {
+        const clubIds        = clubKeys.map(k => k.slice(5));
+        const allArchersList = state.archers?.archers || [];
+        const clubArcherIds  = allArchersList
+          .filter(a => a.clubs_history?.some(c => clubIds.includes(c.club_id)))
+          .map(a => a.id);
+        const regularIds = raw.filter(id => !id.startsWith('club:') && !id.startsWith('__'));
+        state.userAccess = [...new Set([...regularIds, ...clubArcherIds])];
+      }
+    }
+  }
+
   document.getElementById('loading-overlay').style.display = 'none';
 
   populateFilters();
