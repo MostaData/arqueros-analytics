@@ -20,8 +20,8 @@ const _sbAux = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
 });
 
 // ─── BOOTSTRAP ADMINS ────────────────────────────────────────────────────────
-// Emails que siempre tienen rol 'admin' sin necesitar UPDATE en la BD.
-const _ADMIN_EMAILS = ['lvalenzuela@mostadata.com'];
+// Nombres de usuario que siempre tienen rol 'admin' (sin importar el dominio).
+const _ADMIN_USERNAMES = ['lvalenzuela'];
 
 // ─── LOCAL SESSION CACHE ──────────────────────────────────────────────────────
 // El auth guard usa localStorage como fuente de verdad (sin esperar a Supabase).
@@ -29,8 +29,8 @@ const _ADMIN_EMAILS = ['lvalenzuela@mostadata.com'];
 const _CACHE_KEY = 'aa_user_v3';
 
 function authCacheSet(email) {
-  const role     = _ADMIN_EMAILS.includes(email) ? 'admin' : 'viewer';
   const username = authUsernameFromEmail(email);
+  const role     = _ADMIN_USERNAMES.includes(username) ? 'admin' : 'viewer';
   localStorage.setItem(_CACHE_KEY, JSON.stringify({ email, username, role }));
 }
 
