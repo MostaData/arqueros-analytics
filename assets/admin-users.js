@@ -20,7 +20,7 @@ async function _loadArcherList() {
     const res  = await fetch('data/archers-index.json');
     const data = await res.json();
     _archerList = (data.archers || [])
-      .map(a => ({ archer_id: a.archer_id, name: a.name || a.archer_id }))
+      .map(a => ({ archer_id: a.id, name: a.display_name || a.name || a.id }))
       .sort((a, b) => a.name.localeCompare(b.name, 'es'));
   } catch (e) {
     console.warn('[admin-users] archers-index.json no disponible:', e.message);

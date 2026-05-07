@@ -107,6 +107,15 @@
     <div class="sidebar-footer">
       <div id="last-updated" class="text-muted" style="margin-bottom:6px">Cargando…</div>
       <a href="admin.html" class="admin-link">⚙ Panel Técnico Admin</a>
+      <button onclick="authSignOut()" style="
+        margin-top:10px; width:100%; background:transparent;
+        border:1px solid var(--border); border-radius:8px;
+        color:var(--muted); font-size:0.78rem; padding:7px 10px;
+        cursor:pointer; transition:all 0.15s; text-align:left;
+      " onmouseover="this.style.color='#f87171';this.style.borderColor='rgba(239,68,68,0.4)'"
+         onmouseout="this.style.color='';this.style.borderColor=''">
+        ⏻ Cerrar sesión
+      </button>
     </div>
   </nav>
 
