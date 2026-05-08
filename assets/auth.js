@@ -56,6 +56,18 @@ function authSignOut() {
   location.replace('login.html');
 }
 
+// ─── LIVE PROFILE REFRESH ────────────────────────────────────────────────────
+// Re-fetches role + access flags from Supabase on every page load so that
+// admin changes take effect without requiring the user to re-login.
+async function authRefreshProfile(userId) {
+  const { data, error } = await _sb.rpc('get_user_live_profile', { p_user_id: userId });
+  if (error) {
+    console.warn('[auth] get_user_live_profile failed:', error.message);
+    return null;
+  }
+  return (data && data.length > 0) ? data[0] : null;
+}
+
 // ─── ARCHER ACCESS (individual archer / club rows) ────────────────────────────
 // Returns rows for INDIVIDUAL archer IDs and club: entries.
 // Full-access flags (all_archers_access / all_clubs_access) are stored on

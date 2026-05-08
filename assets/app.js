@@ -149,6 +149,31 @@ async function loadAllData() {
   }
 }
 
+// ─── ACCESS HELPERS ──────────────────────────────────────────────────────────
+// Returns true for a viewer with zero archer access (no individual archers AND
+// no full-access flags). Admins and full-access viewers always return false.
+function _viewerHasNoAccess() {
+  if (state.userRole === 'admin') return false;
+  if (state.userAccessAll) return false;
+  return !state.userAccess || state.userAccess.length === 0;
+}
+
+// Inserts a "no access" card into a section, clearing any prior banner.
+function _renderNoAccessBanner(sectionId) {
+  const sec = document.getElementById(sectionId);
+  if (!sec) return;
+  const existingBanner = sec.querySelector('.no-access-banner');
+  if (existingBanner) return; // already shown
+  const banner = document.createElement('div');
+  banner.className = 'no-access-banner card';
+  banner.style.cssText = 'text-align:center;padding:60px 20px;margin-top:16px';
+  banner.innerHTML = `
+    <div style="font-size:2.5rem;margin-bottom:12px">🔒</div>
+    <div style="font-weight:700;margin-bottom:6px">Sin acceso</div>
+    <div style="font-size:0.84rem;color:var(--muted)">No tenés arqueros asignados.<br>Contactá al administrador para obtener acceso.</div>`;
+  sec.appendChild(banner);
+}
+
 // ─── FILTER PIPELINE ─────────────────────────────────────────────────────────
 function getTournamentById(id) {
   return state.tournaments?.tournaments?.find((t) => t.id === id) || null;
@@ -1214,6 +1239,7 @@ function renderTorneos() {
 
 // ─── SECTION: RANKINGS ────────────────────────────────────────────────────────
 function renderRankings() {
+  if (_viewerHasNoAccess()) { _renderNoAccessBanner('section-rankings'); return; }
   const results = getFilteredResults(false); // todos los datos, sin filtro de acceso
   const activeTab = document.querySelector('.ranking-tab.active')?.dataset.tab || 'score';
   renderRankingTable(results, activeTab);
@@ -1311,6 +1337,7 @@ function renderRankingTable(results, tab) {
 
 // ─── SECTION: PROGRESO ────────────────────────────────────────────────────────
 function renderProgreso() {
+  if (_viewerHasNoAccess()) { _renderNoAccessBanner('section-progreso'); return; }
   const results = getFilteredResults(false); // todos los datos, sin filtro de acceso
 
   // Annual average
@@ -1583,6 +1610,29 @@ async function init() {
   const profile = window.__userProfile;
   if (profile) {
     state.userRole = profile.role || 'viewer';
+
+    // Re-fetch live profile from DB so admin changes take effect immediately
+    // without requiring the user to log out and back in.
+    if (profile.id) {
+      const live = await authRefreshProfile(profile.id);
+      if (live) {
+        profile.role               = live.role               || profile.role;
+        profile.section_access     = live.section_access     || profile.section_access;
+        profile.all_archers_access = live.all_archers_access ?? profile.all_archers_access;
+        profile.all_clubs_access   = live.all_clubs_access   ?? profile.all_clubs_access;
+        window.__userProfile = profile;
+        state.userRole = profile.role || 'viewer';
+        // Re-apply viewer-mode class in case role changed since last login
+        if (profile.role !== 'admin') {
+          document.documentElement.classList.add('viewer-mode');
+        } else {
+          document.documentElement.classList.remove('viewer-mode');
+        }
+        // Persist refreshed values so next page load is also correct
+        const cached = authCacheGet();
+        if (cached) authCacheSet({ ...cached, ...live });
+      }
+    }
 
     if (profile.role === 'admin') {
       state.userAccess = null; // sin restricción
