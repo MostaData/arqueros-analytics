@@ -187,16 +187,120 @@ function renderLastScrape(data) {
   }
 }
 
+async function loadVisitStats() {
+  try {
+    const { data, error } = await _sb.rpc('get_page_view_stats');
+    if (error) throw error;
+    return data || [];
+  } catch (e) {
+    console.warn('[admin] visit stats failed:', e.message);
+    return null;
+  }
+}
+
+function renderVisitStats(rows) {
+  const container = document.getElementById('visit-stats-container');
+  if (!container) return;
+
+  if (rows === null) {
+    container.innerHTML = '<div class="warning-item warning-error">🔴 No se pudieron cargar las estadísticas. ¿Ejecutaste <code>supabase-pageviews.sql</code>?</div>';
+    return;
+  }
+  if (!rows.length) {
+    container.innerHTML = '<div class="warning-item warning-info">🔵 Sin visitas registradas todavía.</div>';
+    return;
+  }
+
+  const todayStr = new Date().toISOString().slice(0, 10);
+  const d7Str    = new Date(Date.now() - 6 * 86400000).toISOString().slice(0, 10);
+
+  let totalToday = 0, total7d = 0, total30d = 0;
+  const byPage = {};
+  const byDay  = {};
+
+  for (const r of rows) {
+    const count = Number(r.total);
+    total30d += count;
+    if (r.day >= d7Str)    total7d    += count;
+    if (r.day === todayStr) totalToday += count;
+
+    if (!byPage[r.page]) byPage[r.page] = { today: 0, d7: 0, d30: 0 };
+    byPage[r.page].d30 += count;
+    if (r.day >= d7Str)    byPage[r.page].d7    += count;
+    if (r.day === todayStr) byPage[r.page].today += count;
+
+    byDay[r.day] = (byDay[r.day] || 0) + count;
+  }
+
+  const last7 = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(Date.now() - i * 86400000).toISOString().slice(0, 10);
+    last7.push({ day: d, count: byDay[d] || 0 });
+  }
+  const maxDay = Math.max(...last7.map((d) => d.count), 1);
+
+  const pageLabels = { dashboard: '📊 Dashboard', login: '🔑 Login', admin: '⚙ Admin' };
+
+  const barsHtml = last7.map((d) => {
+    const barH  = Math.max(d.count ? 3 : 0, Math.round((d.count / maxDay) * 64));
+    const label = new Date(d.day + 'T12:00:00').toLocaleDateString('es-AR', { weekday: 'short', day: 'numeric' });
+    return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px">
+      <span style="font-size:0.7rem;color:var(--accent);height:16px;line-height:16px">${d.count || ''}</span>
+      <div style="width:100%;height:64px;display:flex;align-items:flex-end">
+        <div style="width:100%;height:${barH}px;background:var(--accent);border-radius:3px 3px 0 0;opacity:0.75"></div>
+      </div>
+      <span style="font-size:0.65rem;color:var(--muted);white-space:nowrap">${label}</span>
+    </div>`;
+  }).join('');
+
+  const tableRows = Object.entries(byPage).map(([page, c]) => `
+    <div style="display:grid;grid-template-columns:1fr repeat(3,70px);padding:10px 16px;font-size:0.84rem;border-bottom:1px solid var(--border)">
+      <span>${pageLabels[page] || page}</span>
+      <span style="text-align:center;color:var(--accent)">${c.today}</span>
+      <span style="text-align:center">${c.d7}</span>
+      <span style="text-align:center;color:var(--muted)">${c.d30}</span>
+    </div>`).join('');
+
+  container.innerHTML = `
+    <div class="seg-grid" style="margin-bottom:20px">
+      <div class="kpi-card">
+        <div class="kpi-label">Visitas hoy</div>
+        <div class="kpi-value text-accent">${totalToday}</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Últimos 7 días</div>
+        <div class="kpi-value text-accent">${total7d}</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Últimos 30 días</div>
+        <div class="kpi-value text-accent">${total30d}</div>
+      </div>
+    </div>
+
+    <div class="section-title" style="font-size:0.78rem;margin-bottom:8px">Por página (últimos 30 días)</div>
+    <div class="user-list-container" style="margin-bottom:20px">
+      <div style="display:grid;grid-template-columns:1fr repeat(3,70px);padding:8px 16px;font-size:0.72rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;border-bottom:1px solid var(--border)">
+        <span>Página</span><span style="text-align:center">Hoy</span><span style="text-align:center">7d</span><span style="text-align:center">30d</span>
+      </div>
+      ${tableRows}
+    </div>
+
+    <div class="section-title" style="font-size:0.78rem;margin-bottom:8px">Últimos 7 días (todas las páginas)</div>
+    <div style="display:flex;gap:6px;padding:0 4px">${barsHtml}</div>
+  `;
+}
+
 async function init() {
   document.getElementById('admin-loading')?.style && (document.getElementById('admin-loading').style.display = 'flex');
 
-  const data = await loadAdminData();
+  const [data, visitRows] = await Promise.all([loadAdminData(), loadVisitStats()]);
 
   document.getElementById('admin-loading')?.style && (document.getElementById('admin-loading').style.display = 'none');
 
   renderLastScrape(data);
   renderDataStatus(data);
   renderIntegrityWarnings(data);
+  renderVisitStats(visitRows);
   renderArcherSearch(data);
   renderClubSearch(data);
   renderSegmentPreview(data);

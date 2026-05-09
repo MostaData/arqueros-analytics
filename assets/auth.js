@@ -68,6 +68,14 @@ async function authRefreshProfile(userId) {
   return (data && data.length > 0) ? data[0] : null;
 }
 
+// ─── PAGE VIEW LOGGING ───────────────────────────────────────────────────────
+// Silent fire-and-forget. Logs page + role so admin can see visit stats.
+async function logPageView(page) {
+  const cached = authCacheGet();
+  const role = cached?.role || 'anonymous';
+  try { await _sb.rpc('log_page_view', { p_page: page, p_role: role }); } catch { /* silent */ }
+}
+
 // ─── ARCHER ACCESS (individual archer / club rows) ────────────────────────────
 // Returns rows for INDIVIDUAL archer IDs and club: entries.
 // Full-access flags (all_archers_access / all_clubs_access) are stored on

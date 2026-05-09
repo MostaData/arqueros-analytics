@@ -154,6 +154,9 @@
   // ── Dev bypass
   if (location.protocol === 'file:') { location.replace('index.html'); }
 
+  // Registrar visita
+  window.addEventListener('load', () => logPageView('login'));
+
   // ── Ya autenticado → ir directo al dashboard
   if (authCacheGet()) location.replace('index.html');
 

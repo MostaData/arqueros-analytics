@@ -194,6 +194,8 @@
       <div class="nav-link"><span class="icon">📂</span> Estado de datos</div>
       <div class="nav-section">Usuarios</div>
       <div class="nav-link"><span class="icon">👥</span> Gestión de Usuarios</div>
+      <div class="nav-section">Análisis</div>
+      <div class="nav-link"><span class="icon">📈</span> Visitas</div>
       <div class="nav-section">Búsqueda</div>
       <div class="nav-link"><span class="icon">🏹</span> Buscar arquero</div>
       <div class="nav-link"><span class="icon">🏛</span> Buscar club</div>
@@ -325,6 +327,14 @@
       </div>
     </div>
 
+    <!-- ─── VISITAS ──────────────────────────────────────────────────────── -->
+    <div class="section-block" id="section-visits">
+      <div class="section-title" style="margin-bottom:16px">Visitas a la plataforma</div>
+      <div id="visit-stats-container">
+        <div class="warning-item warning-info">🔵 Cargando estadísticas…</div>
+      </div>
+    </div>
+
     <!-- ─── BUSCADOR DE ARQUEROS ──────────────────────────────────────── -->
     <div class="section-block">
       <div class="section-title">Buscar arquero por nombre</div>
@@ -427,7 +437,7 @@ archery-analytics/
     if (window.__adminAuthReady) await window.__adminAuthReady;
     const overlay = document.getElementById('admin-loading');
     if (overlay) overlay.style.display = 'none';
-    // Boot user management
+    logPageView('admin');
     if (typeof initUserManagement === 'function') initUserManagement();
   });
 </script>

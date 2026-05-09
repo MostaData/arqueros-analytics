@@ -556,6 +556,9 @@
 <script src="assets/app.js"></script>
 
 <script>
+  // Registrar visita (fire-and-forget)
+  window.addEventListener('load', () => logPageView('dashboard'));
+
   // Mostrar banner si los datos están vacíos
   window.addEventListener('load', () => {
     setTimeout(() => {
