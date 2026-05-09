@@ -1586,6 +1586,7 @@ function navigateTo(section) {
   }
 
   renderCurrentSection();
+  _maybeAutoStartTour();
 }
 
 // ─── URL PARAMS ───────────────────────────────────────────────────────────────
@@ -1750,6 +1751,227 @@ async function init() {
   }
 
   navigateTo(state.currentSection);
+}
+
+// ─── TOUR ─────────────────────────────────────────────────────────────────────
+const _TOUR_DONE_KEY = 'aa_tour_v1';
+let _tourActive = false;
+let _tourSteps  = [];
+let _tourIdx    = 0;
+
+function _buildTourSteps() {
+  const s = state.currentSection;
+
+  if (s === 'arqueros') return [
+    {
+      selector: '#archer-search-input',
+      title: '🔍 Buscador de arqueros',
+      text: 'Escribí el apellido o nombre del arquero. Aparecerán sugerencias automáticas; hacé clic en uno para ver su historial completo.',
+    },
+    {
+      selector: '#archer-filters',
+      title: '🎯 Filtros del arquero',
+      text: 'Una vez elegido el arquero, podés filtrar sus resultados por <strong>División</strong>, <strong>Disciplina</strong> o <strong>Año</strong> para enfocarte en lo que más importa.',
+    },
+    {
+      selector: '#chart-archer-progress',
+      title: '📈 Evolución de puntaje',
+      text: 'Cada punto es un torneo. Los colores representan la <strong>División</strong> en que compitió. Pasá el cursor sobre un punto para ver el detalle.',
+    },
+    {
+      selector: '#chart-archer-podium',
+      title: '🥇 Distribución de posiciones',
+      text: '¿Cuántas veces llegó a cada puesto? <span style="color:#ffd700">●</span> 1° dorado &nbsp;<span style="color:#c0c0c0">●</span> 2° plateado &nbsp;<span style="color:#cd7f32">●</span> 3° bronce &nbsp;<span style="color:#4f8ef7">●</span> otras posiciones.',
+    },
+    {
+      selector: '#archer-category-comparison',
+      title: '📊 vs. Promedio de categoría',
+      text: 'Compara el puntaje promedio personal con el promedio general de su División. Verde = por encima, rojo = por debajo del promedio.',
+    },
+    {
+      selector: '#archer-history-body',
+      title: '📋 Historial de torneos',
+      text: 'Todos los torneos en detalle: fecha, club organizador, posición, puntajes por ronda, 11s y 10s. Usá los filtros de arriba para acotar el período.',
+    },
+  ];
+
+  if (s === 'clubes') return [
+    {
+      selector: '#club-select-trigger',
+      title: '🏛 Seleccionar club',
+      text: 'Hacé clic acá y escribí el nombre (sigla) del club para buscarlo. Los clubs están ordenados alfabéticamente.',
+    },
+    {
+      selector: '#chart-club-activity',
+      title: '📅 Actividad por año',
+      text: 'Cantidad de participaciones del club en torneos por año. Permite ver si el club está creciendo o decreció en actividad.',
+    },
+    {
+      selector: '#chart-club-divisions',
+      title: '📊 Divisiones del club',
+      text: 'En qué categorías/divisiones tiene más presencia el club. Útil para identificar las fortalezas del plantel.',
+    },
+    {
+      selector: '#club-archers-list',
+      title: '🏹 Arqueros del club',
+      text: 'Lista completa de arqueros agrupados por División. Marcá uno o varios con la casilla para comparar su evolución en un gráfico.',
+    },
+  ];
+
+  if (s === 'rankings') return [
+    {
+      selector: '#section-rankings .filter-bar',
+      title: '🎯 Filtros del ranking',
+      text: 'Filtrá por <strong>Disciplina</strong>, <strong>División</strong> o <strong>Género</strong> para ver los mejores dentro de cada categoría específica.',
+    },
+    {
+      selector: '.ranking-tabs',
+      title: '🏆 Tipos de ranking',
+      text: 'Cambiá entre <strong>Mejor puntaje</strong>, <strong>Más participaciones</strong>, <strong>Más victorias</strong> o <strong>Ranking de clubes</strong> según lo que querés analizar.',
+    },
+    {
+      selector: '#ranking-table-body',
+      title: '📋 Tabla de ranking',
+      text: 'Top 100 resultados. Combiná los filtros para hacer rankings dentro de una disciplina o división específica.',
+    },
+  ];
+
+  if (s === 'progreso') return [
+    {
+      selector: '#section-progreso .filter-bar',
+      title: '🎯 Filtros de progreso',
+      text: 'Filtrá por <strong>Disciplina</strong>, <strong>División</strong> o <strong>Género</strong> para analizar la evolución de una categoría específica.',
+    },
+    {
+      selector: '#chart-annual-avg',
+      title: '📈 Promedio por año',
+      text: 'Cómo evolucionó el puntaje promedio general año a año. Una línea ascendente indica mejora en el nivel competitivo.',
+    },
+    {
+      selector: '#chart-participation-year',
+      title: '👥 Participaciones por año',
+      text: 'Cantidad de entradas en torneos por año. Refleja el crecimiento (o caída) en la actividad del deporte.',
+    },
+    {
+      selector: '#chart-top-scorers',
+      title: '🥇 Top 15 puntajes',
+      text: 'Los mejores puntajes registrados con los filtros actuales. Cambiá la Disciplina o División para explorar distintas categorías.',
+    },
+  ];
+
+  return [];
+}
+
+function _maybeAutoStartTour() {
+  if (_tourActive) return;
+  if (localStorage.getItem(_TOUR_DONE_KEY)) return;
+  const validSections = ['arqueros', 'clubes', 'rankings', 'progreso'];
+  if (!validSections.includes(state.currentSection)) return;
+  setTimeout(() => startTour(false), 750);
+}
+
+function startTour(force = false) {
+  if (_tourActive) return;
+  if (!force && localStorage.getItem(_TOUR_DONE_KEY)) return;
+
+  const steps = _buildTourSteps();
+  _tourSteps = steps.filter(s => {
+    const el = document.querySelector(s.selector);
+    if (!el) return false;
+    const r = el.getBoundingClientRect();
+    return r.width > 0 && r.height > 0;
+  });
+  if (!_tourSteps.length) return;
+
+  _tourIdx    = 0;
+  _tourActive = true;
+  _tourEnsureDOM();
+  document.getElementById('tour-overlay').style.display = 'block';
+  _tourRender();
+}
+
+function _tourEnsureDOM() {
+  if (document.getElementById('tour-overlay')) return;
+  const el = document.createElement('div');
+  el.id = 'tour-overlay';
+  el.innerHTML = `
+    <div id="tour-spotlight"></div>
+    <div id="tour-tooltip">
+      <div id="tour-tt-body"></div>
+    </div>`;
+  document.body.appendChild(el);
+}
+
+function _tourRender() {
+  const step = _tourSteps[_tourIdx];
+  const el   = document.querySelector(step.selector);
+  if (!el) { _tourNextStep(); return; }
+
+  el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  setTimeout(() => {
+    const rect    = el.getBoundingClientRect();
+    const PAD     = 8;
+    const sp      = document.getElementById('tour-spotlight');
+    const tt      = document.getElementById('tour-tooltip');
+    const ttBody  = document.getElementById('tour-tt-body');
+    const isFirst = _tourIdx === 0;
+    const isLast  = _tourIdx === _tourSteps.length - 1;
+    const VW      = window.innerWidth;
+    const VH      = window.innerHeight;
+    const TT_W    = Math.min(300, VW - 24);
+    const TT_H    = 180;
+
+    sp.style.cssText = `left:${rect.left-PAD}px;top:${rect.top-PAD}px;width:${rect.width+PAD*2}px;height:${rect.height+PAD*2}px`;
+
+    ttBody.innerHTML = `
+      <div class="tour-title">${step.title}</div>
+      <div class="tour-text">${step.text}</div>
+      <div class="tour-footer">
+        <button class="tour-skip" onclick="endTour()">✕ Saltar tour</button>
+        <div class="tour-nav">
+          <span class="tour-counter">${_tourIdx + 1} / ${_tourSteps.length}</span>
+          ${!isFirst ? `<button class="tour-prev" onclick="_tourPrevStep()">← Atrás</button>` : ''}
+          <button class="tour-next" onclick="_tourNextStep()">${isLast ? '✓ Entendido' : 'Siguiente →'}</button>
+        </div>
+      </div>`;
+
+    let ttLeft = Math.max(12, Math.min(rect.left - PAD, VW - TT_W - 12));
+    let ttTop, arrowDir;
+    if (rect.bottom + PAD + TT_H + 14 <= VH) {
+      ttTop    = rect.bottom + PAD + 12;
+      arrowDir = 'top';
+    } else {
+      ttTop    = rect.top - PAD - TT_H - 12;
+      arrowDir = 'bottom';
+    }
+    ttTop = Math.max(8, Math.min(ttTop, VH - TT_H - 8));
+
+    const arrowLeft = Math.max(14, Math.min(
+      rect.left + rect.width / 2 - ttLeft - 6,
+      TT_W - 28
+    ));
+
+    tt.style.cssText = `left:${ttLeft}px;top:${ttTop}px;width:${TT_W}px;--arrow-left:${arrowLeft}px`;
+    tt.dataset.arrow = arrowDir;
+  }, 130);
+}
+
+function _tourNextStep() {
+  _tourIdx++;
+  if (_tourIdx >= _tourSteps.length) endTour(true);
+  else _tourRender();
+}
+
+function _tourPrevStep() {
+  if (_tourIdx > 0) { _tourIdx--; _tourRender(); }
+}
+
+function endTour() {
+  _tourActive = false;
+  const ov = document.getElementById('tour-overlay');
+  if (ov) ov.style.display = 'none';
+  localStorage.setItem(_TOUR_DONE_KEY, '1');
 }
 
 document.addEventListener('DOMContentLoaded', init);
