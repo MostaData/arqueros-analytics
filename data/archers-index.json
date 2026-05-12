@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-05-11T16:47:31.101Z",
-    "total_archers": 3252
+    "last_updated": "2026-05-12T12:59:42.757Z",
+    "total_archers": 3258
   },
   "archers": [
     {
@@ -197,14 +197,14 @@
           "club_id": "somisa",
           "club_name": "SOMISA",
           "first_seen": "2023-02-26",
-          "last_seen": "2026-04-12"
+          "last_seen": "2026-05-10"
         }
       ],
       "primary_division": "Raso",
       "primary_gender": "Femenino",
       "stats": {
-        "total_tournaments": 55,
-        "total_results": 55,
+        "total_tournaments": 56,
+        "total_results": 56,
         "disciplines": {
           "Campo": {
             "count": 19,
@@ -223,12 +223,12 @@
             "podiums": 17
           },
           "Aire Libre": {
-            "count": 9,
-            "avg_total": 474.3,
+            "count": 10,
+            "avg_total": 472.4,
             "best_total": 514,
             "worst_total": 398,
-            "wins": 2,
-            "podiums": 6
+            "wins": 3,
+            "podiums": 7
           },
           "Sala": {
             "count": 10,
@@ -239,10 +239,10 @@
             "podiums": 10
           }
         },
-        "overall_wins": 21,
-        "podiums": 48,
+        "overall_wins": 22,
+        "podiums": 49,
         "avg_position": 2.2,
-        "last_competed": "2026-04-12",
+        "last_competed": "2026-05-10",
         "career_start": "2023-02-26"
       }
     },
@@ -1332,6 +1332,65 @@
       }
     },
     {
+      "id": "alum-diego-ariel",
+      "name": "Alum, Diego Ariel",
+      "name_normalized": "alum, diego ariel",
+      "display_name": "Diego Ariel Alum",
+      "clubs_history": [
+        {
+          "club_id": "emta",
+          "club_name": "EMTA",
+          "first_seen": "2023-02-26",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 36,
+        "total_results": 36,
+        "disciplines": {
+          "Campo": {
+            "count": 2,
+            "avg_total": 234,
+            "best_total": 259,
+            "worst_total": 209,
+            "wins": 0,
+            "podiums": 0
+          },
+          "3D": {
+            "count": 1,
+            "avg_total": 144,
+            "best_total": 144,
+            "worst_total": 144,
+            "wins": 0,
+            "podiums": 1
+          },
+          "Aire Libre": {
+            "count": 15,
+            "avg_total": 429.2,
+            "best_total": 491,
+            "worst_total": 284,
+            "wins": 0,
+            "podiums": 0
+          },
+          "Sala": {
+            "count": 18,
+            "avg_total": 419.3,
+            "best_total": 514,
+            "worst_total": 253,
+            "wins": 0,
+            "podiums": 2
+          }
+        },
+        "overall_wins": 0,
+        "podiums": 3,
+        "avg_position": 10.5,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-02-26"
+      }
+    },
+    {
       "id": "ruiz-luis",
       "name": "Ruiz, Luis",
       "name_normalized": "ruiz, luis",
@@ -1397,6 +1456,120 @@
       }
     },
     {
+      "id": "saldivia-lucio-vidal",
+      "name": "Saldivia, Lucio Vidal",
+      "name_normalized": "saldivia, lucio vidal",
+      "display_name": "Lucio Vidal Saldivia",
+      "clubs_history": [
+        {
+          "club_id": "far",
+          "club_name": "FAR",
+          "first_seen": null,
+          "last_seen": null
+        },
+        {
+          "club_id": "erta",
+          "club_name": "ERTA",
+          "first_seen": "2024-02-11",
+          "last_seen": "2024-08-25"
+        },
+        {
+          "club_id": "tfar",
+          "club_name": "TFAR",
+          "first_seen": "2025-02-23",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Tradicional",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 36,
+        "total_results": 36,
+        "disciplines": {
+          "3D": {
+            "count": 22,
+            "avg_total": 364.4,
+            "best_total": 688,
+            "worst_total": 294,
+            "wins": 4,
+            "podiums": 14
+          },
+          "Aire Libre": {
+            "count": 12,
+            "avg_total": 620.8,
+            "best_total": 652,
+            "worst_total": 579,
+            "wins": 6,
+            "podiums": 11
+          },
+          "Campo": {
+            "count": 1,
+            "avg_total": 241,
+            "best_total": 241,
+            "worst_total": 241,
+            "wins": 0,
+            "podiums": 1
+          },
+          "Sala": {
+            "count": 1,
+            "avg_total": 457,
+            "best_total": 457,
+            "worst_total": 457,
+            "wins": 1,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 11,
+        "podiums": 27,
+        "avg_position": 3.2,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-02-11"
+      }
+    },
+    {
+      "id": "tonina-gabriel-joaquin",
+      "name": "Tonina, Gabriel Joaquin",
+      "name_normalized": "tonina, gabriel joaquin",
+      "display_name": "Gabriel Joaquin Tonina",
+      "clubs_history": [
+        {
+          "club_id": "tfcha",
+          "club_name": "TFCHA",
+          "first_seen": "2024-05-05",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Masculino Sub-18",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 36,
+        "total_results": 36,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 25,
+            "avg_total": 598.4,
+            "best_total": 655,
+            "worst_total": 477,
+            "wins": 19,
+            "podiums": 23
+          },
+          "Sala": {
+            "count": 11,
+            "avg_total": 538.4,
+            "best_total": 570,
+            "worst_total": 504,
+            "wins": 10,
+            "podiums": 10
+          }
+        },
+        "overall_wins": 29,
+        "podiums": 33,
+        "avg_position": 1.6,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-05-05"
+      }
+    },
+    {
       "id": "jerez-ernesto-damian",
       "name": "Jerez, Ernesto Damian",
       "name_normalized": "jerez, ernesto damian",
@@ -1451,65 +1624,6 @@
         "avg_position": 2.2,
         "last_competed": "2026-05-03",
         "career_start": "2023-06-17"
-      }
-    },
-    {
-      "id": "alum-diego-ariel",
-      "name": "Alum, Diego Ariel",
-      "name_normalized": "alum, diego ariel",
-      "display_name": "Diego Ariel Alum",
-      "clubs_history": [
-        {
-          "club_id": "emta",
-          "club_name": "EMTA",
-          "first_seen": "2023-02-26",
-          "last_seen": "2026-04-12"
-        }
-      ],
-      "primary_division": "Recurvo",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 35,
-        "total_results": 35,
-        "disciplines": {
-          "Campo": {
-            "count": 2,
-            "avg_total": 234,
-            "best_total": 259,
-            "worst_total": 209,
-            "wins": 0,
-            "podiums": 0
-          },
-          "3D": {
-            "count": 1,
-            "avg_total": 144,
-            "best_total": 144,
-            "worst_total": 144,
-            "wins": 0,
-            "podiums": 1
-          },
-          "Aire Libre": {
-            "count": 14,
-            "avg_total": 431.4,
-            "best_total": 491,
-            "worst_total": 284,
-            "wins": 0,
-            "podiums": 0
-          },
-          "Sala": {
-            "count": 18,
-            "avg_total": 419.3,
-            "best_total": 514,
-            "worst_total": 253,
-            "wins": 0,
-            "podiums": 2
-          }
-        },
-        "overall_wins": 0,
-        "podiums": 3,
-        "avg_position": 10.5,
-        "last_competed": "2026-04-12",
-        "career_start": "2023-02-26"
       }
     },
     {
@@ -1623,120 +1737,6 @@
       }
     },
     {
-      "id": "saldivia-lucio-vidal",
-      "name": "Saldivia, Lucio Vidal",
-      "name_normalized": "saldivia, lucio vidal",
-      "display_name": "Lucio Vidal Saldivia",
-      "clubs_history": [
-        {
-          "club_id": "far",
-          "club_name": "FAR",
-          "first_seen": null,
-          "last_seen": null
-        },
-        {
-          "club_id": "erta",
-          "club_name": "ERTA",
-          "first_seen": "2024-02-11",
-          "last_seen": "2024-08-25"
-        },
-        {
-          "club_id": "tfar",
-          "club_name": "TFAR",
-          "first_seen": "2025-02-23",
-          "last_seen": "2026-04-12"
-        }
-      ],
-      "primary_division": "Tradicional",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 35,
-        "total_results": 35,
-        "disciplines": {
-          "3D": {
-            "count": 22,
-            "avg_total": 364.4,
-            "best_total": 688,
-            "worst_total": 294,
-            "wins": 4,
-            "podiums": 14
-          },
-          "Aire Libre": {
-            "count": 11,
-            "avg_total": 619.9,
-            "best_total": 652,
-            "worst_total": 579,
-            "wins": 6,
-            "podiums": 10
-          },
-          "Campo": {
-            "count": 1,
-            "avg_total": 241,
-            "best_total": 241,
-            "worst_total": 241,
-            "wins": 0,
-            "podiums": 1
-          },
-          "Sala": {
-            "count": 1,
-            "avg_total": 457,
-            "best_total": 457,
-            "worst_total": 457,
-            "wins": 1,
-            "podiums": 1
-          }
-        },
-        "overall_wins": 11,
-        "podiums": 26,
-        "avg_position": 3.2,
-        "last_competed": "2026-04-12",
-        "career_start": "2024-02-11"
-      }
-    },
-    {
-      "id": "tonina-gabriel-joaquin",
-      "name": "Tonina, Gabriel Joaquin",
-      "name_normalized": "tonina, gabriel joaquin",
-      "display_name": "Gabriel Joaquin Tonina",
-      "clubs_history": [
-        {
-          "club_id": "tfcha",
-          "club_name": "TFCHA",
-          "first_seen": "2024-05-05",
-          "last_seen": "2026-03-22"
-        }
-      ],
-      "primary_division": "Recurvo Masculino Sub-18",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 35,
-        "total_results": 35,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 24,
-            "avg_total": 597.7,
-            "best_total": 655,
-            "worst_total": 477,
-            "wins": 18,
-            "podiums": 22
-          },
-          "Sala": {
-            "count": 11,
-            "avg_total": 538.4,
-            "best_total": 570,
-            "worst_total": 504,
-            "wins": 10,
-            "podiums": 10
-          }
-        },
-        "overall_wins": 28,
-        "podiums": 32,
-        "avg_position": 1.6,
-        "last_competed": "2026-03-22",
-        "career_start": "2024-05-05"
-      }
-    },
-    {
       "id": "campos-jacqueline",
       "name": "Campos, Jacqueline",
       "name_normalized": "campos, jacqueline",
@@ -1782,6 +1782,49 @@
         "podiums": 29,
         "avg_position": 2.2,
         "last_competed": "2026-03-08",
+        "career_start": "2023-06-17"
+      }
+    },
+    {
+      "id": "abrodos-matias-valentin",
+      "name": "Abrodos, Matías Valentin",
+      "name_normalized": "abrodos, matias valentin",
+      "display_name": "Matías Valentin Abrodos",
+      "clubs_history": [
+        {
+          "club_id": "cuda",
+          "club_name": "CUDA",
+          "first_seen": "2023-06-17",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Raso",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 35,
+        "total_results": 35,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 29,
+            "avg_total": 565.8,
+            "best_total": 618,
+            "worst_total": 513,
+            "wins": 8,
+            "podiums": 22
+          },
+          "Sala": {
+            "count": 6,
+            "avg_total": 471.3,
+            "best_total": 488,
+            "worst_total": 428,
+            "wins": 0,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 8,
+        "podiums": 23,
+        "avg_position": 3.2,
+        "last_competed": "2026-05-10",
         "career_start": "2023-06-17"
       }
     },
@@ -2117,49 +2160,6 @@
         "avg_position": 3.4,
         "last_competed": "2026-04-19",
         "career_start": "2023-07-29"
-      }
-    },
-    {
-      "id": "abrodos-matias-valentin",
-      "name": "Abrodos, Matías Valentin",
-      "name_normalized": "abrodos, matias valentin",
-      "display_name": "Matías Valentin Abrodos",
-      "clubs_history": [
-        {
-          "club_id": "cuda",
-          "club_name": "CUDA",
-          "first_seen": "2023-06-17",
-          "last_seen": "2025-11-09"
-        }
-      ],
-      "primary_division": "Raso",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 34,
-        "total_results": 34,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 28,
-            "avg_total": 566.2,
-            "best_total": 618,
-            "worst_total": 513,
-            "wins": 8,
-            "podiums": 21
-          },
-          "Sala": {
-            "count": 6,
-            "avg_total": 471.3,
-            "best_total": 488,
-            "worst_total": 428,
-            "wins": 0,
-            "podiums": 1
-          }
-        },
-        "overall_wins": 8,
-        "podiums": 22,
-        "avg_position": 3.3,
-        "last_competed": "2025-11-09",
-        "career_start": "2023-06-17"
       }
     },
     {
@@ -2622,6 +2622,120 @@
       }
     },
     {
+      "id": "alvarez-marcela-grisel",
+      "name": "Alvarez, Marcela Grisel",
+      "name_normalized": "alvarez, marcela grisel",
+      "display_name": "Marcela Grisel Alvarez",
+      "clubs_history": [
+        {
+          "club_id": "cuda",
+          "club_name": "CUDA",
+          "first_seen": "2023-06-17",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Raso",
+      "primary_gender": "Femenino",
+      "stats": {
+        "total_tournaments": 33,
+        "total_results": 33,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 27,
+            "avg_total": 449.7,
+            "best_total": 499,
+            "worst_total": 349,
+            "wins": 6,
+            "podiums": 18
+          },
+          "Sala": {
+            "count": 6,
+            "avg_total": 418.8,
+            "best_total": 461,
+            "worst_total": 395,
+            "wins": 0,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 6,
+        "podiums": 19,
+        "avg_position": 3.5,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-06-17"
+      }
+    },
+    {
+      "id": "seffino-gonzalo-nicolas",
+      "name": "Seffino, Gonzalo Nicolas",
+      "name_normalized": "seffino, gonzalo nicolas",
+      "display_name": "Gonzalo Nicolas Seffino",
+      "clubs_history": [
+        {
+          "club_id": "far",
+          "club_name": "FAR",
+          "first_seen": null,
+          "last_seen": null
+        },
+        {
+          "club_id": "erta",
+          "club_name": "ERTA",
+          "first_seen": "2024-02-18",
+          "last_seen": "2024-10-06"
+        },
+        {
+          "club_id": "tfar",
+          "club_name": "TFAR",
+          "first_seen": "2025-02-23",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Tradicional",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 33,
+        "total_results": 33,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 13,
+            "avg_total": 629.7,
+            "best_total": 654,
+            "worst_total": 589,
+            "wins": 6,
+            "podiums": 12
+          },
+          "3D": {
+            "count": 18,
+            "avg_total": 390.3,
+            "best_total": 737,
+            "worst_total": 304,
+            "wins": 8,
+            "podiums": 13
+          },
+          "Campo": {
+            "count": 1,
+            "avg_total": 246,
+            "best_total": 246,
+            "worst_total": 246,
+            "wins": 1,
+            "podiums": 1
+          },
+          "Sala": {
+            "count": 1,
+            "avg_total": 455,
+            "best_total": 455,
+            "worst_total": 455,
+            "wins": 0,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 15,
+        "podiums": 27,
+        "avg_position": 2.6,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-02-18"
+      }
+    },
+    {
       "id": "otero-mariano",
       "name": "Otero, Mariano",
       "name_normalized": "otero, mariano",
@@ -2918,120 +3032,6 @@
       }
     },
     {
-      "id": "alvarez-marcela-grisel",
-      "name": "Alvarez, Marcela Grisel",
-      "name_normalized": "alvarez, marcela grisel",
-      "display_name": "Marcela Grisel Alvarez",
-      "clubs_history": [
-        {
-          "club_id": "cuda",
-          "club_name": "CUDA",
-          "first_seen": "2023-06-17",
-          "last_seen": "2025-11-09"
-        }
-      ],
-      "primary_division": "Raso",
-      "primary_gender": "Femenino",
-      "stats": {
-        "total_tournaments": 32,
-        "total_results": 32,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 26,
-            "avg_total": 450,
-            "best_total": 499,
-            "worst_total": 349,
-            "wins": 6,
-            "podiums": 17
-          },
-          "Sala": {
-            "count": 6,
-            "avg_total": 418.8,
-            "best_total": 461,
-            "worst_total": 395,
-            "wins": 0,
-            "podiums": 1
-          }
-        },
-        "overall_wins": 6,
-        "podiums": 18,
-        "avg_position": 3.6,
-        "last_competed": "2025-11-09",
-        "career_start": "2023-06-17"
-      }
-    },
-    {
-      "id": "seffino-gonzalo-nicolas",
-      "name": "Seffino, Gonzalo Nicolas",
-      "name_normalized": "seffino, gonzalo nicolas",
-      "display_name": "Gonzalo Nicolas Seffino",
-      "clubs_history": [
-        {
-          "club_id": "far",
-          "club_name": "FAR",
-          "first_seen": null,
-          "last_seen": null
-        },
-        {
-          "club_id": "erta",
-          "club_name": "ERTA",
-          "first_seen": "2024-02-18",
-          "last_seen": "2024-10-06"
-        },
-        {
-          "club_id": "tfar",
-          "club_name": "TFAR",
-          "first_seen": "2025-02-23",
-          "last_seen": "2026-04-12"
-        }
-      ],
-      "primary_division": "Tradicional",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 32,
-        "total_results": 32,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 12,
-            "avg_total": 629.7,
-            "best_total": 654,
-            "worst_total": 589,
-            "wins": 5,
-            "podiums": 11
-          },
-          "3D": {
-            "count": 18,
-            "avg_total": 390.3,
-            "best_total": 737,
-            "worst_total": 304,
-            "wins": 8,
-            "podiums": 13
-          },
-          "Campo": {
-            "count": 1,
-            "avg_total": 246,
-            "best_total": 246,
-            "worst_total": 246,
-            "wins": 1,
-            "podiums": 1
-          },
-          "Sala": {
-            "count": 1,
-            "avg_total": 455,
-            "best_total": 455,
-            "worst_total": 455,
-            "wins": 0,
-            "podiums": 1
-          }
-        },
-        "overall_wins": 14,
-        "podiums": 26,
-        "avg_position": 2.7,
-        "last_competed": "2026-04-12",
-        "career_start": "2024-02-18"
-      }
-    },
-    {
       "id": "martin-eduardo-ernesto",
       "name": "Martin, Eduardo Ernesto",
       "name_normalized": "martin, eduardo ernesto",
@@ -3115,6 +3115,57 @@
         "avg_position": 5.3,
         "last_competed": "2026-03-08",
         "career_start": "2023-06-17"
+      }
+    },
+    {
+      "id": "lopez-guillermo",
+      "name": "López, Guillermo",
+      "name_normalized": "lopez, guillermo",
+      "display_name": "Guillermo López",
+      "clubs_history": [
+        {
+          "club_id": "tfar",
+          "club_name": "TFAR",
+          "first_seen": "2023-02-26",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Long Bow",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 31,
+        "total_results": 31,
+        "disciplines": {
+          "Campo": {
+            "count": 7,
+            "avg_total": 317.9,
+            "best_total": 483,
+            "worst_total": 267,
+            "wins": 4,
+            "podiums": 7
+          },
+          "3D": {
+            "count": 20,
+            "avg_total": 382.1,
+            "best_total": 692,
+            "worst_total": 322,
+            "wins": 9,
+            "podiums": 19
+          },
+          "Aire Libre": {
+            "count": 4,
+            "avg_total": 586.3,
+            "best_total": 637,
+            "worst_total": 488,
+            "wins": 3,
+            "podiums": 4
+          }
+        },
+        "overall_wins": 16,
+        "podiums": 30,
+        "avg_position": 1.7,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-02-26"
       }
     },
     {
@@ -3587,57 +3638,6 @@
       }
     },
     {
-      "id": "lopez-guillermo",
-      "name": "López, Guillermo",
-      "name_normalized": "lopez, guillermo",
-      "display_name": "Guillermo López",
-      "clubs_history": [
-        {
-          "club_id": "tfar",
-          "club_name": "TFAR",
-          "first_seen": "2023-02-26",
-          "last_seen": "2026-04-04"
-        }
-      ],
-      "primary_division": "Long Bow",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 30,
-        "total_results": 30,
-        "disciplines": {
-          "Campo": {
-            "count": 7,
-            "avg_total": 317.9,
-            "best_total": 483,
-            "worst_total": 267,
-            "wins": 4,
-            "podiums": 7
-          },
-          "3D": {
-            "count": 20,
-            "avg_total": 382.1,
-            "best_total": 692,
-            "worst_total": 322,
-            "wins": 9,
-            "podiums": 19
-          },
-          "Aire Libre": {
-            "count": 3,
-            "avg_total": 619,
-            "best_total": 637,
-            "worst_total": 603,
-            "wins": 2,
-            "podiums": 3
-          }
-        },
-        "overall_wins": 15,
-        "podiums": 29,
-        "avg_position": 1.7,
-        "last_competed": "2026-04-04",
-        "career_start": "2023-02-26"
-      }
-    },
-    {
       "id": "vdovitchenko-yevheniy",
       "name": "Vdovitchenko, Yevheniy",
       "name_normalized": "vdovitchenko, yevheniy",
@@ -3757,6 +3757,65 @@
         "avg_position": 2.5,
         "last_competed": "2026-04-04",
         "career_start": "2023-06-04"
+      }
+    },
+    {
+      "id": "alegria-marcelo-roman",
+      "name": "Alegria, Marcelo Roman",
+      "name_normalized": "alegria, marcelo roman",
+      "display_name": "Marcelo Roman Alegria",
+      "clubs_history": [
+        {
+          "club_id": "ona",
+          "club_name": "ONA",
+          "first_seen": "2023-03-05",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Longbow",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 30,
+        "total_results": 30,
+        "disciplines": {
+          "3D": {
+            "count": 10,
+            "avg_total": 272.2,
+            "best_total": 309,
+            "worst_total": 169,
+            "wins": 0,
+            "podiums": 3
+          },
+          "Aire Libre": {
+            "count": 17,
+            "avg_total": 561.4,
+            "best_total": 613,
+            "worst_total": 471,
+            "wins": 2,
+            "podiums": 10
+          },
+          "Sala": {
+            "count": 1,
+            "avg_total": 342,
+            "best_total": 342,
+            "worst_total": 342,
+            "wins": 0,
+            "podiums": 0
+          },
+          "Campo": {
+            "count": 2,
+            "avg_total": 222,
+            "best_total": 229,
+            "worst_total": 215,
+            "wins": 0,
+            "podiums": 2
+          }
+        },
+        "overall_wins": 2,
+        "podiums": 15,
+        "avg_position": 4.6,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-03-05"
       }
     },
     {
@@ -3911,6 +3970,49 @@
         "podiums": 13,
         "avg_position": 6,
         "last_competed": "2025-11-09",
+        "career_start": "2023-06-17"
+      }
+    },
+    {
+      "id": "tuero-juan-ignacio",
+      "name": "Tuero, Juan Ignacio",
+      "name_normalized": "tuero, juan ignacio",
+      "display_name": "Juan Ignacio Tuero",
+      "clubs_history": [
+        {
+          "club_id": "tado",
+          "club_name": "TADO",
+          "first_seen": "2023-06-17",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Compuesto Masculino Sub-21",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 30,
+        "total_results": 30,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 20,
+            "avg_total": 510.8,
+            "best_total": 592,
+            "worst_total": 335,
+            "wins": 3,
+            "podiums": 11
+          },
+          "Sala": {
+            "count": 10,
+            "avg_total": 476.4,
+            "best_total": 521,
+            "worst_total": 374,
+            "wins": 3,
+            "podiums": 6
+          }
+        },
+        "overall_wins": 6,
+        "podiums": 17,
+        "avg_position": 3.9,
+        "last_competed": "2026-05-10",
         "career_start": "2023-06-17"
       }
     },
@@ -4365,65 +4467,6 @@
       }
     },
     {
-      "id": "alegria-marcelo-roman",
-      "name": "Alegria, Marcelo Roman",
-      "name_normalized": "alegria, marcelo roman",
-      "display_name": "Marcelo Roman Alegria",
-      "clubs_history": [
-        {
-          "club_id": "ona",
-          "club_name": "ONA",
-          "first_seen": "2023-03-05",
-          "last_seen": "2026-04-03"
-        }
-      ],
-      "primary_division": "Longbow",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 29,
-        "total_results": 29,
-        "disciplines": {
-          "3D": {
-            "count": 10,
-            "avg_total": 272.2,
-            "best_total": 309,
-            "worst_total": 169,
-            "wins": 0,
-            "podiums": 3
-          },
-          "Aire Libre": {
-            "count": 16,
-            "avg_total": 560.7,
-            "best_total": 613,
-            "worst_total": 471,
-            "wins": 1,
-            "podiums": 9
-          },
-          "Sala": {
-            "count": 1,
-            "avg_total": 342,
-            "best_total": 342,
-            "worst_total": 342,
-            "wins": 0,
-            "podiums": 0
-          },
-          "Campo": {
-            "count": 2,
-            "avg_total": 222,
-            "best_total": 229,
-            "worst_total": 215,
-            "wins": 0,
-            "podiums": 2
-          }
-        },
-        "overall_wins": 1,
-        "podiums": 14,
-        "avg_position": 4.8,
-        "last_competed": "2026-04-03",
-        "career_start": "2023-03-05"
-      }
-    },
-    {
       "id": "papa-luis",
       "name": "Papa, Luis",
       "name_normalized": "papa, luis",
@@ -4523,49 +4566,6 @@
         "avg_position": 1.8,
         "last_competed": "2026-05-03",
         "career_start": "2023-03-05"
-      }
-    },
-    {
-      "id": "tuero-juan-ignacio",
-      "name": "Tuero, Juan Ignacio",
-      "name_normalized": "tuero, juan ignacio",
-      "display_name": "Juan Ignacio Tuero",
-      "clubs_history": [
-        {
-          "club_id": "tado",
-          "club_name": "TADO",
-          "first_seen": "2023-06-17",
-          "last_seen": "2025-11-09"
-        }
-      ],
-      "primary_division": "Compuesto Masculino Sub-21",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 29,
-        "total_results": 29,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 19,
-            "avg_total": 507.1,
-            "best_total": 592,
-            "worst_total": 335,
-            "wins": 3,
-            "podiums": 10
-          },
-          "Sala": {
-            "count": 10,
-            "avg_total": 476.4,
-            "best_total": 521,
-            "worst_total": 374,
-            "wins": 3,
-            "podiums": 6
-          }
-        },
-        "overall_wins": 6,
-        "podiums": 16,
-        "avg_position": 3.9,
-        "last_competed": "2025-11-09",
-        "career_start": "2023-06-17"
       }
     },
     {
@@ -5135,6 +5135,49 @@
         "avg_position": 2.9,
         "last_competed": "2025-11-09",
         "career_start": "2023-07-09"
+      }
+    },
+    {
+      "id": "godoy-diego-martin",
+      "name": "Godoy, Diego Martin",
+      "name_normalized": "godoy, diego martin",
+      "display_name": "Diego Martin Godoy",
+      "clubs_history": [
+        {
+          "club_id": "ona",
+          "club_name": "ONA",
+          "first_seen": "2023-10-29",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 28,
+        "total_results": 28,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 25,
+            "avg_total": 506,
+            "best_total": 581,
+            "worst_total": 456,
+            "wins": 4,
+            "podiums": 5
+          },
+          "Sala": {
+            "count": 3,
+            "avg_total": 484.7,
+            "best_total": 487,
+            "worst_total": 483,
+            "wins": 0,
+            "podiums": 0
+          }
+        },
+        "overall_wins": 4,
+        "podiums": 5,
+        "avg_position": 8.6,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-10-29"
       }
     },
     {
@@ -5730,49 +5773,6 @@
       }
     },
     {
-      "id": "godoy-diego-martin",
-      "name": "Godoy, Diego Martin",
-      "name_normalized": "godoy, diego martin",
-      "display_name": "Diego Martin Godoy",
-      "clubs_history": [
-        {
-          "club_id": "ona",
-          "club_name": "ONA",
-          "first_seen": "2023-10-29",
-          "last_seen": "2025-11-09"
-        }
-      ],
-      "primary_division": "Recurvo",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 27,
-        "total_results": 27,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 24,
-            "avg_total": 506.9,
-            "best_total": 581,
-            "worst_total": 456,
-            "wins": 4,
-            "podiums": 5
-          },
-          "Sala": {
-            "count": 3,
-            "avg_total": 484.7,
-            "best_total": 487,
-            "worst_total": 483,
-            "wins": 0,
-            "podiums": 0
-          }
-        },
-        "overall_wins": 4,
-        "podiums": 5,
-        "avg_position": 8.7,
-        "last_competed": "2025-11-09",
-        "career_start": "2023-10-29"
-      }
-    },
-    {
       "id": "bibe-victor-gabriel",
       "name": "Bibé, Victor Gabriel",
       "name_normalized": "bibe, victor gabriel",
@@ -6139,6 +6139,57 @@
         "avg_position": 4.2,
         "last_competed": "2026-04-12",
         "career_start": "2023-03-25"
+      }
+    },
+    {
+      "id": "victto-gustavo-adrian",
+      "name": "Victto, Gustavo Adrian",
+      "name_normalized": "victto, gustavo adrian",
+      "display_name": "Gustavo Adrian Victto",
+      "clubs_history": [
+        {
+          "club_id": "ona",
+          "club_name": "ONA",
+          "first_seen": "2023-03-05",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 26,
+        "total_results": 26,
+        "disciplines": {
+          "3D": {
+            "count": 1,
+            "avg_total": 231,
+            "best_total": 231,
+            "worst_total": 231,
+            "wins": 1,
+            "podiums": 1
+          },
+          "Aire Libre": {
+            "count": 12,
+            "avg_total": 459.6,
+            "best_total": 560,
+            "worst_total": 390,
+            "wins": 0,
+            "podiums": 1
+          },
+          "Sala": {
+            "count": 13,
+            "avg_total": 455.7,
+            "best_total": 520,
+            "worst_total": 349,
+            "wins": 0,
+            "podiums": 3
+          }
+        },
+        "overall_wins": 1,
+        "podiums": 5,
+        "avg_position": 8.3,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-03-05"
       }
     },
     {
@@ -6641,6 +6692,98 @@
       }
     },
     {
+      "id": "spratte-marta-noemi",
+      "name": "Spratte, Marta Noemi",
+      "name_normalized": "spratte, marta noemi",
+      "display_name": "Marta Noemi Spratte",
+      "clubs_history": [
+        {
+          "club_id": "ta",
+          "club_name": "TA",
+          "first_seen": "2023-06-17",
+          "last_seen": "2025-08-03"
+        },
+        {
+          "club_id": "ona",
+          "club_name": "ONA",
+          "first_seen": "2026-05-03",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Raso Femenino 50+",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 26,
+        "total_results": 26,
+        "disciplines": {
+          "Sala": {
+            "count": 16,
+            "avg_total": 385.9,
+            "best_total": 457,
+            "worst_total": 234,
+            "wins": 8,
+            "podiums": 14
+          },
+          "Aire Libre": {
+            "count": 10,
+            "avg_total": 530,
+            "best_total": 634,
+            "worst_total": 473,
+            "wins": 2,
+            "podiums": 7
+          }
+        },
+        "overall_wins": 10,
+        "podiums": 21,
+        "avg_position": 2.5,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-06-17"
+      }
+    },
+    {
+      "id": "ghinassi-erica-paola",
+      "name": "Ghinassi, Erica Paola",
+      "name_normalized": "ghinassi, erica paola",
+      "display_name": "Erica Paola Ghinassi",
+      "clubs_history": [
+        {
+          "club_id": "tado",
+          "club_name": "TADO",
+          "first_seen": "2023-10-29",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Femenino Sub-18",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 26,
+        "total_results": 26,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 23,
+            "avg_total": 537.7,
+            "best_total": 624,
+            "worst_total": 424,
+            "wins": 12,
+            "podiums": 20
+          },
+          "Sala": {
+            "count": 3,
+            "avg_total": 511.7,
+            "best_total": 521,
+            "worst_total": 505,
+            "wins": 3,
+            "podiums": 3
+          }
+        },
+        "overall_wins": 15,
+        "podiums": 23,
+        "avg_position": 1.8,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-10-29"
+      }
+    },
+    {
       "id": "ciccone-nestor-fabian",
       "name": "Ciccone, Néstor Fabian",
       "name_normalized": "ciccone, nestor fabian",
@@ -7102,57 +7245,6 @@
       }
     },
     {
-      "id": "victto-gustavo-adrian",
-      "name": "Victto, Gustavo Adrian",
-      "name_normalized": "victto, gustavo adrian",
-      "display_name": "Gustavo Adrian Victto",
-      "clubs_history": [
-        {
-          "club_id": "ona",
-          "club_name": "ONA",
-          "first_seen": "2023-03-05",
-          "last_seen": "2026-04-12"
-        }
-      ],
-      "primary_division": "Recurvo",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 25,
-        "total_results": 25,
-        "disciplines": {
-          "3D": {
-            "count": 1,
-            "avg_total": 231,
-            "best_total": 231,
-            "worst_total": 231,
-            "wins": 1,
-            "podiums": 1
-          },
-          "Aire Libre": {
-            "count": 11,
-            "avg_total": 457.3,
-            "best_total": 560,
-            "worst_total": 390,
-            "wins": 0,
-            "podiums": 1
-          },
-          "Sala": {
-            "count": 13,
-            "avg_total": 455.7,
-            "best_total": 520,
-            "worst_total": 349,
-            "wins": 0,
-            "podiums": 3
-          }
-        },
-        "overall_wins": 1,
-        "podiums": 5,
-        "avg_position": 8.5,
-        "last_competed": "2026-04-12",
-        "career_start": "2023-03-05"
-      }
-    },
-    {
       "id": "godio-mario-oscar",
       "name": "Godio, Mario Oscar",
       "name_normalized": "godio, mario oscar",
@@ -7463,55 +7555,6 @@
       }
     },
     {
-      "id": "spratte-marta-noemi",
-      "name": "Spratte, Marta Noemi",
-      "name_normalized": "spratte, marta noemi",
-      "display_name": "Marta Noemi Spratte",
-      "clubs_history": [
-        {
-          "club_id": "ta",
-          "club_name": "TA",
-          "first_seen": "2023-06-17",
-          "last_seen": "2025-08-03"
-        },
-        {
-          "club_id": "ona",
-          "club_name": "ONA",
-          "first_seen": "2026-05-03",
-          "last_seen": "2026-05-03"
-        }
-      ],
-      "primary_division": "Raso Femenino 50+",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 25,
-        "total_results": 25,
-        "disciplines": {
-          "Sala": {
-            "count": 16,
-            "avg_total": 385.9,
-            "best_total": 457,
-            "worst_total": 234,
-            "wins": 8,
-            "podiums": 14
-          },
-          "Aire Libre": {
-            "count": 9,
-            "avg_total": 525.9,
-            "best_total": 634,
-            "worst_total": 473,
-            "wins": 2,
-            "podiums": 6
-          }
-        },
-        "overall_wins": 10,
-        "podiums": 20,
-        "avg_position": 2.5,
-        "last_competed": "2026-05-03",
-        "career_start": "2023-06-17"
-      }
-    },
-    {
       "id": "giudice-maria-luisina",
       "name": "Giudice, María Luisina",
       "name_normalized": "giudice, maria luisina",
@@ -7549,49 +7592,6 @@
         "podiums": 18,
         "avg_position": 3.7,
         "last_competed": "2025-10-05",
-        "career_start": "2023-10-29"
-      }
-    },
-    {
-      "id": "ghinassi-erica-paola",
-      "name": "Ghinassi, Erica Paola",
-      "name_normalized": "ghinassi, erica paola",
-      "display_name": "Erica Paola Ghinassi",
-      "clubs_history": [
-        {
-          "club_id": "tado",
-          "club_name": "TADO",
-          "first_seen": "2023-10-29",
-          "last_seen": "2026-04-12"
-        }
-      ],
-      "primary_division": "Recurvo Femenino Sub-18",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 25,
-        "total_results": 25,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 22,
-            "avg_total": 541.1,
-            "best_total": 624,
-            "worst_total": 424,
-            "wins": 11,
-            "podiums": 19
-          },
-          "Sala": {
-            "count": 3,
-            "avg_total": 511.7,
-            "best_total": 521,
-            "worst_total": 505,
-            "wins": 3,
-            "podiums": 3
-          }
-        },
-        "overall_wins": 14,
-        "podiums": 22,
-        "avg_position": 1.8,
-        "last_competed": "2026-04-12",
         "career_start": "2023-10-29"
       }
     },
@@ -7868,6 +7868,49 @@
         "avg_position": 6,
         "last_competed": "2026-04-19",
         "career_start": "2024-02-18"
+      }
+    },
+    {
+      "id": "kazlouskas-camila",
+      "name": "Kazlouskas, Camila",
+      "name_normalized": "kazlouskas, camila",
+      "display_name": "Camila Kazlouskas",
+      "clubs_history": [
+        {
+          "club_id": "ona",
+          "club_name": "ONA",
+          "first_seen": "2023-06-17",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo",
+      "primary_gender": "Femenino",
+      "stats": {
+        "total_tournaments": 24,
+        "total_results": 24,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 15,
+            "avg_total": 455.5,
+            "best_total": 513,
+            "worst_total": 274,
+            "wins": 3,
+            "podiums": 10
+          },
+          "Sala": {
+            "count": 9,
+            "avg_total": 507.8,
+            "best_total": 535,
+            "worst_total": 475,
+            "wins": 3,
+            "podiums": 8
+          }
+        },
+        "overall_wins": 6,
+        "podiums": 18,
+        "avg_position": 3.1,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-06-17"
       }
     },
     {
@@ -8637,49 +8680,6 @@
       }
     },
     {
-      "id": "kazlouskas-camila",
-      "name": "Kazlouskas, Camila",
-      "name_normalized": "kazlouskas, camila",
-      "display_name": "Camila Kazlouskas",
-      "clubs_history": [
-        {
-          "club_id": "ona",
-          "club_name": "ONA",
-          "first_seen": "2023-06-17",
-          "last_seen": "2026-05-03"
-        }
-      ],
-      "primary_division": "Recurvo",
-      "primary_gender": "Femenino",
-      "stats": {
-        "total_tournaments": 23,
-        "total_results": 23,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 14,
-            "avg_total": 462.5,
-            "best_total": 513,
-            "worst_total": 274,
-            "wins": 3,
-            "podiums": 9
-          },
-          "Sala": {
-            "count": 9,
-            "avg_total": 507.8,
-            "best_total": 535,
-            "worst_total": 475,
-            "wins": 3,
-            "podiums": 8
-          }
-        },
-        "overall_wins": 6,
-        "podiums": 17,
-        "avg_position": 3.1,
-        "last_competed": "2026-05-03",
-        "career_start": "2023-06-17"
-      }
-    },
-    {
       "id": "facio-jorge",
       "name": "Facio, Jorge",
       "name_normalized": "facio, jorge",
@@ -8829,6 +8829,49 @@
       }
     },
     {
+      "id": "quintela-brenda",
+      "name": "Quintela, Brenda",
+      "name_normalized": "quintela, brenda",
+      "display_name": "Brenda Quintela",
+      "clubs_history": [
+        {
+          "club_id": "ona",
+          "club_name": "ONA",
+          "first_seen": "2023-06-17",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo",
+      "primary_gender": "Femenino",
+      "stats": {
+        "total_tournaments": 23,
+        "total_results": 23,
+        "disciplines": {
+          "Sala": {
+            "count": 14,
+            "avg_total": 471.4,
+            "best_total": 528,
+            "worst_total": 409,
+            "wins": 2,
+            "podiums": 6
+          },
+          "Aire Libre": {
+            "count": 9,
+            "avg_total": 486.7,
+            "best_total": 530,
+            "worst_total": 455,
+            "wins": 1,
+            "podiums": 6
+          }
+        },
+        "overall_wins": 3,
+        "podiums": 12,
+        "avg_position": 3.9,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-06-17"
+      }
+    },
+    {
       "id": "rodriguez-alejandro-ramon",
       "name": "Rodriguez, Alejandro Ramon",
       "name_normalized": "rodriguez, alejandro ramon",
@@ -8874,6 +8917,49 @@
         "podiums": 11,
         "avg_position": 4.2,
         "last_competed": "2026-04-12",
+        "career_start": "2023-06-17"
+      }
+    },
+    {
+      "id": "moreno-francisco",
+      "name": "Moreno, Francisco",
+      "name_normalized": "moreno, francisco",
+      "display_name": "Francisco Moreno",
+      "clubs_history": [
+        {
+          "club_id": "emta",
+          "club_name": "EMTA",
+          "first_seen": "2023-06-17",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 23,
+        "total_results": 23,
+        "disciplines": {
+          "Sala": {
+            "count": 3,
+            "avg_total": 500,
+            "best_total": 529,
+            "worst_total": 483,
+            "wins": 0,
+            "podiums": 0
+          },
+          "Aire Libre": {
+            "count": 20,
+            "avg_total": 529.8,
+            "best_total": 573,
+            "worst_total": 462,
+            "wins": 2,
+            "podiums": 10
+          }
+        },
+        "overall_wins": 2,
+        "podiums": 10,
+        "avg_position": 5.4,
+        "last_competed": "2026-05-10",
         "career_start": "2023-06-17"
       }
     },
@@ -9074,6 +9160,55 @@
         "avg_position": 3.6,
         "last_competed": "2025-11-09",
         "career_start": "2024-06-15"
+      }
+    },
+    {
+      "id": "ferrero-jorge-mauricio",
+      "name": "Ferrero, Jorge Mauricio",
+      "name_normalized": "ferrero, jorge mauricio",
+      "display_name": "Jorge Mauricio Ferrero",
+      "clubs_history": [
+        {
+          "club_id": "total",
+          "club_name": "TOTAL",
+          "first_seen": "2024-05-11",
+          "last_seen": "2025-11-09"
+        },
+        {
+          "club_id": "akos",
+          "club_name": "AKOS",
+          "first_seen": "2026-04-12",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Raso",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 23,
+        "total_results": 23,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 12,
+            "avg_total": 508.3,
+            "best_total": 663,
+            "worst_total": 361,
+            "wins": 3,
+            "podiums": 5
+          },
+          "Sala": {
+            "count": 11,
+            "avg_total": 410.7,
+            "best_total": 521,
+            "worst_total": 309,
+            "wins": 0,
+            "podiums": 5
+          }
+        },
+        "overall_wins": 3,
+        "podiums": 10,
+        "avg_position": 6.9,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-05-11"
       }
     },
     {
@@ -9783,46 +9918,46 @@
       }
     },
     {
-      "id": "quintela-brenda",
-      "name": "Quintela, Brenda",
-      "name_normalized": "quintela, brenda",
-      "display_name": "Brenda Quintela",
+      "id": "moreyra-mauricio-hector",
+      "name": "Moreyra, Mauricio Hector",
+      "name_normalized": "moreyra, mauricio hector",
+      "display_name": "Mauricio Hector Moreyra",
       "clubs_history": [
         {
-          "club_id": "ona",
-          "club_name": "ONA",
-          "first_seen": "2023-06-17",
-          "last_seen": "2025-08-03"
+          "club_id": "tfar",
+          "club_name": "TFAR",
+          "first_seen": "2023-04-16",
+          "last_seen": "2026-05-10"
         }
       ],
-      "primary_division": "Recurvo",
-      "primary_gender": "Femenino",
+      "primary_division": "Recurvo Masculino 50+",
+      "primary_gender": "Desconocido",
       "stats": {
         "total_tournaments": 22,
         "total_results": 22,
         "disciplines": {
           "Sala": {
-            "count": 14,
-            "avg_total": 471.4,
+            "count": 8,
+            "avg_total": 461.6,
             "best_total": 528,
-            "worst_total": 409,
-            "wins": 2,
+            "worst_total": 387,
+            "wins": 1,
             "podiums": 6
           },
           "Aire Libre": {
-            "count": 8,
-            "avg_total": 490.6,
-            "best_total": 530,
-            "worst_total": 460,
-            "wins": 1,
-            "podiums": 5
+            "count": 14,
+            "avg_total": 498.4,
+            "best_total": 554,
+            "worst_total": 411,
+            "wins": 0,
+            "podiums": 6
           }
         },
-        "overall_wins": 3,
-        "podiums": 11,
-        "avg_position": 4,
-        "last_competed": "2025-08-03",
-        "career_start": "2023-06-17"
+        "overall_wins": 1,
+        "podiums": 12,
+        "avg_position": 5.5,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-04-16"
       }
     },
     {
@@ -10002,49 +10137,6 @@
         "podiums": 7,
         "avg_position": 5.5,
         "last_competed": "2025-09-13",
-        "career_start": "2023-06-17"
-      }
-    },
-    {
-      "id": "moreno-francisco",
-      "name": "Moreno, Francisco",
-      "name_normalized": "moreno, francisco",
-      "display_name": "Francisco Moreno",
-      "clubs_history": [
-        {
-          "club_id": "emta",
-          "club_name": "EMTA",
-          "first_seen": "2023-06-17",
-          "last_seen": "2025-11-09"
-        }
-      ],
-      "primary_division": "Recurvo",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 22,
-        "total_results": 22,
-        "disciplines": {
-          "Sala": {
-            "count": 3,
-            "avg_total": 500,
-            "best_total": 529,
-            "worst_total": 483,
-            "wins": 0,
-            "podiums": 0
-          },
-          "Aire Libre": {
-            "count": 19,
-            "avg_total": 531.1,
-            "best_total": 573,
-            "worst_total": 462,
-            "wins": 2,
-            "podiums": 9
-          }
-        },
-        "overall_wins": 2,
-        "podiums": 9,
-        "avg_position": 5.6,
-        "last_competed": "2025-11-09",
         "career_start": "2023-06-17"
       }
     },
@@ -10275,55 +10367,6 @@
         "avg_position": 2.4,
         "last_competed": "2026-04-26",
         "career_start": "2024-03-10"
-      }
-    },
-    {
-      "id": "ferrero-jorge-mauricio",
-      "name": "Ferrero, Jorge Mauricio",
-      "name_normalized": "ferrero, jorge mauricio",
-      "display_name": "Jorge Mauricio Ferrero",
-      "clubs_history": [
-        {
-          "club_id": "total",
-          "club_name": "TOTAL",
-          "first_seen": "2024-05-11",
-          "last_seen": "2025-11-09"
-        },
-        {
-          "club_id": "akos",
-          "club_name": "AKOS",
-          "first_seen": "2026-04-12",
-          "last_seen": "2026-04-12"
-        }
-      ],
-      "primary_division": "Raso",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 22,
-        "total_results": 22,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 11,
-            "avg_total": 515.3,
-            "best_total": 663,
-            "worst_total": 361,
-            "wins": 2,
-            "podiums": 4
-          },
-          "Sala": {
-            "count": 11,
-            "avg_total": 410.7,
-            "best_total": 521,
-            "worst_total": 309,
-            "wins": 0,
-            "podiums": 5
-          }
-        },
-        "overall_wins": 2,
-        "podiums": 9,
-        "avg_position": 7.1,
-        "last_competed": "2026-04-12",
-        "career_start": "2024-05-11"
       }
     },
     {
@@ -10871,49 +10914,6 @@
         "avg_position": 4.2,
         "last_competed": "2026-05-03",
         "career_start": "2023-08-20"
-      }
-    },
-    {
-      "id": "moreyra-mauricio-hector",
-      "name": "Moreyra, Mauricio Hector",
-      "name_normalized": "moreyra, mauricio hector",
-      "display_name": "Mauricio Hector Moreyra",
-      "clubs_history": [
-        {
-          "club_id": "tfar",
-          "club_name": "TFAR",
-          "first_seen": "2023-04-16",
-          "last_seen": "2026-04-12"
-        }
-      ],
-      "primary_division": "Recurvo Masculino 50+",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 21,
-        "total_results": 21,
-        "disciplines": {
-          "Sala": {
-            "count": 8,
-            "avg_total": 461.6,
-            "best_total": 528,
-            "worst_total": 387,
-            "wins": 1,
-            "podiums": 6
-          },
-          "Aire Libre": {
-            "count": 13,
-            "avg_total": 501.1,
-            "best_total": 554,
-            "worst_total": 411,
-            "wins": 0,
-            "podiums": 6
-          }
-        },
-        "overall_wins": 1,
-        "podiums": 12,
-        "avg_position": 5.6,
-        "last_competed": "2026-04-12",
-        "career_start": "2023-04-16"
       }
     },
     {
@@ -14021,6 +14021,49 @@
       }
     },
     {
+      "id": "leiva-liliana-estela",
+      "name": "Leiva, Liliana Estela",
+      "name_normalized": "leiva, liliana estela",
+      "display_name": "Liliana Estela Leiva",
+      "clubs_history": [
+        {
+          "club_id": "ona",
+          "club_name": "ONA",
+          "first_seen": "2023-06-17",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Femenino 50+",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 19,
+        "total_results": 19,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 17,
+            "avg_total": 393.7,
+            "best_total": 509,
+            "worst_total": 282,
+            "wins": 5,
+            "podiums": 15
+          },
+          "Sala": {
+            "count": 2,
+            "avg_total": 388,
+            "best_total": 419,
+            "worst_total": 357,
+            "wins": 0,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 5,
+        "podiums": 16,
+        "avg_position": 3.3,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-06-17"
+      }
+    },
+    {
       "id": "knorr-ivan-alberto",
       "name": "Knorr, Ivan Alberto",
       "name_normalized": "knorr, ivan alberto",
@@ -15481,49 +15524,6 @@
       }
     },
     {
-      "id": "leiva-liliana-estela",
-      "name": "Leiva, Liliana Estela",
-      "name_normalized": "leiva, liliana estela",
-      "display_name": "Liliana Estela Leiva",
-      "clubs_history": [
-        {
-          "club_id": "ona",
-          "club_name": "ONA",
-          "first_seen": "2023-06-17",
-          "last_seen": "2025-10-18"
-        }
-      ],
-      "primary_division": "Recurvo Femenino 50+",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 18,
-        "total_results": 18,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 16,
-            "avg_total": 392.5,
-            "best_total": 509,
-            "worst_total": 282,
-            "wins": 4,
-            "podiums": 14
-          },
-          "Sala": {
-            "count": 2,
-            "avg_total": 388,
-            "best_total": 419,
-            "worst_total": 357,
-            "wins": 0,
-            "podiums": 1
-          }
-        },
-        "overall_wins": 4,
-        "podiums": 15,
-        "avg_position": 3.4,
-        "last_competed": "2025-10-18",
-        "career_start": "2023-06-17"
-      }
-    },
-    {
       "id": "merlo-arana-ariel",
       "name": "Merlo Arana, Ariel",
       "name_normalized": "merlo arana, ariel",
@@ -16547,6 +16547,49 @@
         "avg_position": 2.6,
         "last_competed": "2026-04-26",
         "career_start": "2024-07-07"
+      }
+    },
+    {
+      "id": "dappiano-lucas",
+      "name": "Dappiano, Lucas",
+      "name_normalized": "dappiano, lucas",
+      "display_name": "Lucas Dappiano",
+      "clubs_history": [
+        {
+          "club_id": "ona",
+          "club_name": "ONA",
+          "first_seen": "2024-05-11",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 18,
+        "total_results": 18,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 5,
+            "avg_total": 494.2,
+            "best_total": 578,
+            "worst_total": 331,
+            "wins": 0,
+            "podiums": 2
+          },
+          "Sala": {
+            "count": 13,
+            "avg_total": 492.1,
+            "best_total": 547,
+            "worst_total": 431,
+            "wins": 0,
+            "podiums": 7
+          }
+        },
+        "overall_wins": 0,
+        "podiums": 9,
+        "avg_position": 5.4,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-05-11"
       }
     },
     {
@@ -17938,6 +17981,49 @@
       }
     },
     {
+      "id": "walter-juan",
+      "name": "Walter, Juan",
+      "name_normalized": "walter, juan",
+      "display_name": "Juan Walter",
+      "clubs_history": [
+        {
+          "club_id": "na",
+          "club_name": "NA",
+          "first_seen": "2023-10-29",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Longbow",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 17,
+        "total_results": 17,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 16,
+            "avg_total": 528.6,
+            "best_total": 602,
+            "worst_total": 436,
+            "wins": 3,
+            "podiums": 6
+          },
+          "Sala": {
+            "count": 1,
+            "avg_total": 348,
+            "best_total": 348,
+            "worst_total": 348,
+            "wins": 0,
+            "podiums": 0
+          }
+        },
+        "overall_wins": 3,
+        "podiums": 6,
+        "avg_position": 5.9,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-10-29"
+      }
+    },
+    {
       "id": "barcelo-marcelo-omar",
       "name": "Barceló, Marcelo Omar",
       "name_normalized": "barcelo, marcelo omar",
@@ -18584,46 +18670,44 @@
       }
     },
     {
-      "id": "dappiano-lucas",
-      "name": "Dappiano, Lucas",
-      "name_normalized": "dappiano, lucas",
-      "display_name": "Lucas Dappiano",
+      "id": "silva-brianna-leonela",
+      "name": "Silva, Brianna Leonela",
+      "name_normalized": "silva, brianna leonela",
+      "display_name": "Brianna Leonela Silva",
       "clubs_history": [
         {
-          "club_id": "ona",
-          "club_name": "ONA",
-          "first_seen": "2024-05-11",
-          "last_seen": "2026-05-03"
+          "club_id": "erta",
+          "club_name": "ERTA",
+          "first_seen": "2024-05-05",
+          "last_seen": "2024-11-03"
+        },
+        {
+          "club_id": "tfar",
+          "club_name": "TFAR",
+          "first_seen": "2025-03-09",
+          "last_seen": "2026-05-10"
         }
       ],
       "primary_division": "Recurvo",
-      "primary_gender": "Masculino",
+      "primary_gender": "Desconocido",
       "stats": {
         "total_tournaments": 17,
         "total_results": 17,
         "disciplines": {
           "Aire Libre": {
-            "count": 4,
-            "avg_total": 535,
-            "best_total": 578,
-            "worst_total": 479,
-            "wins": 0,
-            "podiums": 2
-          },
-          "Sala": {
-            "count": 13,
-            "avg_total": 492.1,
-            "best_total": 547,
-            "worst_total": 431,
-            "wins": 0,
-            "podiums": 7
+            "count": 17,
+            "avg_total": 516.5,
+            "best_total": 625,
+            "worst_total": 331,
+            "wins": 11,
+            "podiums": 14
           }
         },
-        "overall_wins": 0,
-        "podiums": 9,
-        "avg_position": 5.2,
-        "last_competed": "2026-05-03",
-        "career_start": "2024-05-11"
+        "overall_wins": 11,
+        "podiums": 14,
+        "avg_position": 2.2,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-05-05"
       }
     },
     {
@@ -19949,49 +20033,6 @@
       }
     },
     {
-      "id": "walter-juan",
-      "name": "Walter, Juan",
-      "name_normalized": "walter, juan",
-      "display_name": "Juan Walter",
-      "clubs_history": [
-        {
-          "club_id": "na",
-          "club_name": "NA",
-          "first_seen": "2023-10-29",
-          "last_seen": "2025-11-09"
-        }
-      ],
-      "primary_division": "Longbow",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 16,
-        "total_results": 16,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 15,
-            "avg_total": 524.6,
-            "best_total": 602,
-            "worst_total": 436,
-            "wins": 3,
-            "podiums": 5
-          },
-          "Sala": {
-            "count": 1,
-            "avg_total": 348,
-            "best_total": 348,
-            "worst_total": 348,
-            "wins": 0,
-            "podiums": 0
-          }
-        },
-        "overall_wins": 3,
-        "podiums": 5,
-        "avg_position": 6.2,
-        "last_competed": "2025-11-09",
-        "career_start": "2023-10-29"
-      }
-    },
-    {
       "id": "spertino-raul-armando",
       "name": "Spertino, Raúl Armando",
       "name_normalized": "spertino, raul armando",
@@ -20561,47 +20602,6 @@
         "avg_position": 3.8,
         "last_competed": "2026-05-02",
         "career_start": "2024-03-23"
-      }
-    },
-    {
-      "id": "silva-brianna-leonela",
-      "name": "Silva, Brianna Leonela",
-      "name_normalized": "silva, brianna leonela",
-      "display_name": "Brianna Leonela Silva",
-      "clubs_history": [
-        {
-          "club_id": "erta",
-          "club_name": "ERTA",
-          "first_seen": "2024-05-05",
-          "last_seen": "2024-11-03"
-        },
-        {
-          "club_id": "tfar",
-          "club_name": "TFAR",
-          "first_seen": "2025-03-09",
-          "last_seen": "2026-03-22"
-        }
-      ],
-      "primary_division": "Recurvo",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 16,
-        "total_results": 16,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 16,
-            "avg_total": 515.4,
-            "best_total": 625,
-            "worst_total": 331,
-            "wins": 10,
-            "podiums": 13
-          }
-        },
-        "overall_wins": 10,
-        "podiums": 13,
-        "avg_position": 2.3,
-        "last_competed": "2026-03-22",
-        "career_start": "2024-05-05"
       }
     },
     {
@@ -21934,6 +21934,41 @@
       }
     },
     {
+      "id": "barrionuevo-alberto-german",
+      "name": "Barrionuevo, Alberto Germán",
+      "name_normalized": "barrionuevo, alberto german",
+      "display_name": "Alberto Germán Barrionuevo",
+      "clubs_history": [
+        {
+          "club_id": "tfar",
+          "club_name": "TFAR",
+          "first_seen": "2024-03-03",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Masculino 50+",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 15,
+        "total_results": 15,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 15,
+            "avg_total": 548.3,
+            "best_total": 575,
+            "worst_total": 472,
+            "wins": 4,
+            "podiums": 9
+          }
+        },
+        "overall_wins": 4,
+        "podiums": 9,
+        "avg_position": 4.3,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-03-03"
+      }
+    },
+    {
       "id": "cordoba-raul-alfredo",
       "name": "Cordoba, Raul Alfredo",
       "name_normalized": "cordoba, raul alfredo",
@@ -22870,6 +22905,49 @@
         "podiums": 6,
         "avg_position": 5.8,
         "last_competed": "2026-05-03",
+        "career_start": "2024-03-03"
+      }
+    },
+    {
+      "id": "torresi-eduardo-daniel",
+      "name": "Torresi, Eduardo Daniel",
+      "name_normalized": "torresi, eduardo daniel",
+      "display_name": "Eduardo Daniel Torresi",
+      "clubs_history": [
+        {
+          "club_id": "somisa",
+          "club_name": "SOMISA",
+          "first_seen": "2024-03-03",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "P.I.2 Compuesto",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 15,
+        "total_results": 15,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 12,
+            "avg_total": 510,
+            "best_total": 589,
+            "worst_total": 361,
+            "wins": 8,
+            "podiums": 10
+          },
+          "Sala": {
+            "count": 3,
+            "avg_total": 507.7,
+            "best_total": 530,
+            "worst_total": 490,
+            "wins": 1,
+            "podiums": 2
+          }
+        },
+        "overall_wins": 9,
+        "podiums": 12,
+        "avg_position": 3.1,
+        "last_competed": "2026-05-10",
         "career_start": "2024-03-03"
       }
     },
@@ -24073,6 +24151,55 @@
       }
     },
     {
+      "id": "caligaris-daniel-antonio",
+      "name": "Caligaris, Daniel Antonio",
+      "name_normalized": "caligaris, daniel antonio",
+      "display_name": "Daniel Antonio Caligaris",
+      "clubs_history": [
+        {
+          "club_id": "at",
+          "club_name": "AT",
+          "first_seen": "2023-04-16",
+          "last_seen": "2024-07-28"
+        },
+        {
+          "club_id": "far",
+          "club_name": "FAR",
+          "first_seen": "2025-03-30",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Masculino 50+",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 14,
+        "total_results": 14,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 4,
+            "avg_total": 516.5,
+            "best_total": 551,
+            "worst_total": 476,
+            "wins": 1,
+            "podiums": 2
+          },
+          "Sala": {
+            "count": 10,
+            "avg_total": 521.9,
+            "best_total": 544,
+            "worst_total": 501,
+            "wins": 7,
+            "podiums": 8
+          }
+        },
+        "overall_wins": 8,
+        "podiums": 10,
+        "avg_position": 2.6,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-04-16"
+      }
+    },
+    {
       "id": "jaimes-damian-antonio-del-valle",
       "name": "Jaimes, Damian Antonio Del Valle",
       "name_normalized": "jaimes, damian antonio del valle",
@@ -24281,41 +24408,6 @@
         "avg_position": 2.6,
         "last_competed": "2025-05-25",
         "career_start": "2023-09-09"
-      }
-    },
-    {
-      "id": "barrionuevo-alberto-german",
-      "name": "Barrionuevo, Alberto Germán",
-      "name_normalized": "barrionuevo, alberto german",
-      "display_name": "Alberto Germán Barrionuevo",
-      "clubs_history": [
-        {
-          "club_id": "tfar",
-          "club_name": "TFAR",
-          "first_seen": "2024-03-03",
-          "last_seen": "2026-03-22"
-        }
-      ],
-      "primary_division": "Recurvo Masculino 50+",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 14,
-        "total_results": 14,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 14,
-            "avg_total": 553.7,
-            "best_total": 575,
-            "worst_total": 530,
-            "wins": 4,
-            "podiums": 8
-          }
-        },
-        "overall_wins": 4,
-        "podiums": 8,
-        "avg_position": 4.4,
-        "last_competed": "2026-03-22",
-        "career_start": "2024-03-03"
       }
     },
     {
@@ -24891,6 +24983,41 @@
       }
     },
     {
+      "id": "baez-natalia",
+      "name": "Baez, Natalia",
+      "name_normalized": "baez, natalia",
+      "display_name": "Natalia Baez",
+      "clubs_history": [
+        {
+          "club_id": "tfar",
+          "club_name": "TFAR",
+          "first_seen": "2024-02-18",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo",
+      "primary_gender": "Femenino",
+      "stats": {
+        "total_tournaments": 14,
+        "total_results": 14,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 14,
+            "avg_total": 490.9,
+            "best_total": 569,
+            "worst_total": 389,
+            "wins": 3,
+            "podiums": 9
+          }
+        },
+        "overall_wins": 3,
+        "podiums": 9,
+        "avg_position": 3.4,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-02-18"
+      }
+    },
+    {
       "id": "suarez-hugo-guillermo",
       "name": "Suarez, Hugo Guillermo",
       "name_normalized": "suarez, hugo guillermo",
@@ -24938,49 +25065,6 @@
         "podiums": 2,
         "avg_position": 8.9,
         "last_competed": "2026-03-22",
-        "career_start": "2024-03-03"
-      }
-    },
-    {
-      "id": "torresi-eduardo-daniel",
-      "name": "Torresi, Eduardo Daniel",
-      "name_normalized": "torresi, eduardo daniel",
-      "display_name": "Eduardo Daniel Torresi",
-      "clubs_history": [
-        {
-          "club_id": "somisa",
-          "club_name": "SOMISA",
-          "first_seen": "2024-03-03",
-          "last_seen": "2026-04-12"
-        }
-      ],
-      "primary_division": "P.I.2 Compuesto",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 14,
-        "total_results": 14,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 11,
-            "avg_total": 508.1,
-            "best_total": 589,
-            "worst_total": 361,
-            "wins": 8,
-            "podiums": 9
-          },
-          "Sala": {
-            "count": 3,
-            "avg_total": 507.7,
-            "best_total": 530,
-            "worst_total": 490,
-            "wins": 1,
-            "podiums": 2
-          }
-        },
-        "overall_wins": 9,
-        "podiums": 11,
-        "avg_position": 3.1,
-        "last_competed": "2026-04-12",
         "career_start": "2024-03-03"
       }
     },
@@ -25499,6 +25583,55 @@
         "podiums": 4,
         "avg_position": 5.2,
         "last_competed": "2026-05-03",
+        "career_start": "2025-03-16"
+      }
+    },
+    {
+      "id": "medl-monica",
+      "name": "Medl, Monica",
+      "name_normalized": "medl, monica",
+      "display_name": "Monica Medl",
+      "clubs_history": [
+        {
+          "club_id": "ta",
+          "club_name": "TA",
+          "first_seen": "2025-03-16",
+          "last_seen": "2025-08-24"
+        },
+        {
+          "club_id": "ona",
+          "club_name": "ONA",
+          "first_seen": "2025-09-13",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Raso Femenino 50+",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 14,
+        "total_results": 14,
+        "disciplines": {
+          "Sala": {
+            "count": 9,
+            "avg_total": 348.4,
+            "best_total": 442,
+            "worst_total": 291,
+            "wins": 1,
+            "podiums": 7
+          },
+          "Aire Libre": {
+            "count": 5,
+            "avg_total": 505.4,
+            "best_total": 634,
+            "worst_total": 337,
+            "wins": 3,
+            "podiums": 5
+          }
+        },
+        "overall_wins": 4,
+        "podiums": 12,
+        "avg_position": 2.4,
+        "last_competed": "2026-05-10",
         "career_start": "2025-03-16"
       }
     },
@@ -26493,55 +26626,6 @@
         "avg_position": 3.3,
         "last_competed": "2026-04-19",
         "career_start": "2023-03-19"
-      }
-    },
-    {
-      "id": "caligaris-daniel-antonio",
-      "name": "Caligaris, Daniel Antonio",
-      "name_normalized": "caligaris, daniel antonio",
-      "display_name": "Daniel Antonio Caligaris",
-      "clubs_history": [
-        {
-          "club_id": "at",
-          "club_name": "AT",
-          "first_seen": "2023-04-16",
-          "last_seen": "2024-07-28"
-        },
-        {
-          "club_id": "far",
-          "club_name": "FAR",
-          "first_seen": "2025-03-30",
-          "last_seen": "2026-04-12"
-        }
-      ],
-      "primary_division": "Recurvo Masculino 50+",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 13,
-        "total_results": 13,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 3,
-            "avg_total": 525.3,
-            "best_total": 551,
-            "worst_total": 476,
-            "wins": 0,
-            "podiums": 1
-          },
-          "Sala": {
-            "count": 10,
-            "avg_total": 521.9,
-            "best_total": 544,
-            "worst_total": 501,
-            "wins": 7,
-            "podiums": 8
-          }
-        },
-        "overall_wins": 7,
-        "podiums": 9,
-        "avg_position": 2.7,
-        "last_competed": "2026-04-12",
-        "career_start": "2023-04-16"
       }
     },
     {
@@ -27956,41 +28040,6 @@
       }
     },
     {
-      "id": "baez-natalia",
-      "name": "Baez, Natalia",
-      "name_normalized": "baez, natalia",
-      "display_name": "Natalia Baez",
-      "clubs_history": [
-        {
-          "club_id": "tfar",
-          "club_name": "TFAR",
-          "first_seen": "2024-02-18",
-          "last_seen": "2025-11-09"
-        }
-      ],
-      "primary_division": "Recurvo",
-      "primary_gender": "Femenino",
-      "stats": {
-        "total_tournaments": 13,
-        "total_results": 13,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 13,
-            "avg_total": 498.7,
-            "best_total": 569,
-            "worst_total": 395,
-            "wins": 3,
-            "podiums": 8
-          }
-        },
-        "overall_wins": 3,
-        "podiums": 8,
-        "avg_position": 3.5,
-        "last_competed": "2025-11-09",
-        "career_start": "2024-02-18"
-      }
-    },
-    {
       "id": "rivas-cristian-norberto",
       "name": "Rivas, Cristian Norberto",
       "name_normalized": "rivas, cristian norberto",
@@ -28739,55 +28788,6 @@
         "avg_position": 5.8,
         "last_competed": "2026-05-03",
         "career_start": "2025-03-09"
-      }
-    },
-    {
-      "id": "medl-monica",
-      "name": "Medl, Monica",
-      "name_normalized": "medl, monica",
-      "display_name": "Monica Medl",
-      "clubs_history": [
-        {
-          "club_id": "ta",
-          "club_name": "TA",
-          "first_seen": "2025-03-16",
-          "last_seen": "2025-08-24"
-        },
-        {
-          "club_id": "ona",
-          "club_name": "ONA",
-          "first_seen": "2025-09-13",
-          "last_seen": "2026-05-03"
-        }
-      ],
-      "primary_division": "Raso Femenino 50+",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 13,
-        "total_results": 13,
-        "disciplines": {
-          "Sala": {
-            "count": 9,
-            "avg_total": 348.4,
-            "best_total": 442,
-            "worst_total": 291,
-            "wins": 1,
-            "podiums": 7
-          },
-          "Aire Libre": {
-            "count": 4,
-            "avg_total": 547.5,
-            "best_total": 634,
-            "worst_total": 402,
-            "wins": 2,
-            "podiums": 4
-          }
-        },
-        "overall_wins": 3,
-        "podiums": 11,
-        "avg_position": 2.5,
-        "last_competed": "2026-05-03",
-        "career_start": "2025-03-16"
       }
     },
     {
@@ -29650,6 +29650,49 @@
       }
     },
     {
+      "id": "lanzo-facundo-ariel",
+      "name": "Lanzo, Facundo Ariel",
+      "name_normalized": "lanzo, facundo ariel",
+      "display_name": "Facundo Ariel Lanzo",
+      "clubs_history": [
+        {
+          "club_id": "ona",
+          "club_name": "ONA",
+          "first_seen": "2023-06-17",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 12,
+        "total_results": 12,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 11,
+            "avg_total": 529.5,
+            "best_total": 595,
+            "worst_total": 450,
+            "wins": 3,
+            "podiums": 5
+          },
+          "Sala": {
+            "count": 1,
+            "avg_total": 486,
+            "best_total": 486,
+            "worst_total": 486,
+            "wins": 0,
+            "podiums": 0
+          }
+        },
+        "overall_wins": 3,
+        "podiums": 5,
+        "avg_position": 8.7,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-06-17"
+      }
+    },
+    {
       "id": "gamari-oscar-augusto",
       "name": "Gamari, Oscar Augusto",
       "name_normalized": "gamari, oscar augusto",
@@ -30060,6 +30103,49 @@
         "avg_position": 3.6,
         "last_competed": "2026-03-22",
         "career_start": "2023-07-09"
+      }
+    },
+    {
+      "id": "romero-ricardo-felix-ernesto",
+      "name": "Romero, Ricardo Felix Ernesto",
+      "name_normalized": "romero, ricardo felix ernesto",
+      "display_name": "Ricardo Felix Ernesto Romero",
+      "clubs_history": [
+        {
+          "club_id": "cuda",
+          "club_name": "CUDA",
+          "first_seen": "2023-06-17",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Longbow",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 12,
+        "total_results": 12,
+        "disciplines": {
+          "Sala": {
+            "count": 2,
+            "avg_total": 542,
+            "best_total": 557,
+            "worst_total": 527,
+            "wins": 1,
+            "podiums": 1
+          },
+          "Aire Libre": {
+            "count": 10,
+            "avg_total": 604.9,
+            "best_total": 648,
+            "worst_total": 540,
+            "wins": 7,
+            "podiums": 7
+          }
+        },
+        "overall_wins": 8,
+        "podiums": 8,
+        "avg_position": 3.2,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-06-17"
       }
     },
     {
@@ -31376,6 +31462,55 @@
         "avg_position": 2.7,
         "last_competed": "2025-11-09",
         "career_start": "2024-04-21"
+      }
+    },
+    {
+      "id": "santamaria-moyano-milagros-pilar",
+      "name": "Santamaria Moyano, Milagros Pilar",
+      "name_normalized": "santamaria moyano, milagros pilar",
+      "display_name": "Milagros Pilar Santamaria Moyano",
+      "clubs_history": [
+        {
+          "club_id": "alc",
+          "club_name": "ALC",
+          "first_seen": "2024-06-30",
+          "last_seen": "2024-07-14"
+        },
+        {
+          "club_id": "cace",
+          "club_name": "CACE",
+          "first_seen": "2025-08-24",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Femenino Sub-18",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 12,
+        "total_results": 12,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 10,
+            "avg_total": 455.2,
+            "best_total": 644,
+            "worst_total": 370,
+            "wins": 3,
+            "podiums": 6
+          },
+          "Sala": {
+            "count": 2,
+            "avg_total": 475,
+            "best_total": 479,
+            "worst_total": 471,
+            "wins": 0,
+            "podiums": 2
+          }
+        },
+        "overall_wins": 3,
+        "podiums": 8,
+        "avg_position": 3.5,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-06-30"
       }
     },
     {
@@ -32848,16 +32983,16 @@
       }
     },
     {
-      "id": "lanzo-facundo-ariel",
-      "name": "Lanzo, Facundo Ariel",
-      "name_normalized": "lanzo, facundo ariel",
-      "display_name": "Facundo Ariel Lanzo",
+      "id": "iglesias-andres-eduardo",
+      "name": "Iglesias, Andres Eduardo",
+      "name_normalized": "iglesias, andres eduardo",
+      "display_name": "Andres Eduardo Iglesias",
       "clubs_history": [
         {
           "club_id": "ona",
           "club_name": "ONA",
-          "first_seen": "2023-06-17",
-          "last_seen": "2025-10-18"
+          "first_seen": "2024-08-25",
+          "last_seen": "2026-05-10"
         }
       ],
       "primary_division": "Recurvo",
@@ -32867,27 +33002,19 @@
         "total_results": 11,
         "disciplines": {
           "Aire Libre": {
-            "count": 10,
-            "avg_total": 534.4,
-            "best_total": 595,
-            "worst_total": 450,
-            "wins": 3,
-            "podiums": 4
-          },
-          "Sala": {
-            "count": 1,
-            "avg_total": 486,
-            "best_total": 486,
-            "worst_total": 486,
+            "count": 11,
+            "avg_total": 484.3,
+            "best_total": 539,
+            "worst_total": 399,
             "wins": 0,
-            "podiums": 0
+            "podiums": 1
           }
         },
-        "overall_wins": 3,
-        "podiums": 4,
-        "avg_position": 9.3,
-        "last_competed": "2025-10-18",
-        "career_start": "2023-06-17"
+        "overall_wins": 0,
+        "podiums": 1,
+        "avg_position": 13,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-08-25"
       }
     },
     {
@@ -33144,49 +33271,6 @@
         "avg_position": 5,
         "last_competed": "2024-11-24",
         "career_start": "2023-07-09"
-      }
-    },
-    {
-      "id": "romero-ricardo-felix-ernesto",
-      "name": "Romero, Ricardo Felix Ernesto",
-      "name_normalized": "romero, ricardo felix ernesto",
-      "display_name": "Ricardo Felix Ernesto Romero",
-      "clubs_history": [
-        {
-          "club_id": "cuda",
-          "club_name": "CUDA",
-          "first_seen": "2023-06-17",
-          "last_seen": "2024-11-24"
-        }
-      ],
-      "primary_division": "Longbow",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 11,
-        "total_results": 11,
-        "disciplines": {
-          "Sala": {
-            "count": 2,
-            "avg_total": 542,
-            "best_total": 557,
-            "worst_total": 527,
-            "wins": 1,
-            "podiums": 1
-          },
-          "Aire Libre": {
-            "count": 9,
-            "avg_total": 600.1,
-            "best_total": 636,
-            "worst_total": 540,
-            "wins": 6,
-            "podiums": 6
-          }
-        },
-        "overall_wins": 7,
-        "podiums": 7,
-        "avg_position": 3.4,
-        "last_competed": "2024-11-24",
-        "career_start": "2023-06-17"
       }
     },
     {
@@ -34095,6 +34179,49 @@
       }
     },
     {
+      "id": "gauna-cecilia-agustina",
+      "name": "Gauna, Cecilia Agustina",
+      "name_normalized": "gauna, cecilia agustina",
+      "display_name": "Cecilia Agustina Gauna",
+      "clubs_history": [
+        {
+          "club_id": "ona",
+          "club_name": "ONA",
+          "first_seen": "2025-03-16",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 30",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 11,
+        "total_results": 11,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 7,
+            "avg_total": 459,
+            "best_total": 587,
+            "worst_total": 237,
+            "wins": 1,
+            "podiums": 2
+          },
+          "Sala": {
+            "count": 4,
+            "avg_total": 475,
+            "best_total": 516,
+            "worst_total": 425,
+            "wins": 0,
+            "podiums": 0
+          }
+        },
+        "overall_wins": 1,
+        "podiums": 2,
+        "avg_position": 5,
+        "last_competed": "2026-05-10",
+        "career_start": "2025-03-16"
+      }
+    },
+    {
       "id": "casanovas-brenda-m",
       "name": "Casanovas, Brenda M.",
       "name_normalized": "casanovas, brenda m.",
@@ -34805,55 +34932,6 @@
       }
     },
     {
-      "id": "santamaria-moyano-milagros-pilar",
-      "name": "Santamaria Moyano, Milagros Pilar",
-      "name_normalized": "santamaria moyano, milagros pilar",
-      "display_name": "Milagros Pilar Santamaria Moyano",
-      "clubs_history": [
-        {
-          "club_id": "alc",
-          "club_name": "ALC",
-          "first_seen": "2024-06-30",
-          "last_seen": "2024-07-14"
-        },
-        {
-          "club_id": "cace",
-          "club_name": "CACE",
-          "first_seen": "2025-08-24",
-          "last_seen": "2025-11-09"
-        }
-      ],
-      "primary_division": "Recurvo Femenino Sub-18",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 11,
-        "total_results": 11,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 9,
-            "avg_total": 456.7,
-            "best_total": 644,
-            "worst_total": 370,
-            "wins": 2,
-            "podiums": 5
-          },
-          "Sala": {
-            "count": 2,
-            "avg_total": 475,
-            "best_total": 479,
-            "worst_total": 471,
-            "wins": 0,
-            "podiums": 2
-          }
-        },
-        "overall_wins": 2,
-        "podiums": 7,
-        "avg_position": 3.7,
-        "last_competed": "2025-11-09",
-        "career_start": "2024-06-30"
-      }
-    },
-    {
       "id": "babijezuk-mauricio-julio",
       "name": "Babijezuk, Mauricio Julio",
       "name_normalized": "babijezuk, mauricio julio",
@@ -35209,6 +35287,90 @@
         "avg_position": 2.9,
         "last_competed": "2025-08-03",
         "career_start": "2024-03-30"
+      }
+    },
+    {
+      "id": "gomez-festa-juan-martin",
+      "name": "Gomez Festa, Juan Martin",
+      "name_normalized": "gomez festa, juan martin",
+      "display_name": "Juan Martin Gomez Festa",
+      "clubs_history": [
+        {
+          "club_id": "cuda",
+          "club_name": "CUDA",
+          "first_seen": "2024-11-24",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 50",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 11,
+        "total_results": 11,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 8,
+            "avg_total": 507.1,
+            "best_total": 627,
+            "worst_total": 418,
+            "wins": 2,
+            "podiums": 5
+          },
+          "Sala": {
+            "count": 3,
+            "avg_total": 463,
+            "best_total": 491,
+            "worst_total": 420,
+            "wins": 0,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 2,
+        "podiums": 6,
+        "avg_position": 4.5,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-11-24"
+      }
+    },
+    {
+      "id": "dandeu-jose-andres",
+      "name": "Dandeü, José Andrés",
+      "name_normalized": "dandeu, jose andres",
+      "display_name": "José Andrés Dandeü",
+      "clubs_history": [
+        {
+          "club_id": "tcamv",
+          "club_name": "TCAMV",
+          "first_seen": "2024-11-24",
+          "last_seen": "2025-11-09"
+        },
+        {
+          "club_id": "tcasm",
+          "club_name": "TCASM",
+          "first_seen": "2026-03-22",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 40",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 11,
+        "total_results": 11,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 11,
+            "avg_total": 517.8,
+            "best_total": 589,
+            "worst_total": 451,
+            "wins": 3,
+            "podiums": 6
+          }
+        },
+        "overall_wins": 3,
+        "podiums": 6,
+        "avg_position": 2.8,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-11-24"
       }
     },
     {
@@ -35577,6 +35739,41 @@
         "avg_position": 3,
         "last_competed": "2026-05-03",
         "career_start": "2025-04-13"
+      }
+    },
+    {
+      "id": "lutman-francisca-eva",
+      "name": "Lutman, Francisca Eva",
+      "name_normalized": "lutman, francisca eva",
+      "display_name": "Francisca Eva Lutman",
+      "clubs_history": [
+        {
+          "club_id": "tfar",
+          "club_name": "TFAR",
+          "first_seen": "2025-04-20",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 50",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 11,
+        "total_results": 11,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 11,
+            "avg_total": 537.9,
+            "best_total": 594,
+            "worst_total": 498,
+            "wins": 5,
+            "podiums": 9
+          }
+        },
+        "overall_wins": 5,
+        "podiums": 9,
+        "avg_position": 2.2,
+        "last_competed": "2026-05-10",
+        "career_start": "2025-04-20"
       }
     },
     {
@@ -37070,41 +37267,6 @@
       }
     },
     {
-      "id": "iglesias-andres-eduardo",
-      "name": "Iglesias, Andres Eduardo",
-      "name_normalized": "iglesias, andres eduardo",
-      "display_name": "Andres Eduardo Iglesias",
-      "clubs_history": [
-        {
-          "club_id": "ona",
-          "club_name": "ONA",
-          "first_seen": "2024-08-25",
-          "last_seen": "2025-09-20"
-        }
-      ],
-      "primary_division": "Recurvo",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 10,
-        "total_results": 10,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 10,
-            "avg_total": 492.8,
-            "best_total": 539,
-            "worst_total": 449,
-            "wins": 0,
-            "podiums": 1
-          }
-        },
-        "overall_wins": 0,
-        "podiums": 1,
-        "avg_position": 13.4,
-        "last_competed": "2025-09-20",
-        "career_start": "2024-08-25"
-      }
-    },
-    {
       "id": "mendoza-maria-emilia",
       "name": "Mendoza, Maria Emilia",
       "name_normalized": "mendoza, maria emilia",
@@ -37683,6 +37845,49 @@
         "avg_position": 1.8,
         "last_competed": "2024-11-24",
         "career_start": "2023-07-09"
+      }
+    },
+    {
+      "id": "suevo-enrique",
+      "name": "Suevo, Enrique",
+      "name_normalized": "suevo, enrique",
+      "display_name": "Enrique Suevo",
+      "clubs_history": [
+        {
+          "club_id": "ax10",
+          "club_name": "AX10",
+          "first_seen": "2024-04-21",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Raso",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 10,
+        "total_results": 10,
+        "disciplines": {
+          "Sala": {
+            "count": 8,
+            "avg_total": 451.6,
+            "best_total": 481,
+            "worst_total": 425,
+            "wins": 1,
+            "podiums": 1
+          },
+          "Aire Libre": {
+            "count": 2,
+            "avg_total": 421.5,
+            "best_total": 465,
+            "worst_total": 378,
+            "wins": 0,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 1,
+        "podiums": 2,
+        "avg_position": 7.4,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-04-21"
       }
     },
     {
@@ -38571,46 +38776,38 @@
       }
     },
     {
-      "id": "gauna-cecilia-agustina",
-      "name": "Gauna, Cecilia Agustina",
-      "name_normalized": "gauna, cecilia agustina",
-      "display_name": "Cecilia Agustina Gauna",
+      "id": "perez-patricio",
+      "name": "Pérez, Patricio",
+      "name_normalized": "perez, patricio",
+      "display_name": "Patricio Pérez",
       "clubs_history": [
         {
-          "club_id": "ona",
-          "club_name": "ONA",
-          "first_seen": "2025-03-16",
-          "last_seen": "2026-04-12"
+          "club_id": "csdf",
+          "club_name": "CSDF",
+          "first_seen": "2024-08-25",
+          "last_seen": "2026-05-10"
         }
       ],
-      "primary_division": "Recurvo Escuela 30",
-      "primary_gender": "Desconocido",
+      "primary_division": "Recurvo",
+      "primary_gender": "Masculino",
       "stats": {
         "total_tournaments": 10,
         "total_results": 10,
         "disciplines": {
           "Aire Libre": {
-            "count": 6,
-            "avg_total": 447.8,
-            "best_total": 587,
-            "worst_total": 237,
-            "wins": 1,
+            "count": 10,
+            "avg_total": 470.9,
+            "best_total": 564,
+            "worst_total": 385,
+            "wins": 2,
             "podiums": 2
-          },
-          "Sala": {
-            "count": 4,
-            "avg_total": 475,
-            "best_total": 516,
-            "worst_total": 425,
-            "wins": 0,
-            "podiums": 0
           }
         },
-        "overall_wins": 1,
+        "overall_wins": 2,
         "podiums": 2,
-        "avg_position": 5,
-        "last_competed": "2026-04-12",
-        "career_start": "2025-03-16"
+        "avg_position": 10.2,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-08-25"
       }
     },
     {
@@ -38863,6 +39060,41 @@
         "podiums": 4,
         "avg_position": 4.7,
         "last_competed": "2025-10-18",
+        "career_start": "2024-11-24"
+      }
+    },
+    {
+      "id": "buzetti-federico-santiago",
+      "name": "Buzetti, Federico Santiago",
+      "name_normalized": "buzetti, federico santiago",
+      "display_name": "Federico Santiago Buzetti",
+      "clubs_history": [
+        {
+          "club_id": "ona",
+          "club_name": "ONA",
+          "first_seen": "2024-11-24",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 60",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 10,
+        "total_results": 10,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 10,
+            "avg_total": 493.9,
+            "best_total": 562,
+            "worst_total": 407,
+            "wins": 1,
+            "podiums": 6
+          }
+        },
+        "overall_wins": 1,
+        "podiums": 6,
+        "avg_position": 3.5,
+        "last_competed": "2026-05-10",
         "career_start": "2024-11-24"
       }
     },
@@ -39381,49 +39613,6 @@
       }
     },
     {
-      "id": "gomez-festa-juan-martin",
-      "name": "Gomez Festa, Juan Martin",
-      "name_normalized": "gomez festa, juan martin",
-      "display_name": "Juan Martin Gomez Festa",
-      "clubs_history": [
-        {
-          "club_id": "cuda",
-          "club_name": "CUDA",
-          "first_seen": "2024-11-24",
-          "last_seen": "2026-03-08"
-        }
-      ],
-      "primary_division": "Recurvo Escuela 50",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 10,
-        "total_results": 10,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 7,
-            "avg_total": 506.3,
-            "best_total": 627,
-            "worst_total": 418,
-            "wins": 2,
-            "podiums": 4
-          },
-          "Sala": {
-            "count": 3,
-            "avg_total": 463,
-            "best_total": 491,
-            "worst_total": 420,
-            "wins": 0,
-            "podiums": 1
-          }
-        },
-        "overall_wins": 2,
-        "podiums": 5,
-        "avg_position": 4.7,
-        "last_competed": "2026-03-08",
-        "career_start": "2024-11-24"
-      }
-    },
-    {
       "id": "lopez-maria-eugenia",
       "name": "Lopez, Maria Eugenia",
       "name_normalized": "lopez, maria eugenia",
@@ -39455,47 +39644,6 @@
         "podiums": 4,
         "avg_position": 4,
         "last_competed": "2025-11-09",
-        "career_start": "2024-11-24"
-      }
-    },
-    {
-      "id": "dandeu-jose-andres",
-      "name": "Dandeü, José Andrés",
-      "name_normalized": "dandeu, jose andres",
-      "display_name": "José Andrés Dandeü",
-      "clubs_history": [
-        {
-          "club_id": "tcamv",
-          "club_name": "TCAMV",
-          "first_seen": "2024-11-24",
-          "last_seen": "2025-11-09"
-        },
-        {
-          "club_id": "tcasm",
-          "club_name": "TCASM",
-          "first_seen": "2026-03-22",
-          "last_seen": "2026-04-26"
-        }
-      ],
-      "primary_division": "Recurvo Escuela 40",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 10,
-        "total_results": 10,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 10,
-            "avg_total": 520.1,
-            "best_total": 589,
-            "worst_total": 451,
-            "wins": 3,
-            "podiums": 5
-          }
-        },
-        "overall_wins": 3,
-        "podiums": 5,
-        "avg_position": 2.8,
-        "last_competed": "2026-04-26",
         "career_start": "2024-11-24"
       }
     },
@@ -39977,38 +40125,38 @@
       }
     },
     {
-      "id": "lutman-francisca-eva",
-      "name": "Lutman, Francisca Eva",
-      "name_normalized": "lutman, francisca eva",
-      "display_name": "Francisca Eva Lutman",
+      "id": "achkar-nicolas-rodolfo",
+      "name": "Achkar, Nicolás Rodolfo",
+      "name_normalized": "achkar, nicolas rodolfo",
+      "display_name": "Nicolás Rodolfo Achkar",
       "clubs_history": [
         {
           "club_id": "tfar",
           "club_name": "TFAR",
-          "first_seen": "2025-04-20",
-          "last_seen": "2026-04-26"
+          "first_seen": "2025-03-30",
+          "last_seen": "2026-05-10"
         }
       ],
-      "primary_division": "Recurvo Escuela 50",
-      "primary_gender": "Desconocido",
+      "primary_division": "Recurvo",
+      "primary_gender": "Masculino",
       "stats": {
         "total_tournaments": 10,
         "total_results": 10,
         "disciplines": {
           "Aire Libre": {
             "count": 10,
-            "avg_total": 535.9,
-            "best_total": 594,
-            "worst_total": 498,
-            "wins": 5,
-            "podiums": 9
+            "avg_total": 553.7,
+            "best_total": 597,
+            "worst_total": 479,
+            "wins": 3,
+            "podiums": 5
           }
         },
-        "overall_wins": 5,
-        "podiums": 9,
-        "avg_position": 2,
-        "last_competed": "2026-04-26",
-        "career_start": "2025-04-20"
+        "overall_wins": 3,
+        "podiums": 5,
+        "avg_position": 4.7,
+        "last_competed": "2026-05-10",
+        "career_start": "2025-03-30"
       }
     },
     {
@@ -41772,6 +41920,55 @@
       }
     },
     {
+      "id": "maccaroni-franco",
+      "name": "Maccaroni, Franco",
+      "name_normalized": "maccaroni, franco",
+      "display_name": "Franco Maccaroni",
+      "clubs_history": [
+        {
+          "club_id": "erta",
+          "club_name": "ERTA",
+          "first_seen": "2023-07-09",
+          "last_seen": "2024-07-28"
+        },
+        {
+          "club_id": "tfar",
+          "club_name": "TFAR",
+          "first_seen": "2025-04-06",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 9,
+        "total_results": 9,
+        "disciplines": {
+          "Sala": {
+            "count": 7,
+            "avg_total": 492.3,
+            "best_total": 536,
+            "worst_total": 461,
+            "wins": 0,
+            "podiums": 3
+          },
+          "Aire Libre": {
+            "count": 2,
+            "avg_total": 526.5,
+            "best_total": 554,
+            "worst_total": 499,
+            "wins": 0,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 0,
+        "podiums": 4,
+        "avg_position": 6.1,
+        "last_competed": "2026-05-10",
+        "career_start": "2023-07-09"
+      }
+    },
+    {
       "id": "alonso-micaela",
       "name": "Alonso, Micaela",
       "name_normalized": "alonso, micaela",
@@ -41861,49 +42058,6 @@
         "avg_position": 2.6,
         "last_competed": "2026-05-03",
         "career_start": "2023-06-17"
-      }
-    },
-    {
-      "id": "suevo-enrique",
-      "name": "Suevo, Enrique",
-      "name_normalized": "suevo, enrique",
-      "display_name": "Enrique Suevo",
-      "clubs_history": [
-        {
-          "club_id": "ax10",
-          "club_name": "AX10",
-          "first_seen": "2024-04-21",
-          "last_seen": "2025-08-03"
-        }
-      ],
-      "primary_division": "Raso",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 9,
-        "total_results": 9,
-        "disciplines": {
-          "Sala": {
-            "count": 8,
-            "avg_total": 451.6,
-            "best_total": 481,
-            "worst_total": 425,
-            "wins": 1,
-            "podiums": 1
-          },
-          "Aire Libre": {
-            "count": 1,
-            "avg_total": 465,
-            "best_total": 465,
-            "worst_total": 465,
-            "wins": 0,
-            "podiums": 0
-          }
-        },
-        "overall_wins": 1,
-        "podiums": 1,
-        "avg_position": 7.9,
-        "last_competed": "2025-08-03",
-        "career_start": "2024-04-21"
       }
     },
     {
@@ -42935,41 +43089,6 @@
       }
     },
     {
-      "id": "perez-patricio",
-      "name": "Pérez, Patricio",
-      "name_normalized": "perez, patricio",
-      "display_name": "Patricio Pérez",
-      "clubs_history": [
-        {
-          "club_id": "csdf",
-          "club_name": "CSDF",
-          "first_seen": "2024-08-25",
-          "last_seen": "2025-09-14"
-        }
-      ],
-      "primary_division": "Recurvo",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 9,
-        "total_results": 9,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 9,
-            "avg_total": 471.6,
-            "best_total": 564,
-            "worst_total": 385,
-            "wins": 2,
-            "podiums": 2
-          }
-        },
-        "overall_wins": 2,
-        "podiums": 2,
-        "avg_position": 10.7,
-        "last_competed": "2025-09-14",
-        "career_start": "2024-08-25"
-      }
-    },
-    {
       "id": "colombo-rodolfo-jose",
       "name": "Colombo, Rodolfo Jose",
       "name_normalized": "colombo, rodolfo jose",
@@ -43231,6 +43350,49 @@
       }
     },
     {
+      "id": "panetta-david-emanuel",
+      "name": "Panetta, David Emanuel",
+      "name_normalized": "panetta, david emanuel",
+      "display_name": "David Emanuel Panetta",
+      "clubs_history": [
+        {
+          "club_id": "hoods",
+          "club_name": "HOODS",
+          "first_seen": "2024-08-25",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Compuesto",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 9,
+        "total_results": 9,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 6,
+            "avg_total": 653.3,
+            "best_total": 669,
+            "worst_total": 621,
+            "wins": 2,
+            "podiums": 4
+          },
+          "Sala": {
+            "count": 3,
+            "avg_total": 564.7,
+            "best_total": 571,
+            "worst_total": 560,
+            "wins": 2,
+            "podiums": 3
+          }
+        },
+        "overall_wins": 4,
+        "podiums": 7,
+        "avg_position": 2.7,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-08-25"
+      }
+    },
+    {
       "id": "miro-paula-lucia-beatriz",
       "name": "Miró, Paula Lucía Beatríz",
       "name_normalized": "miro, paula lucia beatriz",
@@ -43266,37 +43428,37 @@
       }
     },
     {
-      "id": "buzetti-federico-santiago",
-      "name": "Buzetti, Federico Santiago",
-      "name_normalized": "buzetti, federico santiago",
-      "display_name": "Federico Santiago Buzetti",
+      "id": "frutos-angel",
+      "name": "Frutos, Angel",
+      "name_normalized": "frutos, angel",
+      "display_name": "Angel Frutos",
       "clubs_history": [
         {
           "club_id": "ona",
           "club_name": "ONA",
           "first_seen": "2024-11-24",
-          "last_seen": "2025-11-09"
+          "last_seen": "2026-05-10"
         }
       ],
-      "primary_division": "Recurvo Escuela 60",
-      "primary_gender": "Desconocido",
+      "primary_division": "Recurvo",
+      "primary_gender": "Masculino",
       "stats": {
         "total_tournaments": 9,
         "total_results": 9,
         "disciplines": {
           "Aire Libre": {
             "count": 9,
-            "avg_total": 498,
-            "best_total": 562,
-            "worst_total": 407,
-            "wins": 1,
-            "podiums": 6
+            "avg_total": 505.3,
+            "best_total": 630,
+            "worst_total": 417,
+            "wins": 2,
+            "podiums": 3
           }
         },
-        "overall_wins": 1,
-        "podiums": 6,
-        "avg_position": 3.2,
-        "last_competed": "2025-11-09",
+        "overall_wins": 2,
+        "podiums": 3,
+        "avg_position": 7.7,
+        "last_competed": "2026-05-10",
         "career_start": "2024-11-24"
       }
     },
@@ -44200,41 +44362,6 @@
         "avg_position": 1.9,
         "last_competed": "2025-08-24",
         "career_start": "2025-03-16"
-      }
-    },
-    {
-      "id": "achkar-nicolas-rodolfo",
-      "name": "Achkar, Nicolás Rodolfo",
-      "name_normalized": "achkar, nicolas rodolfo",
-      "display_name": "Nicolás Rodolfo Achkar",
-      "clubs_history": [
-        {
-          "club_id": "tfar",
-          "club_name": "TFAR",
-          "first_seen": "2025-03-30",
-          "last_seen": "2026-03-22"
-        }
-      ],
-      "primary_division": "Recurvo",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 9,
-        "total_results": 9,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 9,
-            "avg_total": 554.3,
-            "best_total": 597,
-            "worst_total": 479,
-            "wins": 3,
-            "podiums": 4
-          }
-        },
-        "overall_wins": 3,
-        "podiums": 4,
-        "avg_position": 4.9,
-        "last_competed": "2026-03-22",
-        "career_start": "2025-03-30"
       }
     },
     {
@@ -45599,55 +45726,6 @@
         "avg_position": 1.5,
         "last_competed": "2026-04-19",
         "career_start": "2023-07-23"
-      }
-    },
-    {
-      "id": "maccaroni-franco",
-      "name": "Maccaroni, Franco",
-      "name_normalized": "maccaroni, franco",
-      "display_name": "Franco Maccaroni",
-      "clubs_history": [
-        {
-          "club_id": "erta",
-          "club_name": "ERTA",
-          "first_seen": "2023-07-09",
-          "last_seen": "2024-07-28"
-        },
-        {
-          "club_id": "tfar",
-          "club_name": "TFAR",
-          "first_seen": "2025-04-06",
-          "last_seen": "2026-04-12"
-        }
-      ],
-      "primary_division": "Recurvo",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 8,
-        "total_results": 8,
-        "disciplines": {
-          "Sala": {
-            "count": 7,
-            "avg_total": 492.3,
-            "best_total": 536,
-            "worst_total": 461,
-            "wins": 0,
-            "podiums": 3
-          },
-          "Aire Libre": {
-            "count": 1,
-            "avg_total": 554,
-            "best_total": 554,
-            "worst_total": 554,
-            "wins": 0,
-            "podiums": 1
-          }
-        },
-        "overall_wins": 0,
-        "podiums": 4,
-        "avg_position": 5.9,
-        "last_competed": "2026-04-12",
-        "career_start": "2023-07-09"
       }
     },
     {
@@ -47056,49 +47134,6 @@
       }
     },
     {
-      "id": "panetta-david-emanuel",
-      "name": "Panetta, David Emanuel",
-      "name_normalized": "panetta, david emanuel",
-      "display_name": "David Emanuel Panetta",
-      "clubs_history": [
-        {
-          "club_id": "hoods",
-          "club_name": "HOODS",
-          "first_seen": "2024-08-25",
-          "last_seen": "2026-05-03"
-        }
-      ],
-      "primary_division": "Compuesto",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 8,
-        "total_results": 8,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 5,
-            "avg_total": 659.8,
-            "best_total": 669,
-            "worst_total": 640,
-            "wins": 1,
-            "podiums": 3
-          },
-          "Sala": {
-            "count": 3,
-            "avg_total": 564.7,
-            "best_total": 571,
-            "worst_total": 560,
-            "wins": 2,
-            "podiums": 3
-          }
-        },
-        "overall_wins": 3,
-        "podiums": 6,
-        "avg_position": 2.9,
-        "last_competed": "2026-05-03",
-        "career_start": "2024-08-25"
-      }
-    },
-    {
       "id": "vitanzi-hernan-diego",
       "name": "Vitanzi, Hernan Diego",
       "name_normalized": "vitanzi, hernan diego",
@@ -47217,41 +47252,6 @@
         "avg_position": 1.6,
         "last_competed": "2026-05-03",
         "career_start": "2024-05-05"
-      }
-    },
-    {
-      "id": "frutos-angel",
-      "name": "Frutos, Angel",
-      "name_normalized": "frutos, angel",
-      "display_name": "Angel Frutos",
-      "clubs_history": [
-        {
-          "club_id": "ona",
-          "club_name": "ONA",
-          "first_seen": "2024-11-24",
-          "last_seen": "2025-04-20"
-        }
-      ],
-      "primary_division": "Recurvo",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 8,
-        "total_results": 8,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 8,
-            "avg_total": 511.9,
-            "best_total": 630,
-            "worst_total": 417,
-            "wins": 2,
-            "podiums": 3
-          }
-        },
-        "overall_wins": 2,
-        "podiums": 3,
-        "avg_position": 7.5,
-        "last_competed": "2025-04-20",
-        "career_start": "2024-11-24"
       }
     },
     {
@@ -47786,6 +47786,49 @@
         "avg_position": 5,
         "last_competed": "2026-04-04",
         "career_start": "2024-10-06"
+      }
+    },
+    {
+      "id": "rosse-sofia-elena",
+      "name": "Rossé, Sofia Elena",
+      "name_normalized": "rosse, sofia elena",
+      "display_name": "Sofia Elena Rossé",
+      "clubs_history": [
+        {
+          "club_id": "hoods",
+          "club_name": "HOODS",
+          "first_seen": "2025-04-27",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Femenino Sub-15",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 8,
+        "total_results": 8,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 6,
+            "avg_total": 573.3,
+            "best_total": 632,
+            "worst_total": 473,
+            "wins": 5,
+            "podiums": 6
+          },
+          "Sala": {
+            "count": 2,
+            "avg_total": 425,
+            "best_total": 433,
+            "worst_total": 417,
+            "wins": 0,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 5,
+        "podiums": 7,
+        "avg_position": 3.4,
+        "last_competed": "2026-05-10",
+        "career_start": "2025-04-27"
       }
     },
     {
@@ -49002,6 +49045,57 @@
         "avg_position": 2.9,
         "last_competed": "2026-04-26",
         "career_start": "2025-04-20"
+      }
+    },
+    {
+      "id": "aranda-rocio",
+      "name": "Aranda, Rocio",
+      "name_normalized": "aranda, rocio",
+      "display_name": "Rocio Aranda",
+      "clubs_history": [
+        {
+          "club_id": "ax10",
+          "club_name": "AX10",
+          "first_seen": "2025-04-27",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Raso Escuela 80",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 8,
+        "total_results": 8,
+        "disciplines": {
+          "Sala": {
+            "count": 4,
+            "avg_total": 491.8,
+            "best_total": 547,
+            "worst_total": 470,
+            "wins": 1,
+            "podiums": 3
+          },
+          "3D": {
+            "count": 1,
+            "avg_total": 339,
+            "best_total": 339,
+            "worst_total": 339,
+            "wins": 0,
+            "podiums": 0
+          },
+          "Aire Libre": {
+            "count": 3,
+            "avg_total": 565,
+            "best_total": 646,
+            "worst_total": 437,
+            "wins": 2,
+            "podiums": 3
+          }
+        },
+        "overall_wins": 3,
+        "podiums": 6,
+        "avg_position": 2.5,
+        "last_competed": "2026-05-10",
+        "career_start": "2025-04-27"
       }
     },
     {
@@ -52877,49 +52971,6 @@
       }
     },
     {
-      "id": "rosse-sofia-elena",
-      "name": "Rossé, Sofia Elena",
-      "name_normalized": "rosse, sofia elena",
-      "display_name": "Sofia Elena Rossé",
-      "clubs_history": [
-        {
-          "club_id": "hoods",
-          "club_name": "HOODS",
-          "first_seen": "2025-04-27",
-          "last_seen": "2026-03-01"
-        }
-      ],
-      "primary_division": "Recurvo Femenino Sub-15",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 7,
-        "total_results": 7,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 5,
-            "avg_total": 593.4,
-            "best_total": 632,
-            "worst_total": 560,
-            "wins": 4,
-            "podiums": 5
-          },
-          "Sala": {
-            "count": 2,
-            "avg_total": 425,
-            "best_total": 433,
-            "worst_total": 417,
-            "wins": 0,
-            "podiums": 1
-          }
-        },
-        "overall_wins": 4,
-        "podiums": 6,
-        "avg_position": 3.7,
-        "last_competed": "2026-03-01",
-        "career_start": "2025-04-27"
-      }
-    },
-    {
       "id": "rovai-marcelo",
       "name": "Rovai, Marcelo",
       "name_normalized": "rovai, marcelo",
@@ -54121,57 +54172,6 @@
         "overall_wins": 0,
         "podiums": 2,
         "avg_position": 5.9,
-        "last_competed": "2026-04-12",
-        "career_start": "2025-04-27"
-      }
-    },
-    {
-      "id": "aranda-rocio",
-      "name": "Aranda, Rocio",
-      "name_normalized": "aranda, rocio",
-      "display_name": "Rocio Aranda",
-      "clubs_history": [
-        {
-          "club_id": "ax10",
-          "club_name": "AX10",
-          "first_seen": "2025-04-27",
-          "last_seen": "2026-04-12"
-        }
-      ],
-      "primary_division": "Raso Escuela 80",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 7,
-        "total_results": 7,
-        "disciplines": {
-          "Sala": {
-            "count": 4,
-            "avg_total": 491.8,
-            "best_total": 547,
-            "worst_total": 470,
-            "wins": 1,
-            "podiums": 3
-          },
-          "3D": {
-            "count": 1,
-            "avg_total": 339,
-            "best_total": 339,
-            "worst_total": 339,
-            "wins": 0,
-            "podiums": 0
-          },
-          "Aire Libre": {
-            "count": 2,
-            "avg_total": 629,
-            "best_total": 646,
-            "worst_total": 612,
-            "wins": 1,
-            "podiums": 2
-          }
-        },
-        "overall_wins": 2,
-        "podiums": 5,
-        "avg_position": 2.7,
         "last_competed": "2026-04-12",
         "career_start": "2025-04-27"
       }
@@ -58218,6 +58218,84 @@
         "avg_position": 3.7,
         "last_competed": "2024-11-24",
         "career_start": "2024-08-25"
+      }
+    },
+    {
+      "id": "renaud-claudio-adrian",
+      "name": "Renaud, Claudio Adrian",
+      "name_normalized": "renaud, claudio adrian",
+      "display_name": "Claudio Adrian Renaud",
+      "clubs_history": [
+        {
+          "club_id": "na",
+          "club_name": "NA",
+          "first_seen": "2024-08-25",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Cazador",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 6,
+        "total_results": 6,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 6,
+            "avg_total": 557,
+            "best_total": 607,
+            "worst_total": 386,
+            "wins": 4,
+            "podiums": 6
+          }
+        },
+        "overall_wins": 4,
+        "podiums": 6,
+        "avg_position": 1.3,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-08-25"
+      }
+    },
+    {
+      "id": "merino-marcelo-javier",
+      "name": "Merino, Marcelo Javier",
+      "name_normalized": "merino, marcelo javier",
+      "display_name": "Marcelo Javier Merino",
+      "clubs_history": [
+        {
+          "club_id": "na",
+          "club_name": "NA",
+          "first_seen": "2024-06-15",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 50",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 6,
+        "total_results": 6,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 4,
+            "avg_total": 413.3,
+            "best_total": 565,
+            "worst_total": 272,
+            "wins": 0,
+            "podiums": 2
+          },
+          "Sala": {
+            "count": 2,
+            "avg_total": 429.5,
+            "best_total": 461,
+            "worst_total": 398,
+            "wins": 0,
+            "podiums": 0
+          }
+        },
+        "overall_wins": 0,
+        "podiums": 2,
+        "avg_position": 6.3,
+        "last_competed": "2026-05-10",
+        "career_start": "2024-06-15"
       }
     },
     {
@@ -65504,84 +65582,6 @@
       }
     },
     {
-      "id": "renaud-claudio-adrian",
-      "name": "Renaud, Claudio Adrian",
-      "name_normalized": "renaud, claudio adrian",
-      "display_name": "Claudio Adrian Renaud",
-      "clubs_history": [
-        {
-          "club_id": "na",
-          "club_name": "NA",
-          "first_seen": "2024-08-25",
-          "last_seen": "2025-05-25"
-        }
-      ],
-      "primary_division": "Cazador",
-      "primary_gender": "Masculino",
-      "stats": {
-        "total_tournaments": 5,
-        "total_results": 5,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 5,
-            "avg_total": 553.8,
-            "best_total": 607,
-            "worst_total": 386,
-            "wins": 3,
-            "podiums": 5
-          }
-        },
-        "overall_wins": 3,
-        "podiums": 5,
-        "avg_position": 1.4,
-        "last_competed": "2025-05-25",
-        "career_start": "2024-08-25"
-      }
-    },
-    {
-      "id": "merino-marcelo-javier",
-      "name": "Merino, Marcelo Javier",
-      "name_normalized": "merino, marcelo javier",
-      "display_name": "Marcelo Javier Merino",
-      "clubs_history": [
-        {
-          "club_id": "na",
-          "club_name": "NA",
-          "first_seen": "2024-06-15",
-          "last_seen": "2024-08-25"
-        }
-      ],
-      "primary_division": "Recurvo Escuela 50",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 5,
-        "total_results": 5,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 3,
-            "avg_total": 460.3,
-            "best_total": 565,
-            "worst_total": 338,
-            "wins": 0,
-            "podiums": 2
-          },
-          "Sala": {
-            "count": 2,
-            "avg_total": 429.5,
-            "best_total": 461,
-            "worst_total": 398,
-            "wins": 0,
-            "podiums": 0
-          }
-        },
-        "overall_wins": 0,
-        "podiums": 2,
-        "avg_position": 5.8,
-        "last_competed": "2024-08-25",
-        "career_start": "2024-06-15"
-      }
-    },
-    {
       "id": "rodriguez-baratta-ariadna-jazmin",
       "name": "Rodriguez Baratta, Ariadna Jazmin",
       "name_normalized": "rodriguez baratta, ariadna jazmin",
@@ -69633,6 +69633,49 @@
       }
     },
     {
+      "id": "becerra-tomas-agustin",
+      "name": "Becerra, Tomas Agustin",
+      "name_normalized": "becerra, tomas agustin",
+      "display_name": "Tomas Agustin Becerra",
+      "clubs_history": [
+        {
+          "club_id": "ax10",
+          "club_name": "AX10",
+          "first_seen": "2025-08-03",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 80",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 5,
+        "total_results": 5,
+        "disciplines": {
+          "Sala": {
+            "count": 2,
+            "avg_total": 533.5,
+            "best_total": 536,
+            "worst_total": 531,
+            "wins": 0,
+            "podiums": 2
+          },
+          "Aire Libre": {
+            "count": 3,
+            "avg_total": 619.7,
+            "best_total": 698,
+            "worst_total": 499,
+            "wins": 0,
+            "podiums": 2
+          }
+        },
+        "overall_wins": 0,
+        "podiums": 4,
+        "avg_position": 3.4,
+        "last_competed": "2026-05-10",
+        "career_start": "2025-08-03"
+      }
+    },
+    {
       "id": "perez-dalmas-cristian",
       "name": "Pérez Dalmás, Cristian",
       "name_normalized": "perez dalmas, cristian",
@@ -70024,6 +70067,49 @@
         "podiums": 3,
         "avg_position": 4.4,
         "last_competed": "2026-05-03",
+        "career_start": "2026-03-08"
+      }
+    },
+    {
+      "id": "popper-daniel-esteban",
+      "name": "Popper, Daniel Esteban",
+      "name_normalized": "popper, daniel esteban",
+      "display_name": "Daniel Esteban Popper",
+      "clubs_history": [
+        {
+          "club_id": "hoods",
+          "club_name": "HOODS",
+          "first_seen": "2026-03-08",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Compuesto Escuela 30",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 5,
+        "total_results": 5,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 3,
+            "avg_total": 342.3,
+            "best_total": 403,
+            "worst_total": 250,
+            "wins": 1,
+            "podiums": 2
+          },
+          "Sala": {
+            "count": 2,
+            "avg_total": 387,
+            "best_total": 480,
+            "worst_total": 294,
+            "wins": 0,
+            "podiums": 2
+          }
+        },
+        "overall_wins": 1,
+        "podiums": 4,
+        "avg_position": 2.6,
+        "last_competed": "2026-05-10",
         "career_start": "2026-03-08"
       }
     },
@@ -77115,6 +77201,41 @@
       }
     },
     {
+      "id": "nunes-ambar",
+      "name": "Nunes, Ambar",
+      "name_normalized": "nunes, ambar",
+      "display_name": "Ambar Nunes",
+      "clubs_history": [
+        {
+          "club_id": "tfar",
+          "club_name": "TFAR",
+          "first_seen": "2025-03-09",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 30",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 4,
+        "total_results": 4,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 4,
+            "avg_total": 473.5,
+            "best_total": 614,
+            "worst_total": 367,
+            "wins": 0,
+            "podiums": 2
+          }
+        },
+        "overall_wins": 0,
+        "podiums": 2,
+        "avg_position": 3.5,
+        "last_competed": "2026-05-10",
+        "career_start": "2025-03-09"
+      }
+    },
+    {
       "id": "lopez-leandro-esteban",
       "name": "Lopez, Leandro Esteban",
       "name_normalized": "lopez, leandro esteban",
@@ -79171,49 +79292,6 @@
       }
     },
     {
-      "id": "becerra-tomas-agustin",
-      "name": "Becerra, Tomas Agustin",
-      "name_normalized": "becerra, tomas agustin",
-      "display_name": "Tomas Agustin Becerra",
-      "clubs_history": [
-        {
-          "club_id": "ax10",
-          "club_name": "AX10",
-          "first_seen": "2025-08-03",
-          "last_seen": "2026-04-12"
-        }
-      ],
-      "primary_division": "Recurvo Escuela 80",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 4,
-        "total_results": 4,
-        "disciplines": {
-          "Sala": {
-            "count": 2,
-            "avg_total": 533.5,
-            "best_total": 536,
-            "worst_total": 531,
-            "wins": 0,
-            "podiums": 2
-          },
-          "Aire Libre": {
-            "count": 2,
-            "avg_total": 680,
-            "best_total": 698,
-            "worst_total": 662,
-            "wins": 0,
-            "podiums": 2
-          }
-        },
-        "overall_wins": 0,
-        "podiums": 4,
-        "avg_position": 2.5,
-        "last_competed": "2026-04-12",
-        "career_start": "2025-08-03"
-      }
-    },
-    {
       "id": "gomez-cipriano",
       "name": "Gomez, Cipriano",
       "name_normalized": "gomez, cipriano",
@@ -79755,6 +79833,178 @@
       }
     },
     {
+      "id": "guzman-christian",
+      "name": "Guzman, Christian",
+      "name_normalized": "guzman, christian",
+      "display_name": "Christian Guzman",
+      "clubs_history": [
+        {
+          "club_id": "eda",
+          "club_name": "EDA",
+          "first_seen": "2026-05-03",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 40",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 4,
+        "total_results": 4,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 3,
+            "avg_total": 567,
+            "best_total": 644,
+            "worst_total": 493,
+            "wins": 2,
+            "podiums": 3
+          },
+          "Sala": {
+            "count": 1,
+            "avg_total": 495,
+            "best_total": 495,
+            "worst_total": 495,
+            "wins": 1,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 3,
+        "podiums": 4,
+        "avg_position": 1.5,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-05-03"
+      }
+    },
+    {
+      "id": "vecchio-natalia-lucia",
+      "name": "Vecchio, Natalia Lucia",
+      "name_normalized": "vecchio, natalia lucia",
+      "display_name": "Natalia Lucia Vecchio",
+      "clubs_history": [
+        {
+          "club_id": "hoods",
+          "club_name": "HOODS",
+          "first_seen": "2026-05-03",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 30",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 4,
+        "total_results": 4,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 3,
+            "avg_total": 546.3,
+            "best_total": 616,
+            "worst_total": 444,
+            "wins": 0,
+            "podiums": 1
+          },
+          "Sala": {
+            "count": 1,
+            "avg_total": 512,
+            "best_total": 512,
+            "worst_total": 512,
+            "wins": 0,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 0,
+        "podiums": 2,
+        "avg_position": 4.3,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-05-03"
+      }
+    },
+    {
+      "id": "mastrobono-karina-lucia",
+      "name": "Mastrobono, Karina Lucia",
+      "name_normalized": "mastrobono, karina lucia",
+      "display_name": "Karina Lucia Mastrobono",
+      "clubs_history": [
+        {
+          "club_id": "hoods",
+          "club_name": "HOODS",
+          "first_seen": "2026-05-03",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 30",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 4,
+        "total_results": 4,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 3,
+            "avg_total": 480.7,
+            "best_total": 594,
+            "worst_total": 308,
+            "wins": 0,
+            "podiums": 1
+          },
+          "Sala": {
+            "count": 1,
+            "avg_total": 533,
+            "best_total": 533,
+            "worst_total": 533,
+            "wins": 1,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 1,
+        "podiums": 2,
+        "avg_position": 3.8,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-05-03"
+      }
+    },
+    {
+      "id": "aguero-matias",
+      "name": "Agüero, Matias",
+      "name_normalized": "aguero, matias",
+      "display_name": "Matias Agüero",
+      "clubs_history": [
+        {
+          "club_id": "akos",
+          "club_name": "AKOS",
+          "first_seen": "2026-04-12",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 20",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 4,
+        "total_results": 4,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 3,
+            "avg_total": 541.7,
+            "best_total": 614,
+            "worst_total": 477,
+            "wins": 0,
+            "podiums": 0
+          },
+          "Sala": {
+            "count": 1,
+            "avg_total": 487,
+            "best_total": 487,
+            "worst_total": 487,
+            "wins": 0,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 0,
+        "podiums": 1,
+        "avg_position": 6.3,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-04-12"
+      }
+    },
+    {
       "id": "castellano-ivan",
       "name": "Castellano, Ivan",
       "name_normalized": "castellano, ivan",
@@ -79798,19 +80048,62 @@
       }
     },
     {
-      "id": "popper-daniel-esteban",
-      "name": "Popper, Daniel Esteban",
-      "name_normalized": "popper, daniel esteban",
-      "display_name": "Daniel Esteban Popper",
+      "id": "platero-jeremias-angel",
+      "name": "Platero, Jeremias Angel",
+      "name_normalized": "platero, jeremias angel",
+      "display_name": "Jeremias Angel Platero",
+      "clubs_history": [
+        {
+          "club_id": "alc",
+          "club_name": "ALC",
+          "first_seen": "2026-04-12",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Raso Escuela 20",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 4,
+        "total_results": 4,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 3,
+            "avg_total": 507.7,
+            "best_total": 627,
+            "worst_total": 373,
+            "wins": 0,
+            "podiums": 1
+          },
+          "Sala": {
+            "count": 1,
+            "avg_total": 477,
+            "best_total": 477,
+            "worst_total": 477,
+            "wins": 0,
+            "podiums": 0
+          }
+        },
+        "overall_wins": 0,
+        "podiums": 1,
+        "avg_position": 3.5,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-04-12"
+      }
+    },
+    {
+      "id": "rivas-olivera-andrea-paola",
+      "name": "Rivas Olivera, Andrea Paola",
+      "name_normalized": "rivas olivera, andrea paola",
+      "display_name": "Andrea Paola Rivas Olivera",
       "clubs_history": [
         {
           "club_id": "hoods",
           "club_name": "HOODS",
           "first_seen": "2026-03-08",
-          "last_seen": "2026-05-03"
+          "last_seen": "2026-05-10"
         }
       ],
-      "primary_division": "Compuesto Escuela 30",
+      "primary_division": "Compuesto Escuela 40",
       "primary_gender": "Desconocido",
       "stats": {
         "total_tournaments": 4,
@@ -79818,25 +80111,25 @@
         "disciplines": {
           "Aire Libre": {
             "count": 2,
-            "avg_total": 388.5,
-            "best_total": 403,
-            "worst_total": 374,
-            "wins": 0,
-            "podiums": 1
+            "avg_total": 611.5,
+            "best_total": 652,
+            "worst_total": 571,
+            "wins": 1,
+            "podiums": 2
           },
           "Sala": {
             "count": 2,
-            "avg_total": 387,
-            "best_total": 480,
-            "worst_total": 294,
-            "wins": 0,
+            "avg_total": 538.5,
+            "best_total": 558,
+            "worst_total": 519,
+            "wins": 2,
             "podiums": 2
           }
         },
-        "overall_wins": 0,
-        "podiums": 3,
-        "avg_position": 3,
-        "last_competed": "2026-05-03",
+        "overall_wins": 3,
+        "podiums": 4,
+        "avg_position": 1.5,
+        "last_competed": "2026-05-10",
         "career_start": "2026-03-08"
       }
     },
@@ -87056,41 +87349,6 @@
       }
     },
     {
-      "id": "nunes-ambar",
-      "name": "Nunes, Ambar",
-      "name_normalized": "nunes, ambar",
-      "display_name": "Ambar Nunes",
-      "clubs_history": [
-        {
-          "club_id": "tfar",
-          "club_name": "TFAR",
-          "first_seen": "2025-03-09",
-          "last_seen": "2025-06-08"
-        }
-      ],
-      "primary_division": "Recurvo Escuela 30",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 3,
-        "total_results": 3,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 3,
-            "avg_total": 499.3,
-            "best_total": 614,
-            "worst_total": 367,
-            "wins": 0,
-            "podiums": 2
-          }
-        },
-        "overall_wins": 0,
-        "podiums": 2,
-        "avg_position": 3.3,
-        "last_competed": "2025-06-08",
-        "career_start": "2025-03-09"
-      }
-    },
-    {
       "id": "leon-lamberti-angelina-margarita",
       "name": "León Lamberti, Angelina Margarita",
       "name_normalized": "leon lamberti, angelina margarita",
@@ -88106,6 +88364,76 @@
         "podiums": 0,
         "avg_position": 7.3,
         "last_competed": "2025-11-09",
+        "career_start": "2025-04-20"
+      }
+    },
+    {
+      "id": "de-san-vicente-lucas-carlos",
+      "name": "De San Vicente, Lucas Carlos",
+      "name_normalized": "de san vicente, lucas carlos",
+      "display_name": "Lucas Carlos De San Vicente",
+      "clubs_history": [
+        {
+          "club_id": "tfar",
+          "club_name": "TFAR",
+          "first_seen": "2025-04-20",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 20",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 3,
+        "total_results": 3,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 3,
+            "avg_total": 586,
+            "best_total": 632,
+            "worst_total": 506,
+            "wins": 2,
+            "podiums": 3
+          }
+        },
+        "overall_wins": 2,
+        "podiums": 3,
+        "avg_position": 1.7,
+        "last_competed": "2026-05-10",
+        "career_start": "2025-04-20"
+      }
+    },
+    {
+      "id": "gracia-matias",
+      "name": "Gracia, Matías",
+      "name_normalized": "gracia, matias",
+      "display_name": "Matías Gracia",
+      "clubs_history": [
+        {
+          "club_id": "tfar",
+          "club_name": "TFAR",
+          "first_seen": "2025-04-20",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 20",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 3,
+        "total_results": 3,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 3,
+            "avg_total": 545,
+            "best_total": 658,
+            "worst_total": 429,
+            "wins": 0,
+            "podiums": 0
+          }
+        },
+        "overall_wins": 0,
+        "podiums": 0,
+        "avg_position": 4.7,
+        "last_competed": "2026-05-10",
         "career_start": "2025-04-20"
       }
     },
@@ -91313,6 +91641,41 @@
       }
     },
     {
+      "id": "pardini-krauss-agustina-marion",
+      "name": "Pardini Krauss, Agustina Marion",
+      "name_normalized": "pardini krauss, agustina marion",
+      "display_name": "Agustina Marion Pardini Krauss",
+      "clubs_history": [
+        {
+          "club_id": "hoods",
+          "club_name": "HOODS",
+          "first_seen": "2026-05-10",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "JP Compuesto Sub-15 E30",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 3,
+        "total_results": 3,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 3,
+            "avg_total": 524,
+            "best_total": 601,
+            "worst_total": 419,
+            "wins": 3,
+            "podiums": 3
+          }
+        },
+        "overall_wins": 3,
+        "podiums": 3,
+        "avg_position": 1,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-05-10"
+      }
+    },
+    {
       "id": "baraglia-santiago-martin",
       "name": "Baraglia, Santiago Martin",
       "name_normalized": "baraglia, santiago martin",
@@ -91396,135 +91759,6 @@
         "avg_position": 4.3,
         "last_competed": "2026-04-12",
         "career_start": "2026-04-12"
-      }
-    },
-    {
-      "id": "guzman-christian",
-      "name": "Guzman, Christian",
-      "name_normalized": "guzman, christian",
-      "display_name": "Christian Guzman",
-      "clubs_history": [
-        {
-          "club_id": "eda",
-          "club_name": "EDA",
-          "first_seen": "2026-05-03",
-          "last_seen": "2026-05-03"
-        }
-      ],
-      "primary_division": "Recurvo Escuela 40",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 3,
-        "total_results": 3,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 2,
-            "avg_total": 604,
-            "best_total": 644,
-            "worst_total": 564,
-            "wins": 2,
-            "podiums": 2
-          },
-          "Sala": {
-            "count": 1,
-            "avg_total": 495,
-            "best_total": 495,
-            "worst_total": 495,
-            "wins": 1,
-            "podiums": 1
-          }
-        },
-        "overall_wins": 3,
-        "podiums": 3,
-        "avg_position": 1,
-        "last_competed": "2026-05-03",
-        "career_start": "2026-05-03"
-      }
-    },
-    {
-      "id": "vecchio-natalia-lucia",
-      "name": "Vecchio, Natalia Lucia",
-      "name_normalized": "vecchio, natalia lucia",
-      "display_name": "Natalia Lucia Vecchio",
-      "clubs_history": [
-        {
-          "club_id": "hoods",
-          "club_name": "HOODS",
-          "first_seen": "2026-05-03",
-          "last_seen": "2026-05-03"
-        }
-      ],
-      "primary_division": "Recurvo Escuela 30",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 3,
-        "total_results": 3,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 2,
-            "avg_total": 597.5,
-            "best_total": 616,
-            "worst_total": 579,
-            "wins": 0,
-            "podiums": 1
-          },
-          "Sala": {
-            "count": 1,
-            "avg_total": 512,
-            "best_total": 512,
-            "worst_total": 512,
-            "wins": 0,
-            "podiums": 1
-          }
-        },
-        "overall_wins": 0,
-        "podiums": 2,
-        "avg_position": 3.3,
-        "last_competed": "2026-05-03",
-        "career_start": "2026-05-03"
-      }
-    },
-    {
-      "id": "mastrobono-karina-lucia",
-      "name": "Mastrobono, Karina Lucia",
-      "name_normalized": "mastrobono, karina lucia",
-      "display_name": "Karina Lucia Mastrobono",
-      "clubs_history": [
-        {
-          "club_id": "hoods",
-          "club_name": "HOODS",
-          "first_seen": "2026-05-03",
-          "last_seen": "2026-05-03"
-        }
-      ],
-      "primary_division": "Recurvo Escuela 30",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 3,
-        "total_results": 3,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 2,
-            "avg_total": 567,
-            "best_total": 594,
-            "worst_total": 540,
-            "wins": 0,
-            "podiums": 1
-          },
-          "Sala": {
-            "count": 1,
-            "avg_total": 533,
-            "best_total": 533,
-            "worst_total": 533,
-            "wins": 1,
-            "podiums": 1
-          }
-        },
-        "overall_wins": 1,
-        "podiums": 2,
-        "avg_position": 2.7,
-        "last_competed": "2026-05-03",
-        "career_start": "2026-05-03"
       }
     },
     {
@@ -91614,89 +91848,38 @@
       }
     },
     {
-      "id": "aguero-matias",
-      "name": "Agüero, Matias",
-      "name_normalized": "aguero, matias",
-      "display_name": "Matias Agüero",
+      "id": "guzman-nahuel-horacio",
+      "name": "Guzmán, Nahuel Horacio",
+      "name_normalized": "guzman, nahuel horacio",
+      "display_name": "Nahuel Horacio Guzmán",
       "clubs_history": [
         {
-          "club_id": "akos",
-          "club_name": "AKOS",
-          "first_seen": "2026-04-12",
-          "last_seen": "2026-04-12"
+          "club_id": "hoods",
+          "club_name": "HOODS",
+          "first_seen": "2026-05-10",
+          "last_seen": "2026-05-10"
         }
       ],
-      "primary_division": "Recurvo Escuela 20",
+      "primary_division": "Raso Escuela 30",
       "primary_gender": "Desconocido",
       "stats": {
         "total_tournaments": 3,
         "total_results": 3,
         "disciplines": {
           "Aire Libre": {
-            "count": 2,
-            "avg_total": 574,
-            "best_total": 614,
-            "worst_total": 534,
-            "wins": 0,
-            "podiums": 0
-          },
-          "Sala": {
-            "count": 1,
-            "avg_total": 487,
-            "best_total": 487,
-            "worst_total": 487,
+            "count": 3,
+            "avg_total": 396,
+            "best_total": 521,
+            "worst_total": 325,
             "wins": 0,
             "podiums": 1
           }
         },
         "overall_wins": 0,
         "podiums": 1,
-        "avg_position": 7,
-        "last_competed": "2026-04-12",
-        "career_start": "2026-04-12"
-      }
-    },
-    {
-      "id": "platero-jeremias-angel",
-      "name": "Platero, Jeremias Angel",
-      "name_normalized": "platero, jeremias angel",
-      "display_name": "Jeremias Angel Platero",
-      "clubs_history": [
-        {
-          "club_id": "alc",
-          "club_name": "ALC",
-          "first_seen": "2026-04-12",
-          "last_seen": "2026-04-12"
-        }
-      ],
-      "primary_division": "Raso Escuela 20",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 3,
-        "total_results": 3,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 2,
-            "avg_total": 575,
-            "best_total": 627,
-            "worst_total": 523,
-            "wins": 0,
-            "podiums": 0
-          },
-          "Sala": {
-            "count": 1,
-            "avg_total": 477,
-            "best_total": 477,
-            "worst_total": 477,
-            "wins": 0,
-            "podiums": 0
-          }
-        },
-        "overall_wins": 0,
-        "podiums": 0,
-        "avg_position": 4,
-        "last_competed": "2026-04-12",
-        "career_start": "2026-04-12"
+        "avg_position": 4.7,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-05-10"
       }
     },
     {
@@ -91786,49 +91969,6 @@
       }
     },
     {
-      "id": "rivas-olivera-andrea-paola",
-      "name": "Rivas Olivera, Andrea Paola",
-      "name_normalized": "rivas olivera, andrea paola",
-      "display_name": "Andrea Paola Rivas Olivera",
-      "clubs_history": [
-        {
-          "club_id": "hoods",
-          "club_name": "HOODS",
-          "first_seen": "2026-03-08",
-          "last_seen": "2026-05-03"
-        }
-      ],
-      "primary_division": "Compuesto Escuela 30",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 3,
-        "total_results": 3,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 1,
-            "avg_total": 652,
-            "best_total": 652,
-            "worst_total": 652,
-            "wins": 0,
-            "podiums": 1
-          },
-          "Sala": {
-            "count": 2,
-            "avg_total": 538.5,
-            "best_total": 558,
-            "worst_total": 519,
-            "wins": 2,
-            "podiums": 2
-          }
-        },
-        "overall_wins": 2,
-        "podiums": 3,
-        "avg_position": 1.7,
-        "last_competed": "2026-05-03",
-        "career_start": "2026-03-08"
-      }
-    },
-    {
       "id": "vitales-samuel",
       "name": "Vitales, Samuel",
       "name_normalized": "vitales, samuel",
@@ -91868,6 +92008,55 @@
         "podiums": 1,
         "avg_position": 5,
         "last_competed": "2026-04-12",
+        "career_start": "2026-03-08"
+      }
+    },
+    {
+      "id": "esquivel-nilda-susana",
+      "name": "Esquivel, Nilda Susana",
+      "name_normalized": "esquivel, nilda susana",
+      "display_name": "Nilda Susana Esquivel",
+      "clubs_history": [
+        {
+          "club_id": "cadba",
+          "club_name": "CADBA",
+          "first_seen": "2026-03-08",
+          "last_seen": "2026-03-08"
+        },
+        {
+          "club_id": "bosque",
+          "club_name": "BOSQUE",
+          "first_seen": "2026-05-10",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Raso Escuela 20",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 3,
+        "total_results": 3,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 2,
+            "avg_total": 531.5,
+            "best_total": 629,
+            "worst_total": 434,
+            "wins": 0,
+            "podiums": 1
+          },
+          "Sala": {
+            "count": 1,
+            "avg_total": 476,
+            "best_total": 476,
+            "worst_total": 476,
+            "wins": 0,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 0,
+        "podiums": 2,
+        "avg_position": 3,
+        "last_competed": "2026-05-10",
         "career_start": "2026-03-08"
       }
     },
@@ -102996,76 +103185,6 @@
       }
     },
     {
-      "id": "de-san-vicente-lucas-carlos",
-      "name": "De San Vicente, Lucas Carlos",
-      "name_normalized": "de san vicente, lucas carlos",
-      "display_name": "Lucas Carlos De San Vicente",
-      "clubs_history": [
-        {
-          "club_id": "tfar",
-          "club_name": "TFAR",
-          "first_seen": "2025-04-20",
-          "last_seen": "2025-06-08"
-        }
-      ],
-      "primary_division": "Recurvo Escuela 20",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 2,
-        "total_results": 2,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 2,
-            "avg_total": 626,
-            "best_total": 632,
-            "worst_total": 620,
-            "wins": 1,
-            "podiums": 2
-          }
-        },
-        "overall_wins": 1,
-        "podiums": 2,
-        "avg_position": 2,
-        "last_competed": "2025-06-08",
-        "career_start": "2025-04-20"
-      }
-    },
-    {
-      "id": "gracia-matias",
-      "name": "Gracia, Matías",
-      "name_normalized": "gracia, matias",
-      "display_name": "Matías Gracia",
-      "clubs_history": [
-        {
-          "club_id": "tfar",
-          "club_name": "TFAR",
-          "first_seen": "2025-04-20",
-          "last_seen": "2025-06-08"
-        }
-      ],
-      "primary_division": "Recurvo Escuela 20",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 2,
-        "total_results": 2,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 2,
-            "avg_total": 603,
-            "best_total": 658,
-            "worst_total": 548,
-            "wins": 0,
-            "podiums": 0
-          }
-        },
-        "overall_wins": 0,
-        "podiums": 0,
-        "avg_position": 4.5,
-        "last_competed": "2025-06-08",
-        "career_start": "2025-04-20"
-      }
-    },
-    {
       "id": "barchetta-ciro",
       "name": "Barchetta, Ciro",
       "name_normalized": "barchetta, ciro",
@@ -107619,41 +107738,6 @@
       }
     },
     {
-      "id": "pardini-krauss-agustina-marion",
-      "name": "Pardini Krauss, Agustina Marion",
-      "name_normalized": "pardini krauss, agustina marion",
-      "display_name": "Agustina Marion Pardini Krauss",
-      "clubs_history": [
-        {
-          "club_id": "hoods",
-          "club_name": "HOODS",
-          "first_seen": null,
-          "last_seen": null
-        }
-      ],
-      "primary_division": "JP Compuesto Sub-15 E30",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 2,
-        "total_results": 2,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 2,
-            "avg_total": 576.5,
-            "best_total": 601,
-            "worst_total": 552,
-            "wins": 2,
-            "podiums": 2
-          }
-        },
-        "overall_wins": 2,
-        "podiums": 2,
-        "avg_position": 1,
-        "last_competed": null,
-        "career_start": null
-      }
-    },
-    {
       "id": "urruspuru-juan-maria",
       "name": "Urruspuru, Juan Maria",
       "name_normalized": "urruspuru, juan maria",
@@ -107759,41 +107843,6 @@
       }
     },
     {
-      "id": "guzman-nahuel-horacio",
-      "name": "Guzmán, Nahuel Horacio",
-      "name_normalized": "guzman, nahuel horacio",
-      "display_name": "Nahuel Horacio Guzmán",
-      "clubs_history": [
-        {
-          "club_id": "hoods",
-          "club_name": "HOODS",
-          "first_seen": null,
-          "last_seen": null
-        }
-      ],
-      "primary_division": "Raso Escuela 20",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 2,
-        "total_results": 2,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 2,
-            "avg_total": 423,
-            "best_total": 521,
-            "worst_total": 325,
-            "wins": 0,
-            "podiums": 0
-          }
-        },
-        "overall_wins": 0,
-        "podiums": 0,
-        "avg_position": 5.5,
-        "last_competed": null,
-        "career_start": null
-      }
-    },
-    {
       "id": "godoy-claudia-beatriz",
       "name": "Godoy, Claudia Beatriz",
       "name_normalized": "godoy, claudia beatriz",
@@ -107868,6 +107917,76 @@
         "podiums": 1,
         "avg_position": 3,
         "last_competed": "2026-04-12",
+        "career_start": "2026-03-22"
+      }
+    },
+    {
+      "id": "echarren-maria-laura",
+      "name": "Echarren, María Laura",
+      "name_normalized": "echarren, maria laura",
+      "display_name": "María Laura Echarren",
+      "clubs_history": [
+        {
+          "club_id": "tfar",
+          "club_name": "TFAR",
+          "first_seen": "2026-03-22",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 40",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 2,
+        "total_results": 2,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 2,
+            "avg_total": 563.5,
+            "best_total": 606,
+            "worst_total": 521,
+            "wins": 0,
+            "podiums": 2
+          }
+        },
+        "overall_wins": 0,
+        "podiums": 2,
+        "avg_position": 2.5,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-03-22"
+      }
+    },
+    {
+      "id": "yelin-enrique-gabriel",
+      "name": "Yelin, Enrique Gabriel",
+      "name_normalized": "yelin, enrique gabriel",
+      "display_name": "Enrique Gabriel Yelin",
+      "clubs_history": [
+        {
+          "club_id": "tfar",
+          "club_name": "TFAR",
+          "first_seen": "2026-03-22",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 30",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 2,
+        "total_results": 2,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 2,
+            "avg_total": 630,
+            "best_total": 657,
+            "worst_total": 603,
+            "wins": 1,
+            "podiums": 2
+          }
+        },
+        "overall_wins": 1,
+        "podiums": 2,
+        "avg_position": 1.5,
+        "last_competed": "2026-05-10",
         "career_start": "2026-03-22"
       }
     },
@@ -108122,6 +108241,41 @@
       }
     },
     {
+      "id": "benitez-cristian-manuel",
+      "name": "Benitez, Cristian Manuel",
+      "name_normalized": "benitez, cristian manuel",
+      "display_name": "Cristian Manuel Benitez",
+      "clubs_history": [
+        {
+          "club_id": "ona",
+          "club_name": "ONA",
+          "first_seen": "2026-05-10",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 20",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 2,
+        "total_results": 2,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 2,
+            "avg_total": 663.5,
+            "best_total": 691,
+            "worst_total": 636,
+            "wins": 2,
+            "podiums": 2
+          }
+        },
+        "overall_wins": 2,
+        "podiums": 2,
+        "avg_position": 1,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-05-10"
+      }
+    },
+    {
       "id": "greene-lucas-ezequiel",
       "name": "Greene, Lucas  Ezequiel",
       "name_normalized": "greene, lucas  ezequiel",
@@ -108165,46 +108319,38 @@
       }
     },
     {
-      "id": "esquivel-nilda-susana",
-      "name": "Esquivel, Nilda Susana",
-      "name_normalized": "esquivel, nilda susana",
-      "display_name": "Nilda Susana Esquivel",
+      "id": "bilbao-catalina",
+      "name": "Bilbao, Catalina",
+      "name_normalized": "bilbao, catalina",
+      "display_name": "Catalina Bilbao",
       "clubs_history": [
         {
-          "club_id": "cadba",
-          "club_name": "CADBA",
-          "first_seen": "2026-03-08",
-          "last_seen": "2026-03-08"
+          "club_id": "akos",
+          "club_name": "AKOS",
+          "first_seen": "2026-05-10",
+          "last_seen": "2026-05-10"
         }
       ],
-      "primary_division": "Raso Escuela 20",
+      "primary_division": "Recurvo Escuela 20",
       "primary_gender": "Desconocido",
       "stats": {
         "total_tournaments": 2,
         "total_results": 2,
         "disciplines": {
           "Aire Libre": {
-            "count": 1,
-            "avg_total": 629,
-            "best_total": 629,
-            "worst_total": 629,
+            "count": 2,
+            "avg_total": 592.5,
+            "best_total": 654,
+            "worst_total": 531,
             "wins": 0,
             "podiums": 0
-          },
-          "Sala": {
-            "count": 1,
-            "avg_total": 476,
-            "best_total": 476,
-            "worst_total": 476,
-            "wins": 0,
-            "podiums": 1
           }
         },
         "overall_wins": 0,
-        "podiums": 1,
-        "avg_position": 3.5,
-        "last_competed": "2026-03-08",
-        "career_start": "2026-03-08"
+        "podiums": 0,
+        "avg_position": 4.5,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-05-10"
       }
     },
     {
@@ -131192,41 +131338,6 @@
       }
     },
     {
-      "id": "echarren-maria-laura",
-      "name": "Echarren, María Laura",
-      "name_normalized": "echarren, maria laura",
-      "display_name": "María Laura Echarren",
-      "clubs_history": [
-        {
-          "club_id": "tfar",
-          "club_name": "TFAR",
-          "first_seen": "2026-03-22",
-          "last_seen": "2026-03-22"
-        }
-      ],
-      "primary_division": "Recurvo Escuela 40",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 1,
-        "total_results": 1,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 1,
-            "avg_total": 606,
-            "best_total": 606,
-            "worst_total": 606,
-            "wins": 0,
-            "podiums": 1
-          }
-        },
-        "overall_wins": 0,
-        "podiums": 1,
-        "avg_position": 3,
-        "last_competed": "2026-03-22",
-        "career_start": "2026-03-22"
-      }
-    },
-    {
       "id": "collado-facundo",
       "name": "Collado, Facundo",
       "name_normalized": "collado, facundo",
@@ -131257,41 +131368,6 @@
         "overall_wins": 0,
         "podiums": 0,
         "avg_position": 5,
-        "last_competed": "2026-03-22",
-        "career_start": "2026-03-22"
-      }
-    },
-    {
-      "id": "yelin-enrique-gabriel",
-      "name": "Yelin, Enrique Gabriel",
-      "name_normalized": "yelin, enrique gabriel",
-      "display_name": "Enrique Gabriel Yelin",
-      "clubs_history": [
-        {
-          "club_id": "tfar",
-          "club_name": "TFAR",
-          "first_seen": "2026-03-22",
-          "last_seen": "2026-03-22"
-        }
-      ],
-      "primary_division": "Recurvo Escuela 30",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 1,
-        "total_results": 1,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 1,
-            "avg_total": 657,
-            "best_total": 657,
-            "worst_total": 657,
-            "wins": 1,
-            "podiums": 1
-          }
-        },
-        "overall_wins": 1,
-        "podiums": 1,
-        "avg_position": 1,
         "last_competed": "2026-03-22",
         "career_start": "2026-03-22"
       }
@@ -132347,76 +132423,6 @@
       }
     },
     {
-      "id": "benitez-cristian-manuel",
-      "name": "Benitez, Cristian Manuel",
-      "name_normalized": "benitez, cristian manuel",
-      "display_name": "Cristian Manuel Benitez",
-      "clubs_history": [
-        {
-          "club_id": "ona",
-          "club_name": "ONA",
-          "first_seen": null,
-          "last_seen": null
-        }
-      ],
-      "primary_division": "Recurvo Escuela 20",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 1,
-        "total_results": 1,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 1,
-            "avg_total": 691,
-            "best_total": 691,
-            "worst_total": 691,
-            "wins": 1,
-            "podiums": 1
-          }
-        },
-        "overall_wins": 1,
-        "podiums": 1,
-        "avg_position": 1,
-        "last_competed": null,
-        "career_start": null
-      }
-    },
-    {
-      "id": "bilbao-catalina",
-      "name": "Bilbao, Catalina",
-      "name_normalized": "bilbao, catalina",
-      "display_name": "Catalina Bilbao",
-      "clubs_history": [
-        {
-          "club_id": "akos",
-          "club_name": "AKOS",
-          "first_seen": null,
-          "last_seen": null
-        }
-      ],
-      "primary_division": "Recurvo Escuela 20",
-      "primary_gender": "Desconocido",
-      "stats": {
-        "total_tournaments": 1,
-        "total_results": 1,
-        "disciplines": {
-          "Aire Libre": {
-            "count": 1,
-            "avg_total": 654,
-            "best_total": 654,
-            "worst_total": 654,
-            "wins": 0,
-            "podiums": 0
-          }
-        },
-        "overall_wins": 0,
-        "podiums": 0,
-        "avg_position": 4,
-        "last_competed": null,
-        "career_start": null
-      }
-    },
-    {
       "id": "gemignani-julian",
       "name": "Gemignani, Julian",
       "name_normalized": "gemignani, julian",
@@ -132939,6 +132945,216 @@
         "avg_position": 6,
         "last_competed": "2026-04-26",
         "career_start": "2026-04-26"
+      }
+    },
+    {
+      "id": "piccione-diego-marcelo",
+      "name": "Piccione, Diego Marcelo",
+      "name_normalized": "piccione, diego marcelo",
+      "display_name": "Diego Marcelo Piccione",
+      "clubs_history": [
+        {
+          "club_id": "avtfavt",
+          "club_name": "AVTFAVT",
+          "first_seen": "2026-05-10",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo",
+      "primary_gender": "Masculino",
+      "stats": {
+        "total_tournaments": 1,
+        "total_results": 1,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 1,
+            "avg_total": 485,
+            "best_total": 485,
+            "worst_total": 485,
+            "wins": 1,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 1,
+        "podiums": 1,
+        "avg_position": 1,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-05-10"
+      }
+    },
+    {
+      "id": "hussen-ezequiel-gaston",
+      "name": "Hussen, Ezequiel Gaston",
+      "name_normalized": "hussen, ezequiel gaston",
+      "display_name": "Ezequiel Gaston Hussen",
+      "clubs_history": [
+        {
+          "club_id": "avtfavt",
+          "club_name": "AVTFAVT",
+          "first_seen": "2026-05-10",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 50",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 1,
+        "total_results": 1,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 1,
+            "avg_total": 415,
+            "best_total": 415,
+            "worst_total": 415,
+            "wins": 0,
+            "podiums": 0
+          }
+        },
+        "overall_wins": 0,
+        "podiums": 0,
+        "avg_position": 5,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-05-10"
+      }
+    },
+    {
+      "id": "robert-augusto",
+      "name": "Robert, Augusto",
+      "name_normalized": "robert, augusto",
+      "display_name": "Augusto Robert",
+      "clubs_history": [
+        {
+          "club_id": "tfar",
+          "club_name": "TFAR",
+          "first_seen": "2026-05-10",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 30",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 1,
+        "total_results": 1,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 1,
+            "avg_total": 587,
+            "best_total": 587,
+            "worst_total": 587,
+            "wins": 0,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 0,
+        "podiums": 1,
+        "avg_position": 2,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-05-10"
+      }
+    },
+    {
+      "id": "coronell-mariana-elida",
+      "name": "Coronell, Mariana Elida",
+      "name_normalized": "coronell, mariana elida",
+      "display_name": "Mariana Elida Coronell",
+      "clubs_history": [
+        {
+          "club_id": "akos",
+          "club_name": "AKOS",
+          "first_seen": "2026-05-10",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Recurvo Escuela 20",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 1,
+        "total_results": 1,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 1,
+            "avg_total": 638,
+            "best_total": 638,
+            "worst_total": 638,
+            "wins": 1,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 1,
+        "podiums": 1,
+        "avg_position": 1,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-05-10"
+      }
+    },
+    {
+      "id": "del-conte-silvio-ariel",
+      "name": "Del Conte, Silvio Ariel",
+      "name_normalized": "del conte, silvio ariel",
+      "display_name": "Silvio Ariel Del Conte",
+      "clubs_history": [
+        {
+          "club_id": "avtfavt",
+          "club_name": "AVTFAVT",
+          "first_seen": "2026-05-10",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Raso Escuela 30",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 1,
+        "total_results": 1,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 1,
+            "avg_total": 517,
+            "best_total": 517,
+            "worst_total": 517,
+            "wins": 1,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 1,
+        "podiums": 1,
+        "avg_position": 1,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-05-10"
+      }
+    },
+    {
+      "id": "vera-solange-mariela",
+      "name": "Vera, Solange Mariela",
+      "name_normalized": "vera, solange mariela",
+      "display_name": "Solange Mariela Vera",
+      "clubs_history": [
+        {
+          "club_id": "bosque",
+          "club_name": "BOSQUE",
+          "first_seen": "2026-05-10",
+          "last_seen": "2026-05-10"
+        }
+      ],
+      "primary_division": "Raso Escuela 20",
+      "primary_gender": "Desconocido",
+      "stats": {
+        "total_tournaments": 1,
+        "total_results": 1,
+        "disciplines": {
+          "Aire Libre": {
+            "count": 1,
+            "avg_total": 593,
+            "best_total": 593,
+            "worst_total": 593,
+            "wins": 1,
+            "podiums": 1
+          }
+        },
+        "overall_wins": 1,
+        "podiums": 1,
+        "avg_position": 1,
+        "last_competed": "2026-05-10",
+        "career_start": "2026-05-10"
       }
     },
     {

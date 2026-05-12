@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-05-11T16:47:31.101Z",
-    "total_tournaments": 372
+    "last_updated": "2026-05-12T12:59:42.757Z",
+    "total_tournaments": 373
   },
   "tournaments": [
     {
@@ -12342,6 +12342,48 @@
       ],
       "total_archers": 83,
       "scraped_at": "2026-05-06T12:47:02.059Z",
+      "stub_only": false
+    },
+    {
+      "id": 947,
+      "date": "2026-05-10",
+      "date_raw": "10/05/2026",
+      "discipline_name": "Aire Libre",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Club Somisa",
+      "categories": [
+        "JP Compuesto Sub-15 E30",
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Recurvo Femenino Sub-21",
+        "Recurvo Masculino Sub-18",
+        "Recurvo Femenino Sub-18",
+        "Recurvo Femenino Sub-15",
+        "Recurvo Masculino 50+",
+        "Recurvo Femenino 50+",
+        "Compuesto Masculino",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Tradicional Masculino",
+        "Longbow Masculino",
+        "Longbow Femenino",
+        "Cazador Masculino",
+        "Recurvo Escuela 60",
+        "Recurvo Escuela 50",
+        "Recurvo Escuela 40",
+        "Recurvo Escuela 30",
+        "Recurvo Escuela 20",
+        "Compuesto Escuela 40",
+        "Compuesto Escuela 30",
+        "Raso Escuela 40",
+        "Raso Escuela 30",
+        "Raso Escuela 20",
+        "P.I.2 Compuesto Masculino"
+      ],
+      "total_archers": 71,
+      "scraped_at": "2026-05-12T12:57:34.908Z",
       "stub_only": false
     }
   ]
