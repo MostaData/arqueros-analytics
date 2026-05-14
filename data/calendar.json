@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-05-13T14:07:33.287Z",
-    "total_tournaments": 373
+    "last_updated": "2026-05-14T12:42:11.139Z",
+    "total_tournaments": 374
   },
   "tournaments": [
     {
@@ -12384,6 +12384,40 @@
       ],
       "total_archers": 71,
       "scraped_at": "2026-05-12T12:57:34.908Z",
+      "stub_only": false
+    },
+    {
+      "id": 948,
+      "date": "2026-05-10",
+      "date_raw": "10/05/2026",
+      "discipline_name": "Aire Libre",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Tiro con Arco La Amistad",
+      "categories": [
+        "JP Raso Sub-13 Inicial 15",
+        "JP Recurvo Sub-13 Inicial 15",
+        "JP Recurvo Sub-15 E20",
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Recurvo Masculino Sub-18",
+        "Recurvo Masculino Sub-15",
+        "Recurvo Masculino 50+",
+        "Compuesto Masculino",
+        "Raso Femenino",
+        "Recurvo Escuela 40",
+        "Recurvo Escuela 30",
+        "Recurvo Escuela 20",
+        "Compuesto Escuela 40",
+        "Compuesto Escuela 30",
+        "Raso Escuela 40",
+        "Raso Escuela 30",
+        "Raso Escuela 20",
+        "Longbow Escuela 20"
+      ],
+      "total_archers": 26,
+      "scraped_at": "2026-05-14T12:40:09.363Z",
       "stub_only": false
     }
   ]
