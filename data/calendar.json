@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-05-18T17:20:08.852Z",
-    "total_tournaments": 374
+    "last_updated": "2026-05-19T17:24:02.695Z",
+    "total_tournaments": 375
   },
   "tournaments": [
     {
@@ -12418,6 +12418,51 @@
       ],
       "total_archers": 26,
       "scraped_at": "2026-05-14T12:40:09.363Z",
+      "stub_only": false
+    },
+    {
+      "id": 950,
+      "date": "2026-05-17",
+      "date_raw": "17/05/2026",
+      "discipline_name": "Aire Libre",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Tiro Federal de Tucumán",
+      "categories": [
+        "JP Recurvo Sub-18 E30",
+        "JP Recurvo Sub-18 E20",
+        "JP Recurvo Sub-13 Inicial 15",
+        "JP Recurvo Sub-15 E20",
+        "JP Raso Sub-18 E40",
+        "JP Raso Sub-18 E20",
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Recurvo Femenino Sub-18",
+        "Recurvo Masculino 50+",
+        "Compuesto Masculino",
+        "Compuesto Femenino",
+        "Compuesto Femenino Sub-15",
+        "Compuesto Masculino 50+",
+        "Compuesto Femenino 50+",
+        "Raso Masculino",
+        "Raso Masculino 50+",
+        "Longbow Masculino",
+        "Longbow Femenino",
+        "Cazador Masculino",
+        "Recurvo Escuela 60",
+        "Recurvo Escuela 50",
+        "Recurvo Escuela 40",
+        "Recurvo Escuela 30",
+        "Recurvo Escuela 20",
+        "Compuesto Escuela 30",
+        "Raso Escuela 40",
+        "Raso Escuela 30",
+        "Raso Escuela 20",
+        "P.I.2 Recurvo Masculino"
+      ],
+      "total_archers": 71,
+      "scraped_at": "2026-05-19T17:22:03.676Z",
       "stub_only": false
     }
   ]
