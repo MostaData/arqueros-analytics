@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-05-25T16:34:57.234Z",
-    "total_tournaments": 378
+    "last_updated": "2026-05-26T18:16:21.601Z",
+    "total_tournaments": 379
   },
   "tournaments": [
     {
@@ -12593,6 +12593,31 @@
       ],
       "total_archers": 103,
       "scraped_at": "2026-05-21T16:56:42.145Z",
+      "stub_only": false
+    },
+    {
+      "id": 910,
+      "date": "2026-05-24",
+      "date_raw": "24/05/2026",
+      "discipline_name": "Campo",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Tiro con arco General La Madrid",
+      "categories": [
+        "Raso Masculino",
+        "Raso Femenino",
+        "Raso Femenino Sub-21",
+        "Raso Masculino 50+",
+        "Longbow Masculino",
+        "Tradicional Masculino",
+        "Recurvo E-Inicial",
+        "Raso E-Inicial",
+        "Raso E-Avanzada",
+        "Tradicional E-Avanzada"
+      ],
+      "total_archers": 26,
+      "scraped_at": "2026-05-26T18:13:54.625Z",
       "stub_only": false
     }
   ]
