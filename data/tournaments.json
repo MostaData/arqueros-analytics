@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-05-27T18:12:53.853Z",
-    "total_tournaments": 379
+    "last_updated": "2026-05-28T18:21:41.743Z",
+    "total_tournaments": 380
   },
   "tournaments": [
     {
@@ -1692,6 +1692,42 @@
       ],
       "total_archers": 195,
       "scraped_at": "2026-05-05T11:35:08.364Z",
+      "stub_only": false
+    },
+    {
+      "id": 995,
+      "date": null,
+      "date_raw": "23 y 24/05/2026",
+      "discipline_name": "Sala",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "100% Arqueria",
+      "categories": [
+        "JP Raso Sub-18 E80",
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Recurvo Masculino 50+",
+        "Recurvo Femenino 50+",
+        "Recurvo Femenino Sub-15",
+        "Compuesto Masculino",
+        "Compuesto Masculino 50+",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Raso Femenino 50+",
+        "Longbow Masculino",
+        "Longbow Femenino",
+        "Tradicional Masculino",
+        "Cazador Femenino Senior",
+        "Recurvo Escuela 40",
+        "Recurvo Escuela 60",
+        "Recurvo Escuela 80",
+        "Raso Escuela 60",
+        "Raso Escuela 80",
+        "Tradicional Escuela 60"
+      ],
+      "total_archers": 66,
+      "scraped_at": "2026-05-28T18:20:37.955Z",
       "stub_only": false
     },
     {
