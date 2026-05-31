@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-05-30T11:34:26.243Z",
-    "total_tournaments": 380
+    "last_updated": "2026-05-31T12:20:15.895Z",
+    "total_tournaments": 381
   },
   "tournaments": [
     {
@@ -12654,6 +12654,39 @@
       ],
       "total_archers": 26,
       "scraped_at": "2026-05-26T18:13:54.625Z",
+      "stub_only": false
+    },
+    {
+      "id": 996,
+      "date": "2026-05-24",
+      "date_raw": "24/05/2026",
+      "discipline_name": "Sala",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Asociación Misionera de Tiro con Arco",
+      "categories": [
+        "JP Recurvo Sub-13 Inicial 15",
+        "JP Raso Sub-13 Inicial 15",
+        "JP Recurvo Sub-18 E80",
+        "Recurvo Masculino",
+        "Recurvo Femenino Sub-21",
+        "Recurvo Masculino Sub-18",
+        "Recurvo Femenino Sub-18",
+        "Recurvo Masculino 50+",
+        "Recurvo Masculino Sub-15",
+        "Recurvo Femenino Sub-15",
+        "Compuesto Masculino",
+        "Compuesto Masculino Sub-21",
+        "Raso Masculino",
+        "Longbow Masculino",
+        "Recurvo Escuela 40",
+        "Recurvo Escuela 60",
+        "Recurvo Escuela 80",
+        "Raso Escuela 60"
+      ],
+      "total_archers": 27,
+      "scraped_at": "2026-05-31T12:19:14.469Z",
       "stub_only": false
     }
   ]
