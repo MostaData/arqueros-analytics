@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-06-01T12:14:25.008Z",
-    "total_tournaments": 381
+    "last_updated": "2026-06-02T11:14:17.304Z",
+    "total_tournaments": 382
   },
   "tournaments": [
     {
@@ -12489,6 +12489,52 @@
       ],
       "total_archers": 26,
       "scraped_at": "2026-05-14T12:40:09.363Z",
+      "stub_only": false
+    },
+    {
+      "id": 949,
+      "date": "2026-05-10",
+      "date_raw": "10/05/2026",
+      "discipline_name": "Aire Libre",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Valhalla Escuela de Arquería",
+      "categories": [
+        "JP Recurvo Sub-18 E50",
+        "JP Recurvo Sub-18 E30",
+        "JP Recurvo Sub-15 E30",
+        "JP Raso Sub-15 E20",
+        "JP Recurvo Sub-18 E40",
+        "JP Raso Sub-18 E20",
+        "JP Raso Sub-18 E30",
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Recurvo Masculino Sub-21",
+        "Recurvo Femenino Sub-21",
+        "Recurvo Masculino 50+",
+        "Recurvo Femenino 50+",
+        "Compuesto Masculino",
+        "Compuesto Femenino",
+        "Compuesto Masculino 50+",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Tradicional Masculino",
+        "Tradicional Femenino",
+        "Cazador Masculino",
+        "Recurvo Escuela 50",
+        "Recurvo Escuela 40",
+        "Recurvo Escuela 30",
+        "Recurvo Escuela 20",
+        "Compuesto Escuela 40",
+        "Compuesto Escuela 30",
+        "Raso Escuela 40",
+        "Raso Escuela 30",
+        "Raso Escuela 20",
+        "P.I.2 Recurvo Masculino"
+      ],
+      "total_archers": 75,
+      "scraped_at": "2026-06-02T11:12:22.730Z",
       "stub_only": false
     },
     {
