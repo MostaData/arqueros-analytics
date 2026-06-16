@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-06-15T12:50:14.919Z",
-    "total_tournaments": 386
+    "last_updated": "2026-06-16T11:43:58.708Z",
+    "total_tournaments": 387
   },
   "tournaments": [
     {
@@ -1728,6 +1728,50 @@
       ],
       "total_archers": 66,
       "scraped_at": "2026-05-28T18:20:37.955Z",
+      "stub_only": false
+    },
+    {
+      "id": 1004,
+      "date": null,
+      "date_raw": "13 y 14/06/2026",
+      "discipline_name": "Sala",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Tiro con Arco Devoto Oeste",
+      "categories": [
+        "JP Recurvo Sub-18 E80",
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Recurvo Masculino Sub-21",
+        "Recurvo Femenino Sub-21",
+        "Recurvo Masculino Sub-18",
+        "Recurvo Femenino Sub-18",
+        "Recurvo Masculino 50+",
+        "Recurvo Femenino 50+",
+        "Recurvo Femenino Sub-15",
+        "Compuesto Masculino",
+        "Compuesto Femenino",
+        "Compuesto Masculino 50+",
+        "Compuesto Masculino Sub-15",
+        "Compuesto Femenino Sub-15",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Raso Masculino 50+",
+        "Raso Femenino 50+",
+        "Longbow Masculino",
+        "Tradicional Masculino",
+        "Cazador Masculino Senior",
+        "Recurvo Escuela 40",
+        "Recurvo Escuela 60",
+        "Recurvo Escuela 80",
+        "Raso Escuela 60",
+        "Raso Escuela 80",
+        "Longbow Escuela 60",
+        "Tradicional Escuela 80"
+      ],
+      "total_archers": 121,
+      "scraped_at": "2026-06-16T11:37:23.655Z",
       "stub_only": false
     },
     {
