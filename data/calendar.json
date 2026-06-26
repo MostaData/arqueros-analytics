@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-06-25T09:54:31.268Z",
-    "total_tournaments": 392
+    "last_updated": "2026-06-26T09:59:31.653Z",
+    "total_tournaments": 393
   },
   "tournaments": [
     {
@@ -12777,6 +12777,42 @@
       ],
       "total_archers": 27,
       "scraped_at": "2026-05-31T12:19:14.469Z",
+      "stub_only": false
+    },
+    {
+      "id": 997,
+      "date": "2026-05-24",
+      "date_raw": "24/05/2026",
+      "discipline_name": "Sala",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Club Universitario de Puerto Madryn - Arqueros del Golfo",
+      "categories": [
+        "P.I.2 Recurvo Masculino",
+        "JP Raso Sub-18 E80",
+        "JP Raso Sub-15 E80",
+        "JP Recurvo Sub-18 E80",
+        "JP Recurvo Sub-18 E60",
+        "Recurvo Masculino",
+        "Recurvo Masculino Sub-18",
+        "Recurvo Masculino 50+",
+        "Compuesto Masculino",
+        "Compuesto Femenino",
+        "Compuesto Masculino 50+",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Raso Femenino 50+",
+        "Raso Masculino Sub-15",
+        "Longbow Masculino",
+        "Longbow Femenino",
+        "Tradicional Masculino",
+        "Tradicional Femenino",
+        "Raso Escuela 60",
+        "Tradicional Escuela 60"
+      ],
+      "total_archers": 46,
+      "scraped_at": "2026-06-26T09:52:42.752Z",
       "stub_only": false
     },
     {
