@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-06-26T09:59:31.653Z",
-    "total_tournaments": 393
+    "last_updated": "2026-06-27T09:06:31.263Z",
+    "total_tournaments": 394
   },
   "tournaments": [
     {
@@ -12984,6 +12984,44 @@
       ],
       "total_archers": 42,
       "scraped_at": "2026-06-17T11:21:06.880Z",
+      "stub_only": false
+    },
+    {
+      "id": 1001,
+      "date": "2026-06-07",
+      "date_raw": "07/06/2026",
+      "discipline_name": "Sala",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Arqueros del Virch",
+      "categories": [
+        "P.I.2 Recurvo Masculino",
+        "JP Raso Sub-18 E80",
+        "JP Raso Sub-18 E60",
+        "JP Raso Sub-15 E60",
+        "JP Raso Sub-15 E80",
+        "JP Recurvo Sub-18 E60",
+        "Recurvo Masculino",
+        "Recurvo Masculino Sub-18",
+        "Recurvo Masculino 50+",
+        "Compuesto Masculino",
+        "Compuesto Femenino",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Raso Femenino 50+",
+        "Raso Masculino Sub-15",
+        "Raso Femenino Sub-15",
+        "Longbow Masculino",
+        "Longbow Femenino",
+        "Tradicional Masculino",
+        "Tradicional Femenino",
+        "Recurvo Escuela 60",
+        "Raso Escuela 60",
+        "Raso Escuela 80"
+      ],
+      "total_archers": 42,
+      "scraped_at": "2026-06-27T08:58:22.301Z",
       "stub_only": false
     },
     {
