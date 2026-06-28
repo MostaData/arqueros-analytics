@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-06-27T09:06:31.263Z",
-    "total_tournaments": 394
+    "last_updated": "2026-06-28T09:40:25.680Z",
+    "total_tournaments": 395
   },
   "tournaments": [
     {
@@ -13169,6 +13169,29 @@
       ],
       "total_archers": 81,
       "scraped_at": "2026-06-21T10:15:07.510Z",
+      "stub_only": false
+    },
+    {
+      "id": 1007,
+      "date": "2026-06-27",
+      "date_raw": "27/06/2026",
+      "discipline_name": "Sala",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Club el Palomar",
+      "categories": [
+        "Recurvo Masculino",
+        "Recurvo Masculino Sub-18",
+        "Recurvo Femenino Sub-18",
+        "Recurvo Masculino 50+",
+        "Recurvo Femenino 50+",
+        "Raso Masculino",
+        "Raso Masculino 50+",
+        "Longbow Masculino"
+      ],
+      "total_archers": 11,
+      "scraped_at": "2026-06-28T09:33:54.371Z",
       "stub_only": false
     }
   ]

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "scraped_at": "2026-06-27T09:06:30.867Z",
-    "total_tournaments": 394,
+    "scraped_at": "2026-06-28T09:40:25.280Z",
+    "total_tournaments": 395,
     "id_range": {
       "min": 500,
       "max": 1200
@@ -482603,6 +482603,271 @@
         }
       ],
       "scraped_at": "2026-06-17T11:22:24.294Z"
+    },
+    "1007": {
+      "id": 1007,
+      "discipline_name": "Sala",
+      "tournament_type": "Homologatorio",
+      "date_raw": "27/06/2026",
+      "date": "2026-06-27",
+      "club": "Club el Palomar",
+      "categories": [
+        {
+          "category_raw": "Recurvo Masculino",
+          "division": "Recurvo",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Zabaljauregui Igarzabal, Maximiliano Gabriel",
+              "archer_id": "zabaljauregui-igarzabal-maximiliano-gabriel",
+              "club_name": "CEP",
+              "club_id": "cep",
+              "category_raw": "Recurvo Masculino",
+              "division": "Recurvo",
+              "gender": "Masculino",
+              "round1_score": 167,
+              "round1_targets": 1,
+              "round2_score": 105,
+              "round2_targets": 1,
+              "total_score": 272,
+              "total_targets": 1,
+              "elevens": 2,
+              "tens": 7
+            }
+          ]
+        },
+        {
+          "category_raw": "Recurvo Masculino Sub-18",
+          "division": "Recurvo Masculino Sub-18",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Wimber, Alan",
+              "archer_id": "wimber-alan",
+              "club_name": "CEP",
+              "club_id": "cep",
+              "category_raw": "Recurvo Masculino Sub-18",
+              "division": "Recurvo Masculino Sub-18",
+              "gender": "Desconocido",
+              "round1_score": 102,
+              "round1_targets": 1,
+              "round2_score": 126,
+              "round2_targets": 1,
+              "total_score": 228,
+              "total_targets": 1,
+              "elevens": 3,
+              "tens": 5
+            }
+          ]
+        },
+        {
+          "category_raw": "Recurvo Femenino Sub-18",
+          "division": "Recurvo Femenino Sub-18",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "De Maria, Amparo",
+              "archer_id": "de-maria-amparo",
+              "club_name": "ADV",
+              "club_id": "adv",
+              "category_raw": "Recurvo Femenino Sub-18",
+              "division": "Recurvo Femenino Sub-18",
+              "gender": "Desconocido",
+              "round1_score": 249,
+              "round1_targets": 1,
+              "round2_score": 251,
+              "round2_targets": 1,
+              "total_score": 500,
+              "total_targets": 1,
+              "elevens": 10,
+              "tens": 15
+            }
+          ]
+        },
+        {
+          "category_raw": "Recurvo Masculino 50+",
+          "division": "Recurvo Masculino 50+",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Bibé, Victor Gabriel",
+              "archer_id": "bibe-victor-gabriel",
+              "club_name": "CEP",
+              "club_id": "cep",
+              "category_raw": "Recurvo Masculino 50+",
+              "division": "Recurvo Masculino 50+",
+              "gender": "Desconocido",
+              "round1_score": 279,
+              "round1_targets": 1,
+              "round2_score": 279,
+              "round2_targets": 1,
+              "total_score": 558,
+              "total_targets": 1,
+              "elevens": 29,
+              "tens": 22
+            },
+            {
+              "position": 2,
+              "archer_name": "Elsztein, Gustavo Alejandro",
+              "archer_id": "elsztein-gustavo-alejandro",
+              "club_name": "CEP",
+              "club_id": "cep",
+              "category_raw": "Recurvo Masculino 50+",
+              "division": "Recurvo Masculino 50+",
+              "gender": "Desconocido",
+              "round1_score": 167,
+              "round1_targets": 2,
+              "round2_score": 179,
+              "round2_targets": 2,
+              "total_score": 346,
+              "total_targets": 2,
+              "elevens": 4,
+              "tens": 4
+            }
+          ]
+        },
+        {
+          "category_raw": "Recurvo Femenino 50+",
+          "division": "Recurvo Femenino 50+",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "González, Gabriela Edith",
+              "archer_id": "gonzalez-gabriela-edith",
+              "club_name": "CEP",
+              "club_id": "cep",
+              "category_raw": "Recurvo Femenino 50+",
+              "division": "Recurvo Femenino 50+",
+              "gender": "Desconocido",
+              "round1_score": 189,
+              "round1_targets": 1,
+              "round2_score": 225,
+              "round2_targets": 1,
+              "total_score": 414,
+              "total_targets": 1,
+              "elevens": 6,
+              "tens": 17
+            },
+            {
+              "position": 2,
+              "archer_name": "Hurt, Norma Maricel",
+              "archer_id": "hurt-norma-maricel",
+              "club_name": "CEP",
+              "club_id": "cep",
+              "category_raw": "Recurvo Femenino 50+",
+              "division": "Recurvo Femenino 50+",
+              "gender": "Desconocido",
+              "round1_score": 105,
+              "round1_targets": 2,
+              "round2_score": 103,
+              "round2_targets": 2,
+              "total_score": 208,
+              "total_targets": 2,
+              "elevens": 2,
+              "tens": 3
+            }
+          ]
+        },
+        {
+          "category_raw": "Raso Masculino",
+          "division": "Raso",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Maldonado, Jose Ignacio",
+              "archer_id": "maldonado-jose-ignacio",
+              "club_name": "AAUS",
+              "club_id": "aaus",
+              "category_raw": "Raso Masculino",
+              "division": "Raso",
+              "gender": "Masculino",
+              "round1_score": 189,
+              "round1_targets": 1,
+              "round2_score": 174,
+              "round2_targets": 1,
+              "total_score": 363,
+              "total_targets": 1,
+              "elevens": 3,
+              "tens": 2
+            },
+            {
+              "position": 2,
+              "archer_name": "Rojas, Hugo Martín",
+              "archer_id": "rojas-hugo-martin",
+              "club_name": "CEP",
+              "club_id": "cep",
+              "category_raw": "Raso Masculino",
+              "division": "Raso",
+              "gender": "Masculino",
+              "round1_score": 180,
+              "round1_targets": 2,
+              "round2_score": 165,
+              "round2_targets": 2,
+              "total_score": 345,
+              "total_targets": 2,
+              "elevens": 3,
+              "tens": 6
+            }
+          ]
+        },
+        {
+          "category_raw": "Raso Masculino 50+",
+          "division": "Raso Masculino 50+",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Olivera Carvallo, Juan Ramón",
+              "archer_id": "olivera-carvallo-juan-ramon",
+              "club_name": "CEP",
+              "club_id": "cep",
+              "category_raw": "Raso Masculino 50+",
+              "division": "Raso Masculino 50+",
+              "gender": "Desconocido",
+              "round1_score": 183,
+              "round1_targets": 1,
+              "round2_score": 173,
+              "round2_targets": 1,
+              "total_score": 356,
+              "total_targets": 1,
+              "elevens": 1,
+              "tens": 4
+            }
+          ]
+        },
+        {
+          "category_raw": "Longbow Masculino",
+          "division": "Longbow",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Barceló, Marcelo Omar",
+              "archer_id": "barcelo-marcelo-omar",
+              "club_name": "CEP",
+              "club_id": "cep",
+              "category_raw": "Longbow Masculino",
+              "division": "Longbow",
+              "gender": "Masculino",
+              "round1_score": 142,
+              "round1_targets": 1,
+              "round2_score": 187,
+              "round2_targets": 1,
+              "total_score": 329,
+              "total_targets": 1,
+              "elevens": 5,
+              "tens": 5
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-06-28T09:33:54.371Z"
     },
     "1031": {
       "id": 1031,
