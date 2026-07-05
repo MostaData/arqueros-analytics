@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-07-04T09:07:24.107Z",
-    "total_tournaments": 401
+    "last_updated": "2026-07-05T09:34:02.843Z",
+    "total_tournaments": 402
   },
   "tournaments": [
     {
@@ -13422,6 +13422,29 @@
       ],
       "total_archers": 104,
       "scraped_at": "2026-06-30T10:06:41.684Z",
+      "stub_only": false
+    },
+    {
+      "id": 1043,
+      "date": "2026-06-28",
+      "date_raw": "28/06/2026",
+      "discipline_name": "Aire Libre",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Club Somisa",
+      "categories": [
+        "Compuesto Escuela 30",
+        "P.I.1 Femenino",
+        "P.I.2 Recurvo Masculino",
+        "P.I.2 Recurvo Femenino",
+        "P.I.2 Compuesto Masculino",
+        "P.I.2 Compuesto Femenino",
+        "VI",
+        "P.I.2 Recurvo Masculino Sub-21"
+      ],
+      "total_archers": 11,
+      "scraped_at": "2026-07-05T09:28:33.405Z",
       "stub_only": false
     }
   ]

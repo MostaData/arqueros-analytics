@@ -1,7 +1,7 @@
 {
   "meta": {
-    "scraped_at": "2026-07-04T09:07:23.726Z",
-    "total_tournaments": 401,
+    "scraped_at": "2026-07-05T09:34:02.448Z",
+    "total_tournaments": 402,
     "id_range": {
       "min": 500,
       "max": 1200
@@ -496991,6 +496991,271 @@
         }
       ],
       "scraped_at": "2026-05-05T11:37:49.267Z"
+    },
+    "1043": {
+      "id": 1043,
+      "discipline_name": "Aire Libre",
+      "tournament_type": "Homologatorio",
+      "date_raw": "28/06/2026",
+      "date": "2026-06-28",
+      "club": "Club Somisa",
+      "categories": [
+        {
+          "category_raw": "Compuesto Escuela 30",
+          "division": "Compuesto Escuela 30",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Maradei, Mailen",
+              "archer_id": "maradei-mailen",
+              "club_name": "CUDA",
+              "club_id": "cuda",
+              "category_raw": "Compuesto Escuela 30",
+              "division": "Compuesto Escuela 30",
+              "gender": "Desconocido",
+              "round1_score": 203,
+              "round1_targets": 1,
+              "round2_score": 265,
+              "round2_targets": 1,
+              "total_score": 468,
+              "total_targets": 1,
+              "elevens": 0,
+              "tens": 0
+            }
+          ]
+        },
+        {
+          "category_raw": "P.I.1 Femenino",
+          "division": "P.I.1",
+          "gender": "Femenino",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Torres, Albina Yamile",
+              "archer_id": "torres-albina-yamile",
+              "club_name": "EDJA",
+              "club_id": "edja",
+              "category_raw": "P.I.1 Femenino",
+              "division": "P.I.1",
+              "gender": "Femenino",
+              "round1_score": 111,
+              "round1_targets": 1,
+              "round2_score": 60,
+              "round2_targets": 1,
+              "total_score": 171,
+              "total_targets": 1,
+              "elevens": 1,
+              "tens": 0
+            }
+          ]
+        },
+        {
+          "category_raw": "P.I.2 Recurvo Masculino",
+          "division": "P.I.2 Recurvo",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 3,
+              "archer_name": "Ruggia, Mauro Ignacio",
+              "archer_id": "ruggia-mauro-ignacio",
+              "club_name": "CUDA",
+              "club_id": "cuda",
+              "category_raw": "P.I.2 Recurvo Masculino",
+              "division": "P.I.2 Recurvo",
+              "gender": "Masculino",
+              "round1_score": 176,
+              "round1_targets": 3,
+              "round2_score": 125,
+              "round2_targets": 3,
+              "total_score": 301,
+              "total_targets": 3,
+              "elevens": 0,
+              "tens": 1
+            },
+            {
+              "position": 1,
+              "archer_name": "Vazquez, Emanuel Jesus",
+              "archer_id": "vazquez-emanuel-jesus",
+              "club_name": "ADJE",
+              "club_id": "adje",
+              "category_raw": "P.I.2 Recurvo Masculino",
+              "division": "P.I.2 Recurvo",
+              "gender": "Masculino",
+              "round1_score": 262,
+              "round1_targets": 1,
+              "round2_score": 214,
+              "round2_targets": 2,
+              "total_score": 476,
+              "total_targets": 1,
+              "elevens": 4,
+              "tens": 2
+            },
+            {
+              "position": 2,
+              "archer_name": "Rodriguez, Elio Lisandro",
+              "archer_id": "rodriguez-elio-lisandro",
+              "club_name": "TFT",
+              "club_id": "tft",
+              "category_raw": "P.I.2 Recurvo Masculino",
+              "division": "P.I.2 Recurvo",
+              "gender": "Masculino",
+              "round1_score": 219,
+              "round1_targets": 2,
+              "round2_score": 242,
+              "round2_targets": 1,
+              "total_score": 461,
+              "total_targets": 2,
+              "elevens": 6,
+              "tens": 3
+            }
+          ]
+        },
+        {
+          "category_raw": "P.I.2 Recurvo Femenino",
+          "division": "P.I.2 Recurvo",
+          "gender": "Femenino",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Cormio, Natalia",
+              "archer_id": "cormio-natalia",
+              "club_name": "CUDA",
+              "club_id": "cuda",
+              "category_raw": "P.I.2 Recurvo Femenino",
+              "division": "P.I.2 Recurvo",
+              "gender": "Femenino",
+              "round1_score": 41,
+              "round1_targets": 1,
+              "round2_score": 65,
+              "round2_targets": 1,
+              "total_score": 106,
+              "total_targets": 1,
+              "elevens": 0,
+              "tens": 0
+            }
+          ]
+        },
+        {
+          "category_raw": "P.I.2 Compuesto Masculino",
+          "division": "P.I.2 Compuesto",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Torresi, Eduardo Daniel",
+              "archer_id": "torresi-eduardo-daniel",
+              "club_name": "SOMISA",
+              "club_id": "somisa",
+              "category_raw": "P.I.2 Compuesto Masculino",
+              "division": "P.I.2 Compuesto",
+              "gender": "Masculino",
+              "round1_score": 266,
+              "round1_targets": 2,
+              "round2_score": 292,
+              "round2_targets": 1,
+              "total_score": 558,
+              "total_targets": 1,
+              "elevens": 11,
+              "tens": 3
+            },
+            {
+              "position": 2,
+              "archer_name": "Paolorossi, Federico",
+              "archer_id": "paolorossi-federico",
+              "club_name": "CABJCS",
+              "club_id": "cabjcs",
+              "category_raw": "P.I.2 Compuesto Masculino",
+              "division": "P.I.2 Compuesto",
+              "gender": "Masculino",
+              "round1_score": 289,
+              "round1_targets": 1,
+              "round2_score": 267,
+              "round2_targets": 2,
+              "total_score": 556,
+              "total_targets": 2,
+              "elevens": 10,
+              "tens": 5
+            }
+          ]
+        },
+        {
+          "category_raw": "P.I.2 Compuesto Femenino",
+          "division": "P.I.2 Compuesto",
+          "gender": "Femenino",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Salazar, Francisca Argentina",
+              "archer_id": "salazar-francisca-argentina",
+              "club_name": "FDN",
+              "club_id": "fdn",
+              "category_raw": "P.I.2 Compuesto Femenino",
+              "division": "P.I.2 Compuesto",
+              "gender": "Femenino",
+              "round1_score": 267,
+              "round1_targets": 1,
+              "round2_score": 245,
+              "round2_targets": 1,
+              "total_score": 512,
+              "total_targets": 1,
+              "elevens": 12,
+              "tens": 4
+            }
+          ]
+        },
+        {
+          "category_raw": "VI",
+          "division": "VI",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Amieva, Tania Micaela",
+              "archer_id": "amieva-tania-micaela",
+              "club_name": "EDJA",
+              "club_id": "edja",
+              "category_raw": "VI",
+              "division": "VI",
+              "gender": "Desconocido",
+              "round1_score": 85,
+              "round1_targets": 1,
+              "round2_score": 108,
+              "round2_targets": 1,
+              "total_score": 193,
+              "total_targets": 1,
+              "elevens": 2,
+              "tens": 1
+            }
+          ]
+        },
+        {
+          "category_raw": "P.I.2 Recurvo Masculino Sub-21",
+          "division": "P.I.2 Recurvo Masculino Sub-21",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Simoniello, Bautista",
+              "archer_id": "simoniello-bautista",
+              "club_name": "CAEE",
+              "club_id": "caee",
+              "category_raw": "P.I.2 Recurvo Masculino Sub-21",
+              "division": "P.I.2 Recurvo Masculino Sub-21",
+              "gender": "Desconocido",
+              "round1_score": 198,
+              "round1_targets": 1,
+              "round2_score": 180,
+              "round2_targets": 1,
+              "total_score": 378,
+              "total_targets": 1,
+              "elevens": 0,
+              "tens": 0
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-05T09:28:33.405Z"
     }
   }
 }
