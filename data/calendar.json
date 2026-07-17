@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-07-16T08:42:40.395Z",
-    "total_tournaments": 409
+    "last_updated": "2026-07-17T08:38:56.087Z",
+    "total_tournaments": 410
   },
   "tournaments": [
     {
@@ -13445,6 +13445,36 @@
       ],
       "total_archers": 11,
       "scraped_at": "2026-07-05T09:28:33.405Z",
+      "stub_only": false
+    },
+    {
+      "id": 1014,
+      "date": "2026-07-05",
+      "date_raw": "05/07/2026",
+      "discipline_name": "Sala",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Asociación Deportiva Juventud",
+      "categories": [
+        "P.I.2 Recurvo Masculino",
+        "JP Raso Sub-13 Inicial 15",
+        "JP Recurvo Sub-15 E80",
+        "JP Recurvo Sub-18 E80",
+        "Recurvo Masculino",
+        "Compuesto Masculino",
+        "Compuesto Femenino",
+        "Compuesto Masculino Sub-18",
+        "Compuesto Masculino 50+",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Raso Masculino 50+",
+        "Raso Femenino 50+",
+        "Raso Escuela 60",
+        "Raso Escuela 80"
+      ],
+      "total_archers": 41,
+      "scraped_at": "2026-07-17T08:32:56.513Z",
       "stub_only": false
     },
     {
