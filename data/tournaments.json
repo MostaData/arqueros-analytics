@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-07-17T08:38:56.087Z",
-    "total_tournaments": 410
+    "last_updated": "2026-07-18T08:22:01.446Z",
+    "total_tournaments": 411
   },
   "tournaments": [
     {
@@ -13693,6 +13693,49 @@
       ],
       "total_archers": 72,
       "scraped_at": "2026-07-15T08:38:00.276Z",
+      "stub_only": false
+    },
+    {
+      "id": 1021,
+      "date": "2026-07-12",
+      "date_raw": "12/07/2026",
+      "discipline_name": "Sala",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Valhalla Escuela de Arquería",
+      "categories": [
+        "JP Raso Sub-18 E80",
+        "JP Recurvo Sub-15 E60",
+        "JP Raso Sub-18 E60",
+        "JP Raso Sub-15 E80",
+        "JP Recurvo Sub-18 E80",
+        "JP Recurvo Sub-18 E40",
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Recurvo Femenino Sub-21",
+        "Recurvo Femenino Sub-18",
+        "Recurvo Masculino 50+",
+        "Recurvo Femenino 50+",
+        "Compuesto Masculino",
+        "Compuesto Femenino",
+        "Compuesto Masculino 50+",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Raso Masculino 50+",
+        "Raso Femenino 50+",
+        "Tradicional Masculino",
+        "Cazador Masculino Senior",
+        "Recurvo Escuela 40",
+        "Recurvo Escuela 60",
+        "Recurvo Escuela 80",
+        "Compuesto Escuela 40",
+        "Raso Escuela 60",
+        "Raso Escuela 80",
+        "Tradicional Escuela 60"
+      ],
+      "total_archers": 75,
+      "scraped_at": "2026-07-18T08:16:09.507Z",
       "stub_only": false
     },
     {
