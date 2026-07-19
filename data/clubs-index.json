@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-07-18T08:22:01.446Z",
-    "total_clubs": 172
+    "last_updated": "2026-07-19T08:46:46.490Z",
+    "total_clubs": 176
   },
   "clubs": [
     {
@@ -120,12 +120,12 @@
       "abbreviation": "CUDA",
       "stats": {
         "total_members_seen": 99,
-        "tournaments_participated": 103,
-        "total_archer_entries": 1068,
+        "tournaments_participated": 104,
+        "total_archer_entries": 1069,
         "wins_by_division": {
           "Recurvo": 16,
           "Compuesto": 30,
-          "Longbow": 19,
+          "Longbow": 20,
           "Long Bow": 0,
           "Tradicional": 38,
           "Compuesto Masculino 50+": 7,
@@ -162,7 +162,7 @@
         "podiums_by_division": {
           "Recurvo": 30,
           "Compuesto": 49,
-          "Longbow": 54,
+          "Longbow": 55,
           "Long Bow": 2,
           "Tradicional": 101,
           "Compuesto Masculino 50+": 22,
@@ -310,13 +310,13 @@
       "abbreviation": "CBA",
       "stats": {
         "total_members_seen": 64,
-        "tournaments_participated": 113,
-        "total_archer_entries": 679,
+        "tournaments_participated": 114,
+        "total_archer_entries": 680,
         "wins_by_division": {
           "Recurvo": 12,
           "Compuesto": 68,
           "Compuesto Femenino Sub-21": 21,
-          "Raso": 39,
+          "Raso": 40,
           "Raso Masculino 50+": 9,
           "Longbow": 6,
           "Cazador": 20,
@@ -354,7 +354,7 @@
           "Recurvo": 18,
           "Compuesto": 111,
           "Compuesto Femenino Sub-21": 24,
-          "Raso": 105,
+          "Raso": 106,
           "Raso Masculino 50+": 19,
           "Longbow": 18,
           "Cazador": 40,
@@ -1022,13 +1022,13 @@
       "name": "TCAP",
       "abbreviation": "TCAP",
       "stats": {
-        "total_members_seen": 73,
-        "tournaments_participated": 63,
-        "total_archer_entries": 426,
+        "total_members_seen": 74,
+        "tournaments_participated": 64,
+        "total_archer_entries": 427,
         "wins_by_division": {
           "Compuesto": 34,
           "Recurvo": 6,
-          "Longbow": 26,
+          "Longbow": 27,
           "Recurvo Masculino 50+": 4,
           "Compuesto Masculino Sub-18": 6,
           "Compuesto Femenino Sub-18": 4,
@@ -1061,7 +1061,7 @@
         "podiums_by_division": {
           "Compuesto": 62,
           "Recurvo": 22,
-          "Longbow": 43,
+          "Longbow": 44,
           "Recurvo Masculino 50+": 16,
           "Compuesto Masculino Sub-18": 11,
           "Compuesto Femenino Sub-18": 5,
@@ -1352,14 +1352,14 @@
       "name": "CACE",
       "abbreviation": "CACE",
       "stats": {
-        "total_members_seen": 34,
-        "tournaments_participated": 75,
-        "total_archer_entries": 361,
+        "total_members_seen": 35,
+        "tournaments_participated": 76,
+        "total_archer_entries": 362,
         "wins_by_division": {
           "Raso": 13,
           "Long Bow": 0,
           "Recurvo": 24,
-          "Recurvo Masculino Sub-18": 12,
+          "Recurvo Masculino Sub-18": 13,
           "Recurvo Masculino 50+": 2,
           "Compuesto": 12,
           "Compuesto Masculino 50+": 0,
@@ -1376,7 +1376,7 @@
           "Raso": 25,
           "Long Bow": 0,
           "Recurvo": 59,
-          "Recurvo Masculino Sub-18": 19,
+          "Recurvo Masculino Sub-18": 20,
           "Recurvo Masculino 50+": 6,
           "Compuesto": 36,
           "Compuesto Masculino 50+": 7,
@@ -1978,14 +1978,14 @@
       "abbreviation": "TFT",
       "stats": {
         "total_members_seen": 45,
-        "tournaments_participated": 66,
-        "total_archer_entries": 313,
+        "tournaments_participated": 67,
+        "total_archer_entries": 314,
         "wins_by_division": {
           "Tradicional": 7,
           "Recurvo": 16,
           "Recurvo Masculino Sub-18": 0,
           "Recurvo Masculino 50+": 9,
-          "Recurvo Femenino 50+": 0,
+          "Recurvo Femenino 50+": 1,
           "Compuesto": 19,
           "Recurvo Escuela 50": 1,
           "Recurvo Escuela 60": 5,
@@ -2019,7 +2019,7 @@
           "Recurvo": 33,
           "Recurvo Masculino Sub-18": 0,
           "Recurvo Masculino 50+": 12,
-          "Recurvo Femenino 50+": 0,
+          "Recurvo Femenino 50+": 1,
           "Compuesto": 28,
           "Recurvo Escuela 50": 10,
           "Recurvo Escuela 60": 10,
@@ -5022,6 +5022,56 @@
       }
     },
     {
+      "id": "cac",
+      "name": "CAC",
+      "abbreviation": "CAC",
+      "stats": {
+        "total_members_seen": 11,
+        "tournaments_participated": 58,
+        "total_archer_entries": 123,
+        "wins_by_division": {
+          "Raso E-Inicial": 0,
+          "Recurvo Masculino 50+": 12,
+          "Compuesto": 8,
+          "Compuesto Masculino 50+": 19,
+          "Raso Escuela 40": 2,
+          "Raso Escuela 60": 4,
+          "Raso": 11,
+          "Raso Escuela 20": 1,
+          "Raso Escuela 30": 0,
+          "Raso Escuela": 0,
+          "Raso E-Avanzada": 0,
+          "Recurvo": 1,
+          "Recurvo Escuela 40": 0,
+          "Raso Escuela 80": 1
+        },
+        "podiums_by_division": {
+          "Raso E-Inicial": 0,
+          "Recurvo Masculino 50+": 19,
+          "Compuesto": 16,
+          "Compuesto Masculino 50+": 24,
+          "Raso Escuela 40": 3,
+          "Raso Escuela 60": 6,
+          "Raso": 17,
+          "Raso Escuela 20": 2,
+          "Raso Escuela 30": 2,
+          "Raso Escuela": 0,
+          "Raso E-Avanzada": 0,
+          "Recurvo": 1,
+          "Recurvo Escuela 40": 0,
+          "Raso Escuela 80": 2
+        },
+        "disciplines_participated": [
+          "Campo",
+          "Aire Libre",
+          "Sala",
+          "3D"
+        ],
+        "last_activity": "2026-07-12",
+        "tournaments_hosted": 0
+      }
+    },
+    {
       "id": "catf",
       "name": "CATF",
       "abbreviation": "CATF",
@@ -5224,63 +5274,13 @@
       }
     },
     {
-      "id": "cac",
-      "name": "CAC",
-      "abbreviation": "CAC",
-      "stats": {
-        "total_members_seen": 11,
-        "tournaments_participated": 57,
-        "total_archer_entries": 122,
-        "wins_by_division": {
-          "Raso E-Inicial": 0,
-          "Recurvo Masculino 50+": 12,
-          "Compuesto": 8,
-          "Compuesto Masculino 50+": 19,
-          "Raso Escuela 40": 2,
-          "Raso Escuela 60": 4,
-          "Raso": 11,
-          "Raso Escuela 20": 1,
-          "Raso Escuela 30": 0,
-          "Raso Escuela": 0,
-          "Raso E-Avanzada": 0,
-          "Recurvo": 0,
-          "Recurvo Escuela 40": 0,
-          "Raso Escuela 80": 1
-        },
-        "podiums_by_division": {
-          "Raso E-Inicial": 0,
-          "Recurvo Masculino 50+": 19,
-          "Compuesto": 16,
-          "Compuesto Masculino 50+": 24,
-          "Raso Escuela 40": 3,
-          "Raso Escuela 60": 6,
-          "Raso": 17,
-          "Raso Escuela 20": 2,
-          "Raso Escuela 30": 2,
-          "Raso Escuela": 0,
-          "Raso E-Avanzada": 0,
-          "Recurvo": 0,
-          "Recurvo Escuela 40": 0,
-          "Raso Escuela 80": 2
-        },
-        "disciplines_participated": [
-          "Campo",
-          "Aire Libre",
-          "Sala",
-          "3D"
-        ],
-        "last_activity": "2026-07-12",
-        "tournaments_hosted": 0
-      }
-    },
-    {
       "id": "erta",
       "name": "ERTA",
       "abbreviation": "ERTA",
       "stats": {
         "total_members_seen": 17,
-        "tournaments_participated": 37,
-        "total_archer_entries": 121,
+        "tournaments_participated": 38,
+        "total_archer_entries": 122,
         "wins_by_division": {
           "Recurvo Masculino 50+": 2,
           "Recurvo": 14,
@@ -5299,7 +5299,8 @@
           "PAF Recurvo Sub-15 - 30 metros": 1,
           "PAF Recurvo Sub-18 - 40 metros": 2,
           "Recurvo Femenino Sub-15": 1,
-          "PAF Recurvo Sub-18 - 50 metros": 1
+          "PAF Recurvo Sub-18 - 50 metros": 1,
+          "Recurvo Masculino Sub-18": 1
         },
         "podiums_by_division": {
           "Recurvo Masculino 50+": 3,
@@ -5319,7 +5320,8 @@
           "PAF Recurvo Sub-15 - 30 metros": 1,
           "PAF Recurvo Sub-18 - 40 metros": 2,
           "Recurvo Femenino Sub-15": 4,
-          "PAF Recurvo Sub-18 - 50 metros": 1
+          "PAF Recurvo Sub-18 - 50 metros": 1,
+          "Recurvo Masculino Sub-18": 1
         },
         "disciplines_participated": [
           "Aire Libre",
@@ -7447,17 +7449,17 @@
       "name": "ATGQ",
       "abbreviation": "ATGQ",
       "stats": {
-        "total_members_seen": 12,
-        "tournaments_participated": 32,
-        "total_archer_entries": 50,
+        "total_members_seen": 13,
+        "tournaments_participated": 33,
+        "total_archer_entries": 51,
         "wins_by_division": {
-          "Tradicional": 4,
+          "Tradicional": 5,
           "Longbow": 0,
           "Long Bow": 0,
           "Tradicional Escuela": 0
         },
         "podiums_by_division": {
-          "Tradicional": 15,
+          "Tradicional": 16,
           "Longbow": 2,
           "Long Bow": 2,
           "Tradicional Escuela": 0
@@ -7465,7 +7467,8 @@
         "disciplines_participated": [
           "Campo",
           "3D",
-          "Aire Libre"
+          "Aire Libre",
+          "Sala"
         ],
         "last_activity": "2026-05-03",
         "tournaments_hosted": 0
@@ -9214,6 +9217,33 @@
       }
     },
     {
+      "id": "cadeca",
+      "name": "CADECA",
+      "abbreviation": "CADECA",
+      "stats": {
+        "total_members_seen": 4,
+        "tournaments_participated": 7,
+        "total_archer_entries": 8,
+        "wins_by_division": {
+          "Recurvo Femenino 50+": 4,
+          "Compuesto Masculino Sub-21": 1,
+          "Compuesto Femenino Sub-21": 1,
+          "Compuesto Masculino 50+": 1
+        },
+        "podiums_by_division": {
+          "Recurvo Femenino 50+": 5,
+          "Compuesto Masculino Sub-21": 1,
+          "Compuesto Femenino Sub-21": 1,
+          "Compuesto Masculino 50+": 1
+        },
+        "disciplines_participated": [
+          "Sala"
+        ],
+        "last_activity": "2025-08-03",
+        "tournaments_hosted": 0
+      }
+    },
+    {
       "id": "ctc",
       "name": "CTC",
       "abbreviation": "CTC",
@@ -9375,27 +9405,6 @@
       }
     },
     {
-      "id": "cadeca",
-      "name": "CADECA",
-      "abbreviation": "CADECA",
-      "stats": {
-        "total_members_seen": 1,
-        "tournaments_participated": 5,
-        "total_archer_entries": 5,
-        "wins_by_division": {
-          "Recurvo Femenino 50+": 4
-        },
-        "podiums_by_division": {
-          "Recurvo Femenino 50+": 5
-        },
-        "disciplines_participated": [
-          "Sala"
-        ],
-        "last_activity": "2025-08-03",
-        "tournaments_hosted": 0
-      }
-    },
-    {
       "id": "acs",
       "name": "ACS",
       "abbreviation": "ACS",
@@ -9531,6 +9540,30 @@
       }
     },
     {
+      "id": "adcsl",
+      "name": "ADCSL",
+      "abbreviation": "ADCSL",
+      "stats": {
+        "total_members_seen": 1,
+        "tournaments_participated": 2,
+        "total_archer_entries": 2,
+        "wins_by_division": {
+          "Compuesto Masculino Sub-18": 1,
+          "Compuesto Masculino Sub-21": 1
+        },
+        "podiums_by_division": {
+          "Compuesto Masculino Sub-18": 1,
+          "Compuesto Masculino Sub-21": 1
+        },
+        "disciplines_participated": [
+          "Sala",
+          "Aire Libre"
+        ],
+        "last_activity": "2017-04-23",
+        "tournaments_hosted": 0
+      }
+    },
+    {
       "id": "ads",
       "name": "ADS",
       "abbreviation": "ADS",
@@ -9573,6 +9606,69 @@
           "Aire Libre"
         ],
         "last_activity": "2026-05-10",
+        "tournaments_hosted": 0
+      }
+    },
+    {
+      "id": "unc",
+      "name": "UNC",
+      "abbreviation": "UNC",
+      "stats": {
+        "total_members_seen": 1,
+        "tournaments_participated": 1,
+        "total_archer_entries": 1,
+        "wins_by_division": {
+          "Recurvo": 1
+        },
+        "podiums_by_division": {
+          "Recurvo": 1
+        },
+        "disciplines_participated": [
+          "Sala"
+        ],
+        "last_activity": "2018-07-29",
+        "tournaments_hosted": 0
+      }
+    },
+    {
+      "id": "adsv",
+      "name": "ADSV",
+      "abbreviation": "ADSV",
+      "stats": {
+        "total_members_seen": 1,
+        "tournaments_participated": 1,
+        "total_archer_entries": 1,
+        "wins_by_division": {
+          "Recurvo Femenino Sub-18": 1
+        },
+        "podiums_by_division": {
+          "Recurvo Femenino Sub-18": 1
+        },
+        "disciplines_participated": [
+          "Sala"
+        ],
+        "last_activity": "2017-06-11",
+        "tournaments_hosted": 0
+      }
+    },
+    {
+      "id": "acbn",
+      "name": "ACBN",
+      "abbreviation": "ACBN",
+      "stats": {
+        "total_members_seen": 1,
+        "tournaments_participated": 1,
+        "total_archer_entries": 1,
+        "wins_by_division": {
+          "Recurvo Masculino Sub-18": 1
+        },
+        "podiums_by_division": {
+          "Recurvo Masculino Sub-18": 1
+        },
+        "disciplines_participated": [
+          "Sala"
+        ],
+        "last_activity": "2016-06-12",
         "tournaments_hosted": 0
       }
     },

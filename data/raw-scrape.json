@@ -1,7 +1,7 @@
 {
   "meta": {
-    "scraped_at": "2026-07-18T08:22:01.017Z",
-    "total_tournaments": 411,
+    "scraped_at": "2026-07-19T08:46:46.068Z",
+    "total_tournaments": 426,
     "id_range": {
       "min": 500,
       "max": 1200
@@ -406750,6 +406750,535 @@
       ],
       "scraped_at": "2026-05-05T11:33:26.507Z"
     },
+    "880": {
+      "id": 880,
+      "discipline_name": "Sala",
+      "tournament_type": "Final Regional",
+      "date_raw": "29/07/2018",
+      "date": "2018-07-29",
+      "club": "Tiro con Arco Catamarca - San Martin de El Bañado",
+      "categories": [
+        {
+          "category_raw": "Recurvo Masculino",
+          "division": "Recurvo",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Cardenas, Fabian",
+              "archer_id": "cardenas-fabian",
+              "club_name": "UNC",
+              "club_id": "unc",
+              "category_raw": "Recurvo Masculino",
+              "division": "Recurvo",
+              "gender": "Masculino",
+              "round1_score": 284,
+              "round1_targets": 0,
+              "round2_score": 293,
+              "round2_targets": 0,
+              "total_score": 577,
+              "total_targets": 0,
+              "elevens": 39,
+              "tens": 17
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-19T08:38:28.158Z"
+    },
+    "881": {
+      "id": 881,
+      "discipline_name": "Sala",
+      "tournament_type": "Homologatorio",
+      "date_raw": "07/07/2019",
+      "date": "2019-07-07",
+      "club": "Círculo Bahiense de Arquería",
+      "categories": [
+        {
+          "category_raw": "Recurvo Masculino",
+          "division": "Recurvo",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Sabado, Kevin",
+              "archer_id": "sabado-kevin",
+              "club_name": "CAC",
+              "club_id": "cac",
+              "category_raw": "Recurvo Masculino",
+              "division": "Recurvo",
+              "gender": "Masculino",
+              "round1_score": 286,
+              "round1_targets": 0,
+              "round2_score": 291,
+              "round2_targets": 0,
+              "total_score": 577,
+              "total_targets": 0,
+              "elevens": 0,
+              "tens": 0
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-19T08:38:30.574Z"
+    },
+    "882": {
+      "id": 882,
+      "discipline_name": "Sala",
+      "tournament_type": "Homologatorio",
+      "date_raw": "11/06/2017",
+      "date": "2017-06-11",
+      "club": "Club Atlético Unión de Santa Fé",
+      "categories": [
+        {
+          "category_raw": "Recurvo Femenino Sub-18",
+          "division": "Recurvo Femenino Sub-18",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Carozza, Maria Victoria",
+              "archer_id": "carozza-maria-victoria",
+              "club_name": "ADSV",
+              "club_id": "adsv",
+              "category_raw": "Recurvo Femenino Sub-18",
+              "division": "Recurvo Femenino Sub-18",
+              "gender": "Desconocido",
+              "round1_score": 277,
+              "round1_targets": 0,
+              "round2_score": 270,
+              "round2_targets": 0,
+              "total_score": 547,
+              "total_targets": 0,
+              "elevens": 0,
+              "tens": 0
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-19T08:38:33.009Z"
+    },
+    "883": {
+      "id": 883,
+      "discipline_name": "Sala",
+      "tournament_type": "Homologatorio",
+      "date_raw": "05/07/2015",
+      "date": "2015-07-05",
+      "club": "Club Atlético Unión de Santa Fé",
+      "categories": [
+        {
+          "category_raw": "Recurvo Masculino Sub-18",
+          "division": "Recurvo Masculino Sub-18",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Aranda, Leonel Ezequiel",
+              "archer_id": "aranda-leonel-ezequiel",
+              "club_name": "ERTA",
+              "club_id": "erta",
+              "category_raw": "Recurvo Masculino Sub-18",
+              "division": "Recurvo Masculino Sub-18",
+              "gender": "Desconocido",
+              "round1_score": 279,
+              "round1_targets": 0,
+              "round2_score": 281,
+              "round2_targets": 0,
+              "total_score": 560,
+              "total_targets": 0,
+              "elevens": 0,
+              "tens": 0
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-19T08:38:35.393Z"
+    },
+    "884": {
+      "id": 884,
+      "discipline_name": "Sala",
+      "tournament_type": "Homologatorio",
+      "date_raw": "12/06/2016",
+      "date": "2016-06-12",
+      "club": "Club Atlético Unión de Santa Fé",
+      "categories": [
+        {
+          "category_raw": "Recurvo Masculino Sub-18",
+          "division": "Recurvo Masculino Sub-18",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Clivio, Alejo Nicolás",
+              "archer_id": "clivio-alejo-nicolas",
+              "club_name": "ACBN",
+              "club_id": "acbn",
+              "category_raw": "Recurvo Masculino Sub-18",
+              "division": "Recurvo Masculino Sub-18",
+              "gender": "Desconocido",
+              "round1_score": 280,
+              "round1_targets": 0,
+              "round2_score": 280,
+              "round2_targets": 0,
+              "total_score": 560,
+              "total_targets": 0,
+              "elevens": 0,
+              "tens": 0
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-19T08:38:37.889Z"
+    },
+    "885": {
+      "id": 885,
+      "discipline_name": "Sala",
+      "tournament_type": "Final Nacional",
+      "date_raw": "18 y 19/08/2018",
+      "date": null,
+      "club": "Club de Arquería Andino Patagónico",
+      "categories": [
+        {
+          "category_raw": "Recurvo Femenino 50+",
+          "division": "Recurvo Femenino 50+",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Japaze, Nora Cristina",
+              "archer_id": "japaze-nora-cristina",
+              "club_name": "TFT",
+              "club_id": "tft",
+              "category_raw": "Recurvo Femenino 50+",
+              "division": "Recurvo Femenino 50+",
+              "gender": "Desconocido",
+              "round1_score": 247,
+              "round1_targets": 0,
+              "round2_score": 261,
+              "round2_targets": 0,
+              "total_score": 508,
+              "total_targets": 0,
+              "elevens": 12,
+              "tens": 25
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-19T08:38:40.309Z"
+    },
+    "886": {
+      "id": 886,
+      "discipline_name": "Sala",
+      "tournament_type": "Homologatorio",
+      "date_raw": "22/07/2012",
+      "date": "2012-07-22",
+      "club": "Club Universitario de Arquería",
+      "categories": [
+        {
+          "category_raw": "Compuesto Masculino Sub-21",
+          "division": "Compuesto Masculino Sub-21",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Regnasco, Santiago Nicolás",
+              "archer_id": "regnasco-santiago-nicolas",
+              "club_name": "CADECA",
+              "club_id": "cadeca",
+              "category_raw": "Compuesto Masculino Sub-21",
+              "division": "Compuesto Masculino Sub-21",
+              "gender": "Desconocido",
+              "round1_score": 282,
+              "round1_targets": 0,
+              "round2_score": 281,
+              "round2_targets": 0,
+              "total_score": 563,
+              "total_targets": 0,
+              "elevens": 0,
+              "tens": 0
+            }
+          ]
+        },
+        {
+          "category_raw": "Compuesto Femenino Sub-21",
+          "division": "Compuesto Femenino Sub-21",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Regnasco, Melissa Agustina",
+              "archer_id": "regnasco-melissa-agustina",
+              "club_name": "CADECA",
+              "club_id": "cadeca",
+              "category_raw": "Compuesto Femenino Sub-21",
+              "division": "Compuesto Femenino Sub-21",
+              "gender": "Desconocido",
+              "round1_score": 279,
+              "round1_targets": 0,
+              "round2_score": 280,
+              "round2_targets": 0,
+              "total_score": 559,
+              "total_targets": 0,
+              "elevens": 0,
+              "tens": 0
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-19T08:38:42.744Z"
+    },
+    "887": {
+      "id": 887,
+      "discipline_name": "Sala",
+      "tournament_type": "Homologatorio",
+      "date_raw": "03/07/2016",
+      "date": "2016-07-03",
+      "club": "Circulo de Arqueros de la Comarca",
+      "categories": [
+        {
+          "category_raw": "Compuesto Masculino Sub-18",
+          "division": "Compuesto Masculino Sub-18",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Nikolajuk, Ivan",
+              "archer_id": "nikolajuk-ivan",
+              "club_name": "ADCSL",
+              "club_id": "adcsl",
+              "category_raw": "Compuesto Masculino Sub-18",
+              "division": "Compuesto Masculino Sub-18",
+              "gender": "Desconocido",
+              "round1_score": 283,
+              "round1_targets": 0,
+              "round2_score": 283,
+              "round2_targets": 0,
+              "total_score": 566,
+              "total_targets": 0,
+              "elevens": 0,
+              "tens": 0
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-19T08:38:45.070Z"
+    },
+    "888": {
+      "id": 888,
+      "discipline_name": "Sala",
+      "tournament_type": "Final Regional",
+      "date_raw": "26/07/2015",
+      "date": "2015-07-26",
+      "club": "Club Social y Deportivo Flandria",
+      "categories": [
+        {
+          "category_raw": "Compuesto Masculino 50+",
+          "division": "Compuesto Masculino 50+",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Iemma, Julio Cesar",
+              "archer_id": "iemma-julio-cesar",
+              "club_name": "CADECA",
+              "club_id": "cadeca",
+              "category_raw": "Compuesto Masculino 50+",
+              "division": "Compuesto Masculino 50+",
+              "gender": "Desconocido",
+              "round1_score": 291,
+              "round1_targets": 0,
+              "round2_score": 286,
+              "round2_targets": 0,
+              "total_score": 577,
+              "total_targets": 0,
+              "elevens": 0,
+              "tens": 0
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-19T08:38:47.457Z"
+    },
+    "889": {
+      "id": 889,
+      "discipline_name": "Sala",
+      "tournament_type": "Homologatorio",
+      "date_raw": "02/06/2019",
+      "date": "2019-06-02",
+      "club": "Club Deportivo Barrio Alegre",
+      "categories": [
+        {
+          "category_raw": "Raso Masculino",
+          "division": "Raso",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Postemsky, Jonatan Joel",
+              "archer_id": "postemsky-jonatan-joel",
+              "club_name": "CBA",
+              "club_id": "cba",
+              "category_raw": "Raso Masculino",
+              "division": "Raso",
+              "gender": "Masculino",
+              "round1_score": 277,
+              "round1_targets": 0,
+              "round2_score": 278,
+              "round2_targets": 0,
+              "total_score": 555,
+              "total_targets": 0,
+              "elevens": 0,
+              "tens": 0
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-19T08:38:49.930Z"
+    },
+    "890": {
+      "id": 890,
+      "discipline_name": "Sala",
+      "tournament_type": "Homologatorio",
+      "date_raw": "27/07/2014",
+      "date": "2014-07-27",
+      "club": "Club Atlético Unión de Santa Fé",
+      "categories": [
+        {
+          "category_raw": "Longbow Femenino",
+          "division": "Longbow",
+          "gender": "Femenino",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Sattler, Marisel",
+              "archer_id": "sattler-marisel",
+              "club_name": "TCAP",
+              "club_id": "tcap",
+              "category_raw": "Longbow Femenino",
+              "division": "Longbow",
+              "gender": "Femenino",
+              "round1_score": 232,
+              "round1_targets": 0,
+              "round2_score": 247,
+              "round2_targets": 0,
+              "total_score": 479,
+              "total_targets": 0,
+              "elevens": 0,
+              "tens": 0
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-19T08:38:52.366Z"
+    },
+    "891": {
+      "id": 891,
+      "discipline_name": "Sala",
+      "tournament_type": "Final Nacional",
+      "date_raw": "15 y 16/08/2015",
+      "date": null,
+      "club": "Club Atlético Unión de Santa Fé",
+      "categories": [
+        {
+          "category_raw": "Longbow Masculino",
+          "division": "Longbow",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Romero, Ricardo Felix Ernesto",
+              "archer_id": "romero-ricardo-felix-ernesto",
+              "club_name": "CUDA",
+              "club_id": "cuda",
+              "category_raw": "Longbow Masculino",
+              "division": "Longbow",
+              "gender": "Masculino",
+              "round1_score": 265,
+              "round1_targets": 0,
+              "round2_score": 257,
+              "round2_targets": 0,
+              "total_score": 522,
+              "total_targets": 0,
+              "elevens": 19,
+              "tens": 14
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-19T08:38:54.797Z"
+    },
+    "892": {
+      "id": 892,
+      "discipline_name": "Sala",
+      "tournament_type": "Homologatorio",
+      "date_raw": "19/05/2019",
+      "date": "2019-05-19",
+      "club": "Club Universitario de Arquería",
+      "categories": [
+        {
+          "category_raw": "Tradicional Femenino",
+          "division": "Tradicional",
+          "gender": "Femenino",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Giroux, Claudine",
+              "archer_id": "giroux-claudine",
+              "club_name": "ATGQ",
+              "club_id": "atgq",
+              "category_raw": "Tradicional Femenino",
+              "division": "Tradicional",
+              "gender": "Femenino",
+              "round1_score": 235,
+              "round1_targets": 0,
+              "round2_score": 240,
+              "round2_targets": 0,
+              "total_score": 475,
+              "total_targets": 0,
+              "elevens": 8,
+              "tens": 17
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-19T08:38:57.134Z"
+    },
+    "893": {
+      "id": 893,
+      "discipline_name": "Aire Libre",
+      "tournament_type": "Homologatorio",
+      "date_raw": "03/09/2017",
+      "date": "2017-09-03",
+      "club": "Asociación Deportiva Santotomesina de Veteranos",
+      "categories": [
+        {
+          "category_raw": "Recurvo Masculino Sub-18",
+          "division": "Recurvo Masculino Sub-18",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Pianigiani, Lucas",
+              "archer_id": "pianigiani-lucas",
+              "club_name": "CACE",
+              "club_id": "cace",
+              "category_raw": "Recurvo Masculino Sub-18",
+              "division": "Recurvo Masculino Sub-18",
+              "gender": "Desconocido",
+              "round1_score": 333,
+              "round1_targets": 0,
+              "round2_score": 334,
+              "round2_targets": 0,
+              "total_score": 667,
+              "total_targets": 0,
+              "elevens": 0,
+              "tens": 0
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-19T08:38:59.541Z"
+    },
     "894": {
       "id": 894,
       "discipline_name": "Aire Libre",
@@ -407373,6 +407902,42 @@
         }
       ],
       "scraped_at": "2026-05-05T11:33:50.484Z"
+    },
+    "895": {
+      "id": 895,
+      "discipline_name": "Aire Libre",
+      "tournament_type": "Homologatorio",
+      "date_raw": "23/04/2017",
+      "date": "2017-04-23",
+      "club": "Círculo Bahiense de Arquería",
+      "categories": [
+        {
+          "category_raw": "Compuesto Masculino Sub-21",
+          "division": "Compuesto Masculino Sub-21",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Nikolajuk, Ivan",
+              "archer_id": "nikolajuk-ivan",
+              "club_name": "ADCSL",
+              "club_id": "adcsl",
+              "category_raw": "Compuesto Masculino Sub-21",
+              "division": "Compuesto Masculino Sub-21",
+              "gender": "Desconocido",
+              "round1_score": 338,
+              "round1_targets": 0,
+              "round2_score": 343,
+              "round2_targets": 0,
+              "total_score": 681,
+              "total_targets": 0,
+              "elevens": 0,
+              "tens": 0
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-07-19T08:39:02.073Z"
     },
     "896": {
       "id": 896,
