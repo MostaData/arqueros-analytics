@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-07-21T08:55:54.326Z",
-    "total_tournaments": 426
+    "last_updated": "2026-07-22T08:55:32.727Z",
+    "total_tournaments": 427
   },
   "tournaments": [
     {
@@ -14007,6 +14007,49 @@
       ],
       "total_archers": 24,
       "scraped_at": "2026-07-15T08:38:29.980Z",
+      "stub_only": false
+    },
+    {
+      "id": 955,
+      "date": "2026-07-18",
+      "date_raw": "18/07/2026",
+      "discipline_name": "Aire Libre",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Arqueria Ona Sur",
+      "categories": [
+        "JP Compuesto Sub-15 E30",
+        "JP Recurvo Sub-15 E20",
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Recurvo Femenino Sub-21",
+        "Recurvo Masculino Sub-18",
+        "Recurvo Masculino 50+",
+        "Recurvo Femenino 50+",
+        "Compuesto Masculino",
+        "Compuesto Masculino Sub-15",
+        "Compuesto Masculino 50+",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Raso Masculino 50+",
+        "Tradicional Masculino",
+        "Tradicional Femenino",
+        "Longbow Masculino",
+        "Longbow Femenino",
+        "Recurvo Escuela 60",
+        "Recurvo Escuela 50",
+        "Recurvo Escuela 40",
+        "Recurvo Escuela 30",
+        "Recurvo Escuela 20",
+        "Compuesto Escuela 30",
+        "Raso Escuela 40",
+        "Raso Escuela 30",
+        "Raso Escuela 20",
+        "Longbow Escuela 20"
+      ],
+      "total_archers": 113,
+      "scraped_at": "2026-07-22T08:48:28.967Z",
       "stub_only": false
     }
   ]
