@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-07-27T10:21:09.451Z",
-    "total_tournaments": 427
+    "last_updated": "2026-07-28T09:03:05.812Z",
+    "total_tournaments": 428
   },
   "tournaments": [
     {
@@ -13805,6 +13805,38 @@
       ],
       "total_archers": 62,
       "scraped_at": "2026-07-15T08:36:37.531Z",
+      "stub_only": false
+    },
+    {
+      "id": 1016,
+      "date": "2026-07-12",
+      "date_raw": "12/07/2026",
+      "discipline_name": "Sala",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Universidad Tecnologica Nacional San Rafael",
+      "categories": [
+        "JP Raso Sub-13 Inicial 15",
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Recurvo Masculino 50+",
+        "Compuesto Masculino",
+        "Compuesto Masculino 50+",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Raso Masculino 50+",
+        "Longbow Masculino",
+        "Longbow Femenino",
+        "Tradicional Masculino",
+        "Cazador Masculino Senior",
+        "Recurvo Escuela 40",
+        "Recurvo Escuela 60",
+        "Raso Escuela 60",
+        "Tradicional Escuela 60"
+      ],
+      "total_archers": 36,
+      "scraped_at": "2026-07-28T08:56:00.531Z",
       "stub_only": false
     },
     {
