@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-08-01T08:46:29.143Z",
-    "total_tournaments": 428
+    "last_updated": "2026-08-02T08:49:33.466Z",
+    "total_tournaments": 430
   },
   "tournaments": [
     {
@@ -13689,6 +13689,32 @@
       "stub_only": false
     },
     {
+      "id": 912,
+      "date": "2026-07-05",
+      "date_raw": "05/07/2026",
+      "discipline_name": "Campo",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Tiro Federal Argentino de Trelew",
+      "categories": [
+        "Compuesto Masculino",
+        "Compuesto Masculino 50+",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Raso Femenino Sub-21",
+        "Longbow Masculino",
+        "Longbow Femenino",
+        "Tradicional Femenino",
+        "Raso E-Inicial",
+        "Raso E-Avanzada",
+        "Tradicional E-Avanzada"
+      ],
+      "total_archers": 34,
+      "scraped_at": "2026-08-02T08:41:59.214Z",
+      "stub_only": false
+    },
+    {
       "id": 1014,
       "date": "2026-07-05",
       "date_raw": "05/07/2026",
@@ -14082,6 +14108,33 @@
       ],
       "total_archers": 113,
       "scraped_at": "2026-07-22T08:48:28.967Z",
+      "stub_only": false
+    },
+    {
+      "id": 1044,
+      "date": "2026-07-26",
+      "date_raw": "26/07/2026",
+      "discipline_name": "3D",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Arquería Pinamar CET",
+      "categories": [
+        "Compuesto Masculino",
+        "Compuesto Femenino",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Long Bow Masculino",
+        "Long Bow Femenino",
+        "Tradicional Masculino",
+        "Tradicional Femenino",
+        "Recurvo Masculino",
+        "Cazador Masculino",
+        "Raso Escuela",
+        "Tradicional Escuela"
+      ],
+      "total_archers": 68,
+      "scraped_at": "2026-08-02T08:44:10.238Z",
       "stub_only": false
     }
   ]
