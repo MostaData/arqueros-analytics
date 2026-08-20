@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-08-19T07:12:35.069Z",
-    "total_tournaments": 438
+    "last_updated": "2026-08-20T07:14:04.614Z",
+    "total_tournaments": 439
   },
   "tournaments": [
     {
@@ -1804,6 +1804,50 @@
       ],
       "total_archers": 121,
       "scraped_at": "2026-06-16T11:37:23.655Z",
+      "stub_only": false
+    },
+    {
+      "id": 1027,
+      "date": null,
+      "date_raw": "14, 15 y 16/08/2026",
+      "discipline_name": "Sala",
+      "discipline_code": 0,
+      "tournament_type": "Final Nacional",
+      "zone": "",
+      "club": "Flechas Pampa",
+      "categories": [
+        "P.I.2 Compuesto Masculino",
+        "P.I.2 Recurvo Masculino",
+        "P.I.2 Compuesto Femenino",
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Recurvo Masculino Sub-21",
+        "Recurvo Femenino Sub-21",
+        "Recurvo Masculino Sub-18",
+        "Recurvo Femenino Sub-18",
+        "Recurvo Masculino 50+",
+        "Recurvo Femenino 50+",
+        "Recurvo Masculino Sub-15",
+        "Recurvo Femenino Sub-15",
+        "Compuesto Masculino",
+        "Compuesto Femenino",
+        "Compuesto Femenino Sub-21",
+        "Compuesto Masculino Sub-18",
+        "Compuesto Masculino 50+",
+        "Compuesto Femenino Sub-15",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Raso Masculino Sub-18",
+        "Raso Masculino 50+",
+        "Raso Femenino 50+",
+        "Longbow Masculino",
+        "Longbow Femenino",
+        "Tradicional Masculino",
+        "Tradicional Femenino",
+        "Cazador Masculino Senior"
+      ],
+      "total_archers": 193,
+      "scraped_at": "2026-08-20T07:08:28.336Z",
       "stub_only": false
     },
     {
