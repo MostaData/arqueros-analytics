@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-08-23T07:09:14.506Z",
+    "last_updated": "2026-08-24T07:25:39.132Z",
     "total_clubs": 177
   },
   "clubs": [
@@ -412,8 +412,8 @@
       "abbreviation": "AFAPIECO",
       "stats": {
         "total_members_seen": 85,
-        "tournaments_participated": 90,
-        "total_archer_entries": 687,
+        "tournaments_participated": 91,
+        "total_archer_entries": 688,
         "wins_by_division": {
           "Recurvo": 17,
           "Recurvo Masculino 50+": 14,
@@ -484,7 +484,7 @@
           "PAF Recurvo Sub-15 - 20 metros": 1,
           "PAF Recurvo Sub-18 - 20 metros": 1,
           "PAF Raso Sub-15 - 15 metros": 1,
-          "Recurvo Escuela 60": 19,
+          "Recurvo Escuela 60": 20,
           "PAF Recurvo Sub-15 - 30 metros": 1,
           "Cazador Masculino Senior": 3,
           "Recurvo Escuela 80": 5,
@@ -510,7 +510,7 @@
           "Sala",
           "3D"
         ],
-        "last_activity": "2026-08-09",
+        "last_activity": "2026-08-23",
         "tournaments_hosted": 0
       }
     },
@@ -519,31 +519,31 @@
       "name": "TFAR",
       "abbreviation": "TFAR",
       "stats": {
-        "total_members_seen": 82,
-        "tournaments_participated": 97,
-        "total_archer_entries": 513,
+        "total_members_seen": 86,
+        "tournaments_participated": 98,
+        "total_archer_entries": 535,
         "wins_by_division": {
           "Longbow": 8,
           "Escuela Infantil Sub-13": 1,
           "Long Bow": 9,
           "Compuesto": 4,
-          "Recurvo Escuela 40": 8,
+          "Recurvo Escuela 40": 9,
           "PAF Recurvo Sub-13 - 20 metros": 1,
           "Recurvo Masculino 50+": 5,
           "Raso Masculino 50+": 4,
-          "Recurvo Escuela 60": 7,
+          "Recurvo Escuela 60": 8,
           "Recurvo Escuela 80": 2,
           "Compuesto Masculino 50+": 5,
           "Raso Escuela 60": 1,
           "Raso Escuela 80": 3,
-          "Recurvo Escuela 50": 5,
-          "Recurvo Escuela 20": 0,
+          "Recurvo Escuela 50": 6,
+          "Recurvo Escuela 20": 1,
           "PAF Recurvo Sub-13 - 30 metros": 1,
-          "Recurvo": 33,
+          "Recurvo": 35,
           "Recurvo Masculino Sub-21": 1,
           "Raso": 5,
           "Raso Escuela 20": 4,
-          "Recurvo Escuela 30": 7,
+          "Recurvo Escuela 30": 8,
           "Raso Escuela 30": 4,
           "Compuesto Escuela 40": 1,
           "Tradicional": 20,
@@ -560,23 +560,23 @@
           "Escuela Infantil Sub-13": 5,
           "Long Bow": 21,
           "Compuesto": 21,
-          "Recurvo Escuela 40": 21,
+          "Recurvo Escuela 40": 22,
           "PAF Recurvo Sub-13 - 20 metros": 2,
           "Recurvo Masculino 50+": 22,
           "Raso Masculino 50+": 5,
-          "Recurvo Escuela 60": 13,
+          "Recurvo Escuela 60": 15,
           "Recurvo Escuela 80": 5,
           "Compuesto Masculino 50+": 6,
           "Raso Escuela 60": 5,
           "Raso Escuela 80": 7,
-          "Recurvo Escuela 50": 16,
-          "Recurvo Escuela 20": 7,
+          "Recurvo Escuela 50": 18,
+          "Recurvo Escuela 20": 9,
           "PAF Recurvo Sub-13 - 30 metros": 1,
-          "Recurvo": 58,
+          "Recurvo": 62,
           "Recurvo Masculino Sub-21": 4,
           "Raso": 8,
           "Raso Escuela 20": 5,
-          "Recurvo Escuela 30": 11,
+          "Recurvo Escuela 30": 12,
           "Raso Escuela 30": 5,
           "Compuesto Escuela 40": 1,
           "Tradicional": 42,
@@ -594,7 +594,7 @@
           "Aire Libre",
           "Sala"
         ],
-        "last_activity": "2026-08-02",
+        "last_activity": "2026-08-23",
         "tournaments_hosted": 0
       }
     },
@@ -839,8 +839,8 @@
       "abbreviation": "CAEE",
       "stats": {
         "total_members_seen": 64,
-        "tournaments_participated": 69,
-        "total_archer_entries": 484,
+        "tournaments_participated": 70,
+        "total_archer_entries": 486,
         "wins_by_division": {
           "Raso Masculino 50+": 15,
           "Tradicional E-Inicial": 1,
@@ -849,7 +849,7 @@
           "Recurvo Femenino Sub-18": 17,
           "Recurvo Masculino 50+": 0,
           "Compuesto": 2,
-          "Raso": 7,
+          "Raso": 8,
           "Tradicional": 8,
           "Recurvo Escuela 50": 2,
           "Raso Escuela 40": 8,
@@ -904,7 +904,7 @@
           "Recurvo Femenino Sub-18": 31,
           "Recurvo Masculino 50+": 1,
           "Compuesto": 6,
-          "Raso": 16,
+          "Raso": 17,
           "Tradicional": 13,
           "Recurvo Escuela 50": 4,
           "Raso Escuela 40": 16,
@@ -937,7 +937,7 @@
           "PAF Compuesto Sub-18 - 40 metros": 1,
           "Raso Escuela 20": 2,
           "PAF Recurvo Sub-18 - 40 metros": 4,
-          "Recurvo Femenino Sub-21": 3,
+          "Recurvo Femenino Sub-21": 4,
           "Compuesto Escuela 30": 2,
           "P.I.2 Recurvo Escuela 30": 2,
           "Compuesto Escuela 60": 1,
@@ -957,7 +957,7 @@
           "Sala",
           "3D"
         ],
-        "last_activity": "2026-08-02",
+        "last_activity": "2026-08-23",
         "tournaments_hosted": 0
       }
     },
@@ -1035,17 +1035,17 @@
       "abbreviation": "TCAP",
       "stats": {
         "total_members_seen": 74,
-        "tournaments_participated": 66,
-        "total_archer_entries": 436,
+        "tournaments_participated": 67,
+        "total_archer_entries": 440,
         "wins_by_division": {
-          "Compuesto": 36,
+          "Compuesto": 37,
           "Recurvo": 6,
-          "Longbow": 27,
+          "Longbow": 28,
           "Recurvo Masculino 50+": 4,
           "Compuesto Masculino Sub-18": 6,
           "Compuesto Femenino Sub-18": 4,
           "Compuesto Masculino 50+": 5,
-          "Tradicional": 2,
+          "Tradicional": 3,
           "Recurvo Escuela 50": 2,
           "Recurvo Escuela 40": 4,
           "Long Bow": 0,
@@ -1071,14 +1071,14 @@
           "JP Recurvo Sub-13 Inicial 15": 2
         },
         "podiums_by_division": {
-          "Compuesto": 65,
+          "Compuesto": 66,
           "Recurvo": 22,
-          "Longbow": 44,
-          "Recurvo Masculino 50+": 16,
+          "Longbow": 45,
+          "Recurvo Masculino 50+": 17,
           "Compuesto Masculino Sub-18": 11,
           "Compuesto Femenino Sub-18": 5,
           "Compuesto Masculino 50+": 13,
-          "Tradicional": 5,
+          "Tradicional": 6,
           "Recurvo Escuela 50": 5,
           "Recurvo Escuela 40": 7,
           "Long Bow": 1,
@@ -1109,7 +1109,7 @@
           "3D",
           "Sala"
         ],
-        "last_activity": "2026-08-02",
+        "last_activity": "2026-08-23",
         "tournaments_hosted": 0
       }
     },
@@ -2086,8 +2086,8 @@
       "abbreviation": "ADC",
       "stats": {
         "total_members_seen": 37,
-        "tournaments_participated": 49,
-        "total_archer_entries": 306,
+        "tournaments_participated": 50,
+        "total_archer_entries": 307,
         "wins_by_division": {
           "Recurvo": 18,
           "Recurvo Masculino Sub-18": 4,
@@ -2134,7 +2134,7 @@
           "Recurvo Escuela 20": 2,
           "Raso Escuela 30": 1,
           "PAF Recurvo Sub-15 - 20 metros": 1,
-          "Tradicional": 34,
+          "Tradicional": 35,
           "Recurvo Escuela 60": 4,
           "Raso Escuela 20": 3,
           "Tradicional Escuela 20": 3,
@@ -2165,7 +2165,7 @@
           "Sala",
           "Campo"
         ],
-        "last_activity": "2026-07-12",
+        "last_activity": "2026-08-23",
         "tournaments_hosted": 0
       }
     },
@@ -2298,6 +2298,92 @@
       }
     },
     {
+      "id": "alc",
+      "name": "ALC",
+      "abbreviation": "ALC",
+      "stats": {
+        "total_members_seen": 42,
+        "tournaments_participated": 44,
+        "total_archer_entries": 288,
+        "wins_by_division": {
+          "Compuesto": 0,
+          "Raso Femenino Sub-21": 4,
+          "Tradicional": 14,
+          "Longbow": 0,
+          "Recurvo Escuela 40": 0,
+          "Recurvo Escuela 30": 2,
+          "Recurvo Escuela 20": 0,
+          "Raso Escuela 40": 4,
+          "Raso Escuela 30": 1,
+          "PAF Recurvo Sub-18 - 50 metros": 5,
+          "Raso Masculino 50+": 0,
+          "Cazador": 2,
+          "Longbow Escuela 20": 2,
+          "Tradicional Escuela 20": 4,
+          "PAF Recurvo Sub-18 - 20 metros": 1,
+          "PAF Recurvo Sub-13 - 20 metros": 0,
+          "PAF Recurvo Sub-18 - 30 metros": 1,
+          "Raso": 0,
+          "Recurvo Masculino Sub-18": 0,
+          "Raso Escuela 60": 2,
+          "Longbow Escuela 60": 5,
+          "Tradicional Escuela 60": 9,
+          "Recurvo Escuela 60": 1,
+          "Recurvo Escuela 80": 0,
+          "Raso Escuela 80": 1,
+          "Tradicional Escuela 80": 3,
+          "Escuela Infantil Sub-13": 0,
+          "Longbow Escuela 80": 1,
+          "Compuesto Masculino Sub-18": 4,
+          "Raso Escuela 20": 1,
+          "Raso Femenino Sub-15": 3,
+          "Compuesto Masculino Sub-21": 0,
+          "JP Raso Sub-15 E80": 2
+        },
+        "podiums_by_division": {
+          "Compuesto": 0,
+          "Raso Femenino Sub-21": 4,
+          "Tradicional": 46,
+          "Longbow": 7,
+          "Recurvo Escuela 40": 1,
+          "Recurvo Escuela 30": 4,
+          "Recurvo Escuela 20": 2,
+          "Raso Escuela 40": 9,
+          "Raso Escuela 30": 2,
+          "PAF Recurvo Sub-18 - 50 metros": 7,
+          "Raso Masculino 50+": 3,
+          "Cazador": 6,
+          "Longbow Escuela 20": 2,
+          "Tradicional Escuela 20": 5,
+          "PAF Recurvo Sub-18 - 20 metros": 1,
+          "PAF Recurvo Sub-13 - 20 metros": 1,
+          "PAF Recurvo Sub-18 - 30 metros": 1,
+          "Raso": 0,
+          "Recurvo Masculino Sub-18": 1,
+          "Raso Escuela 60": 5,
+          "Longbow Escuela 60": 10,
+          "Tradicional Escuela 60": 11,
+          "Recurvo Escuela 60": 3,
+          "Recurvo Escuela 80": 6,
+          "Raso Escuela 80": 3,
+          "Tradicional Escuela 80": 6,
+          "Escuela Infantil Sub-13": 1,
+          "Longbow Escuela 80": 2,
+          "Compuesto Masculino Sub-18": 6,
+          "Raso Escuela 20": 1,
+          "Raso Femenino Sub-15": 3,
+          "Compuesto Masculino Sub-21": 1,
+          "JP Raso Sub-15 E80": 2
+        },
+        "disciplines_participated": [
+          "Aire Libre",
+          "Sala"
+        ],
+        "last_activity": "2026-08-23",
+        "tournaments_hosted": 0
+      }
+    },
+    {
       "id": "cep",
       "name": "CEP",
       "abbreviation": "CEP",
@@ -2372,99 +2458,13 @@
       }
     },
     {
-      "id": "alc",
-      "name": "ALC",
-      "abbreviation": "ALC",
-      "stats": {
-        "total_members_seen": 42,
-        "tournaments_participated": 43,
-        "total_archer_entries": 287,
-        "wins_by_division": {
-          "Compuesto": 0,
-          "Raso Femenino Sub-21": 4,
-          "Tradicional": 14,
-          "Longbow": 0,
-          "Recurvo Escuela 40": 0,
-          "Recurvo Escuela 30": 2,
-          "Recurvo Escuela 20": 0,
-          "Raso Escuela 40": 3,
-          "Raso Escuela 30": 1,
-          "PAF Recurvo Sub-18 - 50 metros": 5,
-          "Raso Masculino 50+": 0,
-          "Cazador": 2,
-          "Longbow Escuela 20": 2,
-          "Tradicional Escuela 20": 4,
-          "PAF Recurvo Sub-18 - 20 metros": 1,
-          "PAF Recurvo Sub-13 - 20 metros": 0,
-          "PAF Recurvo Sub-18 - 30 metros": 1,
-          "Raso": 0,
-          "Recurvo Masculino Sub-18": 0,
-          "Raso Escuela 60": 2,
-          "Longbow Escuela 60": 5,
-          "Tradicional Escuela 60": 9,
-          "Recurvo Escuela 60": 1,
-          "Recurvo Escuela 80": 0,
-          "Raso Escuela 80": 1,
-          "Tradicional Escuela 80": 3,
-          "Escuela Infantil Sub-13": 0,
-          "Longbow Escuela 80": 1,
-          "Compuesto Masculino Sub-18": 4,
-          "Raso Escuela 20": 1,
-          "Raso Femenino Sub-15": 3,
-          "Compuesto Masculino Sub-21": 0,
-          "JP Raso Sub-15 E80": 2
-        },
-        "podiums_by_division": {
-          "Compuesto": 0,
-          "Raso Femenino Sub-21": 4,
-          "Tradicional": 46,
-          "Longbow": 7,
-          "Recurvo Escuela 40": 1,
-          "Recurvo Escuela 30": 4,
-          "Recurvo Escuela 20": 2,
-          "Raso Escuela 40": 8,
-          "Raso Escuela 30": 2,
-          "PAF Recurvo Sub-18 - 50 metros": 7,
-          "Raso Masculino 50+": 3,
-          "Cazador": 6,
-          "Longbow Escuela 20": 2,
-          "Tradicional Escuela 20": 5,
-          "PAF Recurvo Sub-18 - 20 metros": 1,
-          "PAF Recurvo Sub-13 - 20 metros": 1,
-          "PAF Recurvo Sub-18 - 30 metros": 1,
-          "Raso": 0,
-          "Recurvo Masculino Sub-18": 1,
-          "Raso Escuela 60": 5,
-          "Longbow Escuela 60": 10,
-          "Tradicional Escuela 60": 11,
-          "Recurvo Escuela 60": 3,
-          "Recurvo Escuela 80": 6,
-          "Raso Escuela 80": 3,
-          "Tradicional Escuela 80": 6,
-          "Escuela Infantil Sub-13": 1,
-          "Longbow Escuela 80": 2,
-          "Compuesto Masculino Sub-18": 6,
-          "Raso Escuela 20": 1,
-          "Raso Femenino Sub-15": 3,
-          "Compuesto Masculino Sub-21": 1,
-          "JP Raso Sub-15 E80": 2
-        },
-        "disciplines_participated": [
-          "Aire Libre",
-          "Sala"
-        ],
-        "last_activity": "2026-08-02",
-        "tournaments_hosted": 0
-      }
-    },
-    {
       "id": "tfalp",
       "name": "TFALP",
       "abbreviation": "TFALP",
       "stats": {
         "total_members_seen": 35,
-        "tournaments_participated": 66,
-        "total_archer_entries": 283,
+        "tournaments_participated": 67,
+        "total_archer_entries": 284,
         "wins_by_division": {
           "Recurvo": 1,
           "Compuesto": 4,
@@ -2521,7 +2521,7 @@
           "3D",
           "Campo"
         ],
-        "last_activity": "2026-08-09",
+        "last_activity": "2026-08-23",
         "tournaments_hosted": 0
       }
     },
@@ -2947,6 +2947,74 @@
       }
     },
     {
+      "id": "far",
+      "name": "FAR",
+      "abbreviation": "FAR",
+      "stats": {
+        "total_members_seen": 39,
+        "tournaments_participated": 85,
+        "total_archer_entries": 252,
+        "wins_by_division": {
+          "Longbow": 3,
+          "Tradicional": 1,
+          "Long Bow": 1,
+          "Recurvo Masculino 50+": 18,
+          "Recurvo Femenino 50+": 16,
+          "Recurvo Escuela 50": 2,
+          "Recurvo Escuela 40": 4,
+          "Recurvo Escuela 30": 1,
+          "PAF Recurvo Sub-13 - 30 metros": 0,
+          "Recurvo": 9,
+          "Compuesto Masculino 50+": 4,
+          "Recurvo Escuela 60": 1,
+          "Recurvo Escuela 80": 2,
+          "Recurvo Femenino Sub-21": 9,
+          "PAF Recurvo Sub-15 - 20 metros": 0,
+          "PAF Recurvo Sub-15 - 30 metros": 2,
+          "Recurvo Escuela 20": 3,
+          "Tradicional Escuela 20": 1,
+          "PAF Raso Sub-13 - 15 metros": 1,
+          "PAF Recurvo Sub-13 - 20 metros": 3,
+          "Compuesto": 0,
+          "PAF Raso Sub-13 - 20 metros": 1,
+          "JP Recurvo Sub-18 E80": 0
+        },
+        "podiums_by_division": {
+          "Longbow": 7,
+          "Tradicional": 4,
+          "Long Bow": 9,
+          "Recurvo Masculino 50+": 28,
+          "Recurvo Femenino 50+": 20,
+          "Recurvo Escuela 50": 7,
+          "Recurvo Escuela 40": 10,
+          "Recurvo Escuela 30": 1,
+          "PAF Recurvo Sub-13 - 30 metros": 1,
+          "Recurvo": 23,
+          "Compuesto Masculino 50+": 6,
+          "Recurvo Escuela 60": 5,
+          "Recurvo Escuela 80": 4,
+          "Recurvo Femenino Sub-21": 14,
+          "PAF Recurvo Sub-15 - 20 metros": 1,
+          "PAF Recurvo Sub-15 - 30 metros": 3,
+          "Recurvo Escuela 20": 5,
+          "Tradicional Escuela 20": 2,
+          "PAF Raso Sub-13 - 15 metros": 1,
+          "PAF Recurvo Sub-13 - 20 metros": 4,
+          "Compuesto": 1,
+          "PAF Raso Sub-13 - 20 metros": 1,
+          "JP Recurvo Sub-18 E80": 1
+        },
+        "disciplines_participated": [
+          "Campo",
+          "3D",
+          "Aire Libre",
+          "Sala"
+        ],
+        "last_activity": "2026-08-23",
+        "tournaments_hosted": 0
+      }
+    },
+    {
       "id": "taglm",
       "name": "TAGLM",
       "abbreviation": "TAGLM",
@@ -3101,74 +3169,6 @@
           "Recurvo Masculino Sub-21": 4,
           "Compuesto E-Avanzada": 2,
           "Compuesto Escuela 40": 1
-        },
-        "disciplines_participated": [
-          "Campo",
-          "3D",
-          "Aire Libre",
-          "Sala"
-        ],
-        "last_activity": "2026-08-02",
-        "tournaments_hosted": 0
-      }
-    },
-    {
-      "id": "far",
-      "name": "FAR",
-      "abbreviation": "FAR",
-      "stats": {
-        "total_members_seen": 39,
-        "tournaments_participated": 84,
-        "total_archer_entries": 246,
-        "wins_by_division": {
-          "Longbow": 3,
-          "Tradicional": 1,
-          "Long Bow": 1,
-          "Recurvo Masculino 50+": 17,
-          "Recurvo Femenino 50+": 15,
-          "Recurvo Escuela 50": 2,
-          "Recurvo Escuela 40": 4,
-          "Recurvo Escuela 30": 1,
-          "PAF Recurvo Sub-13 - 30 metros": 0,
-          "Recurvo": 9,
-          "Compuesto Masculino 50+": 4,
-          "Recurvo Escuela 60": 1,
-          "Recurvo Escuela 80": 2,
-          "Recurvo Femenino Sub-21": 9,
-          "PAF Recurvo Sub-15 - 20 metros": 0,
-          "PAF Recurvo Sub-15 - 30 metros": 2,
-          "Recurvo Escuela 20": 3,
-          "Tradicional Escuela 20": 1,
-          "PAF Raso Sub-13 - 15 metros": 1,
-          "PAF Recurvo Sub-13 - 20 metros": 3,
-          "Compuesto": 0,
-          "PAF Raso Sub-13 - 20 metros": 1,
-          "JP Recurvo Sub-18 E80": 0
-        },
-        "podiums_by_division": {
-          "Longbow": 7,
-          "Tradicional": 4,
-          "Long Bow": 9,
-          "Recurvo Masculino 50+": 27,
-          "Recurvo Femenino 50+": 19,
-          "Recurvo Escuela 50": 6,
-          "Recurvo Escuela 40": 10,
-          "Recurvo Escuela 30": 1,
-          "PAF Recurvo Sub-13 - 30 metros": 1,
-          "Recurvo": 22,
-          "Compuesto Masculino 50+": 6,
-          "Recurvo Escuela 60": 5,
-          "Recurvo Escuela 80": 4,
-          "Recurvo Femenino Sub-21": 14,
-          "PAF Recurvo Sub-15 - 20 metros": 1,
-          "PAF Recurvo Sub-15 - 30 metros": 3,
-          "Recurvo Escuela 20": 5,
-          "Tradicional Escuela 20": 2,
-          "PAF Raso Sub-13 - 15 metros": 1,
-          "PAF Recurvo Sub-13 - 20 metros": 4,
-          "Compuesto": 1,
-          "PAF Raso Sub-13 - 20 metros": 1,
-          "JP Recurvo Sub-18 E80": 1
         },
         "disciplines_participated": [
           "Campo",
@@ -4268,6 +4268,42 @@
       }
     },
     {
+      "id": "somisa",
+      "name": "SOMISA",
+      "abbreviation": "SOMISA",
+      "stats": {
+        "total_members_seen": 8,
+        "tournaments_participated": 79,
+        "total_archer_entries": 154,
+        "wins_by_division": {
+          "Raso": 28,
+          "Raso Masculino 50+": 4,
+          "Raso E-Avanzada": 1,
+          "Recurvo": 0,
+          "Compuesto": 2,
+          "P.I.2 Compuesto": 10,
+          "Raso Escuela 30": 0
+        },
+        "podiums_by_division": {
+          "Raso": 74,
+          "Raso Masculino 50+": 5,
+          "Raso E-Avanzada": 1,
+          "Recurvo": 0,
+          "Compuesto": 4,
+          "P.I.2 Compuesto": 12,
+          "Raso Escuela 30": 0
+        },
+        "disciplines_participated": [
+          "Campo",
+          "3D",
+          "Aire Libre",
+          "Sala"
+        ],
+        "last_activity": "2026-08-23",
+        "tournaments_hosted": 0
+      }
+    },
+    {
       "id": "fdn",
       "name": "FDN",
       "abbreviation": "FDN",
@@ -4348,42 +4384,6 @@
           "Campo"
         ],
         "last_activity": "2026-06-28",
-        "tournaments_hosted": 0
-      }
-    },
-    {
-      "id": "somisa",
-      "name": "SOMISA",
-      "abbreviation": "SOMISA",
-      "stats": {
-        "total_members_seen": 8,
-        "tournaments_participated": 78,
-        "total_archer_entries": 153,
-        "wins_by_division": {
-          "Raso": 28,
-          "Raso Masculino 50+": 4,
-          "Raso E-Avanzada": 1,
-          "Recurvo": 0,
-          "Compuesto": 2,
-          "P.I.2 Compuesto": 10,
-          "Raso Escuela 30": 0
-        },
-        "podiums_by_division": {
-          "Raso": 74,
-          "Raso Masculino 50+": 5,
-          "Raso E-Avanzada": 1,
-          "Recurvo": 0,
-          "Compuesto": 4,
-          "P.I.2 Compuesto": 11,
-          "Raso Escuela 30": 0
-        },
-        "disciplines_participated": [
-          "Campo",
-          "3D",
-          "Aire Libre",
-          "Sala"
-        ],
-        "last_activity": "2026-08-02",
         "tournaments_hosted": 0
       }
     },
@@ -7100,8 +7100,8 @@
       "abbreviation": "SCC",
       "stats": {
         "total_members_seen": 4,
-        "tournaments_participated": 38,
-        "total_archer_entries": 61,
+        "tournaments_participated": 39,
+        "total_archer_entries": 64,
         "wins_by_division": {
           "Recurvo": 6,
           "Recurvo Masculino 50+": 9,
@@ -7113,7 +7113,7 @@
         },
         "podiums_by_division": {
           "Recurvo": 16,
-          "Recurvo Masculino 50+": 12,
+          "Recurvo Masculino 50+": 13,
           "Recurvo Escuela 50": 1,
           "Recurvo Escuela 60": 5,
           "Recurvo Escuela 20": 1,
@@ -7124,7 +7124,71 @@
           "Campo",
           "Aire Libre"
         ],
-        "last_activity": "2026-05-17",
+        "last_activity": "2026-08-23",
+        "tournaments_hosted": 0
+      }
+    },
+    {
+      "id": "tacaa",
+      "name": "TACAA",
+      "abbreviation": "TACAA",
+      "stats": {
+        "total_members_seen": 14,
+        "tournaments_participated": 20,
+        "total_archer_entries": 60,
+        "wins_by_division": {
+          "Recurvo": 1,
+          "Recurvo Masculino Sub-18": 1,
+          "Recurvo Escuela 30": 0,
+          "Compuesto Escuela 30": 1,
+          "Raso Escuela 20": 0,
+          "Recurvo Escuela 40": 0,
+          "Recurvo Escuela 20": 0,
+          "Raso Escuela 30": 0,
+          "PAF Raso Sub-13 - 15 metros": 0,
+          "Raso Escuela 40": 0,
+          "Recurvo Escuela 50": 3,
+          "Compuesto Escuela 40": 3,
+          "Raso": 0,
+          "Raso Masculino 50+": 0,
+          "Recurvo Escuela 60": 1,
+          "Raso Escuela 60": 0,
+          "Raso Escuela 80": 0,
+          "Escuela Infantil Sub-13": 0,
+          "Recurvo Masculino Sub-21": 1,
+          "JP Recurvo Sub-15 E80": 1,
+          "Compuesto": 0,
+          "JP Recurvo Sub-15 E60": 0
+        },
+        "podiums_by_division": {
+          "Recurvo": 1,
+          "Recurvo Masculino Sub-18": 2,
+          "Recurvo Escuela 30": 1,
+          "Compuesto Escuela 30": 3,
+          "Raso Escuela 20": 0,
+          "Recurvo Escuela 40": 2,
+          "Recurvo Escuela 20": 2,
+          "Raso Escuela 30": 4,
+          "PAF Raso Sub-13 - 15 metros": 1,
+          "Raso Escuela 40": 1,
+          "Recurvo Escuela 50": 3,
+          "Compuesto Escuela 40": 7,
+          "Raso": 1,
+          "Raso Masculino 50+": 0,
+          "Recurvo Escuela 60": 2,
+          "Raso Escuela 60": 0,
+          "Raso Escuela 80": 0,
+          "Escuela Infantil Sub-13": 1,
+          "Recurvo Masculino Sub-21": 4,
+          "JP Recurvo Sub-15 E80": 1,
+          "Compuesto": 0,
+          "JP Recurvo Sub-15 E60": 1
+        },
+        "disciplines_participated": [
+          "Sala",
+          "Aire Libre"
+        ],
+        "last_activity": "2026-08-23",
         "tournaments_hosted": 0
       }
     },
@@ -7262,70 +7326,6 @@
           "Aire Libre"
         ],
         "last_activity": "2025-09-28",
-        "tournaments_hosted": 0
-      }
-    },
-    {
-      "id": "tacaa",
-      "name": "TACAA",
-      "abbreviation": "TACAA",
-      "stats": {
-        "total_members_seen": 14,
-        "tournaments_participated": 19,
-        "total_archer_entries": 59,
-        "wins_by_division": {
-          "Recurvo": 1,
-          "Recurvo Masculino Sub-18": 1,
-          "Recurvo Escuela 30": 0,
-          "Compuesto Escuela 30": 1,
-          "Raso Escuela 20": 0,
-          "Recurvo Escuela 40": 0,
-          "Recurvo Escuela 20": 0,
-          "Raso Escuela 30": 0,
-          "PAF Raso Sub-13 - 15 metros": 0,
-          "Raso Escuela 40": 0,
-          "Recurvo Escuela 50": 3,
-          "Compuesto Escuela 40": 2,
-          "Raso": 0,
-          "Raso Masculino 50+": 0,
-          "Recurvo Escuela 60": 1,
-          "Raso Escuela 60": 0,
-          "Raso Escuela 80": 0,
-          "Escuela Infantil Sub-13": 0,
-          "Recurvo Masculino Sub-21": 1,
-          "JP Recurvo Sub-15 E80": 1,
-          "Compuesto": 0,
-          "JP Recurvo Sub-15 E60": 0
-        },
-        "podiums_by_division": {
-          "Recurvo": 1,
-          "Recurvo Masculino Sub-18": 2,
-          "Recurvo Escuela 30": 1,
-          "Compuesto Escuela 30": 3,
-          "Raso Escuela 20": 0,
-          "Recurvo Escuela 40": 2,
-          "Recurvo Escuela 20": 2,
-          "Raso Escuela 30": 4,
-          "PAF Raso Sub-13 - 15 metros": 1,
-          "Raso Escuela 40": 1,
-          "Recurvo Escuela 50": 3,
-          "Compuesto Escuela 40": 6,
-          "Raso": 1,
-          "Raso Masculino 50+": 0,
-          "Recurvo Escuela 60": 2,
-          "Raso Escuela 60": 0,
-          "Raso Escuela 80": 0,
-          "Escuela Infantil Sub-13": 1,
-          "Recurvo Masculino Sub-21": 4,
-          "JP Recurvo Sub-15 E80": 1,
-          "Compuesto": 0,
-          "JP Recurvo Sub-15 E60": 1
-        },
-        "disciplines_participated": [
-          "Sala",
-          "Aire Libre"
-        ],
-        "last_activity": "2026-08-02",
         "tournaments_hosted": 0
       }
     },
@@ -7482,6 +7482,62 @@
       }
     },
     {
+      "id": "atcac",
+      "name": "ATCAC",
+      "abbreviation": "ATCAC",
+      "stats": {
+        "total_members_seen": 13,
+        "tournaments_participated": 18,
+        "total_archer_entries": 55,
+        "wins_by_division": {
+          "Raso": 0,
+          "Raso Masculino Sub-15": 1,
+          "Compuesto Escuela 30": 0,
+          "Raso Escuela 40": 1,
+          "PAF Raso Sub-13 - 30 metros": 1,
+          "PAF Raso Sub-15 - 20 metros": 1,
+          "Recurvo Escuela 30": 0,
+          "Recurvo Escuela 40": 2,
+          "Raso Escuela 30": 1,
+          "Recurvo Escuela 20": 2,
+          "Compuesto Escuela 40": 3,
+          "Raso Escuela 20": 2,
+          "PAF Raso Sub-13 - 15 metros": 0,
+          "Recurvo Escuela 60": 0,
+          "Raso Escuela 60": 1,
+          "Recurvo Escuela 80": 0,
+          "Recurvo Escuela 50": 1,
+          "JP Recurvo Sub-18 E30": 0
+        },
+        "podiums_by_division": {
+          "Raso": 1,
+          "Raso Masculino Sub-15": 2,
+          "Compuesto Escuela 30": 1,
+          "Raso Escuela 40": 3,
+          "PAF Raso Sub-13 - 30 metros": 1,
+          "PAF Raso Sub-15 - 20 metros": 1,
+          "Recurvo Escuela 30": 2,
+          "Recurvo Escuela 40": 6,
+          "Raso Escuela 30": 2,
+          "Recurvo Escuela 20": 2,
+          "Compuesto Escuela 40": 5,
+          "Raso Escuela 20": 4,
+          "PAF Raso Sub-13 - 15 metros": 1,
+          "Recurvo Escuela 60": 1,
+          "Raso Escuela 60": 3,
+          "Recurvo Escuela 80": 1,
+          "Recurvo Escuela 50": 3,
+          "JP Recurvo Sub-18 E30": 0
+        },
+        "disciplines_participated": [
+          "Aire Libre",
+          "Sala"
+        ],
+        "last_activity": "2026-08-23",
+        "tournaments_hosted": 0
+      }
+    },
+    {
       "id": "cartam",
       "name": "CARTAM",
       "abbreviation": "CARTAM",
@@ -7589,62 +7645,6 @@
           "3D"
         ],
         "last_activity": "2025-04-20",
-        "tournaments_hosted": 0
-      }
-    },
-    {
-      "id": "atcac",
-      "name": "ATCAC",
-      "abbreviation": "ATCAC",
-      "stats": {
-        "total_members_seen": 13,
-        "tournaments_participated": 17,
-        "total_archer_entries": 53,
-        "wins_by_division": {
-          "Raso": 0,
-          "Raso Masculino Sub-15": 1,
-          "Compuesto Escuela 30": 0,
-          "Raso Escuela 40": 1,
-          "PAF Raso Sub-13 - 30 metros": 1,
-          "PAF Raso Sub-15 - 20 metros": 1,
-          "Recurvo Escuela 30": 0,
-          "Recurvo Escuela 40": 2,
-          "Raso Escuela 30": 1,
-          "Recurvo Escuela 20": 2,
-          "Compuesto Escuela 40": 3,
-          "Raso Escuela 20": 2,
-          "PAF Raso Sub-13 - 15 metros": 0,
-          "Recurvo Escuela 60": 0,
-          "Raso Escuela 60": 1,
-          "Recurvo Escuela 80": 0,
-          "Recurvo Escuela 50": 1,
-          "JP Recurvo Sub-18 E30": 0
-        },
-        "podiums_by_division": {
-          "Raso": 1,
-          "Raso Masculino Sub-15": 2,
-          "Compuesto Escuela 30": 1,
-          "Raso Escuela 40": 3,
-          "PAF Raso Sub-13 - 30 metros": 1,
-          "PAF Raso Sub-15 - 20 metros": 1,
-          "Recurvo Escuela 30": 2,
-          "Recurvo Escuela 40": 6,
-          "Raso Escuela 30": 2,
-          "Recurvo Escuela 20": 2,
-          "Compuesto Escuela 40": 5,
-          "Raso Escuela 20": 4,
-          "PAF Raso Sub-13 - 15 metros": 1,
-          "Recurvo Escuela 60": 1,
-          "Raso Escuela 60": 3,
-          "Recurvo Escuela 80": 1,
-          "Recurvo Escuela 50": 3,
-          "JP Recurvo Sub-18 E30": 0
-        },
-        "disciplines_participated": [
-          "Aire Libre",
-          "Sala"
-        ],
-        "last_activity": "2026-05-17",
         "tournaments_hosted": 0
       }
     },
@@ -7893,6 +7893,39 @@
       }
     },
     {
+      "id": "ccyp",
+      "name": "CCYP",
+      "abbreviation": "CCYP",
+      "stats": {
+        "total_members_seen": 5,
+        "tournaments_participated": 27,
+        "total_archer_entries": 44,
+        "wins_by_division": {
+          "Raso": 5,
+          "Raso Escuela 20": 0,
+          "Raso Escuela 30": 1,
+          "Raso Masculino 50+": 1,
+          "Compuesto Masculino 50+": 0,
+          "Raso Escuela 80": 1
+        },
+        "podiums_by_division": {
+          "Raso": 18,
+          "Raso Escuela 20": 1,
+          "Raso Escuela 30": 1,
+          "Raso Masculino 50+": 1,
+          "Compuesto Masculino 50+": 1,
+          "Raso Escuela 80": 1
+        },
+        "disciplines_participated": [
+          "3D",
+          "Aire Libre",
+          "Sala"
+        ],
+        "last_activity": "2026-08-23",
+        "tournaments_hosted": 0
+      }
+    },
+    {
       "id": "kar",
       "name": "KAR",
       "abbreviation": "KAR",
@@ -8007,37 +8040,6 @@
       }
     },
     {
-      "id": "ccyp",
-      "name": "CCYP",
-      "abbreviation": "CCYP",
-      "stats": {
-        "total_members_seen": 5,
-        "tournaments_participated": 26,
-        "total_archer_entries": 41,
-        "wins_by_division": {
-          "Raso": 4,
-          "Raso Escuela 20": 0,
-          "Raso Escuela 30": 1,
-          "Compuesto Masculino 50+": 0,
-          "Raso Escuela 80": 1
-        },
-        "podiums_by_division": {
-          "Raso": 16,
-          "Raso Escuela 20": 1,
-          "Raso Escuela 30": 1,
-          "Compuesto Masculino 50+": 1,
-          "Raso Escuela 80": 1
-        },
-        "disciplines_participated": [
-          "3D",
-          "Aire Libre",
-          "Sala"
-        ],
-        "last_activity": "2026-08-02",
-        "tournaments_hosted": 0
-      }
-    },
-    {
       "id": "tifaz",
       "name": "TIFAZ",
       "abbreviation": "TIFAZ",
@@ -8131,6 +8133,50 @@
       }
     },
     {
+      "id": "tcasm",
+      "name": "TCASM",
+      "abbreviation": "TCASM",
+      "stats": {
+        "total_members_seen": 10,
+        "tournaments_participated": 10,
+        "total_archer_entries": 40,
+        "wins_by_division": {
+          "Compuesto": 1,
+          "Recurvo Escuela 40": 1,
+          "Recurvo Escuela 20": 1,
+          "JP Recurvo Sub-18 E50": 0,
+          "Recurvo Escuela 50": 0,
+          "Recurvo Escuela 30": 1,
+          "JP Recurvo Sub-15 E30": 1,
+          "JP Recurvo Sub-15 E60": 2,
+          "Recurvo": 0,
+          "Compuesto Masculino 50+": 5,
+          "Recurvo Escuela 60": 1,
+          "Recurvo Escuela 80": 1
+        },
+        "podiums_by_division": {
+          "Compuesto": 2,
+          "Recurvo Escuela 40": 8,
+          "Recurvo Escuela 20": 2,
+          "JP Recurvo Sub-18 E50": 1,
+          "Recurvo Escuela 50": 0,
+          "Recurvo Escuela 30": 2,
+          "JP Recurvo Sub-15 E30": 2,
+          "JP Recurvo Sub-15 E60": 2,
+          "Recurvo": 0,
+          "Compuesto Masculino 50+": 5,
+          "Recurvo Escuela 60": 4,
+          "Recurvo Escuela 80": 3
+        },
+        "disciplines_participated": [
+          "Aire Libre",
+          "Sala"
+        ],
+        "last_activity": "2026-08-23",
+        "tournaments_hosted": 0
+      }
+    },
+    {
       "id": "utnsr",
       "name": "UTNSR",
       "abbreviation": "UTNSR",
@@ -8198,50 +8244,6 @@
           "Sala"
         ],
         "last_activity": "2026-07-26",
-        "tournaments_hosted": 0
-      }
-    },
-    {
-      "id": "tcasm",
-      "name": "TCASM",
-      "abbreviation": "TCASM",
-      "stats": {
-        "total_members_seen": 10,
-        "tournaments_participated": 9,
-        "total_archer_entries": 37,
-        "wins_by_division": {
-          "JP Recurvo Sub-18 E50": 0,
-          "Compuesto": 1,
-          "Recurvo Escuela 50": 0,
-          "Recurvo Escuela 40": 1,
-          "Recurvo Escuela 30": 1,
-          "Recurvo Escuela 20": 1,
-          "JP Recurvo Sub-15 E30": 1,
-          "JP Recurvo Sub-15 E60": 2,
-          "Recurvo": 0,
-          "Compuesto Masculino 50+": 5,
-          "Recurvo Escuela 60": 1,
-          "Recurvo Escuela 80": 1
-        },
-        "podiums_by_division": {
-          "JP Recurvo Sub-18 E50": 1,
-          "Compuesto": 1,
-          "Recurvo Escuela 50": 0,
-          "Recurvo Escuela 40": 7,
-          "Recurvo Escuela 30": 2,
-          "Recurvo Escuela 20": 1,
-          "JP Recurvo Sub-15 E30": 2,
-          "JP Recurvo Sub-15 E60": 2,
-          "Recurvo": 0,
-          "Compuesto Masculino 50+": 5,
-          "Recurvo Escuela 60": 4,
-          "Recurvo Escuela 80": 3
-        },
-        "disciplines_participated": [
-          "Aire Libre",
-          "Sala"
-        ],
-        "last_activity": "2026-08-02",
         "tournaments_hosted": 0
       }
     },

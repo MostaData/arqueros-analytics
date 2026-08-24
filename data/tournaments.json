@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-08-23T07:09:14.506Z",
-    "total_tournaments": 439
+    "last_updated": "2026-08-24T07:25:39.132Z",
+    "total_tournaments": 440
   },
   "tournaments": [
     {
@@ -14462,6 +14462,40 @@
       ],
       "total_archers": 27,
       "scraped_at": "2026-08-17T07:17:35.345Z",
+      "stub_only": false
+    },
+    {
+      "id": 916,
+      "date": "2026-08-23",
+      "date_raw": "23/08/2026",
+      "discipline_name": "Aire Libre",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Tiro Federal de Rosario",
+      "categories": [
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Recurvo Femenino Sub-21",
+        "Recurvo Masculino 50+",
+        "Recurvo Femenino 50+",
+        "Compuesto Masculino",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Raso Masculino 50+",
+        "Tradicional Masculino",
+        "Longbow Masculino",
+        "Recurvo Escuela 60",
+        "Recurvo Escuela 50",
+        "Recurvo Escuela 40",
+        "Recurvo Escuela 30",
+        "Recurvo Escuela 20",
+        "Compuesto Escuela 40",
+        "Raso Escuela 40",
+        "P.I.2 Compuesto Masculino"
+      ],
+      "total_archers": 51,
+      "scraped_at": "2026-08-24T07:18:33.135Z",
       "stub_only": false
     }
   ]
