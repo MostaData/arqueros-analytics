@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-08-29T12:51:18.018Z",
-    "total_tournaments": 440
+    "last_updated": "2026-08-30T11:56:14.822Z",
+    "total_tournaments": 441
   },
   "tournaments": [
     {
@@ -14462,6 +14462,27 @@
       ],
       "total_archers": 27,
       "scraped_at": "2026-08-17T07:17:35.345Z",
+      "stub_only": false
+    },
+    {
+      "id": 913,
+      "date": "2026-08-23",
+      "date_raw": "23/08/2026",
+      "discipline_name": "Campo",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Club Somisa",
+      "categories": [
+        "Raso Masculino",
+        "Raso Femenino",
+        "Longbow Masculino",
+        "Longbow Femenino",
+        "Tradicional Masculino",
+        "Tradicional Femenino"
+      ],
+      "total_archers": 16,
+      "scraped_at": "2026-08-30T11:49:05.764Z",
       "stub_only": false
     },
     {

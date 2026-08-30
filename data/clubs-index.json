@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-08-29T12:51:18.018Z",
+    "last_updated": "2026-08-30T11:56:14.822Z",
     "total_clubs": 177
   },
   "clubs": [
@@ -10,8 +10,8 @@
       "abbreviation": "ONA",
       "stats": {
         "total_members_seen": 134,
-        "tournaments_participated": 94,
-        "total_archer_entries": 1145,
+        "tournaments_participated": 95,
+        "total_archer_entries": 1146,
         "wins_by_division": {
           "Longbow": 21,
           "Long Bow": 1,
@@ -30,7 +30,7 @@
           "Compuesto Escuela 80": 1,
           "Raso Escuela 60": 3,
           "Compuesto": 7,
-          "Raso": 7,
+          "Raso": 8,
           "Recurvo Escuela 50": 4,
           "Recurvo Escuela 30": 5,
           "Recurvo Escuela 20": 4,
@@ -77,7 +77,7 @@
           "Compuesto Escuela 80": 1,
           "Raso Escuela 60": 6,
           "Compuesto": 18,
-          "Raso": 16,
+          "Raso": 17,
           "Recurvo Escuela 50": 16,
           "Recurvo Escuela 30": 20,
           "Recurvo Escuela 20": 17,
@@ -112,7 +112,7 @@
           "Aire Libre",
           "Sala"
         ],
-        "last_activity": "2026-08-09",
+        "last_activity": "2026-08-23",
         "tournaments_hosted": 0
       }
     },
@@ -520,8 +520,8 @@
       "abbreviation": "TFAR",
       "stats": {
         "total_members_seen": 86,
-        "tournaments_participated": 98,
-        "total_archer_entries": 535,
+        "tournaments_participated": 99,
+        "total_archer_entries": 537,
         "wins_by_division": {
           "Longbow": 8,
           "Escuela Infantil Sub-13": 1,
@@ -546,7 +546,7 @@
           "Recurvo Escuela 30": 8,
           "Raso Escuela 30": 4,
           "Compuesto Escuela 40": 1,
-          "Tradicional": 20,
+          "Tradicional": 21,
           "Recurvo Femenino Sub-18": 2,
           "Recurvo Masculino Sub-15": 2,
           "Raso Escuela 40": 0,
@@ -579,7 +579,7 @@
           "Recurvo Escuela 30": 12,
           "Raso Escuela 30": 5,
           "Compuesto Escuela 40": 1,
-          "Tradicional": 42,
+          "Tradicional": 44,
           "Recurvo Femenino Sub-18": 4,
           "Recurvo Masculino Sub-15": 4,
           "Raso Escuela 40": 3,
@@ -1591,10 +1591,10 @@
       "abbreviation": "CTI",
       "stats": {
         "total_members_seen": 34,
-        "tournaments_participated": 92,
-        "total_archer_entries": 362,
+        "tournaments_participated": 93,
+        "total_archer_entries": 363,
         "wins_by_division": {
-          "Longbow": 41,
+          "Longbow": 42,
           "Compuesto": 4,
           "Raso": 1,
           "Long Bow": 19,
@@ -1607,7 +1607,7 @@
           "Tradicional E-Inicial": 1
         },
         "podiums_by_division": {
-          "Longbow": 74,
+          "Longbow": 75,
           "Compuesto": 6,
           "Raso": 6,
           "Long Bow": 36,
@@ -1625,7 +1625,7 @@
           "Aire Libre",
           "Sala"
         ],
-        "last_activity": "2026-08-09",
+        "last_activity": "2026-08-23",
         "tournaments_hosted": 0
       }
     },
@@ -4273,10 +4273,10 @@
       "abbreviation": "SOMISA",
       "stats": {
         "total_members_seen": 8,
-        "tournaments_participated": 79,
-        "total_archer_entries": 154,
+        "tournaments_participated": 80,
+        "total_archer_entries": 157,
         "wins_by_division": {
-          "Raso": 28,
+          "Raso": 29,
           "Raso Masculino 50+": 4,
           "Raso E-Avanzada": 1,
           "Recurvo": 0,
@@ -4285,7 +4285,7 @@
           "Raso Escuela 30": 0
         },
         "podiums_by_division": {
-          "Raso": 74,
+          "Raso": 77,
           "Raso Masculino 50+": 5,
           "Raso E-Avanzada": 1,
           "Recurvo": 0,
@@ -6794,6 +6794,52 @@
       }
     },
     {
+      "id": "cai",
+      "name": "CAI",
+      "abbreviation": "CAI",
+      "stats": {
+        "total_members_seen": 24,
+        "tournaments_participated": 14,
+        "total_archer_entries": 71,
+        "wins_by_division": {
+          "Longbow": 0,
+          "Tradicional": 3,
+          "Long Bow": 1,
+          "Tradicional Escuela": 2,
+          "Raso Escuela": 0,
+          "Raso": 1,
+          "Raso Escuela 60": 0,
+          "Raso Escuela 80": 0,
+          "Longbow Escuela 80": 0,
+          "Tradicional Escuela 80": 1,
+          "Recurvo": 0,
+          "Tradicional E-Inicial": 0
+        },
+        "podiums_by_division": {
+          "Longbow": 3,
+          "Tradicional": 10,
+          "Long Bow": 3,
+          "Tradicional Escuela": 5,
+          "Raso Escuela": 1,
+          "Raso": 2,
+          "Raso Escuela 60": 0,
+          "Raso Escuela 80": 0,
+          "Longbow Escuela 80": 1,
+          "Tradicional Escuela 80": 2,
+          "Recurvo": 0,
+          "Tradicional E-Inicial": 1
+        },
+        "disciplines_participated": [
+          "Campo",
+          "3D",
+          "Aire Libre",
+          "Sala"
+        ],
+        "last_activity": "2026-08-23",
+        "tournaments_hosted": 0
+      }
+    },
+    {
       "id": "tcala",
       "name": "TCALA",
       "abbreviation": "TCALA",
@@ -6958,52 +7004,6 @@
           "Sala"
         ],
         "last_activity": "2026-08-02",
-        "tournaments_hosted": 0
-      }
-    },
-    {
-      "id": "cai",
-      "name": "CAI",
-      "abbreviation": "CAI",
-      "stats": {
-        "total_members_seen": 24,
-        "tournaments_participated": 13,
-        "total_archer_entries": 68,
-        "wins_by_division": {
-          "Long Bow": 1,
-          "Tradicional": 2,
-          "Tradicional Escuela": 2,
-          "Raso Escuela": 0,
-          "Longbow": 0,
-          "Raso": 1,
-          "Raso Escuela 60": 0,
-          "Raso Escuela 80": 0,
-          "Longbow Escuela 80": 0,
-          "Tradicional Escuela 80": 1,
-          "Recurvo": 0,
-          "Tradicional E-Inicial": 0
-        },
-        "podiums_by_division": {
-          "Long Bow": 3,
-          "Tradicional": 8,
-          "Tradicional Escuela": 5,
-          "Raso Escuela": 1,
-          "Longbow": 2,
-          "Raso": 2,
-          "Raso Escuela 60": 0,
-          "Raso Escuela 80": 0,
-          "Longbow Escuela 80": 1,
-          "Tradicional Escuela 80": 2,
-          "Recurvo": 0,
-          "Tradicional E-Inicial": 1
-        },
-        "disciplines_participated": [
-          "3D",
-          "Aire Libre",
-          "Sala",
-          "Campo"
-        ],
-        "last_activity": "2026-08-09",
         "tournaments_hosted": 0
       }
     },
@@ -8482,6 +8482,34 @@
       }
     },
     {
+      "id": "aea",
+      "name": "AEA",
+      "abbreviation": "AEA",
+      "stats": {
+        "total_members_seen": 7,
+        "tournaments_participated": 8,
+        "total_archer_entries": 33,
+        "wins_by_division": {
+          "Longbow": 3,
+          "Tradicional": 0,
+          "Long Bow": 3,
+          "Tradicional Escuela": 1
+        },
+        "podiums_by_division": {
+          "Longbow": 7,
+          "Tradicional": 4,
+          "Long Bow": 6,
+          "Tradicional Escuela": 2
+        },
+        "disciplines_participated": [
+          "Campo",
+          "3D"
+        ],
+        "last_activity": "2026-08-23",
+        "tournaments_hosted": 0
+      }
+    },
+    {
       "id": "ccypa",
       "name": "CCYPA",
       "abbreviation": "CCYPA",
@@ -8665,34 +8693,6 @@
           "Sala"
         ],
         "last_activity": "2025-11-09",
-        "tournaments_hosted": 0
-      }
-    },
-    {
-      "id": "aea",
-      "name": "AEA",
-      "abbreviation": "AEA",
-      "stats": {
-        "total_members_seen": 7,
-        "tournaments_participated": 7,
-        "total_archer_entries": 27,
-        "wins_by_division": {
-          "Long Bow": 3,
-          "Tradicional Escuela": 1,
-          "Tradicional": 0,
-          "Longbow": 2
-        },
-        "podiums_by_division": {
-          "Long Bow": 6,
-          "Tradicional Escuela": 2,
-          "Tradicional": 2,
-          "Longbow": 4
-        },
-        "disciplines_participated": [
-          "3D",
-          "Campo"
-        ],
-        "last_activity": "2026-08-09",
         "tournaments_hosted": 0
       }
     },
