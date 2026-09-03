@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-09-02T11:18:42.536Z",
-    "total_tournaments": 441
+    "last_updated": "2026-09-03T11:17:26.028Z",
+    "total_tournaments": 442
   },
   "tournaments": [
     {
@@ -1724,6 +1724,62 @@
       ],
       "total_archers": 195,
       "scraped_at": "2026-05-05T11:35:08.364Z",
+      "stub_only": false
+    },
+    {
+      "id": 957,
+      "date": null,
+      "date_raw": "29 y 30/08/2026",
+      "discipline_name": "Aire Libre",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Club Universitario de Arquería",
+      "categories": [
+        "JP Raso Sub-15 E20",
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Recurvo Masculino Sub-21",
+        "Recurvo Femenino Sub-21",
+        "Recurvo Masculino Sub-18",
+        "Recurvo Femenino Sub-18",
+        "Recurvo Femenino Sub-15",
+        "Recurvo Masculino 50+",
+        "Recurvo Femenino 50+",
+        "Compuesto Masculino",
+        "Compuesto Femenino",
+        "Compuesto Masculino Sub-21",
+        "Compuesto Femenino Sub-21",
+        "Compuesto Femenino Sub-15",
+        "Compuesto Masculino 50+",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Raso Femenino Sub-15",
+        "Raso Masculino 50+",
+        "Raso Femenino 50+",
+        "Tradicional Masculino",
+        "Tradicional Femenino",
+        "Longbow Masculino",
+        "Longbow Femenino",
+        "Cazador Masculino",
+        "Recurvo Escuela 60",
+        "Recurvo Escuela 50",
+        "Recurvo Escuela 40",
+        "Recurvo Escuela 30",
+        "Recurvo Escuela 20",
+        "Compuesto Escuela 40",
+        "Compuesto Escuela 30",
+        "Raso Escuela 40",
+        "Raso Escuela 30",
+        "Raso Escuela 20",
+        "Longbow Escuela 20",
+        "Tradicional Escuela 20",
+        "P.I.2 Compuesto Masculino",
+        "P.I.2 Recurvo Escuela 20",
+        "P.I.2 Compuesto Escuela 40"
+      ],
+      "total_archers": 193,
+      "scraped_at": "2026-09-03T11:10:46.750Z",
       "stub_only": false
     },
     {
