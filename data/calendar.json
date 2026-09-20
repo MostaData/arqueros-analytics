@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-09-19T10:56:01.625Z",
-    "total_tournaments": 446
+    "last_updated": "2026-09-20T11:20:08.200Z",
+    "total_tournaments": 447
   },
   "tournaments": [
     {
@@ -14620,6 +14620,32 @@
       ],
       "total_archers": 110,
       "scraped_at": "2026-09-11T11:10:15.264Z",
+      "stub_only": false
+    },
+    {
+      "id": 930,
+      "date": "2026-09-06",
+      "date_raw": "06/09/2026",
+      "discipline_name": "3D",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Club Universitario de Puerto Madryn - Arqueros del Golfo",
+      "categories": [
+        "Compuesto Masculino",
+        "Compuesto Femenino",
+        "Raso Masculino",
+        "Raso Femenino",
+        "Long Bow Masculino",
+        "Long Bow Femenino",
+        "Tradicional Masculino",
+        "Recurvo Masculino",
+        "Compuesto Escuela",
+        "Raso Escuela",
+        "Tradicional Escuela"
+      ],
+      "total_archers": 51,
+      "scraped_at": "2026-09-20T11:13:30.494Z",
       "stub_only": false
     },
     {
