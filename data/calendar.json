@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-10-07T13:09:39.364Z",
-    "total_tournaments": 457
+    "last_updated": "2026-10-08T13:16:02.733Z",
+    "total_tournaments": 462
   },
   "tournaments": [
     {
@@ -1955,6 +1955,108 @@
       ],
       "total_archers": 193,
       "scraped_at": "2026-08-20T07:08:28.336Z",
+      "stub_only": false
+    },
+    {
+      "id": 1046,
+      "date": null,
+      "date_raw": "15 al 18 de abril",
+      "discipline_name": "Aire Libre",
+      "discipline_code": 0,
+      "tournament_type": "Internacional",
+      "zone": "",
+      "club": "Federacion Argentina de Tiro con Arco",
+      "categories": [
+        "Recurvo Masculino Sub-18",
+        "Recurvo Femenino Sub-18",
+        "Compuesto Femenino Sub-18"
+      ],
+      "total_archers": 5,
+      "scraped_at": "2026-10-08T13:15:52.609Z",
+      "stub_only": false
+    },
+    {
+      "id": 1047,
+      "date": null,
+      "date_raw": "17 al 23 de mayo",
+      "discipline_name": "Aire Libre",
+      "discipline_code": 0,
+      "tournament_type": "Internacional",
+      "zone": "",
+      "club": "Federacion Argentina de Tiro con Arco",
+      "categories": [
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Compuesto Masculino",
+        "Raso Masculino"
+      ],
+      "total_archers": 6,
+      "scraped_at": "2026-10-08T13:15:55.234Z",
+      "stub_only": false
+    },
+    {
+      "id": 1048,
+      "date": null,
+      "date_raw": "24 al 28 de mayo",
+      "discipline_name": "Aire Libre",
+      "discipline_code": 0,
+      "tournament_type": "Internacional",
+      "zone": "",
+      "club": "Federacion Argentina de Tiro con Arco",
+      "categories": [
+        "Recurvo Masculino Sub-21",
+        "Recurvo Femenino Sub-21",
+        "Recurvo Masculino 50+",
+        "Recurvo Femenino 50+",
+        "Compuesto Masculino Sub-21",
+        "Compuesto Femenino Sub-21",
+        "Compuesto Masculino 50+",
+        "Compuesto Femenino 50+",
+        "Raso Masculino 50+",
+        "Raso Femenino 50+"
+      ],
+      "total_archers": 19,
+      "scraped_at": "2026-10-08T13:15:57.718Z",
+      "stub_only": false
+    },
+    {
+      "id": 1049,
+      "date": null,
+      "date_raw": "23 al 28 de junio",
+      "discipline_name": "Aire Libre",
+      "discipline_code": 0,
+      "tournament_type": "Internacional",
+      "zone": "",
+      "club": "Federacion Argentina de Tiro con Arco",
+      "categories": [
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Compuesto Masculino",
+        "Compuesto Femenino",
+        "Raso Masculino"
+      ],
+      "total_archers": 10,
+      "scraped_at": "2026-10-08T13:16:00.017Z",
+      "stub_only": false
+    },
+    {
+      "id": 1050,
+      "date": null,
+      "date_raw": "13 y 14 de julio",
+      "discipline_name": "Aire Libre",
+      "discipline_code": 0,
+      "tournament_type": "Internacional",
+      "zone": "",
+      "club": "Federacion Argentina de Tiro con Arco",
+      "categories": [
+        "P.I.1 Femenino",
+        "P.I.2 Recurvo Masculino",
+        "P.I.2 Recurvo Femenino",
+        "P.I.2 Compuesto Masculino",
+        "VI"
+      ],
+      "total_archers": 8,
+      "scraped_at": "2026-10-08T13:16:02.272Z",
       "stub_only": false
     },
     {

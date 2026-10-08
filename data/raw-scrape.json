@@ -1,7 +1,7 @@
 {
   "meta": {
-    "scraped_at": "2026-10-07T13:09:38.855Z",
-    "total_tournaments": 457,
+    "scraped_at": "2026-10-08T13:16:02.272Z",
+    "total_tournaments": 462,
     "id_range": {
       "min": 500,
       "max": 1200
@@ -554609,6 +554609,1114 @@
         }
       ],
       "scraped_at": "2026-09-21T12:41:46.423Z"
+    },
+    "1046": {
+      "id": 1046,
+      "discipline_name": "Aire Libre",
+      "tournament_type": "Internacional",
+      "date_raw": "15 al 18 de abril",
+      "date": null,
+      "club": "Federacion Argentina de Tiro con Arco",
+      "categories": [
+        {
+          "category_raw": "Recurvo Masculino Sub-18",
+          "division": "Recurvo Masculino Sub-18",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Tonina, Gabriel Joaquin",
+              "archer_id": "tonina-gabriel-joaquin",
+              "club_name": "TFCHA",
+              "club_id": "tfcha",
+              "category_raw": "Recurvo Masculino Sub-18",
+              "division": "Recurvo Masculino Sub-18",
+              "gender": "Desconocido",
+              "round1_score": 328,
+              "round1_targets": 1,
+              "round2_score": 335,
+              "round2_targets": 1,
+              "total_score": 663,
+              "total_targets": 1,
+              "elevens": 11,
+              "tens": 16
+            },
+            {
+              "position": 4,
+              "archer_name": "Barbieri, Thiago Agustin",
+              "archer_id": "barbieri-thiago-agustin",
+              "club_name": "CACE",
+              "club_id": "cace",
+              "category_raw": "Recurvo Masculino Sub-18",
+              "division": "Recurvo Masculino Sub-18",
+              "gender": "Desconocido",
+              "round1_score": 311,
+              "round1_targets": 6,
+              "round2_score": 319,
+              "round2_targets": 4,
+              "total_score": 630,
+              "total_targets": 5,
+              "elevens": 6,
+              "tens": 12
+            }
+          ]
+        },
+        {
+          "category_raw": "Recurvo Femenino Sub-18",
+          "division": "Recurvo Femenino Sub-18",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 2,
+              "archer_name": "Chorvat, Isabella Amanda",
+              "archer_id": "chorvat-isabella-amanda",
+              "club_name": "PRHC",
+              "club_id": "prhc",
+              "category_raw": "Recurvo Femenino Sub-18",
+              "division": "Recurvo Femenino Sub-18",
+              "gender": "Desconocido",
+              "round1_score": 313,
+              "round1_targets": 1,
+              "round2_score": 319,
+              "round2_targets": 1,
+              "total_score": 632,
+              "total_targets": 1,
+              "elevens": 5,
+              "tens": 15
+            },
+            {
+              "position": 11,
+              "archer_name": "Gonzalez, Bianca Sofia",
+              "archer_id": "gonzalez-bianca-sofia",
+              "club_name": "CACE",
+              "club_id": "cace",
+              "category_raw": "Recurvo Femenino Sub-18",
+              "division": "Recurvo Femenino Sub-18",
+              "gender": "Desconocido",
+              "round1_score": 300,
+              "round1_targets": 5,
+              "round2_score": 311,
+              "round2_targets": 5,
+              "total_score": 611,
+              "total_targets": 5,
+              "elevens": 4,
+              "tens": 7
+            }
+          ]
+        },
+        {
+          "category_raw": "Compuesto Femenino Sub-18",
+          "division": "Compuesto Femenino Sub-18",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 2,
+              "archer_name": "Gimenez, Maria Belen",
+              "archer_id": "gimenez-maria-belen",
+              "club_name": "HOODS",
+              "club_id": "hoods",
+              "category_raw": "Compuesto Femenino Sub-18",
+              "division": "Compuesto Femenino Sub-18",
+              "gender": "Desconocido",
+              "round1_score": 330,
+              "round1_targets": 2,
+              "round2_score": 339,
+              "round2_targets": 2,
+              "total_score": 669,
+              "total_targets": 2,
+              "elevens": 13,
+              "tens": 23
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-10-08T13:15:52.609Z"
+    },
+    "1047": {
+      "id": 1047,
+      "discipline_name": "Aire Libre",
+      "tournament_type": "Internacional",
+      "date_raw": "17 al 23 de mayo",
+      "date": null,
+      "club": "Federacion Argentina de Tiro con Arco",
+      "categories": [
+        {
+          "category_raw": "Recurvo Masculino",
+          "division": "Recurvo",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 9,
+              "archer_name": "Cañon, Antonio",
+              "archer_id": "canon-antonio",
+              "club_name": "PRHC",
+              "club_id": "prhc",
+              "category_raw": "Recurvo Masculino",
+              "division": "Recurvo",
+              "gender": "Masculino",
+              "round1_score": 313,
+              "round1_targets": 12,
+              "round2_score": 315,
+              "round2_targets": 11,
+              "total_score": 628,
+              "total_targets": 11,
+              "elevens": 8,
+              "tens": 11
+            },
+            {
+              "position": 21,
+              "archer_name": "Storani, Valentín Dario",
+              "archer_id": "storani-valentin-dario",
+              "club_name": "EAVM",
+              "club_id": "eavm",
+              "category_raw": "Recurvo Masculino",
+              "division": "Recurvo",
+              "gender": "Masculino",
+              "round1_score": 278,
+              "round1_targets": 20,
+              "round2_score": 259,
+              "round2_targets": 24,
+              "total_score": 537,
+              "total_targets": 22,
+              "elevens": 3,
+              "tens": 7
+            }
+          ]
+        },
+        {
+          "category_raw": "Recurvo Femenino",
+          "division": "Recurvo",
+          "gender": "Femenino",
+          "results": [
+            {
+              "position": 9,
+              "archer_name": "Moyano, María Belén",
+              "archer_id": "moyano-maria-belen",
+              "club_name": "COPT",
+              "club_id": "copt",
+              "category_raw": "Recurvo Femenino",
+              "division": "Recurvo",
+              "gender": "Femenino",
+              "round1_score": 272,
+              "round1_targets": 11,
+              "round2_score": 270,
+              "round2_targets": 9,
+              "total_score": 542,
+              "total_targets": 10,
+              "elevens": 3,
+              "tens": 5
+            },
+            {
+              "position": 11,
+              "archer_name": "Campos, Jacqueline",
+              "archer_id": "campos-jacqueline",
+              "club_name": "BOSQUE",
+              "club_id": "bosque",
+              "category_raw": "Recurvo Femenino",
+              "division": "Recurvo",
+              "gender": "Femenino",
+              "round1_score": 266,
+              "round1_targets": 12,
+              "round2_score": 260,
+              "round2_targets": 12,
+              "total_score": 526,
+              "total_targets": 12,
+              "elevens": 1,
+              "tens": 5
+            }
+          ]
+        },
+        {
+          "category_raw": "Compuesto Masculino",
+          "division": "Compuesto",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 11,
+              "archer_name": "Salvetti Lernoud, Carlos Federico",
+              "archer_id": "salvetti-lernoud-carlos-federico",
+              "club_name": "FP",
+              "club_id": "fp",
+              "category_raw": "Compuesto Masculino",
+              "division": "Compuesto",
+              "gender": "Masculino",
+              "round1_score": 336,
+              "round1_targets": 15,
+              "round2_score": 343,
+              "round2_targets": 10,
+              "total_score": 679,
+              "total_targets": 12,
+              "elevens": 17,
+              "tens": 20
+            }
+          ]
+        },
+        {
+          "category_raw": "Raso Masculino",
+          "division": "Raso",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Castellanos, Denis Esteban",
+              "archer_id": "castellanos-denis-esteban",
+              "club_name": "CSCA",
+              "club_id": "csca",
+              "category_raw": "Raso Masculino",
+              "division": "Raso",
+              "gender": "Masculino",
+              "round1_score": 324,
+              "round1_targets": 1,
+              "round2_score": 313,
+              "round2_targets": 1,
+              "total_score": 637,
+              "total_targets": 1,
+              "elevens": 5,
+              "tens": 17
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-10-08T13:15:55.234Z"
+    },
+    "1048": {
+      "id": 1048,
+      "discipline_name": "Aire Libre",
+      "tournament_type": "Internacional",
+      "date_raw": "24 al 28 de mayo",
+      "date": null,
+      "club": "Federacion Argentina de Tiro con Arco",
+      "categories": [
+        {
+          "category_raw": "Recurvo Masculino Sub-21",
+          "division": "Recurvo Masculino Sub-21",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 6,
+              "archer_name": "Valera, Moises",
+              "archer_id": "valera-moises",
+              "club_name": "AFAPIECO",
+              "club_id": "afapieco",
+              "category_raw": "Recurvo Masculino Sub-21",
+              "division": "Recurvo Masculino Sub-21",
+              "gender": "Desconocido",
+              "round1_score": 308,
+              "round1_targets": 17,
+              "round2_score": 326,
+              "round2_targets": 5,
+              "total_score": 634,
+              "total_targets": 9,
+              "elevens": 7,
+              "tens": 13
+            },
+            {
+              "position": 14,
+              "archer_name": "Silva, Esteban Jesus Adrian",
+              "archer_id": "silva-esteban-jesus-adrian",
+              "club_name": "ADC",
+              "club_id": "adc",
+              "category_raw": "Recurvo Masculino Sub-21",
+              "division": "Recurvo Masculino Sub-21",
+              "gender": "Desconocido",
+              "round1_score": 325,
+              "round1_targets": 5,
+              "round2_score": 329,
+              "round2_targets": 2,
+              "total_score": 654,
+              "total_targets": 3,
+              "elevens": 6,
+              "tens": 13
+            }
+          ]
+        },
+        {
+          "category_raw": "Recurvo Femenino Sub-21",
+          "division": "Recurvo Femenino Sub-21",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 6,
+              "archer_name": "Pueyo López, Alma Fiorella",
+              "archer_id": "pueyo-lopez-alma-fiorella",
+              "club_name": "TFAR",
+              "club_id": "tfar",
+              "category_raw": "Recurvo Femenino Sub-21",
+              "division": "Recurvo Femenino Sub-21",
+              "gender": "Desconocido",
+              "round1_score": 306,
+              "round1_targets": 10,
+              "round2_score": 303,
+              "round2_targets": 8,
+              "total_score": 609,
+              "total_targets": 9,
+              "elevens": 10,
+              "tens": 8
+            }
+          ]
+        },
+        {
+          "category_raw": "Recurvo Masculino 50+",
+          "division": "Recurvo Masculino 50+",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 2,
+              "archer_name": "Bibé, Victor Gabriel",
+              "archer_id": "bibe-victor-gabriel",
+              "club_name": "CEP",
+              "club_id": "cep",
+              "category_raw": "Recurvo Masculino 50+",
+              "division": "Recurvo Masculino 50+",
+              "gender": "Desconocido",
+              "round1_score": 294,
+              "round1_targets": 9,
+              "round2_score": 301,
+              "round2_targets": 8,
+              "total_score": 595,
+              "total_targets": 8,
+              "elevens": 0,
+              "tens": 13
+            },
+            {
+              "position": 7,
+              "archer_name": "Marconi, Claudio Roberto",
+              "archer_id": "marconi-claudio-roberto",
+              "club_name": "PRHC",
+              "club_id": "prhc",
+              "category_raw": "Recurvo Masculino 50+",
+              "division": "Recurvo Masculino 50+",
+              "gender": "Desconocido",
+              "round1_score": 302,
+              "round1_targets": 6,
+              "round2_score": 294,
+              "round2_targets": 10,
+              "total_score": 596,
+              "total_targets": 7,
+              "elevens": 6,
+              "tens": 7
+            },
+            {
+              "position": 10,
+              "archer_name": "Priotti, Daniel Alberto",
+              "archer_id": "priotti-daniel-alberto",
+              "club_name": "TCACAT",
+              "club_id": "tcacat",
+              "category_raw": "Recurvo Masculino 50+",
+              "division": "Recurvo Masculino 50+",
+              "gender": "Desconocido",
+              "round1_score": 280,
+              "round1_targets": 14,
+              "round2_score": 284,
+              "round2_targets": 11,
+              "total_score": 564,
+              "total_targets": 13,
+              "elevens": 2,
+              "tens": 7
+            },
+            {
+              "position": 15,
+              "archer_name": "Cannelli, Daniel Gerardo",
+              "archer_id": "cannelli-daniel-gerardo",
+              "club_name": "FAR",
+              "club_id": "far",
+              "category_raw": "Recurvo Masculino 50+",
+              "division": "Recurvo Masculino 50+",
+              "gender": "Desconocido",
+              "round1_score": 291,
+              "round1_targets": 10,
+              "round2_score": 302,
+              "round2_targets": 7,
+              "total_score": 593,
+              "total_targets": 9,
+              "elevens": 2,
+              "tens": 7
+            }
+          ]
+        },
+        {
+          "category_raw": "Recurvo Femenino 50+",
+          "division": "Recurvo Femenino 50+",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 7,
+              "archer_name": "De Giusti, Claudia Monica",
+              "archer_id": "de-giusti-claudia-monica",
+              "club_name": "FAR",
+              "club_id": "far",
+              "category_raw": "Recurvo Femenino 50+",
+              "division": "Recurvo Femenino 50+",
+              "gender": "Desconocido",
+              "round1_score": 262,
+              "round1_targets": 8,
+              "round2_score": 198,
+              "round2_targets": 12,
+              "total_score": 460,
+              "total_targets": 11,
+              "elevens": 0,
+              "tens": 4
+            },
+            {
+              "position": 9,
+              "archer_name": "Oliveto, Sandra Susana",
+              "archer_id": "oliveto-sandra-susana",
+              "club_name": "ADC",
+              "club_id": "adc",
+              "category_raw": "Recurvo Femenino 50+",
+              "division": "Recurvo Femenino 50+",
+              "gender": "Desconocido",
+              "round1_score": 218,
+              "round1_targets": 11,
+              "round2_score": 272,
+              "round2_targets": 6,
+              "total_score": 490,
+              "total_targets": 10,
+              "elevens": 1,
+              "tens": 7
+            },
+            {
+              "position": 11,
+              "archer_name": "Ferro, Lidia",
+              "archer_id": "ferro-lidia",
+              "club_name": "AFAPIECO",
+              "club_id": "afapieco",
+              "category_raw": "Recurvo Femenino 50+",
+              "division": "Recurvo Femenino 50+",
+              "gender": "Desconocido",
+              "round1_score": 250,
+              "round1_targets": 10,
+              "round2_score": 249,
+              "round2_targets": 10,
+              "total_score": 499,
+              "total_targets": 8,
+              "elevens": 2,
+              "tens": 6
+            },
+            {
+              "position": 12,
+              "archer_name": "González, Gabriela Edith",
+              "archer_id": "gonzalez-gabriela-edith",
+              "club_name": "CEP",
+              "club_id": "cep",
+              "category_raw": "Recurvo Femenino 50+",
+              "division": "Recurvo Femenino 50+",
+              "gender": "Desconocido",
+              "round1_score": 206,
+              "round1_targets": 12,
+              "round2_score": 252,
+              "round2_targets": 8,
+              "total_score": 458,
+              "total_targets": 12,
+              "elevens": 0,
+              "tens": 1
+            }
+          ]
+        },
+        {
+          "category_raw": "Compuesto Masculino Sub-21",
+          "division": "Compuesto Masculino Sub-21",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 4,
+              "archer_name": "Martínez Velazco, Daniel Ernesto",
+              "archer_id": "martinez-velazco-daniel-ernesto",
+              "club_name": "AKOS",
+              "club_id": "akos",
+              "category_raw": "Compuesto Masculino Sub-21",
+              "division": "Compuesto Masculino Sub-21",
+              "gender": "Desconocido",
+              "round1_score": 335,
+              "round1_targets": 18,
+              "round2_score": 340,
+              "round2_targets": 14,
+              "total_score": 675,
+              "total_targets": 16,
+              "elevens": 8,
+              "tens": 23
+            }
+          ]
+        },
+        {
+          "category_raw": "Compuesto Femenino Sub-21",
+          "division": "Compuesto Femenino Sub-21",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 16,
+              "archer_name": "De Benedetto Klajnberg, Guillermina Noe",
+              "archer_id": "de-benedetto-klajnberg-guillermina-noe",
+              "club_name": "EMTA",
+              "club_id": "emta",
+              "category_raw": "Compuesto Femenino Sub-21",
+              "division": "Compuesto Femenino Sub-21",
+              "gender": "Desconocido",
+              "round1_score": 324,
+              "round1_targets": 18,
+              "round2_score": 322,
+              "round2_targets": 17,
+              "total_score": 646,
+              "total_targets": 17,
+              "elevens": 7,
+              "tens": 18
+            }
+          ]
+        },
+        {
+          "category_raw": "Compuesto Masculino 50+",
+          "division": "Compuesto Masculino 50+",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 4,
+              "archer_name": "Sarmiento Oberti, Douglas",
+              "archer_id": "sarmiento-oberti-douglas",
+              "club_name": "CUDA",
+              "club_id": "cuda",
+              "category_raw": "Compuesto Masculino 50+",
+              "division": "Compuesto Masculino 50+",
+              "gender": "Desconocido",
+              "round1_score": 307,
+              "round1_targets": 7,
+              "round2_score": 310,
+              "round2_targets": 7,
+              "total_score": 617,
+              "total_targets": 7,
+              "elevens": 5,
+              "tens": 13
+            }
+          ]
+        },
+        {
+          "category_raw": "Compuesto Femenino 50+",
+          "division": "Compuesto Femenino 50+",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 6,
+              "archer_name": "Japaze, Nora Cristina",
+              "archer_id": "japaze-nora-cristina",
+              "club_name": "TFT",
+              "club_id": "tft",
+              "category_raw": "Compuesto Femenino 50+",
+              "division": "Compuesto Femenino 50+",
+              "gender": "Desconocido",
+              "round1_score": 255,
+              "round1_targets": 6,
+              "round2_score": 252,
+              "round2_targets": 6,
+              "total_score": 507,
+              "total_targets": 6,
+              "elevens": 0,
+              "tens": 5
+            }
+          ]
+        },
+        {
+          "category_raw": "Raso Masculino 50+",
+          "division": "Raso Masculino 50+",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 5,
+              "archer_name": "Rosas, Carlos Esteban",
+              "archer_id": "rosas-carlos-esteban",
+              "club_name": "CAC",
+              "club_id": "cac",
+              "category_raw": "Raso Masculino 50+",
+              "division": "Raso Masculino 50+",
+              "gender": "Desconocido",
+              "round1_score": 276,
+              "round1_targets": 5,
+              "round2_score": 279,
+              "round2_targets": 4,
+              "total_score": 555,
+              "total_targets": 4,
+              "elevens": 2,
+              "tens": 6
+            },
+            {
+              "position": 6,
+              "archer_name": "Rodríguez, Julián Silvio",
+              "archer_id": "rodriguez-julian-silvio",
+              "club_name": "GYT",
+              "club_id": "gyt",
+              "category_raw": "Raso Masculino 50+",
+              "division": "Raso Masculino 50+",
+              "gender": "Desconocido",
+              "round1_score": 280,
+              "round1_targets": 3,
+              "round2_score": 264,
+              "round2_targets": 6,
+              "total_score": 544,
+              "total_targets": 6,
+              "elevens": 1,
+              "tens": 7
+            }
+          ]
+        },
+        {
+          "category_raw": "Raso Femenino 50+",
+          "division": "Raso Femenino 50+",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 6,
+              "archer_name": "Granara, Soledad",
+              "archer_id": "granara-soledad",
+              "club_name": "CSCA",
+              "club_id": "csca",
+              "category_raw": "Raso Femenino 50+",
+              "division": "Raso Femenino 50+",
+              "gender": "Desconocido",
+              "round1_score": 212,
+              "round1_targets": 7,
+              "round2_score": 220,
+              "round2_targets": 7,
+              "total_score": 432,
+              "total_targets": 7,
+              "elevens": 1,
+              "tens": 1
+            },
+            {
+              "position": 8,
+              "archer_name": "Bergagnini, Claudia",
+              "archer_id": "bergagnini-claudia",
+              "club_name": "CUDA",
+              "club_id": "cuda",
+              "category_raw": "Raso Femenino 50+",
+              "division": "Raso Femenino 50+",
+              "gender": "Desconocido",
+              "round1_score": 185,
+              "round1_targets": 8,
+              "round2_score": 203,
+              "round2_targets": 8,
+              "total_score": 388,
+              "total_targets": 8,
+              "elevens": 0,
+              "tens": 1
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-10-08T13:15:57.718Z"
+    },
+    "1049": {
+      "id": 1049,
+      "discipline_name": "Aire Libre",
+      "tournament_type": "Internacional",
+      "date_raw": "23 al 28 de junio",
+      "date": null,
+      "club": "Federacion Argentina de Tiro con Arco",
+      "categories": [
+        {
+          "category_raw": "Recurvo Masculino",
+          "division": "Recurvo",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 15,
+              "archer_name": "Jajarabilla, Damián",
+              "archer_id": "jajarabilla-damian",
+              "club_name": "CDAMDP",
+              "club_id": "cdamdp",
+              "category_raw": "Recurvo Masculino",
+              "division": "Recurvo",
+              "gender": "Masculino",
+              "round1_score": 329,
+              "round1_targets": 15,
+              "round2_score": 318,
+              "round2_targets": 27,
+              "total_score": 647,
+              "total_targets": 20,
+              "elevens": 5,
+              "tens": 18
+            }
+          ]
+        },
+        {
+          "category_raw": "Recurvo Femenino",
+          "division": "Recurvo",
+          "gender": "Femenino",
+          "results": [
+            {
+              "position": 24,
+              "archer_name": "Pueyo López, Alma Fiorella",
+              "archer_id": "pueyo-lopez-alma-fiorella",
+              "club_name": "TFAR",
+              "club_id": "tfar",
+              "category_raw": "Recurvo Femenino",
+              "division": "Recurvo",
+              "gender": "Femenino",
+              "round1_score": 319,
+              "round1_targets": 8,
+              "round2_score": 315,
+              "round2_targets": 10,
+              "total_score": 634,
+              "total_targets": 9,
+              "elevens": 3,
+              "tens": 17
+            },
+            {
+              "position": 29,
+              "archer_name": "González Vargas, Oriana Gabriel",
+              "archer_id": "gonzalez-vargas-oriana-gabriel",
+              "club_name": "ADC",
+              "club_id": "adc",
+              "category_raw": "Recurvo Femenino",
+              "division": "Recurvo",
+              "gender": "Femenino",
+              "round1_score": 295,
+              "round1_targets": 26,
+              "round2_score": 268,
+              "round2_targets": 30,
+              "total_score": 563,
+              "total_targets": 27,
+              "elevens": 1,
+              "tens": 9
+            },
+            {
+              "position": 31,
+              "archer_name": "Arca, Wanda Hilen",
+              "archer_id": "arca-wanda-hilen",
+              "club_name": "ADC",
+              "club_id": "adc",
+              "category_raw": "Recurvo Femenino",
+              "division": "Recurvo",
+              "gender": "Femenino",
+              "round1_score": 274,
+              "round1_targets": 32,
+              "round2_score": 281,
+              "round2_targets": 26,
+              "total_score": 555,
+              "total_targets": 29,
+              "elevens": 2,
+              "tens": 5
+            }
+          ]
+        },
+        {
+          "category_raw": "Compuesto Masculino",
+          "division": "Compuesto",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 24,
+              "archer_name": "Nikolajuk, Ivan",
+              "archer_id": "nikolajuk-ivan",
+              "club_name": "CBA",
+              "club_id": "cba",
+              "category_raw": "Compuesto Masculino",
+              "division": "Compuesto",
+              "gender": "Masculino",
+              "round1_score": 351,
+              "round1_targets": 19,
+              "round2_score": 353,
+              "round2_targets": 6,
+              "total_score": 704,
+              "total_targets": 10,
+              "elevens": 27,
+              "tens": 29
+            },
+            {
+              "position": 24,
+              "archer_name": "Garcés Tarrega, Lucas Mariano",
+              "archer_id": "garces-tarrega-lucas-mariano",
+              "club_name": "ADS",
+              "club_id": "ads",
+              "category_raw": "Compuesto Masculino",
+              "division": "Compuesto",
+              "gender": "Masculino",
+              "round1_score": 341,
+              "round1_targets": 36,
+              "round2_score": 341,
+              "round2_targets": 37,
+              "total_score": 682,
+              "total_targets": 36,
+              "elevens": 16,
+              "tens": 23
+            }
+          ]
+        },
+        {
+          "category_raw": "Compuesto Femenino",
+          "division": "Compuesto",
+          "gender": "Femenino",
+          "results": [
+            {
+              "position": 17,
+              "archer_name": "Gonzalez, Maria Eugenia",
+              "archer_id": "gonzalez-maria-eugenia",
+              "club_name": "CSCA",
+              "club_id": "csca",
+              "category_raw": "Compuesto Femenino",
+              "division": "Compuesto",
+              "gender": "Femenino",
+              "round1_score": 331,
+              "round1_targets": 35,
+              "round2_score": 350,
+              "round2_targets": 6,
+              "total_score": 681,
+              "total_targets": 23,
+              "elevens": 21,
+              "tens": 23
+            }
+          ]
+        },
+        {
+          "category_raw": "Raso Masculino",
+          "division": "Raso",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 1,
+              "archer_name": "Castellanos, Denis Esteban",
+              "archer_id": "castellanos-denis-esteban",
+              "club_name": "CSCA",
+              "club_id": "csca",
+              "category_raw": "Raso Masculino",
+              "division": "Raso",
+              "gender": "Masculino",
+              "round1_score": 317,
+              "round1_targets": 1,
+              "round2_score": 319,
+              "round2_targets": 2,
+              "total_score": 636,
+              "total_targets": 2,
+              "elevens": 3,
+              "tens": 19
+            },
+            {
+              "position": 5,
+              "archer_name": "Tabella, Fernando Luis",
+              "archer_id": "tabella-fernando-luis",
+              "club_name": "TFMDP",
+              "club_id": "tfmdp",
+              "category_raw": "Raso Masculino",
+              "division": "Raso",
+              "gender": "Masculino",
+              "round1_score": 281,
+              "round1_targets": 6,
+              "round2_score": 293,
+              "round2_targets": 3,
+              "total_score": 574,
+              "total_targets": 5,
+              "elevens": 4,
+              "tens": 4
+            },
+            {
+              "position": 7,
+              "archer_name": "Martinez, Dante Daniel",
+              "archer_id": "martinez-dante-daniel",
+              "club_name": "UTNSR",
+              "club_id": "utnsr",
+              "category_raw": "Raso Masculino",
+              "division": "Raso",
+              "gender": "Masculino",
+              "round1_score": 288,
+              "round1_targets": 5,
+              "round2_score": 275,
+              "round2_targets": 7,
+              "total_score": 563,
+              "total_targets": 6,
+              "elevens": 2,
+              "tens": 7
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-10-08T13:16:00.017Z"
+    },
+    "1050": {
+      "id": 1050,
+      "discipline_name": "Aire Libre",
+      "tournament_type": "Internacional",
+      "date_raw": "13 y 14 de julio",
+      "date": null,
+      "club": "Federacion Argentina de Tiro con Arco",
+      "categories": [
+        {
+          "category_raw": "P.I.1 Femenino",
+          "division": "P.I.1",
+          "gender": "Femenino",
+          "results": [
+            {
+              "position": 4,
+              "archer_name": "Torres, Albina Yamile",
+              "archer_id": "torres-albina-yamile",
+              "club_name": "EDJA",
+              "club_id": "edja",
+              "category_raw": "P.I.1 Femenino",
+              "division": "P.I.1",
+              "gender": "Femenino",
+              "round1_score": 140,
+              "round1_targets": 4,
+              "round2_score": 82,
+              "round2_targets": 4,
+              "total_score": 222,
+              "total_targets": 4,
+              "elevens": 0,
+              "tens": 1
+            }
+          ]
+        },
+        {
+          "category_raw": "P.I.2 Recurvo Masculino",
+          "division": "P.I.2 Recurvo",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 6,
+              "archer_name": "Rodriguez, Elio Lisandro",
+              "archer_id": "rodriguez-elio-lisandro",
+              "club_name": "TFT",
+              "club_id": "tft",
+              "category_raw": "P.I.2 Recurvo Masculino",
+              "division": "P.I.2 Recurvo",
+              "gender": "Masculino",
+              "round1_score": 245,
+              "round1_targets": 7,
+              "round2_score": 241,
+              "round2_targets": 9,
+              "total_score": 486,
+              "total_targets": 7,
+              "elevens": 1,
+              "tens": 2
+            },
+            {
+              "position": 10,
+              "archer_name": "Vazquez, Emanuel Jesus",
+              "archer_id": "vazquez-emanuel-jesus",
+              "club_name": "ADJE",
+              "club_id": "adje",
+              "category_raw": "P.I.2 Recurvo Masculino",
+              "division": "P.I.2 Recurvo",
+              "gender": "Masculino",
+              "round1_score": 226,
+              "round1_targets": 8,
+              "round2_score": 256,
+              "round2_targets": 5,
+              "total_score": 482,
+              "total_targets": 8,
+              "elevens": 0,
+              "tens": 2
+            }
+          ]
+        },
+        {
+          "category_raw": "P.I.2 Recurvo Femenino",
+          "division": "P.I.2 Recurvo",
+          "gender": "Femenino",
+          "results": [
+            {
+              "position": 7,
+              "archer_name": "Cormio, Natalia",
+              "archer_id": "cormio-natalia",
+              "club_name": "CUDA",
+              "club_id": "cuda",
+              "category_raw": "P.I.2 Recurvo Femenino",
+              "division": "P.I.2 Recurvo",
+              "gender": "Femenino",
+              "round1_score": 132,
+              "round1_targets": 7,
+              "round2_score": 102,
+              "round2_targets": 7,
+              "total_score": 234,
+              "total_targets": 7,
+              "elevens": 1,
+              "tens": 0
+            }
+          ]
+        },
+        {
+          "category_raw": "P.I.2 Compuesto Masculino",
+          "division": "P.I.2 Compuesto",
+          "gender": "Masculino",
+          "results": [
+            {
+              "position": 9,
+              "archer_name": "Torresi, Eduardo Daniel",
+              "archer_id": "torresi-eduardo-daniel",
+              "club_name": "SOMISA",
+              "club_id": "somisa",
+              "category_raw": "P.I.2 Compuesto Masculino",
+              "division": "P.I.2 Compuesto",
+              "gender": "Masculino",
+              "round1_score": 288,
+              "round1_targets": 11,
+              "round2_score": 301,
+              "round2_targets": 9,
+              "total_score": 589,
+              "total_targets": 10,
+              "elevens": 6,
+              "tens": 9
+            },
+            {
+              "position": 11,
+              "archer_name": "Paolorossi, Federico",
+              "archer_id": "paolorossi-federico",
+              "club_name": "CABJCS",
+              "club_id": "cabjcs",
+              "category_raw": "P.I.2 Compuesto Masculino",
+              "division": "P.I.2 Compuesto",
+              "gender": "Masculino",
+              "round1_score": 306,
+              "round1_targets": 9,
+              "round2_score": 300,
+              "round2_targets": 10,
+              "total_score": 606,
+              "total_targets": 9,
+              "elevens": 5,
+              "tens": 9
+            }
+          ]
+        },
+        {
+          "category_raw": "VI",
+          "division": "VI",
+          "gender": "Desconocido",
+          "results": [
+            {
+              "position": 3,
+              "archer_name": "Dell Orto, Yanina Elizabeth",
+              "archer_id": "dell-orto-yanina-elizabeth",
+              "club_name": "AF",
+              "club_id": "af",
+              "category_raw": "VI",
+              "division": "VI",
+              "gender": "Desconocido",
+              "round1_score": 102,
+              "round1_targets": 4,
+              "round2_score": 47,
+              "round2_targets": 4,
+              "total_score": 149,
+              "total_targets": 4,
+              "elevens": 0,
+              "tens": 0
+            },
+            {
+              "position": 4,
+              "archer_name": "Amieva, Tania Micaela",
+              "archer_id": "amieva-tania-micaela",
+              "club_name": "EDJA",
+              "club_id": "edja",
+              "category_raw": "VI",
+              "division": "VI",
+              "gender": "Desconocido",
+              "round1_score": 133,
+              "round1_targets": 2,
+              "round2_score": 111,
+              "round2_targets": 3,
+              "total_score": 244,
+              "total_targets": 2,
+              "elevens": 0,
+              "tens": 1
+            }
+          ]
+        }
+      ],
+      "scraped_at": "2026-10-08T13:16:02.272Z"
     }
   }
 }
