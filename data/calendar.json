@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-10-12T15:05:29.863Z",
-    "total_tournaments": 466
+    "last_updated": "2026-10-13T14:02:40.413Z",
+    "total_tournaments": 469
   },
   "tournaments": [
     {
@@ -2100,6 +2100,25 @@
       ],
       "total_archers": 8,
       "scraped_at": "2026-10-08T13:16:02.272Z",
+      "stub_only": false
+    },
+    {
+      "id": 1051,
+      "date": null,
+      "date_raw": "21 al 25 de sept.",
+      "discipline_name": "Aire Libre",
+      "discipline_code": 0,
+      "tournament_type": "Internacional",
+      "zone": "",
+      "club": "Federacion Argentina de Tiro con Arco",
+      "categories": [
+        "Recurvo Masculino",
+        "Recurvo Femenino",
+        "Compuesto Masculino",
+        "Compuesto Femenino"
+      ],
+      "total_archers": 12,
+      "scraped_at": "2026-10-13T14:02:39.912Z",
       "stub_only": false
     },
     {
@@ -15424,6 +15443,69 @@
       ],
       "total_archers": 36,
       "scraped_at": "2026-10-09T13:01:42.676Z",
+      "stub_only": false
+    },
+    {
+      "id": 919,
+      "date": "2026-10-11",
+      "date_raw": "11/10/2026",
+      "discipline_name": "Campo",
+      "discipline_code": 0,
+      "tournament_type": "Homologatorio",
+      "zone": "",
+      "club": "Tiro Federal Pigüe",
+      "categories": [
+        "Recurvo Masculino 50+",
+        "Compuesto Masculino",
+        "Raso Masculino",
+        "Raso Masculino 50+",
+        "Longbow Masculino",
+        "Tradicional Masculino",
+        "Cazador Masculino",
+        "Compuesto E-Inicial",
+        "Raso E-Inicial",
+        "Raso E-Avanzada",
+        "Escuela Infantil Sub-13"
+      ],
+      "total_archers": 37,
+      "scraped_at": "2026-10-13T14:00:33.344Z",
+      "stub_only": false
+    },
+    {
+      "id": 966,
+      "date": "2026-10-11",
+      "date_raw": "11/10/2026",
+      "discipline_name": "Aire Libre",
+      "discipline_code": 0,
+      "tournament_type": "Copa Argentina Juvenil",
+      "zone": "",
+      "club": "Escuela de Arquería Villa Maria Asociación Civil",
+      "categories": [
+        "JP Recurvo Sub-18 E50",
+        "JP Compuesto Sub-13 Inicial 20",
+        "JP Compuesto Sub-18 E30",
+        "JP Recurvo Sub-18 E30",
+        "JP Recurvo Sub-18 E20",
+        "JP Recurvo Sub-13 Inicial 15",
+        "JP Recurvo Sub-15 E20",
+        "JP Recurvo Sub-15 E30",
+        "JP Raso Sub-13 inicial 20",
+        "JP Raso Sub-15 E20",
+        "JP Recurvo Sub-18 E40",
+        "JP Raso Sub-18 E20",
+        "JP Raso Sub-18 E30",
+        "Recurvo Masculino Sub-21",
+        "Recurvo Femenino Sub-21",
+        "Recurvo Masculino Sub-18",
+        "Recurvo Femenino Sub-18",
+        "Recurvo Femenino Sub-15",
+        "Compuesto Femenino Sub-21",
+        "Compuesto Masculino Sub-18",
+        "Compuesto Femenino Sub-15",
+        "Raso Masculino Sub-15"
+      ],
+      "total_archers": 80,
+      "scraped_at": "2026-10-13T14:01:04.107Z",
       "stub_only": false
     }
   ]
